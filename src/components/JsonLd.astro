@@ -1,0 +1,83 @@
+﻿---
+
+export interface Props {
+  type?: 'Organization' | 'WebSite' | 'Article' | 'Product' | 'FAQ' | 'BreadcrumbList';
+  data?: Record<string, unknown>;
+  breadcrumbs?: { name: string; url: string }[];
+}
+
+const { type = 'Organization', data = {}, breadcrumbs } = Astro.props;
+
+let schema: Record<string, unknown> = {};
+
+switch (type) {
+  case 'Organization':
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'CIDE FISHERY',
+      url: 'https://cidefishery.com',
+      logo: 'https://cidefishery.com/images/logo.svg',
+      description: 'CIDE FISHERY supplies quality Artemia cysts and brine shrimp eggs for hatcheries, aquaculture farms and global distributors.',
+    };
+    break;
+
+  case 'WebSite':
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'CIDE FISHERY',
+      url: 'https://cidefishery.com',
+    };
+    break;
+
+  case 'BreadcrumbList': {
+    const items = (breadcrumbs || []).map((bc, i) => ({
+      '@type': 'ListItem' as const,
+      position: i + 1,
+      name: bc.name,
+      item: bc.url,
+    }));
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items,
+    };
+    break;
+  }
+
+  case 'Article':
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: '',
+      ...data,
+    };
+    break;
+
+  case 'Product':
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      ...data,
+    };
+    break;
+
+  case 'FAQ':
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      ...data,
+    };
+    break;
+
+  default:
+    schema = {
+      '@context': 'https://schema.org',
+      '@type': type,
+      ...data,
+    };
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>

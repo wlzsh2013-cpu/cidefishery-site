@@ -1,0 +1,355 @@
+﻿---
+
+const applications = [
+  {
+    title: "Shrimp Hatchery",
+    description: "Artemia cysts for shrimp hatchery larval feeding programs.",
+    href: "/application-shrimp-hatchery/",
+    image: "/images/shrimp-hatchery-app.avif",
+    alt: "Shrimp Hatchery Applications",
+    cta: "View Shrimp Hatchery",
+  },
+  {
+    title: "Fish Fry",
+    description: "Nutrition solutions for fish fry and juvenile fish feeding.",
+    href: "/applications/fish-fry/",
+    image: "/images/fish-fry-app.avif",
+    alt: "Fish Fry Applications",
+    cta: "View Fish Fry Applications",
+  },
+  {
+    title: "Crab Larvae",
+    description: "Specialized feeding for crab and crustacean larvae.",
+    href: "/applications/crab-larvae/",
+    image: "/images/crab-larvae-app.avif",
+    alt: "Crab Larvae Applications",
+    cta: "View Crab Larvae Applications",
+  },
+];
+---
+
+<section class="gp-step-module" data-gp-step-module>
+  <div class="gp-step-sticky">
+    <div class="gp-step-inner">
+
+      <div class="gp-step-left">
+        <div class="gp-step-heading" data-gp-step-heading>
+          <h2>Applications in Aquaculture</h2>
+        </div>
+
+        <div class="gp-step-list" data-gp-step-list>
+          {applications.map((app, i) => (
+            <div class={"gp-step-item" + (i === 0 ? " is-active" : "")} data-step={String(i)}>
+              <h3>{app.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="gp-step-right" data-gp-step-cards>
+        {applications.map((app, i) => (
+          <article class={"gp-step-card" + (i === 0 ? " is-active" : "")} data-step-card={String(i)}>
+            <div class="gp-step-card-inner">
+              <div class="gp-step-image">
+                {app.image ? (
+                  <img src={app.image} alt={app.alt} width="580" height="380" loading="lazy" />
+                ) : (
+                  <div class="gp-step-placeholder">{app.title}</div>
+                )}
+              </div>
+              <div class="gp-step-content">
+                <h3>{app.title}</h3>
+                <p>{app.description}</p>
+                <a href={app.href} class="gp-step-link">{app.cta} <span>&#8594;</span></a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.gp-step-module {
+  --gp-bg: #031527;
+  --gp-text: #ffffff;
+  --gp-muted: rgba(255,255,255,0.54);
+  --gp-muted-2: rgba(255,255,255,0.28);
+  --gp-card-bg: rgba(255,255,255,0.06);
+  --gp-card-border: rgba(255,255,255,0.12);
+  --gp-accent: #E6B36A;
+  --gp-radius: 16px;
+
+  position: relative;
+  background-color: #031527;
+  background-image:
+    url("/images/applications-bg.avif"),
+    radial-gradient(circle at 75% 25%, rgba(30,95,168,0.20), transparent 34%),
+    radial-gradient(circle at 15% 80%, rgba(53,183,216,0.12), transparent 32%);
+  background-size: cover, auto, auto;
+  background-position: center, 0 0, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  color: var(--gp-text);
+  overflow: visible;
+  font-family: var(--font-family);
+}
+
+.gp-step-module::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #031527;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.gp-step-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(60px,7vw,110px) max(24px,calc((100vw - 1200px)/2 + 24px));
+}
+
+.gp-step-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(280px,0.85fr) minmax(380px,1.15fr);
+  gap: clamp(48px,7vw,100px);
+  align-items: center;
+}
+
+.gp-step-left {
+  position: relative;
+  z-index: 2;
+}
+
+.gp-step-heading {
+  max-width: 620px;
+  max-height: 260px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+  margin-bottom: clamp(42px,6vh,76px);
+  transition: opacity 0.45s ease, transform 0.45s ease, max-height 0.45s ease, margin-bottom 0.45s ease;
+}
+
+.gp-step-heading.is-hidden {
+  opacity: 0;
+  transform: translateY(-36px);
+  max-height: 0;
+  margin-bottom: 0;
+  pointer-events: none;
+}
+
+.gp-step-heading h2 {
+  margin: 0;
+  font-size: clamp(36px,5vw,48px);
+  line-height: 1.05;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.gp-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px,2.8vh,30px);
+}
+
+.gp-step-item {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  padding-left: 30px;
+}
+
+.gp-step-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--gp-muted-2);
+  transform: scale(0.8);
+  transition: 0.35s ease;
+}
+
+.gp-step-item h3 {
+  margin: 0;
+  font-size: clamp(28px,3.5vw,48px);
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--gp-muted-2);
+  transition: color 0.42s ease, transform 0.42s ease;
+}
+
+.gp-step-item.is-active::before {
+  background: var(--gp-accent);
+  transform: scale(1.25);
+}
+
+.gp-step-item.is-active h3 {
+  color: var(--gp-accent);
+  transform: translateX(8px);
+}
+
+.gp-step-right {
+  position: relative;
+  z-index: 2;
+  min-height: clamp(480px,64vh,640px);
+}
+
+.gp-step-card {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(20px) scale(0.985);
+  pointer-events: none;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.gp-step-card.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.gp-step-card-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--gp-radius);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03)),
+    var(--gp-card-bg);
+  border: 1px solid var(--gp-card-border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  backdrop-filter: blur(18px);
+}
+
+.gp-step-image {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
+  background:
+    linear-gradient(135deg, rgba(30,95,168,0.25), rgba(11,31,51,0.40)),
+    #0f2a3f;
+  overflow: hidden;
+}
+
+.gp-step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gp-step-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255,0.35);
+  font-size: clamp(22px,3vw,42px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.gp-step-content {
+  padding: clamp(24px,3vw,40px);
+}
+
+.gp-step-content h3 {
+  margin: 0 0 10px;
+  font-size: clamp(24px,2.5vw,36px);
+  line-height: 1.15;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.gp-step-content p {
+  margin: 0;
+  max-width: 600px;
+  font-size: clamp(15px,1.2vw,18px);
+  line-height: 1.55;
+  color: var(--gp-muted);
+}
+
+.gp-step-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gp-accent);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.gp-step-link:hover {
+  gap: 10px;
+}
+
+@media (max-width: 1024px) {
+  .gp-step-module {
+    height: auto !important;
+  }
+
+  .gp-step-sticky {
+    position: relative;
+    min-height: auto;
+    overflow: visible;
+    padding-block: 72px;
+  }
+
+  .gp-step-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .gp-step-heading {
+    max-height: none;
+    opacity: 1 !important;
+    transform: none !important;
+    margin-bottom: 36px !important;
+  }
+
+  .gp-step-list {
+    gap: 16px;
+  }
+
+  .gp-step-item h3 {
+    font-size: clamp(24px,6vw,40px);
+  }
+
+  .gp-step-right {
+    min-height: auto;
+    display: grid;
+    gap: 24px;
+  }
+
+  .gp-step-card {
+    position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+
+  .gp-step-card-inner {
+    min-height: auto;
+  }
+}
+</style>
+
+<script is:inline src="/stepscroll.js"></script>

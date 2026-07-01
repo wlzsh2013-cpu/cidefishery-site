@@ -1,0 +1,183 @@
+﻿---
+interface Props {
+  name: string;
+  label: string;
+  desc?: string;
+  className?: string;
+}
+
+const { name, label, desc = '', className = 'cf-icon' } = Astro.props;
+const safeName = name.replace(/[^a-z0-9-]/gi, '');
+const titleId = `cf-icon-title-${safeName}`;
+const descId = `cf-icon-desc-${safeName}`;
+
+const palette: Record<string, string> = {
+  processing: '#1E5FA8',
+  'cold-storage': '#35B7D8',
+  packaging: '#E6B36A',
+  'quality-control': '#0B1F33',
+  'global-supply': '#1E5FA8',
+  'shrimp-hatchery': '#E6B36A',
+  'fish-fry': '#35B7D8',
+  'crab-larvae': '#0B1F33',
+  'artemia-cysts': '#1E5FA8',
+  'guide-shrimp-hatchery': '#497EB8',
+  'guide-fish-fry': '#497EB8',
+  'guide-crab-nursery': '#497EB8',
+  'guide-global-distribution': '#497EB8',
+};
+
+const color = palette[name] || '#1E5FA8';
+---
+
+<span class={className} role="img" aria-labelledby={`${titleId} ${descId}`}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" fill="none">
+    <title id={titleId}>{label}</title>
+    <desc id={descId}>{desc || `${label} icon for CIDE FISHERY aquaculture supply website`}</desc>
+    <circle cx="48" cy="48" r="36" fill={color} fill-opacity="0.8" />
+
+    {name === 'processing' && (
+      <g>
+        <path d="M31 55h34" class="cf-stroke" />
+        <path d="M35 39h26c5 0 9 4 9 9v7H26v-7c0-5 4-9 9-9Z" class="cf-stroke" />
+        <path d="M37 48h22" class="cf-stroke cf-thin" />
+        <circle cx="36" cy="55" r="2.5" class="cf-fill" />
+        <circle cx="60" cy="55" r="2.5" class="cf-fill" />
+      </g>
+    )}
+
+    {name === 'cold-storage' && (
+      <g>
+        <path d="M47 29v26" class="cf-stroke" />
+        <circle cx="47" cy="63" r="8" class="cf-stroke" />
+        <path d="M35 40l24 14M59 40 35 54" class="cf-stroke cf-thin" />
+        <path d="M31 47h32" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'packaging' && (
+      <g>
+        <path d="M29 41 48 31l19 10v24L48 75 29 65V41Z" class="cf-stroke" />
+        <path d="M29 41l19 10 19-10M48 51v24" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'quality-control' && (
+      <g>
+        <path d="M35 28h22l8 8v32H35V28Z" class="cf-stroke" />
+        <path d="M57 28v9h8" class="cf-stroke cf-thin" />
+        <path d="M41 52l7 7 16-19" class="cf-stroke" />
+      </g>
+    )}
+
+    {name === 'global-supply' && (
+      <g>
+        <circle cx="48" cy="48" r="21" class="cf-stroke" />
+        <path d="M27 48h42M48 27c9 9 9 33 0 42M48 27c-9 9-9 33 0 42" class="cf-stroke cf-thin" />
+        <path d="M34 62c10-4 24-3 31 3" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'shrimp-hatchery' && (
+      <g>
+        <path d="M26 53c14-15 36-17 49-4" class="cf-stroke" />
+        <path d="M33 59c10 4 24 4 36-1" class="cf-stroke cf-thin" />
+        <path d="M42 45c-7-7-9-13-7-20M53 44c-2-9 1-16 7-22" class="cf-stroke cf-thin" />
+        <path d="M69 49l9-5-3 10" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'fish-fry' && (
+      <g>
+        <path d="M26 48c13-13 34-13 48 0-14 13-35 13-48 0Z" class="cf-stroke" />
+        <path d="M26 48 17 41v14l9-7M40 39c5 5 5 13 0 19" class="cf-stroke cf-thin" />
+        <circle cx="61" cy="45" r="2" class="cf-fill" />
+      </g>
+    )}
+
+    {name === 'crab-larvae' && (
+      <g>
+        <path d="M35 48c3-11 25-11 28 0 3 10-3 20-14 20S32 58 35 48Z" class="cf-stroke" />
+        <path d="M35 50 23 41M63 50l12-9M38 62l-14 8M60 62l14 8" class="cf-stroke cf-thin" />
+        <circle cx="42" cy="48" r="1.8" class="cf-fill" />
+        <circle cx="56" cy="48" r="1.8" class="cf-fill" />
+      </g>
+    )}
+
+    {name === 'artemia-cysts' && (
+      <g>
+        <path d="M28 63c11-18 28-27 47-25" class="cf-stroke" />
+        <path d="M38 57c9-4 18-2 25 5" class="cf-stroke cf-thin" />
+        <path d="M55 39c2 11 7 18 19 23" class="cf-stroke cf-thin" />
+        <circle cx="72" cy="37" r="4" class="cf-stroke" />
+      </g>
+    )}
+
+    {name === 'guide-shrimp-hatchery' && (
+      <g>
+        <path d="M23 58c8-12 20-18 36-18 8 0 14 3 18 8" class="cf-stroke" />
+        <path d="M31 64c13 5 28 4 41-3" class="cf-stroke cf-thin" />
+        <path d="M49 39c-5-7-6-14-2-21M59 41c0-8 4-14 11-18" class="cf-stroke cf-thin" />
+        <path d="M71 48l8-4-2 9" class="cf-stroke cf-thin" />
+        <circle cx="35" cy="51" r="3.2" fill="#E6B36A" />
+      </g>
+    )}
+
+    {name === 'guide-fish-fry' && (
+      <g>
+        <path d="M22 48c14-13 34-13 48 0-14 13-34 13-48 0Z" class="cf-stroke" />
+        <path d="M22 48 14 42v12l8-6M39 39c5 5 5 13 0 18" class="cf-stroke cf-thin" />
+        <path d="M63 33c5 2 9 5 13 9M63 63c5-2 9-5 13-9" class="cf-stroke cf-thin" />
+        <circle cx="58" cy="45" r="2.4" class="cf-fill" />
+        <circle cx="72" cy="48" r="3" fill="#E6B36A" />
+      </g>
+    )}
+
+    {name === 'guide-crab-nursery' && (
+      <g>
+        <path d="M34 48c3-11 25-11 28 0 3 11-3 20-14 20S31 59 34 48Z" class="cf-stroke" />
+        <path d="M35 50 23 41M61 50l12-9M37 61l-13 8M59 61l13 8" class="cf-stroke cf-thin" />
+        <path d="M40 38c-4-6-4-11 0-16M56 38c4-6 4-11 0-16" class="cf-stroke cf-thin" />
+        <circle cx="42" cy="48" r="2" class="cf-fill" />
+        <circle cx="55" cy="48" r="2" class="cf-fill" />
+        <circle cx="48" cy="61" r="3" fill="#E6B36A" />
+      </g>
+    )}
+
+    {name === 'guide-global-distribution' && (
+      <g>
+        <circle cx="45" cy="44" r="19" class="cf-stroke" />
+        <path d="M26 44h38M45 25c7 8 7 30 0 38M45 25c-7 8-7 30 0 38" class="cf-stroke cf-thin" />
+        <path d="M58 58h10l6 6M68 58l6-6M66 66h10" class="cf-stroke" />
+        <circle cx="67" cy="58" r="4" fill="#E6B36A" />
+      </g>
+    )}
+  </svg>
+</span>
+
+<style>
+  .cf-icon {
+    display: inline-flex;
+    width: 56px;
+    height: 56px;
+    flex: 0 0 auto;
+  }
+  .cf-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .cf-stroke {
+    stroke: #ffffff;
+    stroke-width: 3.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  .cf-thin {
+    stroke-width: 2.5;
+  }
+  .cf-fill {
+    fill: #ffffff;
+  }
+</style>

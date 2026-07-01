@@ -1,0 +1,70 @@
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const post = {
+  title: 'How to Store Artemia Cysts for Hatchery Use',
+  date: '2026-06-20',
+  slug: 'store-artemia-cysts-hatchery',
+  excerpt: 'Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality.',
+};
+---
+
+<BaseLayout
+  title={post.title + " | CIDE FISHERY Blog"}
+  description={post.excerpt}
+  ogType="article"
+  article={{ publishedTime: post.date }}
+  jsonLdType="Article"
+  jsonLdData={{ headline: post.title, datePublished: post.date }}
+  breadcrumbs={[{ name: "Blog", url: "/blog/" }, { name: post.title, url: "/blog/" + post.slug + "/" }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light">
+    <div class="container" style="max-width:800px;">
+      <time datetime={post.date} class="post-date">{post.date}</time>
+      <h1>{post.title}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+      <article class="post-content">
+        <p>Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality in hatchery operations. Temperature, humidity and container conditions all affect product stability over time.</p>
+
+        <h2>Temperature Control</h2>
+        <p>Artemia cysts should be stored in cool conditions, ideally below 20 degrees Celsius. Our facility maintains temperature-controlled cold storage to preserve product quality from processing through export preparation.</p>
+
+        <h2>Humidity Management</h2>
+        <p>Low humidity environments help maintain cyst viability. Vacuum-sealed packaging protects against moisture during storage and transit.</p>
+
+        <h2>Storage Guidance After Delivery</h2>
+        <p>We provide storage recommendations with every order. Buyers should store products in cool, dry areas away from direct sunlight. For long-term storage, refrigeration can help extend product stability.</p>
+
+        <p>For specific storage guidance related to your order and facility conditions, <a href="/contact/">contact our team</a>.</p>
+      </article>
+
+      <div class="post-navigation" style="margin-top:48px;">
+        <p><a href="/blog/">Back to Blog</a></p>
+        <p><a href="/trust/cold-storage/">View Cold Storage Facility</a></p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Need Artemia Cyst Supply Information?"
+    description="Contact us for product options, batch details and storage guidance."
+    ctaText="Contact Our Team"
+    ctaHref="/contact/"
+  />
+</BaseLayout>
+
+<style>
+  .page-header { padding: 60px 0; }
+  .post-date { font-size: var(--fs-small); opacity: 0.6; display: block; margin-bottom: 8px; }
+  .post-content { font-size: var(--fs-body); line-height: 1.8; }
+  .post-content h2 { margin-top: 36px; margin-bottom: 12px; }
+  .post-content p { margin-bottom: 18px; }
+  .post-navigation { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--color-neutral-gray); padding-top: 24px; }
+</style>

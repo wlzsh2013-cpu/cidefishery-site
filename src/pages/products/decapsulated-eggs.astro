@@ -1,0 +1,120 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+
+const uses = [
+  { icon: '/icons/fish-fry-feeding.svg', alt: 'Fish fry feeding icon for decapsulated brine shrimp eggs', title: 'Fish Fry Feeding', text: 'Deliver 100% digestible, energy-rich nutrition directly to delicate larvae. Completely bypasses the hatching phase, ensuring a cleaner water environment and better survival rates.' },
+  { icon: '/icons/hatchery-research-trials.svg', alt: 'Hatchery and research trials icon for decapsulated brine shrimp eggs', title: 'Hatchery & Research Trials', text: 'The perfect, highly uniform standard for nutritional trials, seed evaluation, and strict pathogen-free laboratory protocols.' },
+  { icon: '/icons/bulk-distributor-programs.svg', alt: 'Bulk distributor programs icon for decapsulated brine shrimp eggs', title: 'Bulk Distributor Programs', text: 'Available in scalable commercial volumes with global shipping logistics, fully customized packaging formats, and flexible contract pricing.' },
+];
+
+const compare = [
+  { feature: 'Shell Integrity', regular: 'Outer chitinous shell remains intact', decap: '100% Shell-removed for direct ingestion' },
+  { feature: 'Labor & Preparation', regular: 'Requires 24-30 hour hatching & separation', decap: 'Ready-to-use: Direct feeding with zero preparation' },
+  { feature: 'Biosecurity Level', regular: 'Risk of shell debris clogging larval guts', decap: 'Sterilized during decapsulation; completely safe' },
+  { feature: 'Nutritional Retention', regular: 'Energy consumed during the hatching process', decap: 'Preserves maximum embedded energy and lipids' },
+];
+---
+
+<BaseLayout
+  title="Premium Decapsulated Brine Shrimp Eggs for Biosecure Nurseries | CIDE FISHERY"
+  description="Premium decapsulated brine shrimp eggs for shell-free direct feeding, biosecure fish fry nurseries, crustacean larvae and scalable B2B supply programs."
+  ogImage="/images/products/decapsulated-artemia-cysts-microscope.avif"
+  jsonLdType="Product"
+  jsonLdData={{ name: 'Premium Decapsulated Brine Shrimp Eggs', description: 'Shell-free direct feeding brine shrimp eggs for biosecure fish fry and crustacean nurseries', category: 'Aquaculture Supplies' }}
+  breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Decapsulated Eggs', url: '/products/decapsulated-eggs/' }]}
+  showBreadcrumb
+>
+  <section class="section hero-section bg-light">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">SHELL-FREE DIRECT FEEDING SOLUTION</span>
+        <h1>Premium Decapsulated Brine Shrimp Eggs for Biosecure Nurseries</h1>
+        <p class="page-lead">Our decapsulated brine shrimp eggs undergo a strict shell-removal process, completely eliminating the risk of shell contamination in your rearing tanks. Designed for direct feeding without hatching, they significantly reduce nursery labor while maintaining a clean, pathogen-free environment for sensitive fish fry and crustacean larvae.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" size="lg">Request Pricing &amp; Samples</Button>
+          <Button href="/applications/fish-fry/" variant="outline" size="lg">Fish Fry Application Guide</Button>
+        </div>
+      </div>
+      <figure class="hero-image">
+        <img src="/images/products/decapsulated-artemia-cysts-microscope.avif" alt="Microscope view of decapsulated Artemia cysts." width="1448" height="1086" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section decap-advantages-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">PRODUCT ADVANTAGES</span>
+        <h2>Maximize Feeding Efficiency with Zero Shell Contamination</h2>
+        <p>Decapsulated eggs are more than just a convenient alternative to live feed; they are a strategic upgrade for biosecure operations. When reducing tank pollution, eliminating tedious shell separation, and securing maximum energy intake per bite are critical to your nursery's survival rates, our shell-free eggs deliver the perfect solution.</p>
+      </div>
+      <div class="use-grid">
+        {uses.map((item, index) => (<article class="use-card"><img class="use-icon" src={item.icon} alt={item.alt} width="58" height="58" loading="lazy" decoding="async" /><span class="step-num">{String(index + 1).padStart(2, '0')} /</span><h3>{item.title}</h3><p>{item.text}</p></article>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Performance Metrics</span>
+        <h2>Regular Artemia Cysts vs Decapsulated Eggs</h2>
+      </div>
+      <div class="compare-table">
+        <table>
+          <thead><tr><th>Performance Metrics</th><th>Regular Artemia Cysts</th><th>Decapsulated Eggs</th></tr></thead>
+          <tbody>{compare.map((row) => (<tr><td>{row.feature}</td><td>{row.regular}</td><td>{row.decap}</td></tr>))}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container package-band">
+      <div>
+        <span class="eyebrow">TAILORED PACKAGING &amp; STORAGE</span>
+        <h2>Industrial Preservation Built for Global Supply Chains</h2>
+        <p>Because shell-free eggs require meticulous handling to preserve their nutritional integrity, CIDE FISHERY provides industrial-grade, moisture-proof barrier packaging tailored to your consumption scale. Share your targeted monthly volume and destination port, and our logistics team will configure a reliable, cost-controlled B2B supply plan.</p>
+        <div class="hero-ctas">
+          <Button href="/trust/packaging/" variant="primary" size="lg">Review Packaging Specifications</Button>
+          <Button href="/products/artemia-cysts/" variant="outline" size="lg">Compare Standard Artemia Cysts</Button>
+        </div>
+      </div>
+      <img src="/images/products/artemia-cysts-global-cold-chain-packaging.avif" alt="Microscope view of decapsulated Artemia cysts." width="1448" height="1086" loading="lazy" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section { padding: 64px 0; }
+  .hero-grid, .package-band { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .eyebrow { display: inline-block; color: var(--color-brand-blue); font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+  .page-lead { font-size: 18px; opacity: 0.84; margin: 16px 0 24px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-image, .package-band img { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; background: var(--color-white); margin: 0; }
+  .hero-image { aspect-ratio: 4 / 3; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .section-head { max-width: 760px; margin-bottom: 28px; }
+  .decap-advantages-section { padding: 120px 0; }
+  .decap-advantages-section .section-head h2 { margin-bottom: 20px; }
+  .use-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .use-card { padding: 32px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); text-align: left; }
+  .use-icon { display: block; width: 58px; height: 58px; margin: 0 0 20px; object-fit: contain; }
+  .step-num { display: block; color: var(--color-champagne-gold); font-weight: 800; }
+  .use-card h3 { margin: 8px 0; font-size: 20px; }
+  .use-card p { font-size: var(--fs-small); opacity: 0.8; }
+  .compare-table { overflow-x: auto; border-radius: var(--border-radius); border: 1px solid var(--color-neutral-gray); }
+  table { width: 100%; border-collapse: collapse; background: var(--color-white); }
+  th, td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--color-neutral-gray); }
+  th { background: var(--color-primary); color: var(--color-white); }
+  tr:last-child td { border-bottom: 0; }
+  .package-band { padding: 68px 58px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .package-band h2 { margin-bottom: 20px; }
+  .package-band p { margin-bottom: 20px; }
+  .package-band img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; padding: 0; }
+  @media (max-width: 1024px) { .hero-grid, .package-band { grid-template-columns: 1fr; } }
+  @media (max-width: 767px) { .use-grid { grid-template-columns: 1fr; } .package-band { padding: 20px; } }
+</style>
+
+

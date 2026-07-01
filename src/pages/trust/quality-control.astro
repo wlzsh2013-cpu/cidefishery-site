@@ -1,0 +1,38 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import Icon from '../../components/Icon.astro';
+
+const qcSteps = [
+  { icon: 'global-supply', title: 'Source and Batch Communication', desc: 'Raw material source, product type, destination and use case are clarified so buyers receive relevant batch discussion.' },
+  { icon: 'processing', title: 'Processing Condition Review', desc: 'Cleaning, screening, drying and packing steps are connected with facility workflow and buyer requirements.' },
+  { icon: 'cold-storage', title: 'Storage and Inventory Check', desc: 'Cold storage, inventory rotation and pre-shipment timing are considered before recurring B2B supply.' },
+  { icon: 'packaging', title: 'Packaging Integrity Review', desc: 'Cans, foil bags, drums and cartons are discussed according to storage, transit and distributor handling needs.' },
+];
+
+const documents = [
+  { image: '/images/company/cide-fishery-quality-certificate.jpg', width: 954, height: 1400, title: 'Certificate materials' },
+  { image: '/images/company/cide-fishery-system-certificate.jpg', width: 971, height: 1400, title: 'System documentation' },
+  { image: '/images/company/cide-fishery-certificate-document.jpg', width: 989, height: 1400, title: 'Supplier evaluation document' },
+];
+
+const buyerChecks = [
+  'Ask for batch details connected with your target species and feeding program.',
+  'Confirm packaging format before quotation: cans, foil bags, drums, cartons or custom label discussion.',
+  'Share storage condition and expected inventory rotation to make handling guidance more useful.',
+  'Request current applicable certificates, honors or patent documents when they are required for supplier review.'
+];
+---
+<BaseLayout
+  title="Artemia Cyst Quality Control, Certificates and Batch Communication | CIDE FISHERY"
+  description="Review CIDE FISHERY quality control approach for Artemia cyst supply, including batch communication, processing checks, cold storage review, packaging integrity and supplier documents."
+  ogImage="/images/company/cide-fishery-quality-certificate.jpg"
+  breadcrumbs={[{ name: 'About', url: '/about/' }, { name: 'Quality Control', url: '/trust/quality-control/' }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light"><div class="container hero-grid"><div><span class="eyebrow">Quality and documentation</span><h1>Quality Control Built Around Batch Communication</h1><p class="page-lead">For Artemia cyst buyers, quality control should be practical: what batch is suitable, how it is processed, how it is stored, how it is packed and what documents can support supplier evaluation.</p><div class="hero-ctas"><Button href="/contact/" variant="primary" size="lg">Request Batch Information</Button><Button href="/trust/processing-facility/" variant="outline" size="lg">Processing Facility</Button></div></div><img src="/images/company/cide-fishery-quality-certificate.jpg" alt="CIDE FISHERY certificate material for Artemia cyst supplier evaluation" width="954" height="1400" loading="eager" /></div></section>
+  <section class="section"><div class="container"><div class="section-head"><span class="eyebrow">QC workflow</span><h2>What We Review Before Export Preparation</h2><p>Rather than presenting quality as a single claim, CIDE FISHERY structures supplier communication around source, processing, storage, packaging and buyer-specific documentation needs.</p></div><div class="features-grid">{qcSteps.map((f) => (<article class="feature-card"><Icon name={f.icon} label={`${f.title} icon`} desc={f.desc} className="feature-icon" /><h3>{f.title}</h3><p>{f.desc}</p></article>))}</div></div></section>
+  <section class="section bg-light"><div class="container"><div class="section-head"><span class="eyebrow">Supplier proof</span><h2>Certificates, Honors and Patent Materials for Review</h2><p>Available documents can support distributor onboarding, internal purchasing review and long-term supply discussions. Buyers should request the latest applicable version for their order and market.</p></div><div class="document-grid">{documents.map((doc) => (<figure class="document-card"><img src={doc.image} alt={`${doc.title} for CIDE FISHERY Artemia cyst quality review`} width={doc.width} height={doc.height} loading="lazy" /><figcaption>{doc.title}</figcaption></figure>))}</div></div></section>
+  <section class="section"><div class="container two-col"><div><span class="eyebrow">Buyer checklist</span><h2>Make Quality Communication More Useful</h2><p>When you send the right procurement details, the quality discussion becomes specific to your hatchery, distributor channel or import program.</p></div><div class="check-list">{buyerChecks.map((item) => (<div class="check-item"><Icon name="quality-control" label={`${item} icon`} desc={item} className="check-icon" /><span>{item}</span></div>))}</div></div></section>
+</BaseLayout>
+<style>.page-header{padding:64px 0}.hero-grid,.two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.hero-grid img{width:100%;max-height:460px;object-fit:contain;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white);padding:18px}.eyebrow{display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px}.page-lead{font-size:18px;opacity:.84;margin:16px 0 24px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}.section-head{max-width:820px;margin-bottom:28px}.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.feature-card{border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);padding:22px;background:var(--color-white)}.feature-icon{width:54px;height:54px;margin-bottom:12px}.feature-card h3{font-size:20px}.feature-card p{font-size:var(--fs-small);opacity:.8}.document-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.document-card{margin:0;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white);overflow:hidden}.document-card img{width:100%;height:320px;object-fit:contain;padding:18px;background:var(--color-light-bg)}.document-card figcaption{padding:14px 18px;font-weight:700}.check-list{display:grid;gap:12px}.check-item{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.check-icon{width:38px;height:38px;flex:0 0 auto}@media(max-width:1024px){.hero-grid,.two-col{grid-template-columns:1fr}.features-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:767px){.features-grid,.document-grid{grid-template-columns:1fr}}</style>

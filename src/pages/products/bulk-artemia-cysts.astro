@@ -1,0 +1,175 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+
+const programs = [
+  { icon: '/icons/tailored-packaging.svg', alt: 'Tailored packaging icon for bulk Artemia cyst distributor supply programs', title: 'Tailored Packaging', text: "Select from heavy-duty foil bags, industrial vacuum cans, or durable mass drums optimized to match your local market's resale channel and warehouse handling needs." },
+  { icon: '/icons/end-to-end-logistics.svg', alt: 'End-to-end logistics icon for bulk Artemia cyst import and export coordination', title: 'End-to-End Logistics', text: 'Streamline your customs clearance with our complete maritime documentation support, synchronized shipment scheduling, and reliable port-to-port coordination.' },
+  { icon: '/icons/cold-chain-security.svg', alt: 'Cold-chain security icon for preserving bulk Artemia cyst hatching performance', title: 'Cold-Chain Security', text: 'Protect your biological asset viability with our strategic inventory rotation and temperature-controlled freight logistics designed for high-volume orders.' },
+  { icon: '/icons/batch-traceability.svg', alt: 'Batch traceability icon for bulk Artemia cyst quality tracking and consistency', title: 'Batch Traceability', text: 'Secure long-term commercial supply stability with our absolute product consistency and batch-to-batch chemical and biological tracking metrics.' },
+];
+
+const checklist = [
+  {
+    icon: '/icons/purchase-volume.svg',
+    alt: 'Purchase volume icon for bulk Artemia cyst container load planning',
+    text: 'Target purchase volume (e.g., monthly container loads or quarterly contract limits)',
+  },
+  {
+    icon: '/icons/destination-port-schedule.svg',
+    alt: 'Destination port and delivery schedule icon for bulk Artemia cyst export planning',
+    text: 'Preferred destination country, designated discharge port, and expected delivery schedule',
+  },
+  {
+    icon: '/icons/packaging-requirements.svg',
+    alt: 'Packaging requirements icon for bulk Artemia cyst cans bags and drums',
+    text: 'Specific packaging requirements: industrial vacuum cans, high-barrier foil bags, or bulk drums',
+  },
+  {
+    icon: '/icons/private-label-branding.svg',
+    alt: 'Private label branding icon for bulk Artemia cyst distributor packaging',
+    text: 'Branding specifications: custom private label, local distributor label, or neutral unbranded packaging',
+  },
+  {
+    icon: '/icons/distribution-channel.svg',
+    alt: 'Distribution channel icon for bulk Artemia cyst hatchery farm and wholesale import supply',
+    text: 'Primary distribution channel: direct hatchery supply, commercial farm distribution, or bulk wholesale import',
+  },
+];
+---
+
+<BaseLayout
+  title="Bulk Artemia Cysts Supply Programs for Importers | CIDE FISHERY"
+  description="Bulk Artemia cyst supply programs for importers and large distributors, with volume-based pricing, certified batch stability, custom packaging and global logistics support."
+  ogImage="/images/products/artemia-cysts-foil-bag-packaging.avif"
+  jsonLdType="Product"
+  jsonLdData={{ name: 'Bulk Artemia Cysts', description: 'Bulk Artemia cyst supply programs for importers and large distributors', category: 'Aquaculture Supplies' }}
+  breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Bulk Artemia Cysts', url: '/products/bulk-artemia-cysts/' }]}
+  showBreadcrumb
+>
+  <section class="section hero-section bg-light">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">DIRECT-FACTORY WHOLESALE SUPPLY</span>
+        <h1>Bulk Artemia Cysts Supply Programs for Importers &amp; Large Distributors</h1>
+        <p class="page-lead">CIDE FISHERY provides high-capacity commercial sourcing solutions tailored to global aquaculture supply chains. We support tier-1 wholesale importers and regional distributors with certified batch stability, volume-based pricing, and full-scale logistical support to secure your year-round inventory demands.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" size="lg">Request Bulk Quote</Button>
+          <Button href="/trust/packaging/" variant="outline" size="lg">Packaging &amp; Labeling Options</Button>
+        </div>
+      </div>
+      <figure class="hero-image">
+        <img src="/images/products/artemia-cysts-foil-bag-packaging.avif" alt="Artemia cysts foil bag packaging for cold-chain supply." width="1448" height="1086" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section bg-light bulk-program-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">DISTRIBUTOR REQUIREMENTS</span>
+        <h2>Comprehensive Supply Chain Management for Regional Networks</h2>
+        <p>Serving diverse hatchery networks requires an agile, dependable manufacturer. Our commercial bulk program removes market volatility by finalizing your custom packaging specifications, trade compliance, and cold-chain alignment prior to contract execution.</p>
+      </div>
+      <div class="program-grid">
+        {programs.map((item, index) => (
+          <article class="program-card">
+            <img class="bulk-program-icon" src={item.icon} alt={item.alt} width="58" height="58" loading="lazy" decoding="async" />
+            <span class="step-num">{String(index + 1).padStart(2, '0')} /</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light bulk-inquiry-section">
+    <div class="container buyer-grid">
+      <div>
+        <span class="eyebrow">BULK INQUIRY CHECKLIST</span>
+        <h2>Streamline Your Request for a Personalized Commercial Proposal</h2>
+        <p>To help our technical specialists engineer a competitive, market-specific quote rather than a generic price list, please provide your structural requirements below. This allows us to calculate accurate freight, volume tier discounts, and cold-storage compliance.</p>
+        <div class="hero-ctas compact-ctas">
+          <Button href="/trust/cold-storage/" variant="outline" size="lg">Cold Storage Support</Button>
+          <Button href="/trust/quality-control/" variant="outline" size="lg">Quality Control</Button>
+        </div>
+      </div>
+      <div class="checklist">
+        {checklist.map((item) => (
+          <div class="check-item">
+            <img class="check-icon" src={item.icon} alt={item.alt} width="42" height="42" loading="lazy" decoding="async" />
+            <span>{item.text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container package-band">
+      <div>
+        <span class="eyebrow">FLEXIBLE COMMERCIAL PACKAGING</span>
+        <h2>Bulk Multi-Layer Foil Bags, Heavy-Duty Drums &amp; Custom Private Labeling</h2>
+        <p>CIDE FISHERY offers robust, multi-layer foil bags, fortified vacuum cans, and industrial-grade paper drums engineered to preserve hatching rates during grueling transoceanic shipping. Our packaging production lines fully accommodate custom branding, multi-language private labeling, and local resale weight allocations to directly match your corporate distribution network.</p>
+        <div class="hero-ctas">
+          <Button href="/trust/packaging/" variant="primary" size="lg">Review Packaging Specifications</Button>
+          <Button href="/trust/global-supply/" variant="outline" size="lg">Explore Global Supply Support</Button>
+        </div>
+      </div>
+      <img src="/images/products/artemia-cysts-plastic-bucket-packaging.avif" alt="Artemia cysts plastic bucket packaging in production area." width="1448" height="1086" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container related-products">
+      <div>
+        <span class="eyebrow">Related products</span>
+        <h2>Compare Bulk Supply With Other Artemia Options</h2>
+      </div>
+      <div class="related-grid">
+        <a href="/products/artemia-cysts/">Standard Artemia Cysts</a>
+        <a href="/products/premium-artemia-cysts/">Premium Artemia Cysts</a>
+        <a href="/products/decapsulated-eggs/">Decapsulated Brine Shrimp Eggs</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-section { padding: 64px 0; }
+  .hero-grid, .buyer-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr); gap: 48px; align-items: center; }
+  .package-band { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .eyebrow { display: inline-block; color: var(--color-brand-blue); font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+  .page-lead { font-size: 18px; opacity: 0.84; margin: 16px 0 24px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .compact-ctas { margin-top: 24px; }
+  .hero-image, .package-band img { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; background: var(--color-white); margin: 0; aspect-ratio: 4 / 3; }
+  .hero-image img, .package-band img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bulk-program-section { padding: 120px 0; }
+  .section-head { max-width: 780px; margin-bottom: 28px; }
+  .bulk-program-section .section-head h2 { margin-bottom: 20px; }
+  .section-head p { opacity: 0.78; }
+  .program-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .program-card { min-width: 0; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); padding: 32px; }
+  .bulk-program-icon { display: block; width: 58px; height: 58px; margin: 0 0 20px; object-fit: contain; }
+  .step-num { display: block; color: var(--color-champagne-gold); font-weight: 800; text-align: left; }
+  .program-card h3 { font-size: 20px; margin: 8px 0; }
+  .program-card p { font-size: var(--fs-small); opacity: 0.8; }
+  .checklist { display: grid; gap: 12px; min-width: 0; }
+  .bulk-inquiry-section h2 { margin-bottom: 20px; }
+  .bulk-inquiry-section p { margin-bottom: 20px; }
+  .bulk-inquiry-section .compact-ctas { margin-top: 34px; }
+  .check-item { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .check-icon { display: block; width: 42px; height: 42px; flex: 0 0 42px; object-fit: contain; }
+  .package-band { padding: 68px 58px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .package-band h2 { margin-bottom: 20px; }
+  .package-band p { margin-bottom: 20px; }
+  .related-products { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+  .related-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .related-grid a { padding: 12px 16px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); font-weight: 700; }
+  @media (max-width: 1024px) { .hero-grid, .buyer-grid, .package-band { grid-template-columns: 1fr; } .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .related-products { align-items: flex-start; flex-direction: column; } }
+  @media (max-width: 767px) { .program-grid { grid-template-columns: 1fr; } .package-band { padding: 20px; } }
+</style>
+
+

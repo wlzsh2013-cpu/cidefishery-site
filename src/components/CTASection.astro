@@ -1,0 +1,534 @@
+﻿---
+import Button from './Button.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  showInquiryForm?: boolean;
+}
+
+const {
+  title,
+  description,
+  ctaText = 'Contact Us',
+  ctaHref = '/contact/',
+  secondaryCtaText,
+  secondaryCtaHref,
+  showInquiryForm = false,
+} = Astro.props;
+---
+
+<section class:list={['cta-section', showInquiryForm && 'cta-section-form']}>
+  <svg class="cta-svg-filter" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="ctaWaveFilter" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.012 0.045"
+        numOctaves="2"
+        seed="5"
+        result="ctaNoise">
+        <animate
+          attributeName="baseFrequency"
+          dur="8s"
+          values="0.012 0.045; 0.022 0.075; 0.016 0.058; 0.012 0.045"
+          repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="ctaNoise"
+        scale="24"
+        xChannelSelector="R"
+        yChannelSelector="G">
+        <animate
+          attributeName="scale"
+          dur="6s"
+          values="16; 28; 22; 32; 16"
+          repeatCount="indefinite" />
+      </feDisplacementMap>
+    </filter>
+  </svg>
+
+  <div class="cta-bg-clip">
+    <img
+      src="/images/cta-background.avif"
+      alt="CIDE FISHERY aquaculture supply background"
+      class="cta-bg-img"
+      width="1920"
+      height="800"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="cta-overlay"></div>
+
+  <div class="container cta-inner">
+    {showInquiryForm ? (
+      <div class="cta-form-layout">
+        <div class="cta-form-copy">
+          <span class="cta-kicker">Inquiry support</span>
+          <h2>{title}</h2>
+          {description && <p>{description}</p>}
+          <ul>
+            <li>Product recommendation by hatchery type</li>
+            <li>Packaging and monthly volume discussion</li>
+            <li>Export supply planning for your destination</li>
+          </ul>
+        </div>
+
+        <form class="cta-inquiry-form" method="POST" action="/api/inquiry">
+          <div class="form-head">
+            <h3>Send a Supply Inquiry</h3>
+            <p>Share a few details and our team will reply with a practical Artemia cyst supply route.</p>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span>Name *</span>
+              <input type="text" name="name" autocomplete="name" required placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email *</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Company</span>
+              <input type="text" name="company" autocomplete="organization" placeholder="Company name" />
+            </label>
+            <label>
+              <span>Destination Country *</span>
+              <input type="text" name="country" autocomplete="country-name" required placeholder="Country / market" />
+            </label>
+            <div class="form-field">
+              <span>Product Interest</span>
+              <div class="custom-select" data-custom-select>
+                <input type="hidden" name="product" value="" />
+                <button type="button" class="custom-select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                  <span data-selected-label>Select product</span>
+                </button>
+                <ul class="custom-select-menu" role="listbox">
+                  <li role="option" data-value="">Select product</li>
+                  <li role="option" data-value="Artemia Cysts">Artemia Cysts</li>
+                  <li role="option" data-value="Premium Artemia Cysts">Premium Artemia Cysts</li>
+                  <li role="option" data-value="Decapsulated Brine Shrimp Eggs">Decapsulated Brine Shrimp Eggs</li>
+                  <li role="option" data-value="Bulk Artemia Cysts">Bulk Artemia Cysts</li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-field">
+              <span>Monthly Volume</span>
+              <div class="custom-select" data-custom-select>
+                <input type="hidden" name="quantity" value="" />
+                <button type="button" class="custom-select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                  <span data-selected-label>Select range</span>
+                </button>
+                <ul class="custom-select-menu" role="listbox">
+                  <li role="option" data-value="">Select range</li>
+                  <li role="option" data-value="Under 50 kg">Under 50 kg</li>
+                  <li role="option" data-value="50 - 200 kg">50 - 200 kg</li>
+                  <li role="option" data-value="200 - 1000 kg">200 - 1000 kg</li>
+                  <li role="option" data-value="Above 1000 kg">Above 1000 kg</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <label class="form-message">
+            <span>Requirement Details *</span>
+            <textarea name="message" rows="4" required placeholder="Tell us your hatchery type, target species, packaging preference or delivery plan."></textarea>
+          </label>
+
+          <button type="submit" class="cta-submit-button">Submit Inquiry</button>
+        </form>
+      </div>
+    ) : (
+      <>
+        <h2>{title}</h2>
+        {description && <p>{description}</p>}
+        <div class="cta-buttons">
+          <Button href={ctaHref} variant="primary" size="lg">{ctaText}</Button>
+          {secondaryCtaText && secondaryCtaHref && (
+            <Button href={secondaryCtaHref} variant="outline" size="lg">{secondaryCtaText}</Button>
+          )}
+        </div>
+      </>
+    )}
+  </div>
+</section>
+
+<script>
+  function initCtaCustomSelects() {
+    document.querySelectorAll('[data-custom-select]').forEach(function (select) {
+      if (select.hasAttribute('data-select-ready')) return;
+      select.setAttribute('data-select-ready', 'true');
+
+      const toggle = select.querySelector('.custom-select-toggle');
+      const label = select.querySelector('[data-selected-label]');
+      const input = select.querySelector('input[type="hidden"]');
+      const options = select.querySelectorAll('[role="option"]');
+
+      if (!toggle || !label || !input) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = select.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      options.forEach(function (option) {
+        option.addEventListener('click', function () {
+          const value = option.getAttribute('data-value') || '';
+          input.value = value;
+          label.textContent = option.textContent || '';
+          options.forEach(function (item) {
+            item.setAttribute('aria-selected', String(item === option));
+          });
+          select.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCtaCustomSelects);
+  } else {
+    initCtaCustomSelects();
+  }
+
+  document.addEventListener('click', function (event) {
+    document.querySelectorAll('[data-custom-select].is-open').forEach(function (select) {
+      if (event.target instanceof Node && select.contains(event.target)) return;
+      const toggle = select.querySelector('.custom-select-toggle');
+      select.classList.remove('is-open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  .cta-section {
+    position: relative;
+    padding: 120px 0;
+    text-align: center;
+  }
+
+  .cta-section-form {
+    min-height: 740px;
+    padding: 150px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .cta-svg-filter {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    left: -9999px;
+    top: -9999px;
+    pointer-events: none;
+  }
+
+  .cta-bg-clip {
+    position: absolute;
+    inset: 0;
+    clip: rect(0, auto, auto, 0);
+    z-index: 0;
+  }
+
+  .cta-bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: url(#ctaWaveFilter);
+    will-change: transform;
+  }
+
+  .cta-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(11, 31, 51, 0.72);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-form-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.86fr) minmax(360px, 1.14fr);
+    gap: 56px;
+    align-items: center;
+    text-align: left;
+  }
+
+  .cta-form-copy {
+    color: var(--color-white);
+  }
+
+  .cta-kicker {
+    display: inline-flex;
+    margin-bottom: 18px;
+    color: var(--color-champagne-gold);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .cta-form-copy h2 {
+    max-width: 620px;
+    margin: 0 0 18px;
+    color: var(--color-white) !important;
+  }
+
+  .cta-form-copy p {
+    color: rgba(255, 255, 255, 0.80);
+    margin: 0 0 28px;
+    max-width: 540px;
+  }
+
+  .cta-form-copy ul {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cta-form-copy li {
+    position: relative;
+    padding-left: 24px;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.45;
+  }
+
+  .cta-form-copy li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-champagne-gold);
+  }
+
+  .cta-inquiry-form {
+    padding: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: var(--border-radius);
+    background:
+      linear-gradient(145deg, rgba(245, 251, 253, 0.22), rgba(236, 247, 250, 0.16) 48%, rgba(255, 246, 231, 0.12));
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(18px);
+  }
+
+  .form-head {
+    margin-bottom: 24px;
+  }
+
+  .form-head h3 {
+    margin: 0 0 8px;
+    color: var(--color-primary);
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .form-head p {
+    margin: 0;
+    max-width: 620px;
+    color: rgba(11, 31, 51, 0.9);
+    font-size: 14px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .cta-inquiry-form label,
+  .cta-inquiry-form .form-field {
+    display: grid;
+    gap: 7px;
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .cta-inquiry-form input,
+  .cta-inquiry-form textarea {
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    border: 1px solid rgba(11, 31, 51, 0.16);
+    border-radius: 6px;
+    background: rgba(11, 31, 51, 0.28);
+    color: #D2DBDD;
+    font-family: var(--font-family);
+    font-size: 15px;
+    padding: 11px 13px;
+  }
+
+  .cta-inquiry-form input::placeholder,
+  .cta-inquiry-form textarea::placeholder {
+    color: #D2DBDD;
+    opacity: 1;
+  }
+
+  .cta-inquiry-form textarea {
+    min-height: 112px;
+    resize: vertical;
+  }
+
+  .cta-inquiry-form input:focus,
+  .cta-inquiry-form textarea:focus {
+    outline: none;
+    border-color: var(--color-brand-blue);
+    box-shadow: 0 0 0 3px rgba(30, 95, 168, 0.14);
+  }
+
+  .custom-select {
+    position: relative;
+  }
+
+  .custom-select-toggle {
+    position: relative;
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    border: 1px solid rgba(11, 31, 51, 0.16);
+    border-radius: 6px;
+    background: rgba(11, 31, 51, 0.28);
+    color: #D2DBDD;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: 15px;
+    line-height: 22px;
+    padding: 11px 38px 11px 13px;
+    text-align: left;
+  }
+
+  .custom-select-toggle::after {
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #D2DBDD;
+    border-bottom: 2px solid #D2DBDD;
+    transform: translateY(-65%) rotate(45deg);
+  }
+
+  .custom-select-toggle:focus {
+    outline: none;
+    border-color: var(--color-brand-blue);
+    box-shadow: 0 0 0 3px rgba(30, 95, 168, 0.14);
+  }
+
+  .custom-select-menu {
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    top: calc(100% + 4px);
+    display: none;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    border: 1px solid rgba(230, 179, 106, 0.34);
+    border-radius: 6px;
+    background: rgba(245, 248, 252, 0.96);
+    box-shadow: 0 18px 42px rgba(11, 31, 51, 0.24);
+    backdrop-filter: blur(14px);
+  }
+
+  .custom-select.is-open .custom-select-menu {
+    display: grid;
+    gap: 2px;
+  }
+
+  .custom-select-menu li {
+    padding: 10px 12px;
+    border-radius: 4px;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .custom-select-menu li:hover,
+  .custom-select-menu li[aria-selected="true"] {
+    background: rgba(230, 179, 106, 0.88);
+    color: var(--color-primary);
+  }
+
+  .form-message {
+    margin-top: 16px;
+  }
+
+  .cta-inquiry-form .cta-submit-button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 18px;
+    border: 0;
+    border-radius: 0;
+    background: var(--color-champagne-gold);
+    color: var(--color-primary);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 800;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .cta-inquiry-form .cta-submit-button:hover {
+    background: var(--color-link-hover);
+    transform: translateY(-1px);
+  }
+
+  .cta-inner > h2 {
+    color: var(--color-white) !important;
+    margin-bottom: 16px;
+  }
+  .cta-inner > p {
+    color: rgba(255,255,255,0.80);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 767px) {
+    .cta-section { padding: 80px 0; }
+    .cta-section-form { min-height: auto; padding: 84px 0; }
+    .cta-bg-clip { clip: auto; }
+    .cta-bg-img { position: absolute; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .cta-form-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    .cta-inquiry-form {
+      padding: 24px;
+    }
+  }
+</style>

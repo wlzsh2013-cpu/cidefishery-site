@@ -1,0 +1,94 @@
+﻿---
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import HorizontalProductScroll from "../components/HorizontalProductScroll.astro";
+import ApplicationCard from "../components/ApplicationCard.astro";
+import TrustBar from "../components/TrustBar.astro";
+import ScrollStepApplications from '../components/ScrollStepApplications.astro';
+import GradientWrapper from '../components/GradientWrapper.astro';
+import CompanyIntro from '../components/CompanyIntro.astro';
+import CTASection from "../components/CTASection.astro";
+import Button from "../components/Button.astro";
+
+const applications = [
+  {
+    title: "Shrimp Hatchery",
+    description: "Artemia cysts for shrimp hatchery larval feeding programs.",
+    href: "/application-shrimp-hatchery/",
+    icon: "\u{1F990}",
+  },
+  {
+    title: "Fish Fry",
+    description: "Nutrition solutions for fish fry and juvenile fish feeding.",
+    href: "/applications/fish-fry/",
+    icon: "\u{1F41F}",
+  },
+  {
+    title: "Crab Larvae",
+    description: "Specialized feeding for crab and crustacean larvae.",
+    href: "/applications/crab-larvae/",
+    icon: "\u{1F980}",
+  },
+];
+---
+
+<BaseLayout
+  title="Artemia Cysts Supplier for Hatcheries | CIDE FISHERY"
+  description="CIDE FISHERY supplies Artemia cysts and brine shrimp eggs for shrimp hatcheries, fish fry programs, distributors and importers, with processing, cold storage and export support."
+  ogImage="/images/og-default.jpg"
+  jsonLdType="Organization"
+>
+
+  <HeroSection />
+
+  <TrustBar />
+
+  
+  <HorizontalProductScroll />
+
+  
+  <ScrollStepApplications />
+
+  <CompanyIntro />
+
+  <section class="map-section">
+    <img
+      src="/images/global-sales-map.avif"
+      srcset="/images/global-sales-map.avif 1672w"
+      sizes="90vw"
+      width="1672"
+      height="941"
+      alt="CIDE FISHERY Artemia cysts global sales map"
+      loading="lazy"
+      style="width:90%;height:auto;display:block;margin:-20px auto 140px auto;"
+    />
+  </section>
+
+  <GradientWrapper />
+
+  <CTASection
+    title="Ready to Discuss Your Supply Requirements?"
+    description="Tell us about your hatchery type, target species and monthly volume."
+    ctaText="Request a Quote"
+    ctaHref="/contact/"
+    secondaryCtaText="View Products"
+    secondaryCtaHref="/products/"
+    showInquiryForm
+  />
+
+</BaseLayout>
+
+<style>
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 1024px) {
+    .app-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 767px) {
+    .app-grid { grid-template-columns: 1fr; }
+  }
+</style>

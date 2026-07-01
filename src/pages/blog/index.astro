@@ -1,0 +1,65 @@
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+
+const posts = [
+  { title: 'How to Store Artemia Cysts for Hatchery Use', date: '2026-06-20', slug: 'store-artemia-cysts-hatchery', excerpt: 'Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality. Learn key storage guidelines for hatchery operations.' },
+  { title: 'Choosing Between Regular and Premium Artemia Cysts', date: '2026-06-10', slug: 'regular-vs-premium-artemia-cysts', excerpt: 'Understanding the differences between standard and premium Artemia cyst batches to make the right choice for your hatchery program.' },
+  { title: 'Artemia Cysts in Shrimp Hatchery Feeding Programs', date: '2026-05-28', slug: 'artemia-cysts-shrimp-hatchery', excerpt: 'How Artemia cysts support larval feeding in shrimp hatcheries from zoea through post-larvae stages.' },
+  { title: 'Decapsulated vs Regular Brine Shrimp Eggs: A Guide', date: '2026-05-15', slug: 'decapsulated-vs-regular-brine-shrimp-eggs', excerpt: 'Compare decapsulated and regular brine shrimp eggs for different aquaculture feeding applications.' },
+  { title: 'Packaging Options for Artemia Cyst Export', date: '2026-05-01', slug: 'artemia-cyst-export-packaging', excerpt: 'Overview of packaging formats for Artemia cyst export including vacuum cans, foil bags and bulk options.' },
+];
+---
+
+<BaseLayout
+  title="Artemia Cysts Blog | Hatchery and Aquaculture Insights | CIDE FISHERY"
+  description="Expert insights on Artemia cyst storage, hatchery feeding programs, product selection and aquaculture supply chain from CIDE FISHERY."
+  breadcrumbs={[{ name: "Blog", url: "/blog/" }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="page-lead">Insights on Artemia cyst supply, hatchery feeding and aquaculture industry topics.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+      <div class="blog-list">
+        {posts.map((post) => (
+          <article class="blog-card">
+            <div class="blog-card-body">
+              <time datetime={post.date} class="blog-date">{post.date}</time>
+              <h2><a href={"/blog/" + post.slug + "/"}>{post.title}</a></h2>
+              <p>{post.excerpt}</p>
+              <a href={"/blog/" + post.slug + "/"} class="btn btn-outline btn-sm">Read More</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container" style="text-align:center;">
+      <h2>Need Product Information?</h2>
+      <p style="max-width:600px;margin:12px auto 32px;">Our articles support product pages. For specific product inquiries, contact our team directly.</p>
+      <Button href="/contact/" variant="primary" size="lg">Request Artemia Cysts Quote</Button>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header { padding: 60px 0; }
+  .page-lead { font-size: 18px; opacity: 0.8; margin-top: 12px; }
+  .blog-list { display: flex; flex-direction: column; gap: 32px; }
+  .blog-card { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; transition: box-shadow 0.3s; }
+  .blog-card:hover { box-shadow: 0 4px 16px rgba(11,31,51,0.08); }
+  .blog-card-body { padding: 28px; }
+  .blog-date { font-size: var(--fs-small); color: var(--color-text); opacity: 0.6; display: block; margin-bottom: 8px; }
+  .blog-card h2 { margin-bottom: 8px; }
+  .blog-card h2 a { color: var(--color-h2-h3-h4); }
+  .blog-card h2 a:hover { color: var(--color-champagne-gold); }
+  .blog-card p { opacity: 0.8; margin-bottom: 16px; }
+</style>

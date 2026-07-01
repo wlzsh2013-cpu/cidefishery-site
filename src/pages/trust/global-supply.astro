@@ -1,0 +1,31 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import Icon from '../../components/Icon.astro';
+
+const network = [
+  { icon: 'global-supply', title: 'Domestic Raw Material Regions', desc: 'Procurement channels include Xinjiang, Inner Mongolia, Tibet and Bohai Bay Artemia cyst resources.' },
+  { icon: 'global-supply', title: 'Overseas Supplier Cooperation', desc: 'Long-term supplier relationships in Russia and Kazakhstan support broader raw material supply.' },
+  { icon: 'processing', title: 'Uzbekistan Development', desc: 'The company has expanded overseas cooperation in Uzbekistan for Aral Sea Artemia cyst resource development.' },
+  { icon: 'packaging', title: 'Export Market Support', desc: 'Products are supplied to buyers in Europe, America, Southeast Asia and other aquaculture markets.' },
+];
+
+const buyerRoutes = [
+  'Hatcheries needing stable Artemia cyst and brine shrimp egg supply.',
+  'Importers comparing supplier capacity, documentation and packaging formats.',
+  'Regional distributors planning inventory, resale packaging and recurring delivery schedules.',
+  'Aquaculture groups that need one supplier conversation across product, storage and shipment.'
+];
+---
+<BaseLayout
+  title="Global Artemia Cyst Supply Network | CIDE FISHERY"
+  description="CIDE FISHERY global Artemia cyst supply network covering China raw material regions, Russia, Kazakhstan, Uzbekistan cooperation, export markets and B2B distributor support."
+  ogImage="/images/company/cide-fishery-campus-aerial.jpg"
+  breadcrumbs={[{ name: 'About', url: '/about/' }, { name: 'Global Supply', url: '/trust/global-supply/' }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light"><div class="container hero-grid"><div><span class="eyebrow">Global supply network</span><h1>Artemia Cyst Supply Support From Raw Material to Export Delivery</h1><p class="page-lead">CIDE FISHERY combines domestic and overseas raw material sourcing with processing, cold storage, packaging and export coordination for hatcheries, importers and distributors.</p><div class="hero-ctas"><Button href="/contact/" variant="primary" size="lg">Plan a Supply Program</Button><Button href="/products/bulk-artemia-cysts/" variant="outline" size="lg">Bulk Artemia Cysts</Button></div></div><img src="/images/company/cide-fishery-campus-aerial.jpg" alt="CIDE FISHERY campus for Artemia cyst processing and global supply" width="1600" height="1007" loading="eager" /></div></section>
+  <section class="section"><div class="container"><div class="section-head"><span class="eyebrow">Sourcing coverage</span><h2>Raw Material Network and Export Reach</h2><p>For B2B buyers, a supplier's sourcing structure matters. CIDE FISHERY's company background includes domestic sourcing, overseas supplier cooperation and continued development of Artemia cyst resources.</p></div><div class="network-grid">{network.map((f)=>(<article class="network-card"><Icon name={f.icon} label={`${f.title} icon`} desc={f.desc} className="network-icon"/><h3>{f.title}</h3><p>{f.desc}</p></article>))}</div></div></section>
+  <section class="section bg-light"><div class="container media-band"><img src="/images/company/cide-fishery-meeting-room.jpg" alt="CIDE FISHERY meeting room for international Artemia cyst supply discussion" width="1600" height="1068" loading="lazy" /><div><span class="eyebrow">B2B buyer fit</span><h2>Who This Global Supply Page Is For</h2><p>This page is designed for buyers who need to understand supply continuity before requesting price. It connects product choice with raw material sourcing, production planning, storage and logistics.</p><ul>{buyerRoutes.map((item)=>(<li>{item}</li>))}</ul></div></div></section>
+</BaseLayout>
+<style>.page-header{padding:64px 0}.hero-grid,.media-band{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.hero-grid img,.media-band img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.eyebrow{display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px}.page-lead{font-size:18px;opacity:.84;margin:16px 0 24px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}.section-head{max-width:820px;margin-bottom:28px}.network-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.network-card{border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);padding:22px;background:var(--color-white)}.network-icon{width:54px;height:54px;margin-bottom:12px}.network-card h3{font-size:20px}.network-card p{font-size:var(--fs-small);opacity:.8}.media-band ul{padding-left:20px;margin-top:18px}.media-band li{margin-bottom:10px}@media(max-width:1024px){.hero-grid,.media-band{grid-template-columns:1fr}.network-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:767px){.network-grid{grid-template-columns:1fr}}</style>

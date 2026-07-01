@@ -1,0 +1,145 @@
+﻿---
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  
+  productContext?: string;
+}
+
+const { title = 'Send an Inquiry', subtitle, productContext } = Astro.props;
+---
+
+<div class="contact-form-wrapper">
+  <h3>{title}</h3>
+  {subtitle && <p class="form-subtitle">{subtitle}</p>}
+
+  <form class="inquiry-form" method="POST" action="/api/inquiry">
+    <input type="hidden" name="product" value={productContext || ''} />
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
+      </div>
+      <div class="form-group">
+        <label for="company">Company *</label>
+        <input type="text" id="company" name="company" required placeholder="Company name" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone / WhatsApp</label>
+        <input type="tel" id="phone" name="phone" placeholder="+ country code" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="country">Destination Country *</label>
+        <input type="text" id="country" name="country" required placeholder="Your country" />
+      </div>
+      <div class="form-group">
+        <label for="quantity">Monthly Purchase Volume</label>
+        <select id="quantity" name="quantity">
+          <option value="">Select range</option>
+          <option value="< 50kg">Under 50 kg</option>
+          <option value="50-200kg">50 - 200 kg</option>
+          <option value="200-1000kg">200 - 1000 kg</option>
+          <option value="1000kg+">Above 1000 kg</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group full-width">
+      <label for="packaging">Packaging Preference</label>
+      <select id="packaging" name="packaging">
+        <option value="">Select preference</option>
+        <option value="cans">Vacuum Cans</option>
+        <option value="bags">Foil Bags</option>
+        <option value="bulk">Bulk Packaging</option>
+        <option value="custom">Custom Requirement</option>
+      </select>
+    </div>
+
+    <div class="form-group full-width">
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Tell us about your requirements, hatchery type, target species..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">Submit Inquiry</button>
+  </form>
+</div>
+
+<style>
+  .contact-form-wrapper {
+    background: var(--color-white);
+    border: 1px solid var(--color-neutral-gray);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: 0 2px 8px rgba(11, 31, 51, 0.06);
+  }
+  .contact-form-wrapper h3 {
+    margin-bottom: 4px;
+  }
+  .form-subtitle {
+    color: var(--color-text);
+    opacity: 0.7;
+    margin-bottom: 24px;
+  }
+  .inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+  .form-group label {
+    font-weight: 600;
+    font-size: var(--fs-small);
+    color: var(--color-primary);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 14px;
+    border: 1px solid var(--color-neutral-gray);
+    border-radius: 6px;
+    font-family: var(--font-family);
+    font-size: var(--fs-body);
+    color: var(--color-text);
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-brand-blue);
+    box-shadow: 0 0 0 3px rgba(30, 95, 168, 0.1);
+  }
+
+  @media (max-width: 767px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+    .contact-form-wrapper {
+      padding: 24px;
+    }
+  }
+</style>

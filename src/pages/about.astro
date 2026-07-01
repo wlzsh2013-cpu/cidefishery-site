@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import CTASection from '../components/CTASection.astro';
+import Icon from '../components/Icon.astro';
+
+const stats = [
+  { value: 'RMB 110M', label: 'Total investment' },
+  { value: '35 acres', label: 'Wenchang site area' },
+  { value: '4,000 m2', label: 'Artemia processing area' },
+  { value: '1,000 tons', label: 'Annual processing capacity' },
+];
+
+const operations = [
+  { icon: 'processing', title: 'Processing Facility', href: '/trust/processing-facility/', text: 'Cleaning, disinfection, centrifuge, drying, screening and handling equipment support repeat Artemia cyst supply.' },
+  { icon: 'cold-storage', title: 'Cold Storage', href: '/trust/cold-storage/', text: 'Eight dedicated cold rooms, about 1,000 m2 area and 3,000 m3 capacity for pre-export storage planning.' },
+  { icon: 'quality-control', title: 'Quality Control', href: '/trust/quality-control/', text: 'Batch communication, document review, packaging checks and supplier evaluation materials for B2B buyers.' },
+  { icon: 'packaging', title: 'Packaging Options', href: '/trust/packaging/', text: 'Vacuum cans, foil bags, drums, cartons and labeling discussion for hatcheries, importers and distributors.' },
+];
+
+const sourcing = [
+  { title: 'China sourcing base', text: 'Xinjiang, Inner Mongolia, Tibet and Bohai Bay Artemia cyst regions.' },
+  { title: 'Overseas supplier cooperation', text: 'Long-term trade relationships in Russia and Kazakhstan.' },
+  { title: 'Uzbekistan development', text: 'Cooperation for Aral Sea Artemia cyst resource development.' },
+  { title: 'Export market experience', text: 'Products supplied to Europe, America, Southeast Asia and other aquaculture markets.' },
+];
+
+const certificates = [
+  { image: '/images/company/cide-fishery-quality-certificate.jpg', width: 954, height: 1400, title: 'Quality Certificate', desc: 'CIDE FISHERY quality management system certification for Artemia cyst processing and export operations.' },
+  { image: '/images/company/cide-fishery-system-certificate.jpg', width: 971, height: 1400, title: 'System Certification', desc: 'Comprehensive operational system documentation for supplier evaluation and procurement review.' },
+  { image: '/images/company/cide-fishery-certificate-document.jpg', width: 954, height: 1400, title: 'Corporate Documentation', desc: 'Registered company documentation and operating permits for international trade compliance.' },
+];
+
+const factoryPhotos = [
+  { image: '/images/company/artemia-processing-workshop.jpg', width: 1600, height: 1066 },
+  { image: '/images/company/artemia-processing-equipment.jpg', width: 1600, height: 1066 },
+  { image: '/images/company/artemia-cyst-cold-storage-rooms.jpg', width: 1600, height: 1066 },
+  { image: '/images/company/artemia-cyst-warehouse-packaging.jpg', width: 1600, height: 1066 },
+  { image: '/images/company/cide-fishery-campus-aerial.jpg', width: 1600, height: 1007 },
+  { image: '/images/company/cide-fishery-building.jpg', width: 1600, height: 1200 },
+];
+---
+<BaseLayout
+  title="About CIDE FISHERY | Artemia Cyst Processing and Export Supplier"
+  description="CIDE FISHERY is a Hainan Artemia cyst processing and export supplier with 35 acres of facilities, cold storage, raw material sourcing, certificates and B2B hatchery supply support."
+  ogImage="/images/company/cide-fishery-building.jpg"
+  breadcrumbs={[{ name: 'About', url: '/about/' }]}
+  showBreadcrumb
+>
+  <div class="about-page">
+  <section class="about-hero">
+    <div class="container hero-shell">
+      <div class="hero-copy">
+        <span class="eyebrow">About CIDE FISHERY</span>
+        <h1>Artemia Cyst Processing and Export Supply Partner in Hainan</h1>
+        <p class="page-lead">CIDE FISHERY, operated by Hainan CIDE High Tech Fishery Co., Ltd., focuses on Artemia cyst processing, sales, cold storage and B2B supply support for hatcheries, importers and aquaculture distributors.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" size="lg">Discuss Supply Requirements</Button>
+          <Button href="/trust/processing-facility/" variant="outline" size="lg">View Processing Facility</Button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/images/company/cide-fishery-building.jpg" alt="CIDE FISHERY operating building in Fengjiawan Fishery Industrial Park Hainan" width="1600" height="1200" loading="eager" />
+        <div class="hero-location">
+          <strong>Fengjiawan Fishery Industrial Park</strong>
+          <span>No. 129, Huiwen Town, Wenchang, Hainan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section" aria-label="CIDE FISHERY company capacity statistics">
+    <div class="container stats-grid">
+      {stats.map((stat) => (<div class="stat-item"><strong>{stat.value}</strong><span>{stat.label}</span></div>))}
+    </div>
+  </section>
+
+  <section class="section company-story">
+    <div class="container story-grid">
+      <div class="story-media">
+        <img class="story-main" src="/images/company/cide-fishery-campus-aerial.jpg" alt="Aerial view of CIDE FISHERY aquaculture processing campus in Hainan" width="1600" height="1007" loading="lazy" />
+        <img class="story-small" src="/images/company/cide-group-capability-wall.jpg" alt="CIDE GROUP capability display wall for company introduction" width="1600" height="1068" loading="lazy" />
+      </div>
+      <div>
+        <span class="eyebrow">Company foundation</span>
+        <h2>Built for Repeat Artemia Cyst Supply, Not One-Time Trading</h2>
+        <p>The company has invested about RMB 110 million in a 35-acre site in Wenchang, Hainan. The Artemia cyst processing area covers about 4,000 m2 and is supported by cleaning and disinfection tanks, centrifuges, drying equipment, suction and screening systems, forklifts and dedicated cold storage.</p>
+        <p>For B2B buyers, this means the conversation can go beyond price. CIDE FISHERY can discuss processing capacity, packaging format, batch communication, storage expectations and shipment planning as one supply program.</p>
+        <div class="note-box">
+          <strong>Nearly 30 years in aquaculture</strong>
+          <span>Technical and business specialists support raw material sourcing, processing communication and export sales.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light operations-section">
+    <div class="container">
+      <div class="section-kicker">
+        <span class="eyebrow">Supplier capability</span>
+        <h2>What Buyers Can Evaluate Before Sending an Inquiry</h2>
+        <p>Each capability links to a deeper trust page, so procurement teams can review the supplier from factory, quality, storage and packaging angles.</p>
+      </div>
+      <div class="operation-grid">
+        {operations.map((item) => (
+          <a class="operation-card" href={item.href}>
+            <Icon name={item.icon} label={`${item.title} icon`} desc={item.text} className="operation-icon" />
+            <span>{item.title}</span>
+            <p>{item.text}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section sourcing-section">
+    <div class="container sourcing-grid">
+      <div>
+        <span class="eyebrow">Raw material network</span>
+        <h2>Sourcing Channels Behind Stable Artemia Cyst Supply</h2>
+        <p>CIDE FISHERY purchases from multiple domestic Artemia cyst regions and maintains overseas supplier cooperation. The company also develops overseas resource cooperation in Uzbekistan for Aral Sea Artemia cysts.</p>
+        <Button href="/trust/global-supply/" variant="primary" size="lg">View Global Supply</Button>
+      </div>
+      <div class="route-panel">
+        {sourcing.map((item, index) => (
+          <div class="route-item">
+            <strong>{String(index + 1).padStart(2, '0')}</strong>
+            <div><h3>{item.title}</h3><p>{item.text}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section proof-gallery bg-light">
+    <div class="container">
+      <span class="eyebrow">Visible supplier proof</span>
+      <h2>Documents, Factory Photos and Company Background for Buyer Review</h2>
+      <p>International hatchery and distributor buyers often need visible proof before serious procurement. Browse our certificates and factory facilities below.</p>
+    </div>
+
+    <div class="proof-row-label">
+      <h3>Certifications</h3>
+    </div>
+    <div class="gallery-scroll" data-gallery-row>
+      <div class="gallery-track gallery-track-left">
+        <div class="gallery-group">
+          {certificates.map((item) => (
+            <figure class="gallery-card">
+              <img src={item.image} alt={item.title} width={item.width} height={item.height} loading="lazy" />
+              <figcaption>
+                <strong>{item.title}</strong>
+                <span>{item.desc}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div class="gallery-group" aria-hidden="true">
+          {certificates.map((item) => (
+            <figure class="gallery-card">
+              <img src={item.image} alt={item.title} width={item.width} height={item.height} loading="lazy" />
+              <figcaption>
+                <strong>{item.title}</strong>
+                <span>{item.desc}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="proof-row-label">
+      <h3>Factory Facilities</h3>
+    </div>
+    <div class="gallery-scroll" data-gallery-row data-reverse>
+      <div class="gallery-track gallery-track-right">
+        <div class="gallery-group">
+          {factoryPhotos.map((item, i) => (
+            <figure class="gallery-card gallery-card-photo">
+              <img src={item.image} alt={`CIDE FISHERY factory facility photo ${i + 1}`} width={item.width} height={item.height} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+        <div class="gallery-group" aria-hidden="true">
+          {factoryPhotos.map((item, i) => (
+            <figure class="gallery-card gallery-card-photo">
+              <img src={item.image} alt={`CIDE FISHERY factory facility photo ${i + 1}`} width={item.width} height={item.height} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <CTASection
+    title="Evaluate CIDE FISHERY for Your Artemia Cyst Supply Program"
+    description="Send your target species, order volume, destination country and packaging requirements. Our team will help you discuss a practical product and supply route."
+    ctaText="Contact Us"
+    ctaHref="/contact/"
+  />
+</div>
+
+</BaseLayout>
+
+

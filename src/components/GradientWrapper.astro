@@ -1,0 +1,104 @@
+﻿---
+
+import FactoryGallery from './FactoryGallery.astro';
+import WhyChoose from './WhyChoose.astro';
+import ClientTestimonials from './ClientTestimonials.astro';
+---
+
+<section class="cf-gradient-section" data-cf-gallery>
+  <div class="cf-gradient-bg"></div>
+  <FactoryGallery />
+  <div class="cf-gradient-divider"></div>
+  <ClientTestimonials />
+
+  <div class="cf-gradient-divider"></div>
+
+  <WhyChoose />
+
+  <div class="cf-lightbox" data-cf-lightbox aria-hidden="true">
+    <button class="cf-lightbox-close" type="button" aria-label="Close image">&times;</button>
+    <img src="" alt="">
+  </div>
+</section>
+
+<style>
+.cf-gradient-section {
+  position: relative; overflow: hidden; isolation: isolate;
+  color: #ffffff; font-family: var(--font-family);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(30,95,168,0.45), transparent 32%),
+    radial-gradient(circle at 84% 18%, rgba(230,179,106,0.38), transparent 30%),
+    radial-gradient(circle at 50% 92%, rgba(11,31,51,0.92), transparent 44%),
+    linear-gradient(135deg, #0B1F33 0%, #1E5FA8 48%, #E6B36A 100%);
+}
+.cf-gradient-bg {
+  position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0.08), transparent 34%),
+    radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 55%);
+}
+.cf-gradient-section::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0.20));
+}
+.cf-gradient-divider {
+  width: 90%; max-width: 1200px; margin: 0 auto;
+  height: 1px; background: rgba(255,255,255,0.18);
+}
+.cf-lightbox {
+  position: fixed; inset: 0; z-index: 9999; display: none;
+  place-items: center; padding: 32px;
+  background: rgba(2, 8, 15, 0.86); backdrop-filter: blur(12px);
+}
+.cf-lightbox.is-open { display: grid; }
+.cf-lightbox img {
+  max-width: min(1100px, 92vw); max-height: 86vh;
+  object-fit: contain; border-radius: 16px;
+  box-shadow: 0 34px 100px rgba(0,0,0,0.50); background: rgba(255,255,255,0.06);
+}
+.cf-lightbox-close {
+  position: fixed; right: 24px; top: 20px; width: 48px; height: 48px;
+  border: 0; border-radius: 999px; cursor: pointer; color: #ffffff;
+  background: rgba(11,31,51,0.50); font-size: 34px; line-height: 1;
+  transition: background 0.2s;
+}
+.cf-lightbox-close:hover { background: #E6B36A; color: #0B1F33; }
+@media (max-width: 767px) { .cf-lightbox { padding: 18px; } }
+</style>
+
+<script is:inline>
+(function () {
+  var hero = document.querySelector("[data-cf-gallery]");
+  if (!hero) return;
+  var floatItems = Array.from(hero.querySelectorAll(".cf-float-img"));
+  var lightbox = hero.querySelector("[data-cf-lightbox]");
+  var lightboxImg = lightbox ? lightbox.querySelector("img") : null;
+  var closeBtn = lightbox ? lightbox.querySelector(".cf-lightbox-close") : null;
+  var ps = [-18, 12, -14, 16, 10, -12, 16, -10, 14, -16];
+  function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+  function up() {
+    var r = hero.getBoundingClientRect(), wh = window.innerHeight || 1;
+    var p = clamp((wh - r.top) / (wh + r.height), 0, 1), cp = p - 0.5;
+    floatItems.forEach(function (it, i) { it.style.setProperty("--move-y", (cp * (ps[i] || 10) * 2).toFixed(2) + "px"); });
+  }
+  var pt = false;
+  function rp() { if (pt) return; pt = true; requestAnimationFrame(function () { up(); pt = false; }); }
+  window.addEventListener("scroll", rp, { passive: true }); window.addEventListener("resize", rp); up();
+  function open(img) {
+    if (!lightbox || !lightboxImg || !img) return;
+    var s = img.currentSrc || img.src; if (!s) return;
+    lightboxImg.src = s; lightboxImg.alt = img.alt || "";
+    lightbox.classList.add("is-open"); lightbox.setAttribute("aria-hidden", "false");
+    document.documentElement.style.overflow = "hidden";
+  }
+  function close() {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.classList.remove("is-open"); lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = ""; lightboxImg.alt = ""; document.documentElement.style.overflow = "";
+  }
+  floatItems.forEach(function (it) { it.addEventListener("click", function () { open(it.querySelector("img")); }); });
+  if (closeBtn) closeBtn.addEventListener("click", close);
+  if (lightbox) lightbox.addEventListener("click", function (e) { if (e.target === lightbox) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+})();
+</script>

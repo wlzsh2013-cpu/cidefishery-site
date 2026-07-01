@@ -1,0 +1,219 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+
+const products = [
+  {
+    title: 'Artemia Cysts',
+    href: '/products/artemia-cysts/',
+    image: '/images/artemia-cysts.avif',
+    width: 1448,
+    height: 1086,
+    alt: 'Artemia Cysts',
+    desc: 'Standard-grade brine shrimp eggs optimized for routine hatchery feeding schedules, offering steady nutritional support for shrimp and fish fry.',
+    fit: 'Commercial shrimp hatcheries and regional distributors seeking a dependable, cost-effective daily larval feeding supply with predictable yields.',
+    tag: 'Artemia Cysts',
+    cta: 'View Artemia Cysts',
+  },
+  {
+    title: 'Premium Artemia Cysts',
+    href: '/products/premium-artemia-cysts/',
+    image: '/images/premium-artemia-cysts.avif',
+    width: 1448,
+    height: 1086,
+    alt: 'Premium Artemia Cysts',
+    desc: 'Hand-selected, high-efficiency batches delivering superior hatch rates and exceptional synchronization for intensive larval culture.',
+    fit: 'SPF hatcheries and specialized breeding programs requiring strict batch-to-batch consistency, maximum nauplii counts, and flawless performance.',
+    tag: 'Premium Artemia Cysts',
+    cta: 'View Premium Artemia Cysts',
+  },
+  {
+    title: 'Decapsulated Brine Shrimp Eggs',
+    href: '/products/decapsulated-eggs/',
+    image: '/images/decapsulated-brine-shrimp-eggs.avif',
+    width: 1448,
+    height: 1086,
+    alt: 'Decapsulated Brine Shrimp Eggs',
+    desc: 'Premium shell-removed brine shrimp eggs designed for direct feeding, eliminating the risk of shell contamination and hatching tank management.',
+    fit: 'Fish fry producers and sensitive crustacean nurseries aiming to cut labor costs, maximize energy intake, and ensure 100% shell-free biosecurity.',
+    tag: 'Decapsulated Brine Shrimp Eggs',
+    cta: 'View Decapsulated Eggs',
+  },
+  {
+    title: 'Bulk Artemia Cysts',
+    href: '/products/bulk-artemia-cysts/',
+    image: '/images/bulk-artemia-cysts.avif',
+    width: 1448,
+    height: 1086,
+    alt: 'Bulk Artemia Cysts',
+    desc: 'Large-scale wholesale procurement programs with customized batch sizing, continuous supply contracts, and streamlined global maritime logistics.',
+    fit: 'Large-scale aquaculture enterprises, multi-facility commercial farms, and tier-1 importers requiring continuous inventory security and container-load discounts.',
+    tag: 'Bulk Artemia Cysts',
+    cta: 'View Bulk Artemia Cysts',
+  },
+];
+
+const buyerRoutes = [
+  { type: 'Shrimp Hatcheries', need: 'High-energy live nauplii tailored for intensive zoea-to-postlarva feeding schedules.', href: '/products/artemia-cysts/', icon: '/icons/shrimp-hatcheries.svg', alt: 'Shrimp hatchery Artemia cyst product recommendation icon' },
+  { type: 'Fish Fry Producers', need: 'Pathogen-free, clean feeding solutions that support fragile digestive tracts and flexible nutrition.', href: '/products/decapsulated-eggs/', icon: '/icons/fish-fry-producers.svg', alt: 'Fish fry producer brine shrimp egg product recommendation icon' },
+  { type: 'Crab & Crustacean Nurseries', need: 'Highly synchronized nutrition to reduce cannibalism during sensitive molting phases.', href: '/applications/crab-larvae/', icon: '/icons/crab-crustacean-nurseries.svg', alt: 'Crab and crustacean nursery Artemia feed recommendation icon' },
+  { type: 'Importers & Distributors', need: 'Streamlined customs documentation, cold-chain compliance, and reliable contract continuity.', href: '/products/bulk-artemia-cysts/', icon: '/icons/importers-distributors.svg', alt: 'Aquaculture importer and distributor bulk supply recommendation icon' },
+];
+---
+
+<BaseLayout
+  title="High-Hatchability Artemia Cysts for Commercial Hatcheries | CIDE FISHERY"
+  description="Compare premium-grade Artemia cysts, decapsulated brine shrimp eggs and bulk sourcing programs for hatcheries, fry producers and aquaculture distributors."
+  ogImage="/images/products/artemia-cysts-hero.jpg"
+  breadcrumbs={[{ name: 'Products', url: '/products/' }]}
+  showBreadcrumb
+>
+  <div class="products-page">
+  <section class="products-hero section bg-light">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">PREMIUM AQUACULTURE FEED</span>
+        <h1>High-Hatchability Artemia Cysts for Commercial Hatcheries</h1>
+        <p class="page-lead">CIDE FISHERY supplies premium-grade Artemia cysts, decapsulated brine shrimp eggs, and bulk sourcing programs engineered for shrimp hatcheries, marine fish fry producers, and global aquaculture distributors.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" size="lg">Get a Quick Quote</Button>
+          <Button href="/trust/packaging/" variant="outline" size="lg">Explore Packaging Options</Button>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="/images/products/artemia-cysts-hatchery-feeding-display.avif" alt="Artemia cysts and brine shrimp nauplii for hatchery feeding" width="1448" height="1086" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="cide-product-stack" data-cide-product-stack>
+    <div class="cide-product-stack-inner">
+      <div class="cide-product-stack-header cide-stack-reveal">
+        <div>
+          <span class="eyebrow">Product categories</span>
+          <h2>Select the Ideal Artemia Grade for Your Rearing Stage</h2>
+        </div>
+
+        <div class="cide-product-stack-intro">
+          <p>From daily larval feeding to massive commercial distribution, we provide tailored hatching rates, stable batch consistency, and flexible bulk packaging to match your operational scale.</p>
+          <a href="/contact/">Request recommendation</a>
+        </div>
+      </div>
+
+      <div class="cide-stack-cards">
+        {products.map((product, index) => (
+          <article class={`cide-stack-card cide-stack-card-0${index + 1} cide-stack-reveal`} data-stack-card>
+            <div class="cide-stack-copy">
+              <span>{String(index + 1).padStart(2, '0')} / {product.tag}</span>
+              <h3>{product.title}</h3>
+              <p>{product.desc}</p>
+              <div class="cide-stack-fit"><strong>Ideal For:</strong> {product.fit}</div>
+              <a class="cide-stack-link" href={product.href}>{product.cta}</a>
+            </div>
+
+            <a class="cide-stack-media" href={product.href} aria-label={`View ${product.title}`}>
+              <img src={product.image} alt={product.alt} width={product.width} height={product.height} loading="lazy" />
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light product-guide-section">
+    <div class="container compare-wrap">
+      <div>
+        <span class="eyebrow">Procurement guide</span>
+        <h2>Which Product Fits Your Current Aquaculture Setup?</h2>
+        <p>Choosing the right feed depends on your target species and system density. Standard cysts anchor everyday operations, Premium batches secure critical early-stage survival, Decapsulated eggs optimize biosecurity, and Bulk supply stabilizes your annual supply chain costs.</p>
+      </div>
+      <div class="buyer-list">
+        {buyerRoutes.map((item) => (
+          <a class="buyer-item" href={item.href}>
+            <img class="buyer-icon" src={item.icon} alt={item.alt} width="52" height="52" loading="lazy" decoding="async" />
+            <span class="buyer-copy"><h3>{item.type}</h3><small>{item.need}</small></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container package-band">
+      <div>
+        <span class="eyebrow">PACKAGING &amp; COLD-CHAIN LOGISTICS</span>
+        <h2>Industrial-Grade Vacuum Cans, Foil Bags &amp; Customized Bulk Packaging</h2>
+        <p>To preserve maximum hatchability during transit, CIDE FISHERY utilizes moisture-proof vacuum cans, heavy-duty foil bags, and protective outer drums. We provide private labeling options and full cold-storage container coordination to ensure fresh arrival at your port.</p>
+        <div class="hero-ctas">
+          <Button href="/trust/packaging/" variant="primary" size="lg">Review Packaging Specs</Button>
+          <Button href="/trust/cold-storage/" variant="outline" size="lg">Learn About Our Cold Chain</Button>
+        </div>
+      </div>
+      <img src="/images/products/artemia-cysts-foil-bag-packaging.avif" alt="Artemia cysts foil bag packaging for cold-chain supply." width="1448" height="1086" loading="lazy" />
+    </div>
+  </section>
+</div>
+</BaseLayout>
+
+<script>
+(function () {
+  const section = document.querySelector('[data-cide-product-stack]');
+  if (!section) return;
+
+  const revealEls = Array.from(section.querySelectorAll('.cide-stack-reveal'));
+  const cards = Array.from(section.querySelectorAll('[data-stack-card]'));
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {
+    threshold: 0.18,
+    rootMargin: '0px 0px -8% 0px'
+  });
+
+  revealEls.forEach(function (el) {
+    observer.observe(el);
+  });
+
+  function updateStackMotion() {
+    const windowH = window.innerHeight || 1;
+
+    cards.forEach(function (card, index) {
+      const media = card.querySelector('.cide-stack-media');
+      if (!media) return;
+
+      const rect = card.getBoundingClientRect();
+      const progress = clamp((windowH - rect.top) / (windowH + rect.height), 0, 1);
+      const centered = progress - 0.5;
+      const strength = index % 2 === 0 ? 22 : -22;
+      const y = centered * strength;
+
+      media.style.setProperty('--media-y', y.toFixed(2) + 'px');
+    });
+  }
+
+  let ticking = false;
+
+  function requestMotion() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      updateStackMotion();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', requestMotion, { passive: true });
+  window.addEventListener('resize', requestMotion);
+  updateStackMotion();
+})();
+</script>
+
+

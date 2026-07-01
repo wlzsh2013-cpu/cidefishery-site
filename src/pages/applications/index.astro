@@ -1,0 +1,467 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import Icon from '../../components/Icon.astro';
+
+const applicationSteps = [
+  {
+    step: 'Step 1',
+    title: 'Shrimp Hatchery',
+    description: 'Plan Artemia nauplii production around larval feeding windows, harvest timing and daily hatchery routines.',
+    href: '/application-shrimp-hatchery/',
+    image: '/images/shrimp-hatchery-app.avif',
+    alt: 'Shrimp hatchery application for Artemia nauplii feeding workflow',
+  },
+  {
+    step: 'Step 2',
+    title: 'Fish Fry',
+    description: 'Match standard Artemia cysts or decapsulated brine shrimp eggs to cleaner fry feeding and flexible nutrition support.',
+    href: '/applications/fish-fry/',
+    image: '/images/fish-fry-app.avif',
+    alt: 'Fish fry feeding application with Artemia and decapsulated brine shrimp eggs',
+  },
+  {
+    step: 'Step 3',
+    title: 'Crab Larvae',
+    description: 'Use Artemia-based feeding plans for sensitive crab and crustacean larvae where timing and handling matter.',
+    href: '/applications/crab-larvae/',
+    image: '/images/crab-larvae-app.avif',
+    alt: 'Crab larvae aquaculture application for Artemia feeding programs',
+  },
+];
+
+const decisionPoints = [
+  { icon: 'artemia-cysts', title: 'Live Feed Timing', text: 'Artemia cysts can be hatched on demand, helping hatcheries align nauplii harvest with feeding windows.' },
+  { icon: 'quality-control', title: 'Batch Communication', text: 'Ask for batch information when feeding performance, harvest timing and procurement planning matter.' },
+  { icon: 'packaging', title: 'Packaging and Storage', text: 'Packaging format should match storage conditions, purchase volume and destination handling.' },
+];
+---
+
+<BaseLayout
+  title="Artemia Cysts Applications for Aquaculture Hatcheries | CIDE FISHERY"
+  description="Explore Artemia cyst applications for shrimp hatcheries, fish fry and crab larvae, with product recommendations, feeding considerations and packaging links."
+  ogImage="/images/products/artemia-nauplii.jpg"
+  breadcrumbs={[{ name: 'Applications', url: '/applications/' }]}
+  showBreadcrumb
+>
+<div class="applications-page">
+  <section class="section page-header bg-light">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Application guide</span>
+        <h1>Artemia Cysts Applications in Aquaculture Hatcheries</h1>
+        <p class="page-lead">Artemia cysts are used because hatcheries can produce live nauplii near feeding time. The right product depends on species, larval stage, feeding workflow, storage and packaging requirements.</p>
+        <div class="hero-ctas"><Button href="/products/" variant="primary" size="lg">Compare Products</Button><Button href="/contact/" variant="outline" size="lg">Ask for Recommendation</Button></div>
+      </div>
+      <img src="/images/products/artemia-nauplii.jpg" alt="Artemia nauplii live feed for aquaculture hatchery larvae" width="5440" height="3648" loading="eager" />
+    </div>
+  </section>
+
+  <section class="cide-steps-scroll" data-cide-steps-scroll>
+    <div class="cide-steps-sticky">
+      <div class="cide-steps-heading" data-cide-steps-heading>
+        <span class="eyebrow">Application paths</span>
+        <h2>Choose by Species and Feeding Workflow</h2>
+        <p>Start with the species and feeding workflow, then review the matching application page for product selection, packaging and inquiry details.</p>
+      </div>
+
+      <div class="cide-steps-grid" data-cide-steps-container>
+        {applicationSteps.map((app, index) => (
+          <article class={`cide-step-card ${index === 0 ? 'is-active' : ''}`} data-cide-step-card>
+            <a class="cide-step-image" href={app.href} aria-label={`View ${app.title} application`}>
+              <img src={app.image} alt={app.alt} width="900" height="720" loading="lazy" />
+            </a>
+
+            <div class="cide-step-content">
+              <div class="cide-step-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M28 16 5 26l4-8H3v-4h6L5 6l23 10Z" />
+                </svg>
+              </div>
+
+              <div class="cide-step-name">
+                <p>{app.step}</p>
+                <h3>{app.title}</h3>
+              </div>
+
+              <p class="cide-step-desc">{app.description}</p>
+              <a class="cide-step-link" href={app.href}>View application</a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="cide-steps-action">
+        <a href="/contact/">Ask for feeding recommendation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">Procurement factors</span><h2>What Buyers Should Clarify Before Ordering</h2></div>
+      <div class="factor-grid">{decisionPoints.map((item) => (<article class="factor-card"><Icon name={item.icon} label={`${item.title} icon`} desc={item.text} className="factor-icon" /><h3>{item.title}</h3><p>{item.text}</p></article>))}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container package-band">
+      <div><span class="eyebrow">Packaging matters</span><h2>Application Planning Should Include Packaging and Storage</h2><p>Tell us your hatchery type, monthly volume, destination and preferred package format. Packaging options and cold storage support should be considered together with product selection.</p><div class="hero-ctas"><Button href="/trust/packaging/" variant="primary" size="lg">Packaging Options</Button><Button href="/trust/cold-storage/" variant="outline" size="lg">Cold Storage</Button></div></div>
+      <img src="/images/products/bulk-artemia-packaging.jpg" alt="Artemia cyst packaging options for aquaculture applications" width="2679" height="2346" loading="lazy" />
+    </div>
+  </section>
+</div>
+</BaseLayout>
+
+<style is:global>
+  .applications-page .page-header { padding: 64px 0; }
+  .applications-page .hero-grid,
+  .applications-page .package-band { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .applications-page .hero-grid img,
+  .applications-page .package-band img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .applications-page .eyebrow { display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px; }
+  .applications-page .page-lead { font-size:18px;opacity:.84;margin:16px 0 24px; }
+  .applications-page .hero-ctas { display:flex;gap:16px;flex-wrap:wrap; }
+  .applications-page .section-head { max-width:760px;margin-bottom:28px; }
+  .applications-page .factor-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .applications-page .factor-card { border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white);padding:24px; }
+  .applications-page .factor-icon { width:54px;height:54px;margin-bottom:12px; }
+  .applications-page .factor-card p { font-size:var(--fs-small);opacity:.8; }
+  .applications-page .package-band { padding:28px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-light-bg); }
+
+  .applications-page .cide-steps-scroll {
+    --steps-bg: var(--color-primary);
+    --steps-card: rgba(255, 255, 255, 0.075);
+    --steps-card-active: rgba(255, 255, 255, 0.12);
+    --steps-text: var(--color-white);
+    --steps-muted: rgba(255, 255, 255, 0.64);
+    --steps-muted-strong: rgba(255, 255, 255, 0.82);
+    --steps-line: rgba(255, 255, 255, 0.16);
+    --steps-accent: var(--color-champagne-gold);
+    --steps-cyan: var(--color-tech-cyan);
+    --heading-hide: 0;
+    --container-lift: 0px;
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    color: var(--steps-text);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(53, 183, 216, 0.22), transparent 32%),
+      radial-gradient(circle at 88% 86%, rgba(230, 179, 106, 0.16), transparent 34%),
+      var(--steps-bg);
+  }
+  .applications-page .cide-steps-scroll,
+  .applications-page .cide-steps-scroll * { box-sizing: border-box; }
+  .applications-page .cide-steps-sticky {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    width: var(--content-width);
+    margin: 0 auto;
+    padding: 92px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .applications-page .cide-steps-heading {
+    margin-bottom: 64px;
+    opacity: calc(1 - var(--heading-hide));
+    transform: translateY(calc(var(--heading-hide) * -54px));
+    transition: opacity 0.12s linear, transform 0.12s linear;
+    will-change: opacity, transform;
+  }
+  .applications-page .cide-steps-heading h2 {
+    max-width: 860px;
+    margin: 0;
+    font-size: 52px;
+    line-height: 1.05;
+    color: var(--steps-text);
+  }
+  .applications-page .cide-steps-heading p {
+    max-width: 620px;
+    margin-top: 18px;
+    color: var(--steps-muted);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  .applications-page .cide-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    transform: translateY(var(--container-lift));
+    transition: transform 0.12s linear;
+    will-change: transform;
+  }
+  .applications-page .cide-step-card:nth-child(2) { margin-top: 72px; }
+  .applications-page .cide-step-card:nth-child(3) { margin-top: 144px; }
+  .applications-page .cide-step-card {
+    --card-y: 0px;
+    --card-scale: 0.96;
+    --card-opacity: 0.48;
+    --name-y: 22px;
+    --name-opacity: 0.42;
+    --desc-opacity: 0.42;
+    --image-y: 0px;
+    --line-scale: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0)), var(--steps-card);
+    border: 1px solid var(--steps-line);
+    box-shadow: none;
+    opacity: var(--card-opacity);
+    transform: translateY(var(--card-y)) scale(var(--card-scale));
+    transition: opacity 0.26s ease, transform 0.26s ease, background 0.26s ease, border-color 0.26s ease;
+    will-change: opacity, transform;
+  }
+  .applications-page .cide-step-card.is-active {
+    background: linear-gradient(180deg, rgba(53,183,216,0.18), rgba(255,255,255,0)), var(--steps-card-active);
+    border-color: rgba(230, 179, 106, 0.42);
+  }
+  .applications-page .cide-step-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(53,183,216,0.2), rgba(11,31,51,0.86));
+  }
+  .applications-page .cide-step-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: translateY(var(--image-y)) scale(1.06);
+    transition: transform 0.26s ease;
+    will-change: transform;
+  }
+  .applications-page .cide-step-card.is-active .cide-step-image img {
+    transform: translateY(var(--image-y)) scale(1.02);
+  }
+  .applications-page .cide-step-content { padding: 30px; }
+  .applications-page .cide-step-icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 28px;
+    color: var(--steps-accent);
+    opacity: var(--name-opacity);
+    transform: translateY(calc(var(--name-y) * 0.35));
+    transition: opacity 0.24s ease, transform 0.24s ease;
+  }
+  .applications-page .cide-step-icon svg { width: 100%; height: 100%; display: block; fill: currentColor; }
+  .applications-page .cide-step-name {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .applications-page .cide-step-name::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 72px;
+    height: 2px;
+    background: var(--steps-accent);
+    transform-origin: left center;
+    transform: scaleX(var(--line-scale));
+    opacity: var(--name-opacity);
+    transition: transform 0.24s ease, opacity 0.24s ease;
+  }
+  .applications-page .cide-step-name p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 800;
+    color: var(--steps-muted-strong);
+    opacity: var(--name-opacity);
+    transform: translateY(var(--name-y));
+    transition: opacity 0.24s ease, transform 0.24s ease, color 0.24s ease;
+  }
+  .applications-page .cide-step-name h3 {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.1;
+    color: rgba(255, 255, 255, 0.56);
+    opacity: var(--name-opacity);
+    transform: translateY(var(--name-y));
+    transition: opacity 0.24s ease, transform 0.24s ease, color 0.24s ease;
+  }
+  .applications-page .cide-step-card.is-active .cide-step-name p,
+  .applications-page .cide-step-card.is-active .cide-step-name h3 { color: var(--color-white); }
+  .applications-page .cide-step-desc {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--steps-muted);
+    opacity: var(--desc-opacity);
+    transform: translateY(calc(var(--name-y) * 0.45));
+    transition: opacity 0.24s ease, transform 0.24s ease;
+  }
+  .applications-page .cide-step-link {
+    display: inline-flex;
+    margin-top: 22px;
+    color: var(--steps-accent);
+    font-weight: 800;
+  }
+  .applications-page .cide-step-link:hover { color: var(--steps-cyan); }
+  .applications-page .cide-steps-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+    opacity: calc(0.35 + (var(--heading-hide) * 0.65));
+    transform: translateY(calc((1 - var(--heading-hide)) * 28px));
+    transition: opacity 0.14s linear, transform 0.14s linear;
+  }
+  .applications-page .cide-steps-action a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 26px;
+    border-radius: var(--border-radius);
+    background: var(--color-white);
+    color: var(--color-primary);
+    font-size: 15px;
+    font-weight: 800;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  }
+  .applications-page .cide-steps-action a:hover {
+    transform: translateY(-2px);
+    background: var(--steps-accent);
+    color: var(--color-primary);
+  }
+  @media(max-width:1280px){
+    .applications-page .cide-steps-scroll { height:auto !important; padding:76px 0; }
+    .applications-page .cide-steps-sticky { position:relative; top:auto; min-height:auto; overflow:visible; padding:0; }
+    .applications-page .cide-steps-heading { opacity:1 !important; transform:none !important; }
+    .applications-page .cide-steps-grid { transform:none !important; grid-template-columns:repeat(3,minmax(260px,1fr)); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; }
+    .applications-page .cide-step-card,
+    .applications-page .cide-step-card:nth-child(2),
+    .applications-page .cide-step-card:nth-child(3) { margin-top:0; }
+    .applications-page .cide-step-card { scroll-snap-align:start; opacity:1 !important; transform:none !important; --card-y:0px !important; --card-scale:1 !important; --card-opacity:1 !important; --name-y:0px !important; --name-opacity:1 !important; --desc-opacity:1 !important; --line-scale:1 !important; }
+  }
+  @media(max-width:1024px){.applications-page .hero-grid,.applications-page .package-band{grid-template-columns:1fr}.applications-page .factor-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:767px){
+    .applications-page .cide-steps-scroll { padding:64px 0; }
+    .applications-page .cide-steps-heading h2 { font-size:36px; }
+    .applications-page .cide-steps-grid { grid-template-columns:1fr; overflow:visible; }
+    .applications-page .factor-grid{grid-template-columns:1fr}
+    .applications-page .package-band{padding:20px}
+  }
+</style>
+
+<script>
+(function () {
+  const section = document.querySelector('[data-cide-steps-scroll]');
+  if (!section) return;
+
+  const container = section.querySelector('[data-cide-steps-container]');
+  const cards = Array.from(section.querySelectorAll('[data-cide-step-card]'));
+  if (!cards.length || !container) return;
+
+  const desktopQuery = window.matchMedia('(min-width: 1281px)');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  let enabled = false;
+  let ticking = false;
+
+  function setActive(index, floatIndex) {
+    cards.forEach(function (card, i) {
+      const distance = Math.abs(floatIndex - i);
+      const strength = clamp(1 - distance, 0, 1);
+      const isActive = i === index;
+
+      card.classList.toggle('is-active', isActive);
+      card.style.setProperty('--name-y', ((1 - strength) * 22).toFixed(2) + 'px');
+      card.style.setProperty('--name-opacity', (0.36 + strength * 0.64).toFixed(3));
+      card.style.setProperty('--desc-opacity', (0.34 + strength * 0.66).toFixed(3));
+      card.style.setProperty('--card-opacity', (0.45 + strength * 0.55).toFixed(3));
+      card.style.setProperty('--card-scale', (0.965 + strength * 0.035).toFixed(3));
+      card.style.setProperty('--card-y', ((i - floatIndex) * 18).toFixed(2) + 'px');
+      card.style.setProperty('--image-y', ((i - floatIndex) * -10).toFixed(2) + 'px');
+      card.style.setProperty('--line-scale', (0.18 + strength * 0.82).toFixed(3));
+    });
+  }
+
+  function update() {
+    if (!enabled) return;
+
+    const rect = section.getBoundingClientRect();
+    const maxScroll = Math.max(1, section.offsetHeight - window.innerHeight);
+    const progress = clamp(-rect.top / maxScroll, 0, 1);
+    const headingHide = clamp(progress / 0.12, 0, 1);
+    const lift = -headingHide * Math.min(170, window.innerHeight * 0.2);
+    const stepProgress = clamp((progress - 0.08) / 0.92, 0, 1);
+    const floatIndex = stepProgress * (cards.length - 1);
+    const activeIndex = clamp(Math.round(floatIndex), 0, cards.length - 1);
+
+    section.style.setProperty('--heading-hide', headingHide.toFixed(3));
+    section.style.setProperty('--container-lift', lift.toFixed(2) + 'px');
+    setActive(activeIndex, floatIndex);
+  }
+
+  function measure() {
+    enabled = desktopQuery.matches && !reduceMotion;
+
+    if (!enabled) {
+      section.style.height = 'auto';
+      section.style.setProperty('--heading-hide', '0');
+      section.style.setProperty('--container-lift', '0px');
+      cards.forEach(function (card) {
+        card.classList.add('is-active');
+        card.style.setProperty('--card-y', '0px');
+        card.style.setProperty('--card-scale', '1');
+        card.style.setProperty('--card-opacity', '1');
+        card.style.setProperty('--name-y', '0px');
+        card.style.setProperty('--name-opacity', '1');
+        card.style.setProperty('--desc-opacity', '1');
+        card.style.setProperty('--image-y', '0px');
+        card.style.setProperty('--line-scale', '1');
+      });
+      return;
+    }
+
+    section.style.height = (window.innerHeight * (cards.length + 1)) + 'px';
+    update();
+  }
+
+  function requestUpdate() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      update();
+      ticking = false;
+    });
+  }
+
+  let resizeTimer = null;
+  function requestMeasure() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(measure, 120);
+  }
+
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestMeasure);
+
+  if (desktopQuery.addEventListener) {
+    desktopQuery.addEventListener('change', measure);
+  } else {
+    desktopQuery.addListener(measure);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', measure);
+  } else {
+    measure();
+  }
+
+  window.addEventListener('load', measure);
+  setTimeout(measure, 300);
+})();
+</script>

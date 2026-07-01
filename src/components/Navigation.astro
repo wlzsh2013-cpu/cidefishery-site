@@ -1,0 +1,237 @@
+﻿---
+import { SITE_CONFIG } from '../content/config/site.config';
+import Picture from './Picture.astro';
+---
+
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo-link" aria-label="CIDE FISHERY Home">
+      <Picture
+        src="/images/logo.webp"
+        alt="CIDE FISHERY Logo"
+        width={160}
+        height={48}
+        loading="eager"
+        className="logo-img"
+      />
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li class="has-dropdown">
+          <a href="/products/">Products</a>
+          <ul class="dropdown">
+            <li><a href="/products/artemia-cysts/">Artemia Cysts</a></li>
+            <li><a href="/products/premium-artemia-cysts/">Premium Artemia Cysts</a></li>
+            <li><a href="/products/decapsulated-eggs/">Decapsulated Eggs</a></li>
+            <li><a href="/products/bulk-artemia-cysts/">Bulk Supply</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="/applications/">Applications</a>
+          <ul class="dropdown">
+            <li><a href="/application-shrimp-hatchery/">Shrimp Hatchery</a></li>
+            <li><a href="/applications/fish-fry/">Fish Fry</a></li>
+            <li><a href="/applications/crab-larvae/">Crab Larvae</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="/about/">About</a>
+          <ul class="dropdown">
+            <li><a href="/about/">About CIDE FISHERY</a></li>
+            <li><a href="/trust/processing-facility/">Processing Facility</a></li>
+            <li><a href="/trust/quality-control/">Quality Control</a></li>
+            <li><a href="/trust/cold-storage/">Cold Storage</a></li>
+            <li><a href="/trust/packaging/">Packaging Options</a></li>
+            <li><a href="/trust/global-supply/">Global Supply</a></li>
+          </ul>
+        </li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/" class="nav-cta btn btn-primary btn-sm">Inquiry</a></li>
+      </ul>
+    </nav>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-neutral-gray);
+    box-shadow: 0 1px 4px rgba(11, 31, 51, 0.06);
+  }
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  .logo-img {
+    height: 40px;
+    width: auto;
+    margin: 40px 0;
+  }
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+  }
+  .nav-list > li > a {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 8px 0;
+    position: relative;
+  }
+  .nav-list > li > a:hover {
+    color: var(--color-champagne-gold);
+  }
+  .nav-list > li > a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-champagne-gold);
+    transition: width 0.2s ease;
+  }
+  .nav-list > li > a:hover::before {
+    width: 100%;
+  }
+  .nav-cta {
+    color: var(--color-btn-text) !important;
+    padding: 8px 20px !important;
+  }
+  .nav-cta::before { display: none !important; }
+
+  .has-dropdown {
+    position: relative;
+  }
+  .has-dropdown > a::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 6px;
+    margin-bottom: 5px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    transition: transform 0.2s ease;
+    vertical-align: middle;
+  }
+  .has-dropdown:hover > a::after,
+  .has-dropdown.open > a::after {
+    transform: rotate(-135deg);
+  }
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background: var(--color-white);
+    border: 1px solid var(--color-neutral-gray);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(11, 31, 51, 0.1);
+    min-width: 230px;
+    list-style: none;
+    padding: 8px 0;
+  }
+  .has-dropdown:hover .dropdown {
+    display: block;
+  }
+  .dropdown li a {
+    display: block;
+    padding: 8px 16px;
+    color: var(--color-text);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .dropdown li a:hover {
+    background: var(--color-light-bg);
+    color: var(--color-champagne-gold);
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .mobile-menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 1024px) {
+    .main-nav {
+      display: none;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-neutral-gray);
+      box-shadow: 0 4px 12px rgba(11, 31, 51, 0.1);
+    }
+    .main-nav.open { display: block; }
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 16px 0;
+    }
+    .nav-list > li > a {
+      display: block;
+      padding: 12px 20px;
+    }
+    .dropdown {
+      position: static;
+      box-shadow: none;
+      border: none;
+      min-width: 0;
+      padding: 0 0 8px 16px;
+      background: var(--color-light-bg);
+      border-radius: 0;
+    }
+    .has-dropdown:hover .dropdown { display: none; }
+    .has-dropdown.open .dropdown { display: block; }
+    .dropdown li a { padding: 10px 20px; }
+    .mobile-menu-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('.main-nav');
+  const dropdownItems = document.querySelectorAll('.has-dropdown');
+
+  toggle?.addEventListener('click', () => {
+    nav?.classList.toggle('open');
+  });
+
+  dropdownItems.forEach((item) => {
+    const link = item.querySelector(':scope > a');
+    link?.addEventListener('click', (event) => {
+      if (window.matchMedia('(max-width: 1024px)').matches) {
+        event.preventDefault();
+        item.classList.toggle('open');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,183 @@
+﻿---
+
+---
+
+<div class="cf-clients">
+  <div class="cf-clients-header">
+    <h2>Trusted by Global Aquaculture Partners</h2>
+    <p>Hear from hatcheries, distributors and importers who rely on CIDE FISHERY</p>
+  </div>
+
+  <div class="cf-clients-grid">
+
+    <article class="cf-client-card cf-client-reverse">
+      <div class="cf-client-image">
+        <img src="/images/client-testimonial-01.avif" alt="CIDE FISHERY client shrimp hatchery director"><span>Image 01</span>
+      </div>
+      <div class="cf-client-quote">
+        <div class="cf-quote-mark"></div>
+        <blockquote>"CIDE FISHERY's Artemia cysts have consistently delivered high hatch rates for our shrimp hatchery operations. Reliable supply and professional service."</blockquote>
+        <p>John Marks -Shrimp Hatchery Director, Thailand</p>
+      </div>
+    </article>
+
+    <article class="cf-client-card">
+      <div class="cf-client-image">
+        <img src="/images/client-testimonial-02.avif" alt="CIDE FISHERY client aquaculture distributor"><span>Image 02</span>
+      </div>
+      <div class="cf-client-quote">
+        <div class="cf-quote-mark"></div>
+        <blockquote>"As a distributor, we value consistent quality and on-time delivery. CIDE FISHERY has been our trusted Artemia cyst supplier for over 5 years."</blockquote>
+        <p>Carl Wooden -Aquaculture Distributor, Netherlands</p>
+      </div>
+    </article>
+
+    <article class="cf-client-card cf-client-reverse">
+      <div class="cf-client-image">
+        <img src="/images/client-testimonial-03.avif" alt="CIDE FISHERY client hatchery operations manager"><span>Image 03</span>
+      </div>
+      <div class="cf-client-quote">
+        <div class="cf-quote-mark"></div>
+        <blockquote>"Outstanding collaboration and communication. The results surpassed our expectations for fish fry feeding programs."</blockquote>
+        <p>Akira Tanaka -Hatchery Operations Manager, Japan</p>
+      </div>
+    </article>
+
+    <article class="cf-client-card">
+      <div class="cf-client-image">
+        <img src="/images/client-testimonial-04.avif" alt="CIDE FISHERY client import manager"><span>Image 04</span>
+      </div>
+      <div class="cf-client-quote">
+        <div class="cf-quote-mark"></div>
+        <blockquote>"Professional approach and excellent communication. The Artemia cyst quality has been significantly better than our previous suppliers."</blockquote>
+        <p>Benjamin Hard -Import Manager, Germany</p>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<style>
+.cf-clients {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 120px) 0;
+}
+
+.cf-clients-header {
+  text-align: center;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.cf-clients-header h2 {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cf-clients-header p {
+  margin: clamp(12px, 1.5vw, 20px) 0 0;
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: rgba(255,255,255,0.60);
+}
+
+.cf-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 36px);
+}
+
+.cf-client-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cf-client-reverse {
+  flex-direction: column-reverse;
+}
+
+.cf-clients-grid .cf-client-card:nth-child(odd) {
+  margin-top: clamp(40px, 5vh, 80px);
+}
+
+.cf-clients-grid .cf-client-card:nth-child(even) {
+  margin-bottom: clamp(40px, 5vh, 80px);
+}
+
+.cf-client-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(53,183,216,0.22), rgba(11,31,51,0.30)),
+    #0a1a2b;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.cf-client-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cf-client-image img[src=""] { display: none; }
+.cf-client-image span {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: rgba(255,255,255,0.40); font-size: clamp(18px, 1.8vw, 28px);
+  font-weight: 700; letter-spacing: -0.03em;
+}
+.cf-client-image img:not([src=""]) + span { display: none; }
+
+.cf-client-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(22px, 2vw, 32px);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  flex: 1;
+}
+
+.cf-quote-mark {
+  width: 48px;
+  height: 3px;
+  margin-bottom: clamp(18px, 2vw, 28px);
+  background: #E6B36A;
+  opacity: 0.8;
+}
+
+.cf-client-quote blockquote {
+  margin: 0;
+  font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+}
+
+.cf-client-quote p {
+  margin: clamp(16px, 1.8vw, 24px) 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #E6B36A;
+}
+
+@media (max-width: 1200px) {
+  .cf-clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cf-client-reverse { flex-direction: column; }
+  .cf-clients-grid .cf-client-card:nth-child(odd),
+  .cf-clients-grid .cf-client-card:nth-child(even) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .cf-clients-grid { grid-template-columns: 1fr; gap: 28px; }
+  .cf-clients-header h2 { font-size: clamp(28px, 8vw, 36px); }
+}
+</style>

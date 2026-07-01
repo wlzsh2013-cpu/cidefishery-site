@@ -1,0 +1,147 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+
+const specs = [
+  { label: 'Core Product', value: 'Natural Artemia Cysts / Brine Shrimp Eggs (Standard Grade)' },
+  { label: 'Nutritional Benefit', value: 'Active live nauplii for steady early-stage growth support' },
+  { label: 'Target Species', value: 'Commercial shrimp postlarvae (PL), fish fry, and crab nurseries' },
+  { label: 'Industrial Packaging', value: 'Hermetically sealed vacuum cans, moisture-proof foil bags, and bulk drums' },
+  { label: 'Storage Condition', value: 'Cold chain storage recommended to preserve stable long-term hatchability' },
+  { label: 'B2B Supply Guarantee', value: 'Consistent batch tracking, custom labeling, and global logistics coordination' },
+];
+
+const hatching = [
+  { title: 'Hatching Cone', text: 'Utilize clean, transparent containers with a conical bottom to ensure uniform circulation and effortless harvest separation.' },
+  { title: 'Constant Aeration', text: 'Provide powerful, continuous aeration from the very bottom of the cone to keep all cysts in constant suspension.' },
+  { title: 'Optimal Density', text: 'Maintain a controlled cyst density, never exceeding 2 grams per liter of water to prevent oxygen depletion.' },
+  { title: 'Stable Temperature', text: 'Keep water temperatures strictly between 27°C and 28°C to ensure synchronized, rapid hatching.' },
+  { title: 'Hatching Window', text: 'Harvest active live nauplii within approximately 24 to 30 hours, depending on your specific batch parameters.' },
+  { title: 'Clean Collection', text: 'Turn off aeration and shade the top for 10-15 minutes. Siphon clean nauplii from the bottom and rinse thoroughly with fresh seawater before feeding.' },
+];
+
+const applications = [
+  { icon: '/icons/shrimp-hatcheries.svg', alt: 'Shrimp hatchery Artemia cyst feeding application icon', title: 'Shrimp Hatcheries', href: '/application-shrimp-hatchery/', text: 'High-energy live feed tailored for routine Zoea, Mysis, and Postlarva (PL) stages.' },
+  { icon: '/icons/fish-fry-producers.svg', alt: 'Fish fry Artemia nauplii nutrition application icon', title: 'Fish Fry Programs', href: '/applications/fish-fry/', text: 'Highly digestible, cost-effective nutrition that supports marine and freshwater fry survival.' },
+  { icon: '/icons/crab-crustacean-nurseries.svg', alt: 'Crab nursery Artemia cyst feeding application icon', title: 'Crab Nurseries', href: '/applications/crab-larvae/', text: 'Balanced lipid profiles engineered to boost resistance and growth during sensitive crustacean molting phases.' },
+];
+---
+
+<BaseLayout
+  title="Artemia Cysts for Commercial Hatchery Feeding Programs | CIDE FISHERY"
+  description="Reliable high-yield Artemia cysts and brine shrimp eggs for daily hatchery feeding programs, with batch tracking, hatching protocol and cold-chain packaging support."
+  ogImage="/images/products/artemia-hatching-test-tubes.avif"
+  jsonLdType="Product"
+  jsonLdData={{ name: 'Artemia Cysts', description: 'Natural Artemia cysts for commercial hatchery feeding programs', category: 'Aquaculture Supplies' }}
+  breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Artemia Cysts', url: '/products/artemia-cysts/' }]}
+  showBreadcrumb
+>
+  <section class="section product-hero-wrap bg-light">
+    <div class="container product-hero">
+      <div>
+        <span class="eyebrow">100% NATURAL BRINE SHRIMP EGGS</span>
+        <h1>Artemia Cysts for Commercial Hatchery Feeding Programs</h1>
+        <p class="page-lead">CIDE FISHERY delivers reliable, high-yield Artemia cysts that serve as the economic foundation for daily larval nutrition. Upon hatching, our nutrient-rich live nauplii provide the essential protein and lipid profiles required to sustain steady growth and survival rates in shrimp larvae, fish fry, and crab nurseries.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" size="lg">Get Latest Batch Analysis</Button>
+          <Button href="/trust/packaging/" variant="outline" size="lg">Explore Packaging Formats</Button>
+        </div>
+      </div>
+      <figure class="hero-image">
+        <img src="/images/products/artemia-hatching-test-tubes.avif" alt="Artemia hatching test tubes with orange nauplii sediment." width="1448" height="1086" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <span class="eyebrow">WHY HATCHERIES TRUST CIDE FISHERY</span>
+        <h2>The Essential Live Feed for Daily Aquaculture Upbringing</h2>
+        <p>Our standard Artemia cysts are selected to offer maximum operational flexibility, hatching on-demand to support your routine feeding schedules. They deliver the active swimming movement and high digestibility that young postlarvae need for dependable, day-to-day development.</p>
+      </div>
+      <div class="specs-grid">
+        {specs.map((spec) => (<div class="spec-item"><span>{spec.label}</span><strong>{spec.value}</strong></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">HATCHING PROTOCOL</span>
+        <h2>Optimal Conditions for Reliable Nauplii Yield</h2>
+        <p>Hatching efficiency depends heavily on water parameters and hatchery management. Follow our verified commercial protocol below to secure uniform nauplii release and optimal hatching performance from your batch.</p>
+      </div>
+      <div class="process-grid">
+        {hatching.map((step, index) => (<div class="process-card"><span class="step-num">{String(index + 1).padStart(2, '0')} /</span><h3>{step.title}</h3><p>{step.text}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container media-grid">
+      <img class="media-photo" src="/images/products/artemia-nauplii-under-microscope.avif" alt="Artemia nauplii and cysts under a microscope." width="1448" height="1086" loading="lazy" />
+      <div>
+        <span class="eyebrow">APPLICATIONS</span>
+        <h2>Targeted Nutrition Across Commercial Aquaculture</h2>
+        <div class="app-list">
+          {applications.map((app) => (<a href={app.href} class="app-item"><img src={app.icon} alt={app.alt} class="app-icon" width="44" height="44" loading="lazy" decoding="async" /><span><strong>{app.title}</strong><small>{app.text}</small></span></a>))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="packaging">
+    <div class="container package-band">
+      <div>
+        <span class="eyebrow">PACKAGING &amp; SUPPLY SECURITY</span>
+        <h2>Preserving Hatchability from Our Facility to Your Port</h2>
+        <p>To protect biological integrity during global transit, CIDE FISHERY offers hermetically sealed vacuum cans, moisture-proof multi-layer foil bags, and heavy-duty paper drums. We accommodate custom container labeling, contract-based monthly volume planning, and full cold-chain support to guarantee stable, cost-effective arrival.</p>
+        <div class="hero-ctas">
+          <Button href="/trust/packaging/" variant="primary" size="lg">Download Packaging Specifications</Button>
+          <Button href="/trust/cold-storage/" variant="outline" size="lg">Request Cold Storage Guidelines</Button>
+        </div>
+      </div>
+      <img src="/images/products/artemia-cysts-metal-cans.avif" alt="Artemia hatching test tubes with orange nauplii sediment." width="1448" height="1086" loading="lazy" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .product-hero-wrap { padding: 64px 0; }
+  .product-hero, .two-col, .media-grid, .package-band { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .eyebrow { display: inline-block; color: var(--color-brand-blue); font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+  .page-lead { font-size: 18px; opacity: 0.84; margin: 16px 0 24px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-image, .media-photo, .package-band img { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; background: var(--color-white); }
+  .hero-image { aspect-ratio: 4 / 3; margin: 0; }
+  .hero-image img, .media-photo, .package-band img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .specs-grid { display: grid; gap: 1px; background: var(--color-neutral-gray); border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; }
+  .spec-item { background: var(--color-white); padding: 16px 18px; display: grid; gap: 4px; }
+  .spec-item span { color: var(--color-brand-blue); font-weight: 700; font-size: var(--fs-small); }
+  .spec-item strong { font-size: var(--fs-small); color: var(--color-text); }
+  .two-col h2 { margin-bottom: 20px; }
+  .section-head { max-width: 760px; margin-bottom: 28px; }
+  .section-head h2 { margin-bottom: 20px; }
+  .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .process-card { background: var(--color-white); border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); padding: 22px; }
+  .step-num { color: var(--color-champagne-gold); font-weight: 800; }
+  .process-card h3 { margin: 8px 0; font-size: 20px; }
+  .process-card p { font-size: var(--fs-small); opacity: 0.8; }
+  .media-photo { aspect-ratio: 4 / 3; }
+  .media-grid h2 { margin-bottom: 20px; }
+  .app-list { display: grid; gap: 14px; margin-top: 0; }
+  .app-item { display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); color: var(--color-text); }
+  .app-icon { width: 44px; height: 44px; flex: 0 0 44px; object-fit: contain; border: 0; border-radius: 0; background: transparent; }
+  .app-item strong, .app-item small { display: block; }
+  .app-item small { margin-top: 2px; opacity: 0.72; }
+  .package-band { padding: 68px 58px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .package-band h2 { margin-bottom: 20px; }
+  .package-band p { margin-bottom: 20px; }
+  .package-band img { aspect-ratio: 4 / 3; }
+  @media (max-width: 1024px) { .product-hero, .two-col, .media-grid, .package-band { grid-template-columns: 1fr; } .process-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 767px) { .process-grid { grid-template-columns: 1fr; } .package-band { padding: 20px; } }
+</style>
+
+

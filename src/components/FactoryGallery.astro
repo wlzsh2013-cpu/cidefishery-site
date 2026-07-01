@@ -1,0 +1,154 @@
+﻿---
+
+---
+
+<div class="cf-gallery-top">
+  <div class="cf-floating-gallery">
+    <button class="cf-float-img cf-img-01" type="button" data-lightbox>
+      <img src="/images/factory-visit-01.avif" alt="CIDE FISHERY artemia cysts processing workshop"><span>Image 01</span>
+    </button>
+    <button class="cf-float-img cf-img-02" type="button" data-lightbox>
+      <img src="/images/factory-visit-02.avif" alt="CIDE FISHERY quality inspection laboratory"><span>Image 02</span>
+    </button>
+    <button class="cf-float-img cf-img-03" type="button" data-lightbox>
+      <img src="/images/factory-visit-03.avif" alt="CIDE FISHERY cold storage warehouse"><span>Image 03</span>
+    </button>
+    <button class="cf-float-img cf-img-04" type="button" data-lightbox>
+      <img src="/images/factory-visit-04.avif" alt="CIDE FISHERY packaging and sorting area"><span>Image 04</span>
+    </button>
+    <button class="cf-float-img cf-img-05" type="button" data-lightbox>
+      <img src="/images/factory-visit-05.avif" alt="CIDE FISHERY production facility overview"><span>Image 05</span>
+    </button>
+    <button class="cf-float-img cf-img-06" type="button" data-lightbox>
+      <img src="/images/factory-visit-06.avif" alt="CIDE FISHERY inventory and storage section"><span>Image 06</span>
+    </button>
+    <button class="cf-float-img cf-img-07" type="button" data-lightbox>
+      <img src="/images/factory-visit-07.avif" alt="CIDE FISHERY processing equipment detail"><span>Image 07</span>
+    </button>
+    <button class="cf-float-img cf-img-08" type="button" data-lightbox>
+      <img src="/images/factory-visit-08.avif" alt="CIDE FISHERY team operating machinery"><span>Image 08</span>
+    </button>
+    <button class="cf-float-img cf-img-09" type="button" data-lightbox>
+      <img src="/images/factory-visit-09.avif" alt="CIDE FISHERY factory building exterior"><span>Image 09</span>
+    </button>
+    <button class="cf-float-img cf-img-10" type="button" data-lightbox>
+      <img src="/images/factory-visit-10.avif" alt="CIDE FISHERY client inspection and visit"><span>Image 10</span>
+    </button>
+  </div>
+
+  <div class="cf-gallery-center">
+    <h2>CIDE FISHERY Welcomes Global Aquaculture Partners to Visit Our Factory</h2>
+  </div>
+</div>
+
+<style>
+.cf-gallery-top {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 100px 0; padding: clamp(90px, 9vw, 150px) 24px;
+  box-sizing: border-box;
+}
+
+.cf-gallery-center {
+  position: relative;
+  z-index: 5;
+  width: 90%;
+  max-width: 1120px;
+  text-align: center;
+}
+
+.cf-gallery-center h2 {
+  margin: 0;
+  font-size: clamp(36px, 5.5vw, 56px);
+  line-height: 1.08;
+  font-weight: 700;
+  color: #ffffff;
+  text-wrap: balance;
+  text-shadow: 0 12px 40px rgba(0,0,0,0.30);
+}
+
+.cf-floating-gallery {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cf-float-img {
+  --move-y: 0px;
+  position: absolute;
+  width: clamp(150px, 16vw, 280px);
+  aspect-ratio: 16 / 10;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: zoom-in;
+  pointer-events: auto;
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.28), rgba(255,255,255,0.08)),
+    rgba(255,255,255,0.10);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.26);
+  transform: translate3d(0, var(--move-y), 0);
+  transition: transform 0.22s ease-out, box-shadow 0.28s ease, filter 0.28s ease;
+  will-change: transform;
+}
+
+.cf-float-img:hover {
+  filter: brightness(1.08);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.34),
+    0 0 0 1px rgba(230,179,106,0.50),
+    inset 0 1px 0 rgba(255,255,255,0.36);
+}
+
+.cf-float-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cf-float-img img[src=""] { display: none; }
+.cf-float-img span {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: rgba(255,255,255,0.65); font-size: clamp(16px, 2vw, 28px);
+  font-weight: 700; letter-spacing: -0.03em;
+}
+.cf-float-img img:not([src=""]) + span { display: none; }
+
+.cf-img-01 { left: 3%; top: 6%; width: clamp(150px, 15vw, 250px); }
+.cf-img-02 { left: 23%; top: 4%; width: clamp(150px, 14vw, 240px); }
+.cf-img-03 { right: 25%; top: 6%; width: clamp(150px, 14vw, 245px); }
+.cf-img-04 { right: 4%; top: 9%; width: clamp(150px, 16vw, 270px); }
+.cf-img-05 { left: 5%; top: 38%; width: clamp(145px, 14vw, 240px); }
+.cf-img-06 { right: 6%; top: 39%; width: clamp(145px, 14vw, 240px); }
+.cf-img-07 { left: 12%; bottom: 7%; width: clamp(160px, 17vw, 290px); }
+.cf-img-08 { left: 38%; bottom: 4%; width: clamp(150px, 15vw, 255px); }
+.cf-img-09 { right: 25%; bottom: 7%; width: clamp(150px, 15vw, 255px); }
+.cf-img-10 { right: 5%; bottom: 9%; width: clamp(160px, 17vw, 290px); }
+
+@media (max-width: 1024px) {
+  .cf-gallery-top {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 90px 18px 70px;
+  }
+  .cf-gallery-center { order: 1; }
+  .cf-floating-gallery {
+    position: relative; inset: auto; order: 2;
+    width: min(900px, 100%); display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px; margin-top: 42px;
+  }
+  .cf-float-img {
+    position: relative; inset: auto !important;
+    width: 100% !important; transform: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .cf-gallery-center h2 { font-size: clamp(28px, 8vw, 36px); }
+  .cf-floating-gallery { grid-template-columns: 1fr; }
+}
+</style>

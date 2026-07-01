@@ -1,0 +1,96 @@
+﻿---
+
+import Button from './Button.astro';
+import Picture from './Picture.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  ctaText?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  imageSrc,
+  imageAlt,
+  imageWidth = 400,
+  imageHeight = 300,
+  ctaText = 'Learn More',
+} = Astro.props;
+---
+
+<article class="product-card">
+  <a href={href} class="card-image-link">
+    <Picture
+      src={imageSrc}
+      alt={imageAlt}
+      width={imageWidth}
+      height={imageHeight}
+      loading="lazy"
+      className="card-img"
+    />
+  </a>
+  <div class="card-body">
+    <h3><a href={href}>{title}</a></h3>
+    <p>{description}</p>
+    <Button href={href} variant="outline" size="sm">{ctaText}</Button>
+  </div>
+</article>
+
+<style>
+  .product-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-neutral-gray);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  .product-card:hover {
+    box-shadow: 0 8px 24px rgba(11, 31, 51, 0.1);
+    transform: translateY(-2px);
+  }
+  .card-image-link {
+    display: block;
+    overflow: hidden;
+  }
+  .card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: var(--color-light-bg);
+    transition: transform 0.3s ease;
+  }
+  .product-card:hover .card-img {
+    transform: scale(1.03);
+  }
+  .card-body {
+    padding: 20px;
+  }
+  .card-body h3 {
+    margin-bottom: 8px;
+  }
+  .card-body h3 a {
+    color: var(--color-h2-h3-h4);
+    font-size: 20px;
+  }
+  .card-body h3 a:hover {
+    color: var(--color-champagne-gold);
+  }
+  .card-body p {
+    font-size: var(--fs-small);
+    color: var(--color-text);
+    opacity: 0.8;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

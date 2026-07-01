@@ -1,0 +1,525 @@
+﻿---
+
+---
+
+<section class="cf-home-banner" id="cfHomeBanner">
+
+  <svg class="cf-svg-filter" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="cfHomeBannerOceanWaveFilter" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.012 0.045"
+        numOctaves="2"
+        seed="8"
+        result="oceanNoise">
+        <animate
+          attributeName="baseFrequency"
+          dur="7s"
+          values="0.012 0.045; 0.020 0.070; 0.014 0.055; 0.012 0.045"
+          repeatCount="indefinite" />
+      </feTurbulence>
+
+      <feDisplacementMap
+        in="SourceGraphic"
+        in2="oceanNoise"
+        scale="14"
+        xChannelSelector="R"
+        yChannelSelector="G">
+        <animate
+          attributeName="scale"
+          dur="5.5s"
+          values="8; 14; 11; 16; 8"
+          repeatCount="indefinite" />
+      </feDisplacementMap>
+    </filter>
+  </svg>
+
+  <div class="cf-banner-slides">
+    <div class="cf-banner-slide active">
+      <img src="/images/banner-01.avif" alt="CIDE FISHERY artemia cysts supplier for hatchery aquaculture" width="1920" height="780">
+    </div>
+    <div class="cf-banner-slide">
+      <img src="/images/banner-02.avif" alt="Premium brine shrimp eggs for shrimp and fish hatchery feeding programs" width="1920" height="780">
+    </div>
+    <div class="cf-banner-slide">
+      <img src="/images/banner-03.avif" alt="CIDE FISHERY global aquaculture supply network and export logistics" width="1920" height="780">
+    </div>
+  </div>
+
+  <div class="cf-banner-overlay"></div>
+  <div class="cf-ocean-ripple"></div>
+  <div class="cf-switch-wave"></div>
+
+  <button class="cf-banner-arrow cf-banner-prev" type="button" aria-label="Previous slide">&#8249;</button>
+  <button class="cf-banner-arrow cf-banner-next" type="button" aria-label="Next slide">&#8250;</button>
+
+  <div class="cf-banner-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="cf-banner-text">
+    <div class="cf-banner-text-item active">
+      <p class="cf-banner-subtitle">CIDE FISHERY | Artemia Cysts Supplier</p>
+      <h1>Reliable Artemia Cysts for Hatchery Supply Programs</h1>
+      <div class="cf-banner-btn">
+        <a href="/contact/">Request a Quote <span>&#8594;</span></a>
+      </div>
+    </div>
+    <div class="cf-banner-text-item">
+      <p class="cf-banner-subtitle">Premium Brine Shrimp Eggs</p>
+      <h2>Supporting Shrimp Hatcheries, Fish Fry &amp; Crab Larvae Feeding</h2>
+      <div class="cf-banner-btn">
+        <a href="/products/">View Artemia Products <span>&#8594;</span></a>
+      </div>
+    </div>
+    <div class="cf-banner-text-item">
+      <p class="cf-banner-subtitle">Global Aquaculture Supplier</p>
+      <h2>Professional Processing, Cold Storage &amp; Premium Feed Export</h2>
+      <div class="cf-banner-btn">
+        <a href="/contact/">Contact Our Team <span>&#8594;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+#cfHomeBanner.cf-home-banner {
+  position: relative;
+  width: 100vw;
+  height: 780px;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  clip-path: inset(0);
+  contain: layout paint;
+  background: #0B1F33;
+  font-family: var(--font-family);
+  isolation: isolate;
+  z-index: 1;
+}
+
+#cfHomeBanner .cf-svg-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  left: -9999px;
+  top: -9999px;
+  pointer-events: none;
+}
+
+#cfHomeBanner .cf-banner-slides,
+#cfHomeBanner .cf-banner-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#cfHomeBanner .cf-banner-slide {
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  z-index: 1;
+}
+
+#cfHomeBanner .cf-banner-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+#cfHomeBanner .cf-banner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#cfHomeBanner .cf-banner-slide.active img {
+  filter: url(#cfHomeBannerOceanWaveFilter);
+  animation: cfHomeBannerOceanImageMove 8s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes cfHomeBannerOceanImageMove {
+  0% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: scale(1.07) translate3d(-0.5%, 0.25%, 0);
+  }
+  50% {
+    transform: scale(1.065) translate3d(0.5%, -0.2%, 0);
+  }
+  75% {
+    transform: scale(1.075) translate3d(-0.25%, -0.35%, 0);
+  }
+  100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+}
+
+#cfHomeBanner .cf-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(11,31,51,0.88) 0%, rgba(11,31,51,0.60) 40%, rgba(0,0,0,0.18) 100%),
+    radial-gradient(circle at 22% 48%, rgba(30,95,168,0.24), transparent 36%);
+}
+
+#cfHomeBanner .cf-ocean-ripple {
+  position: absolute;
+  inset: -10%;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse at 30% 42%, rgba(255,255,255,0.14), transparent 34%),
+    radial-gradient(ellipse at 72% 58%, rgba(53,183,216,0.14), transparent 36%),
+    radial-gradient(ellipse at center, rgba(255,255,255,0.08), transparent 42%);
+  filter: blur(10px);
+  animation: cfHomeBannerOceanRippleMove 11s ease-in-out infinite;
+}
+
+@keyframes cfHomeBannerOceanRippleMove {
+  0% {
+    transform: translate3d(-2%, 1%, 0) scale(1.03);
+  }
+  50% {
+    transform: translate3d(3%, -2%, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(-2%, 1%, 0) scale(1.03);
+  }
+}
+
+#cfHomeBanner .cf-switch-wave {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 30%,
+      rgba(53,183,216,0.30) 46%,
+      rgba(255,255,255,0.16) 54%,
+      transparent 75%
+    );
+  transform: translateX(-130%) skewX(-16deg);
+}
+
+#cfHomeBanner.is-changing .cf-switch-wave {
+  animation: cfHomeBannerSwitchWavePass 1s ease forwards;
+}
+
+@keyframes cfHomeBannerSwitchWavePass {
+  0% {
+    opacity: 0;
+    transform: translateX(-130%) skewX(-16deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(130%) skewX(-16deg);
+  }
+}
+
+#cfHomeBanner .cf-banner-text {
+  position: absolute;
+  z-index: 5;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 58%;
+  max-width: 850px;
+  color: #fff;
+}
+
+#cfHomeBanner .cf-banner-text-item {
+  display: none;
+  animation: cfHomeBannerTextUp 0.9s ease both;
+}
+
+#cfHomeBanner .cf-banner-text-item.active {
+  display: block;
+}
+
+#cfHomeBanner .cf-banner-subtitle {
+  margin: 0 0 18px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+#cfHomeBanner .cf-banner-text h1,
+#cfHomeBanner .cf-banner-text h2 {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1.12;
+  font-weight: 700;
+  max-width: 820px;
+  color: #ffffff;
+}
+
+#cfHomeBanner .cf-banner-btn {
+  margin-top: 38px;
+}
+
+#cfHomeBanner .cf-banner-btn a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 34px;
+  border-radius: 0;
+  background: #E6B36A;
+  color: #0B1F33;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+#cfHomeBanner .cf-banner-btn a:hover {
+  background: #ffffff;
+  color: #0B1F33;
+}
+
+#cfHomeBanner .cf-banner-arrow {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  transform: translateY(calc(-50% - 4px));
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.45);
+  background: rgba(0,0,0,0.18);
+  color: #ffffff;
+  font-size: 42px;
+  line-height: 48px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#cfHomeBanner .cf-banner-arrow:hover {
+  background: #E6B36A;
+  border-color: #E6B36A;
+  color: #0B1F33;
+}
+
+#cfHomeBanner .cf-banner-prev {
+  left: 38px;
+}
+
+#cfHomeBanner .cf-banner-next {
+  right: 38px;
+}
+
+#cfHomeBanner .cf-banner-dots {
+  position: absolute;
+  z-index: 7;
+  left: 8%;
+  bottom: 52px;
+  display: flex;
+  gap: 14px;
+}
+
+#cfHomeBanner .cf-banner-dots span {
+  width: 34px;
+  height: 4px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.42);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#cfHomeBanner .cf-banner-dots span.active {
+  width: 58px;
+  background: #E6B36A;
+}
+
+@keyframes cfHomeBannerTextUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  #cfHomeBanner.cf-home-banner {
+    height: 680px;
+  }
+
+  #cfHomeBanner .cf-banner-text {
+    width: 70%;
+    left: 7%;
+  }
+
+  #cfHomeBanner .cf-banner-text h1,
+  #cfHomeBanner .cf-banner-text h2 {
+    font-size: 44px;
+  }
+
+  #cfHomeBanner .cf-banner-subtitle {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 767px) {
+  #cfHomeBanner.cf-home-banner {
+    height: 560px;
+  }
+
+  #cfHomeBanner .cf-banner-text {
+    left: 6%;
+    right: 6%;
+    width: auto;
+  }
+
+  #cfHomeBanner .cf-banner-text h1,
+  #cfHomeBanner .cf-banner-text h2 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  #cfHomeBanner .cf-banner-subtitle {
+    font-size: 18px;
+  }
+
+  #cfHomeBanner .cf-banner-btn a {
+    padding: 13px 24px;
+    font-size: 13px;
+  }
+
+  #cfHomeBanner .cf-banner-arrow {
+    display: none;
+  }
+
+  #cfHomeBanner .cf-banner-dots {
+    left: 6%;
+    bottom: 34px;
+  }
+
+  #cfHomeBanner .cf-ocean-ripple {
+    opacity: 0.12;
+  }
+}
+</style>
+
+<script>
+(function() {
+  function initCidefisheryBannerOnly() {
+    const banner = document.getElementById('cfHomeBanner');
+    if (!banner) return;
+
+    const slides = banner.querySelectorAll('.cf-banner-slide');
+    const texts = banner.querySelectorAll('.cf-banner-text-item');
+    const dots = banner.querySelectorAll('.cf-banner-dots span');
+    const prev = banner.querySelector('.cf-banner-prev');
+    const next = banner.querySelector('.cf-banner-next');
+
+    if (!slides.length || !texts.length || !dots.length) return;
+
+    let current = 0;
+    let timer = null;
+    let locked = false;
+
+    function showSlide(index) {
+      if (locked) return;
+      locked = true;
+
+      banner.classList.add('is-changing');
+
+      setTimeout(function() {
+        current = (index + slides.length) % slides.length;
+
+        slides.forEach(function(slide, i) {
+          slide.classList.toggle('active', i === current);
+        });
+
+        texts.forEach(function(text, i) {
+          text.classList.toggle('active', i === current);
+        });
+
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === current);
+        });
+      }, 280);
+
+      setTimeout(function() {
+        banner.classList.remove('is-changing');
+        locked = false;
+      }, 1050);
+    }
+
+    function nextSlide() {
+      showSlide(current + 1);
+    }
+
+    function prevSlide() {
+      showSlide(current - 1);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      timer = setInterval(nextSlide, 5600);
+    }
+
+    function stopAutoPlay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    if (next) {
+      next.addEventListener('click', function() {
+        stopAutoPlay();
+        nextSlide();
+        startAutoPlay();
+      });
+    }
+
+    if (prev) {
+      prev.addEventListener('click', function() {
+        stopAutoPlay();
+        prevSlide();
+        startAutoPlay();
+      });
+    }
+
+    dots.forEach(function(dot, index) {
+      dot.addEventListener('click', function() {
+        stopAutoPlay();
+        showSlide(index);
+        startAutoPlay();
+      });
+    });
+
+    startAutoPlay();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCidefisheryBannerOnly);
+  } else {
+    initCidefisheryBannerOnly();
+  }
+})();
+</script>

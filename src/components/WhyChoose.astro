@@ -1,0 +1,232 @@
+﻿---
+const reasons = [
+  {
+    num: "01",
+    title: "Nearly 30 Years of Aquaculture Expertise",
+    desc: "Since 1995, CIDE FISHERY has specialized in Artemia cyst sourcing, processing and global supply for hatcheries and distributors worldwide.",
+  },
+  {
+    num: "02",
+    title: "Professional Processing & Cold Storage",
+    desc: "In-house grading, vacuum packaging and temperature-controlled cold storage preserve Artemia cyst viability at every stage.",
+  },
+  {
+    num: "03",
+    title: "Rigorous QC & Seamless Export Logistics",
+    desc: "Every batch undergoes hatch rate testing and purity checks. Complete export documentation and flexible shipping to all major markets.",
+  },
+];
+---
+
+<section class="cf-why">
+  <div class="cf-why-glow cf-why-glow-1"></div>
+  <div class="cf-why-glow cf-why-glow-2"></div>
+  <div class="cf-why-glow cf-why-glow-3"></div>
+
+  <div class="cf-why-inner">
+    <div class="cf-why-left">
+      <h2>Why Choose CIDE FISHERY?</h2>
+    </div>
+
+    {reasons.map((r) => (
+      <div class="cf-why-card">
+        <span class="cf-why-num">{r.num}</span>
+        <h3>{r.title}</h3>
+        <p>{r.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+.cf-why {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #102030;
+  padding: clamp(80px, 9vw, 150px) 0;
+  font-family: var(--font-family);
+}
+
+.cf-why-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(90px);
+  opacity: 0.45;
+}
+
+.cf-why-glow-1 {
+  width: clamp(350px, 45vw, 700px);
+  height: clamp(350px, 45vw, 700px);
+  top: -20%;
+  left: -10%;
+  background: rgba(53, 183, 216, 0.14);
+  animation: cfWhyFloat1 15s ease-in-out infinite;
+}
+
+.cf-why-glow-2 {
+  width: clamp(300px, 38vw, 600px);
+  height: clamp(300px, 38vw, 600px);
+  bottom: -18%;
+  right: -8%;
+  background: rgba(230, 179, 106, 0.12);
+  animation: cfWhyFloat2 18s ease-in-out infinite;
+}
+
+.cf-why-glow-3 {
+  width: clamp(250px, 30vw, 500px);
+  height: clamp(250px, 30vw, 500px);
+  top: 35%;
+  left: 55%;
+  background: rgba(30, 95, 168, 0.08);
+  animation: cfWhyFloat3 16s ease-in-out infinite;
+}
+
+@keyframes cfWhyFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -40px) scale(1.12); }
+  66% { transform: translate(-30px, 30px) scale(0.90); }
+}
+
+@keyframes cfWhyFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -30px) scale(1.15); }
+}
+
+@keyframes cfWhyFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40px, 20px) scale(1.08); }
+  75% { transform: translate(-40px, -15px) scale(0.94); }
+}
+
+.cf-why-inner {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(240px, 1.05fr) repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(11, 31, 51, 0.08);
+  border: 1px solid rgba(11, 31, 51, 0.08);
+}
+
+.cf-why-left,
+.cf-why-card {
+  min-height: clamp(380px, 34vw, 520px);
+  background: rgba(255, 255, 255, 0.92);
+  box-sizing: border-box;
+}
+
+.cf-why-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(42px, 4vw, 64px);
+}
+
+.cf-why-left h2 {
+  margin: 80px 0 0;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: #1E5FA8;
+}
+
+.cf-why-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(28px, 3vw, 46px);
+  padding-top: clamp(100px, 9vw, 130px);
+  background:
+    linear-gradient(180deg, rgba(30,95,168,0.02), rgba(11,31,51,0)),
+    #ffffff;
+  transition: background 0.35s ease, transform 0.35s ease;
+}
+
+.cf-why-card:hover {
+  background:
+    linear-gradient(180deg, rgba(230,179,106,0.06), rgba(53,183,216,0.01)),
+    #fafbfc;
+  transform: translateY(-4px);
+}
+
+.cf-why-num {
+  position: absolute;
+  top: clamp(24px, 2.6vw, 40px);
+  left: clamp(28px, 3vw, 46px);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #E6B36A;
+}
+
+.cf-why-card h3 {
+  margin: 0 0 clamp(18px, 2vw, 28px);
+  font-size: clamp(24px, 2.5vw, 34px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: #0B1F33;
+}
+
+.cf-why-card p {
+  margin: 0;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.55;
+  color: #5A6A7A;
+}
+
+@media (max-width: 1200px) {
+  .cf-why-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cf-why-left,
+  .cf-why-card {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cf-why {
+    padding: 70px 0;
+  }
+
+  .cf-why-inner {
+    width: min(100% - 32px, 1240px);
+    grid-template-columns: 1fr;
+  }
+
+  .cf-why-left,
+  .cf-why-card {
+    min-height: auto;
+  }
+
+  .cf-why-left {
+    gap: 36px;
+    padding: clamp(36px, 5vw, 48px);
+    text-align: center;
+  }
+
+  .cf-why-left h2 {
+    font-size: clamp(32px, 10vw, 42px);
+    margin-top: 0;
+  }
+
+  .cf-why-card {
+    padding-top: 80px;
+  }
+
+  .cf-why-card h3 {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+}
+</style>

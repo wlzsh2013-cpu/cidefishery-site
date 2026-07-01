@@ -1,0 +1,67 @@
+﻿---
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+import CTASection from '../components/CTASection.astro';
+
+const faqs = [
+  { q: 'What are Artemia cysts used for?', a: 'Artemia cysts (brine shrimp eggs) are primarily used as live feed for larval stages in shrimp hatcheries, fish fry programs, crab larvae hatcheries and other aquaculture operations.' },
+  { q: 'What is the minimum order quantity?', a: 'Minimum order quantities are communicated per inquiry based on product type, packaging format and destination. Contact us with your requirements for specific information.' },
+  { q: 'Can I get batch-specific information?', a: 'Yes. Batch-specific information can be provided upon request to support your hatchery planning and procurement decisions.' },
+  { q: 'What packaging options are available?', a: 'We offer vacuum-sealed cans, multi-layer foil bags and bulk packaging options. Custom packaging can be discussed for distributor requirements.' },
+  { q: 'How should Artemia cysts be stored?', a: 'Artemia cysts should be stored in cool, dry conditions. We provide temperature-controlled cold storage and share storage guidance with every order.' },
+  { q: 'Which regions do you export to?', a: 'We export to major aquaculture markets in Asia, Middle East, South America and Africa. Contact us for specific destination inquiries.' },
+  { q: "What's the difference between regular and premium Artemia cysts?", a: 'Premium Artemia cysts are selected batches with additional consistency checks, batch communication and careful handling for hatcheries requiring stable feeding performance.' },
+  { q: 'What are decapsulated brine shrimp eggs?', a: 'Decapsulated brine shrimp eggs have the outer shell removed, offering cleaner feeding without shell separation – ideal for fish fry and specialized aquaculture programs.' },
+];
+---
+
+<BaseLayout
+  title="Artemia Cysts FAQ | Frequently Asked Questions | CIDE FISHERY"
+  description="Frequently asked questions about Artemia cysts, brine shrimp eggs, packaging, storage, ordering and export supply from CIDE FISHERY."
+  jsonLdType="FAQ"
+  jsonLdData={{
+    mainEntity: faqs.map((f, i) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }}
+  breadcrumbs={[{ name: 'FAQ', url: '/faq/' }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p class="page-lead">Quick answers about Artemia cyst products, ordering, packaging and supply.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+      <dl class="faq-list">
+        {faqs.map((faq) => (
+          <div class="faq-item">
+            <dt>{faq.q}</dt>
+            <dd>{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <CTASection
+    title="Still Have Questions?"
+    description="Contact our team for specific product questions or supply discussions."
+    ctaText="Contact Us"
+    ctaHref="/contact/"
+  />
+</BaseLayout>
+<style>
+  .page-header { padding: 60px 0; }
+  .page-lead { font-size: 18px; opacity: 0.8; margin-top: 12px; }
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item { border-bottom: 1px solid var(--color-neutral-gray); padding: 24px 0; }
+  .faq-item dt { font-weight: 700; font-size: 18px; color: var(--color-primary); margin-bottom: 8px; cursor: default; }
+  .faq-item dd { font-size: var(--fs-body); opacity: 0.85; margin: 0; }
+</style>

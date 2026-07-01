@@ -1,0 +1,81 @@
+
+
+:root {
+  
+  --color-primary: #0B1F33;
+  --color-brand-blue: #1E5FA8;
+  --color-tech-cyan: #35B7D8;
+  --color-light-water: #78D9E8;
+  --color-champagne-gold: #E6B36A;
+  --color-neutral-gray: #D9E2EC;
+  --color-text: #102030;
+  --color-white: #FFFFFF;
+  --color-light-bg: #F5F8FC;
+
+  
+  --color-h1: #1E5FA8;
+  --color-h2: #1E5FA8;
+  --color-h2-h3-h4: #0B1F33;
+
+  
+  --color-link: #E6B36A;
+  --color-link-hover: #D4A050;
+  --color-link-visited: #E6B36A;
+  --color-btn-bg: #E6B36A;
+  --color-btn-text: #0B1F33;
+  --color-btn-hover-bg: #D4A050;
+  --color-btn-outline: #E6B36A;
+  --color-btn-outline-hover-bg: #E6B36A;
+  --color-btn-outline-hover-text: #0B1F33;
+
+  
+  --font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+
+  
+  --fs-h1: 48px;
+  --fs-h2: 36px;
+  --fs-h3: 28px;
+  --fs-h4: 20px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fw-heading: 700;
+  --fw-body: 400;
+  --lh-heading: 1.2;
+  --lh-body: 1.6;
+
+  
+  --content-width: 90%;
+  --max-width: 1200px;
+  --border-radius: 8px;
+  --section-spacing: 80px;
+  --section-spacing-mobile: 48px;
+
+  
+  --btn-radius: 0;
+  --btn-padding-x: 24px;
+  --btn-padding-y: 12px;
+  --btn-fs: 16px;
+  --btn-fw: 600;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --fs-h1: 40px;
+    --fs-h2: 32px;
+    --fs-h3: 24px;
+    --fs-h4: 20px;
+    --fs-body: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --fs-h1: 36px;
+    --fs-h2: 28px;
+    --fs-h3: 24px;
+    --fs-h4: 20px;
+    --fs-body: 16px;
+    --section-spacing: 48px;
+  }
+}

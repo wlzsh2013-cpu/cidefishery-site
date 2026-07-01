@@ -1,0 +1,98 @@
+﻿---
+const trustItems = [
+  {
+    icon: '/icons/professional-processing.svg',
+    title: 'Professional Processing',
+    desc: 'Dedicated Artemia cyst processing facility',
+    alt: 'Artemia cyst professional processing icon',
+  },
+  {
+    icon: '/icons/cold-storage.svg',
+    title: 'Cold Storage',
+    desc: 'Temperature-controlled storage and handling',
+    alt: 'Artemia cyst cold storage icon',
+  },
+  {
+    icon: '/icons/export-packaging.svg',
+    title: 'Export Packaging',
+    desc: 'Vacuum cans, foil bags and bulk options',
+    alt: 'Artemia cyst export packaging icon',
+  },
+  {
+    icon: '/icons/quality-control.svg',
+    title: 'Quality Control',
+    desc: 'Batch communication and consistency checks',
+    alt: 'Artemia cyst quality control icon',
+  },
+  {
+    icon: '/icons/global-supply.svg',
+    title: 'Global Supply',
+    desc: 'Reliable export to major aquaculture markets',
+    alt: 'Global Artemia cyst supply icon',
+  },
+];
+---
+
+<section class="trust-bar bg-light">
+  <div class="container">
+    <div class="trust-grid">
+      {trustItems.map((item) => (
+        <div class="trust-item">
+          <img class="trust-icon" src={item.icon} alt={item.alt} width="80" height="80" loading="lazy" decoding="async" />
+          <div>
+            <strong>{item.title}</strong>
+            <p>{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-bar {
+    padding: 40px 0;
+    border-top: 1px solid var(--color-neutral-gray);
+    border-bottom: 1px solid var(--color-neutral-gray);
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .trust-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .trust-item strong {
+    display: block;
+    color: var(--color-primary);
+    font-size: var(--fs-small);
+    margin-bottom: 2px;
+  }
+  .trust-item p {
+    font-size: 13px;
+    color: var(--color-text);
+    opacity: 0.75;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .trust-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+  @media (max-width: 767px) {
+    .trust-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

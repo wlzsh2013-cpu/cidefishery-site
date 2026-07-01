@@ -1,0 +1,236 @@
+﻿---
+
+---
+
+<section class="gp-about-section" data-gp-about>
+  <div class="gp-about-inner">
+
+    <div class="gp-about-content">
+      <h2>CIDE FISHERY: A Professional Artemia Cysts Supplier for Global Aquaculture Hatcheries</h2>
+      <p>CIDE FISHERY specializes in Artemia cyst sourcing, processing, cold storage and export supply for hatcheries, aquaculture farms and distributors.</p>
+      <p>With nearly 30 years of aquaculture industry experience and a stable sourcing network across China and overseas markets, we support dependable Artemia cyst supply for professional aquaculture production.</p>
+      <a href="/about/" class="gp-about-btn">Learn More About CIDE FISHERY <span>&#8594;</span></a>
+    </div>
+
+    <div class="gp-about-media-wrap">
+      <div class="gp-about-media">
+        <img src="/images/factory-building.avif" alt="CIDE Fishery factory building exterior" width="580" height="580" loading="lazy">
+        <div class="gp-about-glow"></div>
+        <div class="gp-about-bottom-shade"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.gp-about-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(30,95,168,0.04), transparent 32%),
+    radial-gradient(circle at 82% 72%, rgba(53,183,216,0.03), transparent 34%);
+  color: #102030;
+  overflow: hidden;
+  font-family: var(--font-family);
+}
+
+.gp-about-inner {
+  width: 90%;
+  margin: 0 auto;
+  min-height: clamp(540px, 78vh, 760px);
+  display: grid;
+  grid-template-columns: minmax(320px, 0.92fr) minmax(380px, 1.08fr);
+  gap: clamp(0px, calc(7vw - 50px), 50px);
+  align-items: center;
+  padding: clamp(170px, calc(8vw + 100px), 210px) 0 clamp(70px, 8vw, 110px) 0;
+  box-sizing: border-box;
+}
+
+.gp-about-content {
+  position: relative;
+  z-index: 2;
+}
+
+.gp-about-content h2 {
+  margin: 0;
+  max-width: 620px;
+  font-size: clamp(36px, 5vw, 48px);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #1E5FA8;
+}
+
+.gp-about-content p {
+  margin: clamp(20px, 2.5vw, 28px) 0 0;
+  max-width: 560px;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.65;
+  color: #5A6A7A;
+}
+
+.gp-about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(28px, 3.5vw, 40px);
+  padding: 16px 34px;
+  border-radius: 0;
+  background: #E6B36A;
+  color: #0B1F33;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.gp-about-btn:hover {
+  background: #0B1F33;
+  color: #E6B36A;
+  gap: 14px;
+}
+
+.gp-about-media-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.gp-about-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(30,95,168,0.06), rgba(217,226,236,0.40)),
+    #f5f7fa;
+  border: 1px solid rgba(11, 31, 51, 0.10);
+  box-shadow:
+    0 32px 80px rgba(11, 31, 51, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.60);
+}
+
+.gp-about-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gp-about-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(53,183,216,0.08), transparent 34%),
+    linear-gradient(135deg, #D9E2EC, #f0f3f6);
+  color: rgba(11, 31, 51, 0.25);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.gp-about-glow {
+  position: absolute;
+  width: 42%;
+  aspect-ratio: 1 / 1;
+  right: -12%;
+  top: -10%;
+  border-radius: 999px;
+  background: rgba(53, 183, 216, 0.10);
+  filter: blur(38px);
+  pointer-events: none;
+}
+
+.gp-about-bottom-shade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 24%;
+  background: linear-gradient(to top, rgba(11, 31, 51, 0.06), transparent);
+  pointer-events: none;
+}
+
+.gp-about-section.is-visible .gp-about-content {
+  animation: gpAboutFadeUp 0.8s ease both;
+}
+
+.gp-about-section.is-visible .gp-about-media-wrap {
+  animation: gpAboutFadeUp 0.9s ease 0.12s both;
+}
+
+@keyframes gpAboutFadeUp {
+  from { opacity: 0; transform: translateY(34px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .gp-about-inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 40px;
+    padding: 64px 0;
+  }
+
+  .gp-about-content h2 {
+    font-size: clamp(32px, 7vw, 40px);
+  }
+
+  .gp-about-content p {
+    max-width: 720px;
+  }
+
+  .gp-about-media {
+    min-height: auto;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 767px) {
+  .gp-about-inner {
+    width: 90%;
+    padding: 48px 0;
+    gap: 32px;
+  }
+
+  .gp-about-content h2 {
+    font-size: clamp(28px, 9vw, 36px);
+  }
+
+  .gp-about-content p {
+    font-size: 16px;
+  }
+
+  .gp-about-media {
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .gp-about-placeholder {
+    font-size: clamp(24px, 8vw, 36px);
+  }
+}
+</style>
+
+<script>
+(function () {
+  const sections = document.querySelectorAll("[data-gp-about]");
+  if (!sections.length) return;
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  }, { threshold: 0.25 });
+
+  sections.forEach(function (section) {
+    observer.observe(section);
+  });
+})();
+</script>

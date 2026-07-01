@@ -1,0 +1,49 @@
+﻿---
+export interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes?: string;
+  sources?: { breakpoint: string; src: string; width: number }[];
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  className?: string;
+  decorative?: boolean;
+  productName?: string;
+  scene?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  sizes,
+  sources,
+  loading = 'lazy',
+  decoding = 'async',
+  className = '',
+  decorative = false,
+  productName,
+  scene,
+} = Astro.props;
+
+let altText = alt;
+if (decorative) altText = '';
+if (productName && !decorative) altText = productName + ' - ' + alt;
+if (scene && !decorative) altText = scene + ' - ' + alt;
+
+const defaultSizes = sizes || '(max-width: 767px) 90vw, (max-width: 1024px) 90vw, 1200px';
+---
+
+{sources && sources.length > 0 ? (
+  <picture>
+    {sources.map((s) => (
+      <source media={"(max-width: " + s.breakpoint + ")"} srcset={s.src} width={s.width} />
+    ))}
+    <img src={src} alt={altText} width={width} height={height} loading={loading} decoding={decoding} class={className} sizes={defaultSizes} />
+  </picture>
+) : (
+  <img src={src} alt={altText} width={width} height={height} loading={loading} decoding={decoding} class={className} sizes={defaultSizes} />
+)}

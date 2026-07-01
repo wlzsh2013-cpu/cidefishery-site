@@ -1,0 +1,33 @@
+﻿---
+export interface Props {
+  href: string;
+  variant?: 'primary' | 'outline' | 'text';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  rel?: string;
+  target?: '_blank' | '_self';
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  className = '',
+  rel,
+  target = '_self',
+} = Astro.props;
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel || (target === '_blank' ? 'noopener noreferrer' : undefined)}
+  class={"btn btn-" + variant + " btn-" + size + " " + className}
+>
+  <slot />
+</a>
+
+<style>
+  .btn-sm { padding: 8px 16px; font-size: 14px; }
+  .btn-lg { padding: 16px 32px; font-size: 18px; }
+</style>
