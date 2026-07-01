@@ -1,39 +1,53 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
-import Icon from '../../components/Icon.astro';
 
 const applicationSteps = [
   {
-    step: 'Step 1',
-    title: 'Shrimp Hatchery',
-    description: 'Plan Artemia nauplii production around larval feeding windows, harvest timing and daily hatchery routines.',
+    title: 'Shrimp Hatcheries',
+    description: 'Streamline your postlarvae (PL) production. Our live nauplii are meticulously selected to align perfectly with intensive Zoea, Mysis, and PL feeding windows, securing superior biological vitality, uniform growth, and daily hatchery routing efficiency.',
     href: '/application-shrimp-hatchery/',
+    cta: 'View Shrimp Rearing Solutions',
     image: '/images/shrimp-hatchery-app.avif',
     alt: 'Shrimp hatchery application for Artemia nauplii feeding workflow',
   },
   {
-    step: 'Step 2',
-    title: 'Fish Fry',
-    description: 'Match standard Artemia cysts or decapsulated brine shrimp eggs to cleaner fry feeding and flexible nutrition support.',
+    title: 'Fish Fry Programs',
+    description: 'Accelerate digestive tract development and survival rates in fragile marine and freshwater fry. Deploy our high-yield standard cysts or shell-free decapsulated eggs to secure a clean, pathogen-free, and highly digestible first-feed supply.',
     href: '/applications/fish-fry/',
+    cta: 'View Fish Fry Nutrition',
     image: '/images/fish-fry-app.avif',
     alt: 'Fish fry feeding application with Artemia and decapsulated brine shrimp eggs',
   },
   {
-    step: 'Step 3',
     title: 'Crab Larvae',
-    description: 'Use Artemia-based feeding plans for sensitive crab and crustacean larvae where timing and handling matter.',
+    description: 'Minimize mortality rates and grading losses during critical crustacean molting phases. Rely on specialized feeding programs engineered for sensitive crab and crustacean larvae where hatching timing and handling precision matter most.',
     href: '/applications/crab-larvae/',
+    cta: 'View Crab Larvae Programs',
     image: '/images/crab-larvae-app.avif',
     alt: 'Crab larvae aquaculture application for Artemia feeding programs',
   },
 ];
 
 const decisionPoints = [
-  { icon: 'artemia-cysts', title: 'Live Feed Timing', text: 'Artemia cysts can be hatched on demand, helping hatcheries align nauplii harvest with feeding windows.' },
-  { icon: 'quality-control', title: 'Batch Communication', text: 'Ask for batch information when feeding performance, harvest timing and procurement planning matter.' },
-  { icon: 'packaging', title: 'Packaging and Storage', text: 'Packaging format should match storage conditions, purchase volume and destination handling.' },
+  {
+    icon: '/icons/precision-live-feed-timing.svg',
+    alt: 'Precision live feed timing icon for synchronized Artemia cyst hatching in commercial hatcheries',
+    title: 'Precision Live Feed Timing',
+    text: 'Hatchery success relies on matching nauplii release with critical larval feeding windows. Our cysts hatch on-demand with high synchronization, helping your team maintain seamless, highly predictable production schedules.',
+  },
+  {
+    icon: '/icons/rigorous-batch-transparency.svg',
+    alt: 'Rigorous batch transparency icon for certified Artemia cyst hatching rate and biosecurity documentation',
+    title: 'Rigorous Batch Transparency',
+    text: 'Eliminate variables in your rearing tanks. We provide full pre-shipment certificates for every contract batch, detailing certified hatching rates, efficiency curves, and total biosecurity compliance.',
+  },
+  {
+    icon: '/icons/climate-controlled-protection.svg',
+    alt: 'Climate-controlled protection icon for Artemia cyst packaging storage and cold-chain handling',
+    title: 'Climate-Controlled Protection',
+    text: 'Biological integrity depends on the ultimate seal. Our flexible industrial packaging formats are engineered to perfectly match your localized storage conditions, order volumes, and port handling.',
+  },
 ];
 ---
 
@@ -48,12 +62,12 @@ const decisionPoints = [
   <section class="section page-header bg-light">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Application guide</span>
-        <h1>Artemia Cysts Applications in Aquaculture Hatcheries</h1>
-        <p class="page-lead">Artemia cysts are used because hatcheries can produce live nauplii near feeding time. The right product depends on species, larval stage, feeding workflow, storage and packaging requirements.</p>
-        <div class="hero-ctas"><Button href="/products/" variant="primary" size="lg">Compare Products</Button><Button href="/contact/" variant="outline" size="lg">Ask for Recommendation</Button></div>
+        <span class="eyebrow">HATCHERY APPLICATIONS &amp; NUTRITION</span>
+        <h1>High-Performance Artemia Cysts Optimized for Aquaculture Hatcheries</h1>
+        <p class="page-lead">Live nauplii hatched on-demand serve as the energetic foundation of successful larval rearing. We provide customized live feed solutions tailored to your specific target species, development stages, and feeding protocols to maximize survival rates across your hatchery system.</p>
+        <div class="hero-ctas"><Button href="/products/" variant="primary" size="lg">Compare Product Formats</Button><Button href="/contact/" variant="outline" size="lg">Request Customized Recommendation</Button></div>
       </div>
-      <img src="/images/products/artemia-nauplii.jpg" alt="Artemia nauplii live feed for aquaculture hatchery larvae" width="5440" height="3648" loading="eager" />
+      <img src="/images/applications/coastal-aquaculture-hatchery-tanks.avif" alt="Coastal aquaculture hatchery with sea and water tanks" width="1536" height="1024" loading="eager" />
     </div>
   </section>
 
@@ -61,8 +75,8 @@ const decisionPoints = [
     <div class="cide-steps-sticky">
       <div class="cide-steps-heading" data-cide-steps-heading>
         <span class="eyebrow">Application paths</span>
-        <h2>Choose by Species and Feeding Workflow</h2>
-        <p>Start with the species and feeding workflow, then review the matching application page for product selection, packaging and inquiry details.</p>
+        <h2>Precision Live Feed Tailored to Your Specific Aquaculture Species</h2>
+        <p>Different aquatic species demand precise nutrient density, hatch synchronization, and prey particle sizes. Select your core operational category below to review certified nutrition paths, ideal packaging setups, and custom supply metrics engineered for your workflow.</p>
       </div>
 
       <div class="cide-steps-grid" data-cide-steps-container>
@@ -80,34 +94,42 @@ const decisionPoints = [
               </div>
 
               <div class="cide-step-name">
-                <p>{app.step}</p>
                 <h3>{app.title}</h3>
               </div>
 
               <p class="cide-step-desc">{app.description}</p>
-              <a class="cide-step-link" href={app.href}>View application</a>
+              <a class="cide-step-link" href={app.href}>{app.cta} &rarr;</a>
             </div>
           </article>
         ))}
       </div>
 
       <div class="cide-steps-action">
-        <a href="/contact/">Ask for feeding recommendation</a>
+        <a href="/contact/">Ask for a Tailored Feeding Recommendation</a>
       </div>
     </div>
   </section>
 
-  <section class="section bg-light">
+  <section class="section applications-benchmarks-section bg-light">
     <div class="container">
-      <div class="section-head"><span class="eyebrow">Procurement factors</span><h2>What Buyers Should Clarify Before Ordering</h2></div>
-      <div class="factor-grid">{decisionPoints.map((item) => (<article class="factor-card"><Icon name={item.icon} label={`${item.title} icon`} desc={item.text} className="factor-icon" /><h3>{item.title}</h3><p>{item.text}</p></article>))}</div>
+      <div class="section-head"><span class="eyebrow">PROCUREMENT FACTORS</span><h2>Critical Quality Benchmarks for Commercial Sourcing</h2></div>
+      <div class="factor-grid">
+        {decisionPoints.map((item, index) => (
+          <article class="factor-card">
+            <img class="factor-icon" src={item.icon} alt={item.alt} width="58" height="58" loading="lazy" decoding="async" />
+            <span class="step-num">{String(index + 1).padStart(2, '0')} /</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container package-band">
-      <div><span class="eyebrow">Packaging matters</span><h2>Application Planning Should Include Packaging and Storage</h2><p>Tell us your hatchery type, monthly volume, destination and preferred package format. Packaging options and cold storage support should be considered together with product selection.</p><div class="hero-ctas"><Button href="/trust/packaging/" variant="primary" size="lg">Packaging Options</Button><Button href="/trust/cold-storage/" variant="outline" size="lg">Cold Storage</Button></div></div>
-      <img src="/images/products/bulk-artemia-packaging.jpg" alt="Artemia cyst packaging options for aquaculture applications" width="2679" height="2346" loading="lazy" />
+      <div><span class="eyebrow">SUPPLY CHAIN SEGREGATION</span><h2>Industrial-Grade Vacuum Cans, High-Barrier Bags &amp; Customized Labeling</h2><p>To preserve maximum hatchability from our processing lines to your rearing tanks, we utilize multi-layer foil bags, fortified vacuum cans, and heavy-duty drums. CIDE FISHERY fully integrates volume-based contract planning, custom private labeling, and global cold-chain support to fit your regional distribution network.</p><div class="hero-ctas"><Button href="/trust/packaging/" variant="primary" size="lg">Review Packaging Formats</Button><Button href="/trust/cold-storage/" variant="outline" size="lg">Learn About Cold Storage Support</Button></div></div>
+      <img src="/images/applications/premium-artemia-cysts-cans.avif" alt="Premium Artemia cysts cans on factory table" width="1536" height="1024" loading="lazy" />
     </div>
   </section>
 </div>
@@ -118,16 +140,23 @@ const decisionPoints = [
   .applications-page .hero-grid,
   .applications-page .package-band { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   .applications-page .hero-grid img,
-  .applications-page .package-band img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .applications-page .package-band img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); display:block; }
   .applications-page .eyebrow { display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px; }
   .applications-page .page-lead { font-size:18px;opacity:.84;margin:16px 0 24px; }
   .applications-page .hero-ctas { display:flex;gap:16px;flex-wrap:wrap; }
   .applications-page .section-head { max-width:760px;margin-bottom:28px; }
-  .applications-page .factor-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
-  .applications-page .factor-card { border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white);padding:24px; }
-  .applications-page .factor-icon { width:54px;height:54px;margin-bottom:12px; }
+  .applications-page .applications-benchmarks-section { padding:120px 0; }
+  .applications-page .applications-benchmarks-section .section-head h2 { margin-bottom:20px; }
+  .applications-page .factor-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:18px; }
+  .applications-page .factor-card { border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white);padding:32px;text-align:left; }
+  .applications-page .factor-icon { display:block;width:58px;height:58px;margin:0 0 20px;object-fit:contain; }
+  .applications-page .step-num { display:block;color:var(--color-champagne-gold);font-weight:800; }
+  .applications-page .factor-card h3 { margin:8px 0;font-size:20px; }
   .applications-page .factor-card p { font-size:var(--fs-small);opacity:.8; }
-  .applications-page .package-band { padding:28px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-light-bg); }
+  .applications-page .package-band { padding:68px 58px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white); }
+  .applications-page .package-band h2 { margin-bottom:20px; }
+  .applications-page .package-band p { margin-bottom:20px; }
+  .applications-page .package-band img { height:100%;padding:0; }
 
   .applications-page .cide-steps-scroll {
     --steps-bg: var(--color-primary);
@@ -158,7 +187,7 @@ const decisionPoints = [
     min-height: 100vh;
     width: var(--content-width);
     margin: 0 auto;
-    padding: 92px 0;
+    padding: 110px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -269,16 +298,6 @@ const decisionPoints = [
     opacity: var(--name-opacity);
     transition: transform 0.24s ease, opacity 0.24s ease;
   }
-  .applications-page .cide-step-name p {
-    margin: 0 0 10px;
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 800;
-    color: var(--steps-muted-strong);
-    opacity: var(--name-opacity);
-    transform: translateY(var(--name-y));
-    transition: opacity 0.24s ease, transform 0.24s ease, color 0.24s ease;
-  }
   .applications-page .cide-step-name h3 {
     margin: 0;
     font-size: 30px;
@@ -288,7 +307,6 @@ const decisionPoints = [
     transform: translateY(var(--name-y));
     transition: opacity 0.24s ease, transform 0.24s ease, color 0.24s ease;
   }
-  .applications-page .cide-step-card.is-active .cide-step-name p,
   .applications-page .cide-step-card.is-active .cide-step-name h3 { color: var(--color-white); }
   .applications-page .cide-step-desc {
     margin: 0;
@@ -309,7 +327,7 @@ const decisionPoints = [
   .applications-page .cide-steps-action {
     display: flex;
     justify-content: center;
-    margin-top: 64px;
+    margin-top: -36px;
     opacity: calc(0.35 + (var(--heading-hide) * 0.65));
     transform: translateY(calc((1 - var(--heading-hide)) * 28px));
     transition: opacity 0.14s linear, transform 0.14s linear;
