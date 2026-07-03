@@ -25,6 +25,8 @@ for (const file of htmlFiles) {
   content = content.replace(/src="\/(images|icons|fonts)\//g, `src="${basePath}/$1/`);
   content = content.replace(/srcset="\/(images|icons)\//g, `srcset="${basePath}/$1/`);
   content = content.replace(/href="\/(images|icons|fonts)\//g, `href="${basePath}/$1/`);
+  content = content.replace(/href="\/(products|applications|about|blog|news|contact|faq|application-shrimp-hatchery)\//g, `href="${basePath}/$1/`);
+  content = content.replace(/href="\/"/g, `href="${basePath}/"`);
   writeFileSync(file, content);
 }
 
