@@ -22,11 +22,15 @@ const htmlFiles = walkDir(distDir);
 
 for (const file of htmlFiles) {
   let content = readFileSync(file, "utf-8");
-  content = content.replace(/src="\/(images|icons|fonts)\//g, `src="${basePath}/$1/`);
-  content = content.replace(/srcset="\/(images|icons)\//g, `srcset="${basePath}/$1/`);
-  content = content.replace(/href="\/(images|icons|fonts)\//g, `href="${basePath}/$1/`);
-  content = content.replace(/href="\/(products|applications|about|blog|news|contact|faq|application-shrimp-hatchery)\//g, `href="${basePath}/$1/`);
-  content = content.replace(/href="\/"/g, `href="${basePath}/"`);
+  // Fix all root-relative paths in src/href attributes
+  content = content.replace(/src="\/([^"]+)"/g, (match, path) => {
+    if (path.startsWith("cidefishery-site")) return match;
+    return `src="${basePath}/${path}"`;
+  });
+  content = content.replace(/href="\/([^"]+)"/g, (match, path) => {
+    if (path.startsWith("cidefishery-site") || path.startsWith("http") || path.startsWith("#")) return match;
+    return `href="${basePath}/${path}"`;
+  });
   writeFileSync(file, content);
 }
 
