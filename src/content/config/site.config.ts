@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: "CIDE FISHERY",
   tagline: "Artemia Cysts Supplier",
   description: "CIDE FISHERY supplies quality Artemia cysts and brine shrimp eggs for hatcheries, aquaculture farms and global distributors.",
-  url: "https://cidefishery.com",
+  url: "https://wlzsh2013-cpu.github.io/cidefishery-site",
   logo: "/images/logo.svg",
   logoAlt: "CIDE FISHERY Logo",
   favicon: "/images/favicon.png",

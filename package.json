@@ -1,15 +1,15 @@
 {
-  "name": "cide-fishery-site",
-  "type": "module",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/sitemap": "^3.4.0",
-    "astro": "^5.0.0"
-  }
+    "name":  "cide-fishery-site",
+    "type":  "module",
+    "version":  "1.0.0",
+    "scripts":  {
+                    "dev":  "astro dev",
+                    "build":  "astro build \u0026\u0026 node scripts/postbuild.mjs",
+                    "preview":  "astro preview",
+                    "astro":  "astro"
+                },
+    "dependencies":  {
+                         "@astrojs/sitemap":  "^3.4.0",
+                         "astro":  "^5.0.0"
+                     }
 }
