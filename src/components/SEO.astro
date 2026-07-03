@@ -1,4 +1,4 @@
-﻿---
+---
 import { SITE_CONFIG } from "../content/config/site.config";
 import { SEO_DEFAULTS } from "../content/config/seo.config";
 
@@ -36,7 +36,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_CONFIG.url).h
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
-<meta name="robots" content={noindex ? "noindex, nofollow" : SEO_DEFAULTS.robots} />
+<meta name="robots" content={noindex ? "noindex, nofollow, noarchive" : SEO_DEFAULTS.robots} />
 
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
