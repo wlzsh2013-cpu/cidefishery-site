@@ -22,8 +22,7 @@ const htmlFiles = walkDir(distDir);
 
 for (const file of htmlFiles) {
   let content = readFileSync(file, "utf-8");
-  // Fix root-relative href/src that start with single / but not http or cidefishery-site
-  content = content.replace(/(src|href|content)="\/((?!cidefishery-site|http)[^"]*)"/g, (match, attr, path) => {
+  content = content.replace(/(src|href|content|srcset)="\/((?!cidefishery-site|http)[^"]*)"/g, (match, attr, path) => {
     return `${attr}="${basePath}/${path}"`;
   });
   writeFileSync(file, content);
