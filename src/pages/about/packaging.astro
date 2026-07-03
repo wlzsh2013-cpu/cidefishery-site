@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+
+const formats = [
+  {
+    image: '/images/products/fortified-vacuum-cans.avif',
+    width: 800,
+    height: 545,
+    alt: 'Fortified Vacuum Cans',
+    title: 'Fortified Vacuum Cans',
+    desc: 'Hermetically sealed metal cans that shield cysts perfectly from moisture ingress and atmospheric oxidation. Ideal for commercial hatcheries and distributors requiring stable, multi-year inventory storage.',
+  },
+  {
+    image: '/images/products/high-barrier-foil-bags.avif',
+    width: 800,
+    height: 545,
+    alt: 'High-Barrier Foil Bags',
+    title: 'High-Barrier Foil Bags',
+    desc: 'Multi-layer, puncture-resistant flexible bags optimized for cost-effective freight planning, flexible volume distribution, and quick inventory rotation within local dealer networks.',
+  },
+  {
+    image: '/images/products/industrial-drums-master-cartons.avif',
+    width: 800,
+    height: 545,
+    alt: 'Industrial Drums & Master Cartons',
+    title: 'Industrial Drums & Master Cartons',
+    desc: 'Heavy-duty, bulk-weight drums and impact-absorbing outer master cartons, purpose-built for high-volume cargo handling, streamlined warehouse pallet movement, and large-scale bulk repacking operations.',
+  },
+  {
+    image: '/images/products/oem-custom-private-labeling.avif',
+    width: 800,
+    height: 545,
+    alt: 'OEM & Custom Private Labeling',
+    title: 'OEM & Custom Private Labeling',
+    desc: 'Fully tailored private brand layout, custom multilingual container text printing, carton shipping marks configuration, and synchronized compliance documentation aligned directly with your regional import regulations.',
+  },
+];
+
+const decisions = [
+  {
+    icon: '/icons/target-product-form.svg',
+    alt: 'Target product form icon for selecting Artemia cyst and feed packaging formats',
+    title: 'Target Product Form',
+    text: 'Specify your required feed lines (standard Artemia cysts, premium synchronized batches, decapsulated direct eggs, or bulk wholesale programs).',
+  },
+  {
+    icon: '/icons/volume-supply-channel.svg',
+    alt: 'Volume and supply channel icon for Artemia cyst order quantity and distribution planning',
+    title: 'Volume & Supply Channel',
+    text: 'Detail your target order quantities and final application setup (direct facility use, importer inventory stock, or distributor localized repacking networks).',
+  },
+  {
+    icon: '/icons/storage-environment.svg',
+    alt: 'Storage environment icon for temperature-controlled Artemia cyst packaging selection',
+    title: 'Storage Environment',
+    text: "Share your facility's localized temperature-controlled setup and expected inventory turnover timelines to optimize barrier selections.",
+  },
+  {
+    icon: '/icons/trade-port-documentation.svg',
+    alt: 'Trade and port documentation icon for Artemia cyst export shipping marks and customs files',
+    title: 'Trade & Port Documentation',
+    text: 'Outline your designated destination country, preferred shipping route, specific outer carton shipping marks, and unique custom documentation expectations.',
+  },
+];
+---
+<BaseLayout
+  title="Industrial Artemia Cyst Packaging Options | CIDE FISHERY"
+  description="Explore certified industrial Artemia cyst packaging formats from CIDE FISHERY, including vacuum cans, high-barrier foil bags, drums, master cartons and private labeling."
+  ogImage="/images/products/artemia-cysts-global-cold-chain-packaging.avif"
+  breadcrumbs={[{ name: 'About', url: '/about/' }, { name: 'Packaging', url: '/about/packaging/' }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">PACKAGING OPTIONS</span>
+        <h1>Certified Industrial Packaging Formats Supporting Global Aquaculture Supply</h1>
+        <p class="page-lead">Long-distance transoceanic transit demands uncompromising barrier protection to preserve biological viability. CIDE FISHERY provides flexible, multi-layer containment configurations engineered to withstand high ambient humidity and rigorous port handling. We align precision sealing technology with your target market's specific distribution models, warehousing rotation setups, and custom volume requirements.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" size="lg">Discuss Packaging</Button>
+          <Button href="/products/bulk-artemia-cysts/" variant="outline" size="lg">Bulk Supply</Button>
+        </div>
+      </div>
+      <img src="/images/products/artemia-cysts-global-cold-chain-packaging.avif" alt="Artemia cysts global cold-chain packaging" width="1448" height="1086" loading="eager" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">AVAILABLE FORMATS</span>
+        <h2>Fortified Export Containment Engineered for Global Logistics</h2>
+        <p>Different distribution channels require distinct weight classes and physical protection. Explore our verified industrial packaging selections designed to support efficient inventory rotation, secure transit stability, and streamlined local redistribution.</p>
+      </div>
+      <div class="features-grid">
+        {formats.map((f) => (
+          <article class="feature-card">
+            <img class="format-img" src={f.image} alt={f.alt} width={f.width} height={f.height} loading="lazy" />
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container quote-grid">
+      <div>
+        <span class="eyebrow">BEFORE QUOTATION</span>
+        <h2>Streamline Your Custom Packing Requirements for an Accurate Commercial Quote</h2>
+        <p>To help our logistics and packaging specialists engineer a highly optimized, market-ready proposal with precision freight calculations instead of a generic offer, please specify your logistical operational parameters below:</p>
+        <div class="hero-ctas">
+          <Button href="/about/cold-storage/" variant="outline" size="lg">Cold Storage</Button>
+          <Button href="/about/quality-control/" variant="outline" size="lg">Quality Control</Button>
+        </div>
+      </div>
+      <div class="decision-list">
+        {decisions.map((item) => (
+          <article class="decision-card">
+            <img class="decision-icon" src={item.icon} alt={item.alt} width="58" height="58" loading="lazy" decoding="async" />
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>.page-header{padding:64px 0}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.hero-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.eyebrow{display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px}.page-lead{font-size:18px;opacity:.84;margin:16px 0 24px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}.section-head{max-width:860px;margin-bottom:30px}.section-head h2,.quote-grid h2{margin:0 0 20px}.section-head p,.quote-grid p{margin:0}.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.feature-card{display:block;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);padding:20px 20px 24px;background:var(--color-white);color:var(--color-text)}.format-img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-light-bg);margin:0 0 22px}.feature-card h3{font-size:20px;font-weight:800;color:var(--color-primary);margin:0}.feature-card p{margin-top:10px;font-size:var(--fs-small);line-height:1.6;opacity:.78}.quote-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:center}.quote-grid>div:first-child{align-self:center}.quote-grid>div:first-child>p{font-size:17px;line-height:1.7}.decision-list{display:grid;gap:14px}.decision-card{display:grid;grid-template-columns:58px 1fr;gap:22px;align-items:center;padding:18px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.decision-icon{display:block;width:58px;height:58px;object-fit:contain;flex:0 0 58px}.decision-card h3{margin:0 0 8px;font-size:20px;color:var(--color-primary)}.decision-card p{margin:0;font-size:var(--fs-small);line-height:1.6;opacity:.8}@media(max-width:1024px){.hero-grid,.quote-grid{grid-template-columns:1fr}.features-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:767px){.features-grid{grid-template-columns:1fr}.decision-card{grid-template-columns:58px 1fr;gap:16px}}</style>

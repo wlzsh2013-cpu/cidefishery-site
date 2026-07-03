@@ -1,6 +1,7 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
+import CTASection from '../../components/CTASection.astro';
 
 const products = [
   {
@@ -77,7 +78,7 @@ const buyerRoutes = [
         <p class="page-lead">CIDE FISHERY supplies premium-grade Artemia cysts, decapsulated brine shrimp eggs, and bulk sourcing programs engineered for shrimp hatcheries, marine fish fry producers, and global aquaculture distributors.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Get a Quick Quote</Button>
-          <Button href="/trust/packaging/" variant="outline" size="lg">Explore Packaging Options</Button>
+          <Button href="/about/packaging/" variant="outline" size="lg">Explore Packaging Options</Button>
         </div>
       </div>
       <div class="hero-media">
@@ -145,14 +146,22 @@ const buyerRoutes = [
         <h2>Industrial-Grade Vacuum Cans, Foil Bags &amp; Customized Bulk Packaging</h2>
         <p>To preserve maximum hatchability during transit, CIDE FISHERY utilizes moisture-proof vacuum cans, heavy-duty foil bags, and protective outer drums. We provide private labeling options and full cold-storage container coordination to ensure fresh arrival at your port.</p>
         <div class="hero-ctas">
-          <Button href="/trust/packaging/" variant="primary" size="lg">Review Packaging Specs</Button>
-          <Button href="/trust/cold-storage/" variant="outline" size="lg">Learn About Our Cold Chain</Button>
+          <Button href="/about/packaging/" variant="primary" size="lg">Review Packaging Specs</Button>
+          <Button href="/about/cold-storage/" variant="outline" size="lg">Learn About Our Cold Chain</Button>
         </div>
       </div>
       <img src="/images/products/artemia-cysts-foil-bag-packaging.avif" alt="Artemia cysts foil bag packaging for cold-chain supply." width="1448" height="1086" loading="lazy" />
     </div>
   </section>
 </div>
+  <CTASection
+    title="Need a Supply Quote?"
+    description="Tell us your hatchery needs and our team will prepare a tailored Artemia cyst supply proposal."
+    ctaText="Request Quote"
+    ctaHref="/contact/"
+    showInquiryForm
+  />
+
 </BaseLayout>
 
 <script>

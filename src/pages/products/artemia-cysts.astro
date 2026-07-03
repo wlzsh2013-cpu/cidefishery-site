@@ -1,6 +1,7 @@
-ï»¿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
+import CTASection from '../../components/CTASection.astro';
 
 const specs = [
   { label: 'Core Product', value: 'Natural Artemia Cysts / Brine Shrimp Eggs (Standard Grade)' },
@@ -15,7 +16,7 @@ const hatching = [
   { title: 'Hatching Cone', text: 'Utilize clean, transparent containers with a conical bottom to ensure uniform circulation and effortless harvest separation.' },
   { title: 'Constant Aeration', text: 'Provide powerful, continuous aeration from the very bottom of the cone to keep all cysts in constant suspension.' },
   { title: 'Optimal Density', text: 'Maintain a controlled cyst density, never exceeding 2 grams per liter of water to prevent oxygen depletion.' },
-  { title: 'Stable Temperature', text: 'Keep water temperatures strictly between 27Â°C and 28Â°C to ensure synchronized, rapid hatching.' },
+  { title: 'Stable Temperature', text: 'Keep water temperatures strictly between 27¡ãC and 28¡ãC to ensure synchronized, rapid hatching.' },
   { title: 'Hatching Window', text: 'Harvest active live nauplii within approximately 24 to 30 hours, depending on your specific batch parameters.' },
   { title: 'Clean Collection', text: 'Turn off aeration and shade the top for 10-15 minutes. Siphon clean nauplii from the bottom and rinse thoroughly with fresh seawater before feeding.' },
 ];
@@ -44,7 +45,7 @@ const applications = [
         <p class="page-lead">CIDE FISHERY delivers reliable, high-yield Artemia cysts that serve as the economic foundation for daily larval nutrition. Upon hatching, our nutrient-rich live nauplii provide the essential protein and lipid profiles required to sustain steady growth and survival rates in shrimp larvae, fish fry, and crab nurseries.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Get Latest Batch Analysis</Button>
-          <Button href="/trust/packaging/" variant="outline" size="lg">Explore Packaging Formats</Button>
+          <Button href="/about/packaging/" variant="outline" size="lg">Explore Packaging Formats</Button>
         </div>
       </div>
       <figure class="hero-image">
@@ -99,13 +100,22 @@ const applications = [
         <h2>Preserving Hatchability from Our Facility to Your Port</h2>
         <p>To protect biological integrity during global transit, CIDE FISHERY offers hermetically sealed vacuum cans, moisture-proof multi-layer foil bags, and heavy-duty paper drums. We accommodate custom container labeling, contract-based monthly volume planning, and full cold-chain support to guarantee stable, cost-effective arrival.</p>
         <div class="hero-ctas">
-          <Button href="/trust/packaging/" variant="primary" size="lg">Download Packaging Specifications</Button>
-          <Button href="/trust/cold-storage/" variant="outline" size="lg">Request Cold Storage Guidelines</Button>
+          <Button href="/about/packaging/" variant="primary" size="lg">Download Packaging Specifications</Button>
+          <Button href="/about/cold-storage/" variant="outline" size="lg">Request Cold Storage Guidelines</Button>
         </div>
       </div>
       <img src="/images/products/artemia-cysts-metal-cans.avif" alt="Artemia hatching test tubes with orange nauplii sediment." width="1448" height="1086" loading="lazy" />
     </div>
   </section>
+  <CTASection
+    title="Request a Tailored Quote"
+    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    ctaText="Send Inquiry"
+    ctaHref="/contact/"
+    showInquiryForm
+    preselectedProduct="Artemia Cysts"
+  />
+
 </BaseLayout>
 
 <style>

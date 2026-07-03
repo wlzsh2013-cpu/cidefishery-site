@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+
+const network = [
+  {
+    icon: '/icons/china-saline-lake-network.svg',
+    alt: 'China saline lake raw material network icon for Artemia cyst sourcing coverage',
+    title: 'China Raw Material Network',
+    desc: 'Harvesting high-vitality wild stock across pristine, mineral-rich saline lakes within China, including verified harvest channels in Xinjiang, Inner Mongolia, Tibet, and Bohai Bay regions.',
+  },
+  {
+    icon: '/icons/stable-international-cooperation.svg',
+    alt: 'Stable international cooperation handshake icon for Artemia cyst supply partnerships',
+    title: 'Stable International Cooperation',
+    desc: 'Securing long-term, direct trade partnerships and exclusive fishing allocations with leading ecological raw networks throughout Russia and Kazakhstan.',
+  },
+  {
+    icon: '/icons/strategic-uzbekistan-development.svg',
+    alt: 'Strategic Uzbekistan development infrastructure icon for Aral Sea Artemia sourcing operations',
+    title: 'Strategic Uzbekistan Development',
+    desc: 'Investing directly in localized harvesting operations and joint processing infrastructures surrounding the critical Aral Sea basin to open new volume corridors.',
+  },
+  {
+    icon: '/icons/proven-global-export-footprint.svg',
+    alt: 'Proven global export footprint logistics icon for Artemia cyst cargo delivery',
+    title: 'Proven Global Export Footprint',
+    desc: 'Delivering certified, high-hatchability live feed cargo strictly aligned with rigorous import protocols across Europe, the Americas, Southeast Asia, and other key aquaculture markets.',
+  },
+];
+
+const buyerRoutes = [
+  'Commercial Hatcheries: Facilities requiring a highly stable monthly supply of premium Artemia cysts and brine shrimp eggs to secure predictable daily feeding windows.',
+  'Wholesale Importers: Large-scale buyers comparing verified processing capacities, comprehensive laboratory documentation, and multi-layer export packaging formats.',
+  'Regional Distributors: Regional networks planning long-term inventory buffer stocks, custom resale labeling, and flexible, recurring maritime delivery schedules.',
+  'Enterprise Aquaculture Groups: Global organizations seeking a singular, highly competent manufacturer to handle integrated raw material sourcing, certified quality control, and cold-chain shipping logistics.'
+];
+---
+<BaseLayout
+  title="Global Artemia Cyst Supply Network | CIDE FISHERY"
+  description="CIDE FISHERY manages end-to-end Artemia cyst raw sourcing, refining, cold storage, customs logistics and global delivery for commercial hatcheries and B2B importers."
+  ogImage="/images/company/cide-fishery-aquaculture-campus-aerial-view.avif"
+  breadcrumbs={[{ name: 'About', url: '/about/' }, { name: 'Global Supply', url: '/about/global-supply/' }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light"><div class="container hero-grid"><div><span class="eyebrow">GLOBAL SUPPLY NETWORK</span><h1>End-to-End Artemia Cyst Supply Chain from Raw Sourcing to Global Delivery</h1><p class="page-lead">CIDE FISHERY integrates reliable raw material harvesting across China and international saline lakes with state-of-the-art refining, climate-controlled cold storage, and seamless customs logistics. We manage the entire vertical pipeline to guarantee non-stop inventory continuity and verified biological performance for commercial hatcheries, bulk importers, and regional distributors worldwide.</p><div class="hero-ctas"><Button href="/contact/" variant="primary" size="lg">Plan a Supply Program</Button><Button href="/products/bulk-artemia-cysts/" variant="outline" size="lg">Bulk Artemia Cysts</Button></div></div><img src="/images/company/cide-fishery-aquaculture-campus-aerial-view.avif" alt="CIDE FISHERY campus aerial view" width="1200" height="755" loading="eager" /></div></section>
+  <section class="section bg-light sourcing-section"><div class="container"><div class="section-head"><span class="eyebrow">SOURCING COVERAGE</span><h2>Resilient Global Sourcing Networks Safeguarding Sourcing Stability</h2><p>In large-scale commercial aquaculture, a supplier's resource infrastructure dictates your seasonal security. CIDE FISHERY mitigates environmental and climate risks by maintaining a highly diversified, multinational raw material network, securing stable allocations from the world's most premium salt lake basins.</p></div><div class="workflow-grid">{network.map((f)=>(<article class="workflow-card"><img class="workflow-icon" src={f.icon} alt={f.alt} width="58" height="58" loading="lazy" decoding="async" /><h3>{f.title}</h3><p>{f.desc}</p></article>))}</div></div></section>
+  <section class="section bg-light"><div class="container media-band"><img src="/images/company/cide-fishery-global-supply-meeting-room.avif" alt="CIDE FISHERY meeting room" width="1200" height="801" loading="lazy" /><div><span class="eyebrow">B2B BUYER FIT</span><h2>Integrated Sourcing Solutions Tailored to Your Operational Scale</h2><p>CIDE FISHERY streamlines the entire commercial procurement experience by combining product selection, production planning, cold chain storage, and maritime shipment under a single, highly professional conversation. We provide dedicated contract alignment for:</p><ul>{buyerRoutes.map((item)=>(<li>{item}</li>))}</ul></div></div></section>
+</BaseLayout>
+<style>.page-header{padding:64px 0}.hero-grid,.media-band{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.hero-grid img,.media-band img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.eyebrow{display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px}.page-lead{font-size:18px;opacity:.84;margin:16px 0 24px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}.section-head{max-width:820px;margin-bottom:30px}.section-head p{margin:20px 0 0}.media-band h2+p{margin-top:20px}.workflow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.workflow-card{display:block;min-height:260px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);padding:24px;background:var(--color-white);color:var(--color-text)}.workflow-card :global(.workflow-icon){display:flex;width:58px;height:58px;margin-bottom:0;align-items:center;justify-content:center}.workflow-card h3{font-size:20px;font-weight:800;color:var(--color-primary);margin:22px 0 0}.workflow-card p{margin-top:10px;font-size:var(--fs-small);line-height:1.6;opacity:.78}.media-band ul{padding-left:20px;margin-top:18px}.media-band li{margin-bottom:10px}@media(max-width:1024px){.hero-grid,.media-band{grid-template-columns:1fr}.workflow-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:767px){.workflow-grid{grid-template-columns:1fr}}</style>

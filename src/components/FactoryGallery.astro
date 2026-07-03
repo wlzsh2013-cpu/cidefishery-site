@@ -1,4 +1,4 @@
-﻿---
+---
 
 ---
 
@@ -38,6 +38,7 @@
 
   <div class="cf-gallery-center">
     <h2>CIDE FISHERY Welcomes Global Aquaculture Partners to Visit Our Factory</h2>
+    <a href="/news/customer-visits/" class="cf-gallery-btn">See Customer Visits &rarr;</a>
   </div>
 </div>
 
@@ -59,7 +60,26 @@
   text-align: center;
 }
 
-.cf-gallery-center h2 {
+.cf-gallery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    background: #E6B36A;
+    color: #0B1F33;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  .cf-gallery-btn:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  .cf-gallery-center h2 {
   margin: 0;
   font-size: clamp(36px, 5.5vw, 56px);
   line-height: 1.08;
@@ -148,6 +168,25 @@
 }
 
 @media (max-width: 767px) {
+  .cf-gallery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    background: #E6B36A;
+    color: #0B1F33;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  .cf-gallery-btn:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
   .cf-gallery-center h2 { font-size: clamp(28px, 8vw, 36px); }
   .cf-floating-gallery { grid-template-columns: 1fr; }
 }

@@ -1,6 +1,7 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
+import CTASection from '../../components/CTASection.astro';
 
 const benefits = [
   { icon: '/icons/verified-batch-analysis.svg', alt: 'Verified batch analysis icon for premium Artemia cysts', title: 'Verified Batch Analysis', text: 'Gain complete transparency with independent batch-specific data sheets covering hatch rate, synchronization, and nutritional profiles before procurement.' },
@@ -35,7 +36,7 @@ const specs = [
         <p class="page-lead">Engineered for high-density aquaculture systems, our premium-grade Artemia cysts deliver exceptional hatching synchronization and maximum live nauplii counts. We provide fully documented batch consistency and specialized technical support to ensure stable, reliable nutrition for critical early-stage larval rearing.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Request Premium Batch Details</Button>
-          <Button href="/trust/quality-control/" variant="outline" size="lg">Quality Control Standards</Button>
+          <Button href="/about/quality-control/" variant="outline" size="lg">Quality Control Standards</Button>
         </div>
       </div>
       <figure class="hero-product premium-can">
@@ -77,13 +78,22 @@ const specs = [
         <h2>Hermetically Sealed Cans &amp; Premium Export Containment</h2>
         <p>Biological viability relies heavily on the final seal. Our premium Artemia cysts are packed in robust, moisture-proof vacuum cans and heavily lined cartons to eliminate ambient humidity, maintain internal stability during inventory rotation, and withstand rigorous port-of-entry destination handling.</p>
         <div class="hero-ctas">
-          <Button href="/trust/packaging/" variant="primary" size="lg">View Packaging Options</Button>
+          <Button href="/about/packaging/" variant="primary" size="lg">View Packaging Options</Button>
           <Button href="/products/artemia-cysts/" variant="outline" size="lg">Compare Standard Artemia Cysts</Button>
         </div>
       </div>
       <img src="/images/products/premium-brine-shrimp-eggs-can.avif" alt="Blue can of premium brine shrimp eggs." width="1448" height="1086" loading="lazy" />
     </div>
   </section>
+  <CTASection
+    title="Request a Tailored Quote"
+    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    ctaText="Send Inquiry"
+    ctaHref="/contact/"
+    showInquiryForm
+    preselectedProduct="Premium Artemia Cysts"
+  />
+
 </BaseLayout>
 
 <style>

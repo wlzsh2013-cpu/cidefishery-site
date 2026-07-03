@@ -1,14 +1,41 @@
-ï»¿---
+---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Button from "../../components/Button.astro";
 import CTASection from "../../components/CTASection.astro";
 
 const post = {
-  title: 'How to Store Artemia Cysts for Hatchery Use',
-  date: '2026-06-20',
-  slug: 'store-artemia-cysts-hatchery',
-  excerpt: 'Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality.',
+  title: "How to Store Artemia Cysts for Hatchery Use",
+  date: "2026-06-20",
+  updated: "2026-06-25",
+  slug: "store-artemia-cysts-hatchery",
+  excerpt: "Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality in hatchery operations.",
+  category: "Storage & Packaging",
+  author: "CIDE FISHERY Team",
+  cover: "/images/blog/default-cover.webp",
+  tags: ["Storage", "Cold Chain", "Packaging", "Quality Control", "Hatchery"],
 };
+
+const toc = [
+  { id: "temperature-control", title: "Temperature Control" },
+  { id: "humidity-management", title: "Humidity Management" },
+  { id: "storage-after-delivery", title: "Storage Guidance After Delivery" },
+  { id: "packaging-protection", title: "Packaging Protection" },
+];
+
+const allCategories = [
+  { name: "Artemia Hatching Guides", url: "/blog/#Artemia-Hatching-Guides" },
+  { name: "Artemia Cyst Selection", url: "/blog/#Artemia-Cyst-Selection" },
+  { name: "Hatchery Applications", url: "/blog/#Hatchery-Applications" },
+  { name: "Quality & Hatch Rate", url: "/blog/#Quality-Hatch-Rate" },
+  { name: "Storage & Packaging", url: "/blog/#Storage-Packaging" },
+  { name: "Sourcing & Wholesale", url: "/blog/#Sourcing-Wholesale" },
+];
+
+const recommendedPosts = [
+  { title: "Choosing Between Regular and Premium Artemia Cysts", slug: "regular-vs-premium-artemia-cysts" },
+  { title: "Artemia Cysts in Shrimp Hatchery Feeding Programs", slug: "artemia-cysts-shrimp-hatchery" },
+  { title: "Decapsulated vs Regular Brine Shrimp Eggs", slug: "decapsulated-vs-regular-brine-shrimp-eggs" },
+  { title: "Packaging Options for Artemia Cyst Export", slug: "artemia-cyst-export-packaging" },
+];
 ---
 
 <BaseLayout
@@ -21,50 +48,701 @@ const post = {
   breadcrumbs={[{ name: "Blog", url: "/blog/" }, { name: post.title, url: "/blog/" + post.slug + "/" }]}
   showBreadcrumb
 >
-  <section class="section page-header bg-light">
-    <div class="container" style="max-width:800px;">
-      <time datetime={post.date} class="post-date">{post.date}</time>
-      <h1>{post.title}</h1>
-    </div>
-  </section>
+  <div class="article-page-wrapper">
+    <div class="article-layout">
+      <article class="article-shell">
+        <header class="article-header">
+          <p class="article-kicker">{post.category}</p>
+          <h1>{post.title}</h1>
+          <p class="article-description">{post.excerpt}</p>
+          <div class="article-meta">
+            <time datetime={post.date}>Published {post.date}</time>
+            <span>/</span>
+            <time datetime={post.updated}>Updated {post.updated}</time>
+          </div>
+          <div class="article-tags">
+            {post.tags.map((tag) => (<span>{tag}</span>))}
+          </div>
+        </header>
 
-  <section class="section">
-    <div class="container" style="max-width:800px;">
-      <article class="post-content">
-        <p>Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality in hatchery operations. Temperature, humidity and container conditions all affect product stability over time.</p>
+        <div class="share-bar">
+          <span class="share-label">Share</span>
+          <a href={"https://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent("https://cidefishery.com/blog/" + post.slug + "/") + "&title=" + encodeURIComponent(post.title)} target="_blank" rel="noopener" aria-label="Share on LinkedIn" class="share-btn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href={"https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent("https://cidefishery.com/blog/" + post.slug + "/")} target="_blank" rel="noopener" aria-label="Share on Facebook" class="share-btn">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href={"https://twitter.com/intent/tweet?url=" + encodeURIComponent("https://cidefishery.com/blog/" + post.slug + "/") + "&text=" + encodeURIComponent(post.title)} target="_blank" rel="noopener" aria-label="Share on Twitter" class="share-btn">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href={"https://www.reddit.com/submit?url=" + encodeURIComponent("https://cidefishery.com/blog/" + post.slug + "/") + "&title=" + encodeURIComponent(post.title)} target="_blank" rel="noopener" aria-label="Share on Reddit" class="share-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.357 12.17c0 .799-.648 1.447-1.447 1.447-.377 0-.72-.144-.985-.382a7.078 7.078 0 0 1-3.855 1.21l.718 3.384 2.932-.622a1.445 1.445 0 1 1 .215.978l-3.236.687a.33.33 0 0 1-.388-.24l-.818-3.84a7.143 7.143 0 0 1-4.02-1.232 1.44 1.44 0 0 0-.968.367 1.447 1.447 0 1 1-1.502-2.33c.344-.366.83-.573 1.362-.573.153 0 .3.023.44.068a7.182 7.182 0 0 1 5.67-2.962l.89-2.112a.331.331 0 0 1 .405-.2l3.043.65a1.443 1.443 0 1 1-.24.96l-2.73-.585-.808 1.92a7.166 7.166 0 0 1 5.52 3.023c.19-.088.4-.136.62-.136.8 0 1.447.648 1.447 1.447zm-12.095 1.085a.92.92 0 1 0 0 1.84.92.92 0 0 0 0-1.84zm5.492 2.932c-.768.768-2.224.992-3.04.548-.09-.049-.123-.158-.073-.244.05-.087.16-.12.25-.073.624.34 1.78.165 2.364-.42.084-.084.22-.084.304 0a.215.215 0 0 1 .195.189zm1.016-2.012a.92.92 0 1 0 0-1.84.92.92 0 0 0 0 1.84z"/></svg>
+          </a>
+          <a href={"https://www.quora.com/share?url=" + encodeURIComponent("https://cidefishery.com/blog/" + post.slug + "/") + "&title=" + encodeURIComponent(post.title)} target="_blank" rel="noopener" aria-label="Share on Quora" class="share-btn">
+            <svg viewBox="0 0 24 24"><path d="M7.38 17.81A8.81 8.81 0 0 1 3 11.91c0-4.88 3.97-8.84 8.84-8.84 4.88 0 8.84 3.96 8.84 8.84 0 4.87-3.96 8.84-8.84 8.84a8.83 8.83 0 0 1-4.46-1.18zm5.16-7.64c-.48 0-.86.38-.86.86 0 .48.38.86.86.86s.86-.38.86-.86a.86.86 0 0 0-.86-.86zm4.62 2.11c-.07-.99-.57-1.8-1.42-2.24-.13-.06-.26-.1-.39-.14-.65-.17-1.31-.25-1.96-.25-.98 0-1.96.14-2.92.42-.68.2-1.32.51-1.87.96-.6.5-.97 1.16-1.03 1.93-.09 1.13.35 2.04 1.3 2.64.29.19.6.34.93.45.56.18 1.14.26 1.72.26.87 0 1.72-.14 2.53-.42.58-.2 1.12-.5 1.57-.93.5-.48.8-1.1.86-1.82.01-.14.01-.28.01-.42 0-.5-.07-.99-.2-1.45z"/></svg>
+          </a>
+          <a href={"https://api.whatsapp.com/send?text=" + encodeURIComponent(post.title + " " + "https://cidefishery.com/blog/" + post.slug + "/")} target="_blank" rel="noopener" aria-label="Share on WhatsApp" class="share-btn share-btn-wa">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
 
-        <h2>Temperature Control</h2>
-        <p>Artemia cysts should be stored in cool conditions, ideally below 20 degrees Celsius. Our facility maintains temperature-controlled cold storage to preserve product quality from processing through export preparation.</p>
+        <div class="post-cover post-cover--hero">
+          <img class="post-cover-img" src={post.cover} alt={post.title} loading="eager" />
+          <div class="post-cover-overlay">
+            <div class="post-cover-overlay-inner">
+              <span class="post-cover-eyebrow">CIDE FISHERY</span>
+              <strong class="post-cover-title">{post.title}</strong>
+            </div>
+          </div>
+        </div>
 
-        <h2>Humidity Management</h2>
-        <p>Low humidity environments help maintain cyst viability. Vacuum-sealed packaging protects against moisture during storage and transit.</p>
+        <div class="article-content">
+          <div class="content-lead">
+            <strong>Proper storage is the foundation of hatchery efficiency.</strong> Temperature, humidity and container conditions directly impact Artemia cyst viability and hatch rates. Getting storage right means consistent feeding outcomes for your larvae.
+          </div>
 
-        <h2>Storage Guidance After Delivery</h2>
-        <p>We provide storage recommendations with every order. Buyers should store products in cool, dry areas away from direct sunlight. For long-term storage, refrigeration can help extend product stability.</p>
+          <p>This guide covers the essential storage practices every hatchery should follow. Whether you are ordering bulk Artemia cysts or smaller premium batches, these principles apply across product grades and packaging formats.</p>
+          <p>We address three key concerns for hatchery operators:</p>
+          <ul>
+            <li>Maintaining optimal temperature ranges during storage.</li>
+            <li>Controlling humidity to prevent premature activation.</li>
+            <li>Selecting the right packaging for your storage environment.</li>
+          </ul>
 
-        <p>For specific storage guidance related to your order and facility conditions, <a href="/contact/">contact our team</a>.</p>
+          <div class="insight-card">
+            <strong>CIDE FISHERY Insight:</strong> The most common cause of reduced hatch rates is not product quality ¡ª it is improper storage after delivery. Following the guidelines below protects your investment.
+          </div>
+
+          <h2 id="temperature-control">Temperature Control</h2>
+          <p>Artemia cysts should be stored in cool conditions, ideally below 20 degrees Celsius. Our facility maintains temperature-controlled cold storage to preserve product quality from processing through export preparation.</p>
+          <p>Temperature fluctuations can cause condensation inside packaging, which degrades cyst quality. We recommend monitoring storage conditions regularly and avoiding areas near heat sources or direct sunlight.</p>
+
+          <div class="action-list">
+            <strong>Temperature Storage Checklist:</strong>
+            <ol>
+              <li>Maintain storage area below 20 degrees Celsius.</li>
+              <li>Avoid temperature fluctuations greater than 5 degrees per day.</li>
+              <li>Keep product away from heat sources and direct sunlight.</li>
+              <li>Monitor and log storage temperature weekly.</li>
+              <li>For long-term storage, consider refrigeration at 4-8 degrees Celsius.</li>
+            </ol>
+          </div>
+
+          <h2 id="humidity-management">Humidity Management</h2>
+          <p>Low humidity environments help maintain cyst viability. Vacuum-sealed packaging protects against moisture during storage and transit. Our multi-layer packaging solutions create an effective moisture barrier that extends shelf life.</p>
+          <p>When opening packaging for partial use, reseal tightly and return to controlled storage immediately. Exposure to ambient humidity should be minimized to prevent quality degradation.</p>
+
+          <h2 id="storage-after-delivery">Storage Guidance After Delivery</h2>
+          <p>We provide storage recommendations with every order. Buyers should store products in cool, dry areas away from direct sunlight. For long-term storage, refrigeration can help extend product stability.</p>
+          <p>Each shipment includes a batch-specific storage guide based on the product grade and packaging format selected for your order.</p>
+
+          <div class="insight-card">
+            <strong>Important:</strong> Different packaging formats have different storage requirements. Vacuum-sealed cans offer the longest shelf life, while foil bags should be used within the recommended timeframe after opening.
+          </div>
+
+          <h2 id="packaging-protection">Packaging Protection</h2>
+          <p>Our vacuum-sealed cans and foil bags are designed to maintain optimal conditions during shipping and storage. Each packaging format is selected based on order volume and destination requirements.</p>
+          <p>For specific storage guidance related to your order and facility conditions, <a href="/contact/">contact our team</a>. We provide tailored recommendations based on your hatchery setup and regional climate conditions.</p>
+        </div>
       </article>
 
-      <div class="post-navigation" style="margin-top:48px;">
-        <p><a href="/blog/">Back to Blog</a></p>
-        <p><a href="/trust/cold-storage/">View Cold Storage Facility</a></p>
-      </div>
-    </div>
-  </section>
+      <aside class="article-sidebar">
+        <div class="sidebar-sticky">
+          <section class="sidebar-toc">
+            <h2>Table of Contents</h2>
+            <nav>
+              {toc.map((item) => (
+                <a href={"#" + item.id} class="toc-link">{item.title}</a>
+              ))}
+            </nav>
+          </section>
 
-  <CTASection
-    title="Need Artemia Cyst Supply Information?"
-    description="Contact us for product options, batch details and storage guidance."
-    ctaText="Contact Our Team"
-    ctaHref="/contact/"
-  />
+          <section>
+            <h2>All Categories</h2>
+            <nav class="sidebar-cats">
+              {allCategories.map((cat) => (
+                <a href={cat.url} class="sidebar-cat-link">
+                  <span class="sidebar-cat-dot"></span>
+                  <span>{cat.name}</span>
+                </a>
+              ))}
+            </nav>
+          </section>
+
+          <section>
+            <h2>Recommended</h2>
+            <ol class="sidebar-posts">
+              {recommendedPosts.map((rp, i) => (
+                <li>
+                  <span class="sidebar-post-num">{String(i + 1).padStart(2, "0")}</span>
+                  <a href={"/blog/" + rp.slug + "/"}>{rp.title}</a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <CTASection
+      title="Need Artemia Cyst Supply Information?"
+      description="Contact us for product options, batch details and storage guidance."
+      ctaText="Contact Our Team"
+      ctaHref="/contact/"
+    />
+  </div>
 </BaseLayout>
 
-<style>
-  .page-header { padding: 60px 0; }
-  .post-date { font-size: var(--fs-small); opacity: 0.6; display: block; margin-bottom: 8px; }
-  .post-content { font-size: var(--fs-body); line-height: 1.8; }
-  .post-content h2 { margin-top: 36px; margin-bottom: 12px; }
-  .post-content p { margin-bottom: 18px; }
-  .post-navigation { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--color-neutral-gray); padding-top: 24px; }
+<style is:global>
+  .article-page-wrapper {
+    background: #F5F8FC;
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 64px 20px;
+  }
+
+  .article-shell {
+    min-width: 0;
+    padding: 40px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(11, 31, 51, 0.06);
+  }
+
+  .article-header {
+    margin-bottom: 32px;
+  }
+
+  .article-kicker {
+    margin: 0 0 8px;
+    color: #1E5FA8;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .article-header h1 {
+    margin: 0;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.15;
+    font-weight: 800;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .article-description {
+    max-width: 640px;
+    margin: 14px 0 0;
+    color: rgba(16, 32, 48, 0.6);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(16, 32, 48, 0.4);
+  }
+
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .article-tags span {
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(30, 95, 168, 0.08);
+    color: #1E5FA8;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .post-cover {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 36px;
+  }
+
+  .post-cover--hero {
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 24px 70px rgba(11, 31, 51, 0.35);
+  }
+
+  .post-cover-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .post-cover-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    background: linear-gradient(180deg, rgba(11, 31, 51, 0.05) 0%, rgba(11, 31, 51, 0.35) 38%, rgba(11, 31, 51, 0.88) 100%);
+  }
+
+  .post-cover-overlay-inner {
+    width: 100%;
+    max-width: 54rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(11, 31, 51, 0.45);
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: clamp(0.85rem, 2vw, 1.2rem);
+  }
+
+  .post-cover-eyebrow {
+    display: inline-flex;
+    margin-bottom: 0.55rem;
+    padding: 0.42rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(230, 179, 106, 0.18);
+    color: #E6B36A;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .post-cover-title {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    color: #fff;
+    font-weight: 800;
+    font-size: clamp(1.15rem, 2.8vw, 2rem);
+    line-height: 1.3;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
+
+  .share-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid rgba(11, 31, 51, 0.08);
+    border-radius: 14px;
+  }
+
+  .share-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(16, 32, 48, 0.45);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 4px;
+    flex-shrink: 0;
+  }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(11, 31, 51, 0.05);
+    color: rgba(11, 31, 51, 0.55);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .share-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .share-btn:hover {
+    background: #0B1F33;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .share-btn-wa:hover {
+    background: #25D366;
+  }
+
+  .article-content {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #102030;
+  }
+
+  .content-lead {
+    margin-bottom: 28px;
+    padding: 22px 26px;
+    background: rgba(30, 95, 168, 0.05);
+    border-left: 4px solid #1E5FA8;
+    border-radius: 0 12px 12px 0;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #0B1F33;
+  }
+
+  .content-lead strong {
+    color: #0B1F33;
+  }
+
+  .article-content p {
+    margin-bottom: 20px;
+  }
+
+  .article-content h2 {
+    margin-top: 44px;
+    margin-bottom: 16px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin: 0 0 20px;
+    padding-left: 24px;
+  }
+
+  .article-content li {
+    margin-bottom: 6px;
+  }
+
+  .article-content a {
+    color: #1E5FA8;
+    text-decoration: underline;
+  }
+
+  .article-content a:hover {
+    color: #E6B36A;
+  }
+
+  .insight-card {
+    margin: 28px 0;
+    padding: 22px 26px;
+    background: rgba(230, 179, 106, 0.08);
+    border: 1px solid rgba(230, 179, 106, 0.25);
+    border-radius: 14px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #0B1F33;
+  }
+
+  .insight-card strong {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .action-list {
+    margin: 28px 0;
+    padding: 24px 28px;
+    background: rgba(11, 31, 51, 0.03);
+    border-radius: 14px;
+    border: 1px solid rgba(11, 31, 51, 0.08);
+  }
+
+  .action-list strong {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #0B1F33;
+  }
+
+  .action-list ol {
+    margin: 0;
+    padding-left: 22px;
+  }
+
+  .action-list li {
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+
+  .article-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+
+  .sidebar-sticky {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .article-sidebar section {
+    padding: 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(11, 31, 51, 0.03);
+  }
+
+  .article-sidebar h2 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .sidebar-toc nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .toc-link {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(16, 32, 48, 0.6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover {
+    background: rgba(30, 95, 168, 0.06);
+    color: #0B1F33;
+  }
+
+  .toc-link.is-active {
+    background: rgba(30, 95, 168, 0.08);
+    color: #1E5FA8;
+    font-weight: 600;
+  }
+
+  .sidebar-cats {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar-cat-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(16, 32, 48, 0.6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .sidebar-cat-link:hover {
+    background: rgba(30, 95, 168, 0.06);
+    color: #1E5FA8;
+  }
+
+  .sidebar-cat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(30, 95, 168, 0.2);
+    flex-shrink: 0;
+  }
+
+  .sidebar-posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sidebar-posts li {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .sidebar-post-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: #1E5FA8;
+  }
+
+  .sidebar-posts a {
+    color: rgba(16, 32, 48, 0.65);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .sidebar-posts a:hover {
+    color: #1E5FA8;
+  }
+
+  @media (max-width: 1024px) {
+    .article-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 48px 18px;
+    }
+
+    .article-sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .article-shell {
+      padding: 24px;
+    }
+
+
+    .share-bar {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 14px;
+    }
+
+    .share-label {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .share-btn {
+      width: 36px;
+      height: 36px;
+    }
+
+    .share-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+  
+  .share-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid rgba(11, 31, 51, 0.08);
+    border-radius: 14px;
+  }
+
+  .share-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(16, 32, 48, 0.45);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 4px;
+    flex-shrink: 0;
+  }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(11, 31, 51, 0.05);
+    color: rgba(11, 31, 51, 0.55);
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .share-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .share-btn:hover {
+    background: #0B1F33;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .share-btn-wa:hover {
+    background: #25D366;
+  }
+
+  .article-content {
+      font-size: 15px;
+    }
+
+    .article-content h2 {
+      margin-top: 36px;
+      font-size: 22px;
+    }
+
+    .insight-card,
+    .action-list {
+      padding: 18px 20px;
+    }
+  }
 </style>
+
+<script>
+  (function () {
+    var tocLinks = document.querySelectorAll(".toc-link");
+    var headings = document.querySelectorAll(".article-content h2[id]");
+
+    function onScroll() {
+      var current = "";
+      headings.forEach(function (h) {
+        if (h.getBoundingClientRect().top <= 120) {
+          current = h.id;
+        }
+      });
+
+      tocLinks.forEach(function (link) {
+        link.classList.remove("is-active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("is-active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    tocLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  })();
+</script>

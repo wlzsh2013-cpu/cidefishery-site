@@ -1,6 +1,7 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
+import CTASection from '../../components/CTASection.astro';
 
 const programs = [
   { icon: '/icons/tailored-packaging.svg', alt: 'Tailored packaging icon for bulk Artemia cyst distributor supply programs', title: 'Tailored Packaging', text: "Select from heavy-duty foil bags, industrial vacuum cans, or durable mass drums optimized to match your local market's resale channel and warehouse handling needs." },
@@ -55,7 +56,7 @@ const checklist = [
         <p class="page-lead">CIDE FISHERY provides high-capacity commercial sourcing solutions tailored to global aquaculture supply chains. We support tier-1 wholesale importers and regional distributors with certified batch stability, volume-based pricing, and full-scale logistical support to secure your year-round inventory demands.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Request Bulk Quote</Button>
-          <Button href="/trust/packaging/" variant="outline" size="lg">Packaging &amp; Labeling Options</Button>
+          <Button href="/about/packaging/" variant="outline" size="lg">Packaging &amp; Labeling Options</Button>
         </div>
       </div>
       <figure class="hero-image">
@@ -64,7 +65,7 @@ const checklist = [
     </div>
   </section>
 
-  <section class="section bg-light bulk-program-section">
+  <section class="section bulk-program-section">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">DISTRIBUTOR REQUIREMENTS</span>
@@ -91,8 +92,8 @@ const checklist = [
         <h2>Streamline Your Request for a Personalized Commercial Proposal</h2>
         <p>To help our technical specialists engineer a competitive, market-specific quote rather than a generic price list, please provide your structural requirements below. This allows us to calculate accurate freight, volume tier discounts, and cold-storage compliance.</p>
         <div class="hero-ctas compact-ctas">
-          <Button href="/trust/cold-storage/" variant="outline" size="lg">Cold Storage Support</Button>
-          <Button href="/trust/quality-control/" variant="outline" size="lg">Quality Control</Button>
+          <Button href="/about/cold-storage/" variant="outline" size="lg">Cold Storage Support</Button>
+          <Button href="/about/quality-control/" variant="outline" size="lg">Quality Control</Button>
         </div>
       </div>
       <div class="checklist">
@@ -106,15 +107,15 @@ const checklist = [
     </div>
   </section>
 
-  <section class="section bg-light">
+  <section class="section bulk-related-section">
     <div class="container package-band">
       <div>
         <span class="eyebrow">FLEXIBLE COMMERCIAL PACKAGING</span>
         <h2>Bulk Multi-Layer Foil Bags, Heavy-Duty Drums &amp; Custom Private Labeling</h2>
         <p>CIDE FISHERY offers robust, multi-layer foil bags, fortified vacuum cans, and industrial-grade paper drums engineered to preserve hatching rates during grueling transoceanic shipping. Our packaging production lines fully accommodate custom branding, multi-language private labeling, and local resale weight allocations to directly match your corporate distribution network.</p>
         <div class="hero-ctas">
-          <Button href="/trust/packaging/" variant="primary" size="lg">Review Packaging Specifications</Button>
-          <Button href="/trust/global-supply/" variant="outline" size="lg">Explore Global Supply Support</Button>
+          <Button href="/about/packaging/" variant="primary" size="lg">Review Packaging Specifications</Button>
+          <Button href="/about/global-supply/" variant="outline" size="lg">Explore Global Supply Support</Button>
         </div>
       </div>
       <img src="/images/products/artemia-cysts-plastic-bucket-packaging.avif" alt="Artemia cysts plastic bucket packaging in production area." width="1448" height="1086" loading="lazy" />
@@ -134,6 +135,15 @@ const checklist = [
       </div>
     </div>
   </section>
+  <CTASection
+    title="Request a Tailored Quote"
+    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    ctaText="Send Inquiry"
+    ctaHref="/contact/"
+    showInquiryForm
+    preselectedProduct="Bulk Artemia Cysts"
+  />
+
 </BaseLayout>
 
 <style>
@@ -146,7 +156,7 @@ const checklist = [
   .compact-ctas { margin-top: 24px; }
   .hero-image, .package-band img { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; background: var(--color-white); margin: 0; aspect-ratio: 4 / 3; }
   .hero-image img, .package-band img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .bulk-program-section { padding: 120px 0; }
+  .bulk-program-section { padding: 120px 0; background: var(--color-white); }
   .section-head { max-width: 780px; margin-bottom: 28px; }
   .bulk-program-section .section-head h2 { margin-bottom: 20px; }
   .section-head p { opacity: 0.78; }
@@ -166,6 +176,7 @@ const checklist = [
   .package-band h2 { margin-bottom: 20px; }
   .package-band p { margin-bottom: 20px; }
   .related-products { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+  .bulk-related-section { background: var(--color-white); }
   .related-grid { display: flex; flex-wrap: wrap; gap: 12px; }
   .related-grid a { padding: 12px 16px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); font-weight: 700; }
   @media (max-width: 1024px) { .hero-grid, .buyer-grid, .package-band { grid-template-columns: 1fr; } .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .related-products { align-items: flex-start; flex-direction: column; } }

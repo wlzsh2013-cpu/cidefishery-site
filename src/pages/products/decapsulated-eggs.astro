@@ -1,6 +1,7 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
+import CTASection from '../../components/CTASection.astro';
 
 const uses = [
   { icon: '/icons/fish-fry-feeding.svg', alt: 'Fish fry feeding icon for decapsulated brine shrimp eggs', title: 'Fish Fry Feeding', text: 'Deliver 100% digestible, energy-rich nutrition directly to delicate larvae. Completely bypasses the hatching phase, ensuring a cleaner water environment and better survival rates.' },
@@ -77,13 +78,22 @@ const compare = [
         <h2>Industrial Preservation Built for Global Supply Chains</h2>
         <p>Because shell-free eggs require meticulous handling to preserve their nutritional integrity, CIDE FISHERY provides industrial-grade, moisture-proof barrier packaging tailored to your consumption scale. Share your targeted monthly volume and destination port, and our logistics team will configure a reliable, cost-controlled B2B supply plan.</p>
         <div class="hero-ctas">
-          <Button href="/trust/packaging/" variant="primary" size="lg">Review Packaging Specifications</Button>
+          <Button href="/about/packaging/" variant="primary" size="lg">Review Packaging Specifications</Button>
           <Button href="/products/artemia-cysts/" variant="outline" size="lg">Compare Standard Artemia Cysts</Button>
         </div>
       </div>
       <img src="/images/products/artemia-cysts-global-cold-chain-packaging.avif" alt="Microscope view of decapsulated Artemia cysts." width="1448" height="1086" loading="lazy" />
     </div>
   </section>
+  <CTASection
+    title="Request a Tailored Quote"
+    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    ctaText="Send Inquiry"
+    ctaHref="/contact/"
+    showInquiryForm
+    preselectedProduct="Decapsulated Brine Shrimp Eggs"
+  />
+
 </BaseLayout>
 
 <style>

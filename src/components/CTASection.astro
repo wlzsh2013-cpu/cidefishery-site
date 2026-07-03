@@ -1,4 +1,4 @@
-﻿---
+---
 import Button from './Button.astro';
 
 export interface Props {
@@ -9,6 +9,7 @@ export interface Props {
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
   showInquiryForm?: boolean;
+  preselectedProduct?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   secondaryCtaText,
   secondaryCtaHref,
   showInquiryForm = false,
+  preselectedProduct,
 } = Astro.props;
 ---
 
@@ -104,19 +106,23 @@ const {
             </label>
             <div class="form-field">
               <span>Product Interest</span>
-              <div class="custom-select" data-custom-select>
-                <input type="hidden" name="product" value="" />
-                <button type="button" class="custom-select-toggle" aria-haspopup="listbox" aria-expanded="false">
-                  <span data-selected-label>Select product</span>
-                </button>
-                <ul class="custom-select-menu" role="listbox">
-                  <li role="option" data-value="">Select product</li>
-                  <li role="option" data-value="Artemia Cysts">Artemia Cysts</li>
-                  <li role="option" data-value="Premium Artemia Cysts">Premium Artemia Cysts</li>
-                  <li role="option" data-value="Decapsulated Brine Shrimp Eggs">Decapsulated Brine Shrimp Eggs</li>
-                  <li role="option" data-value="Bulk Artemia Cysts">Bulk Artemia Cysts</li>
-                </ul>
-              </div>
+              {preselectedProduct ? (
+                <input type="text" name="product" value={preselectedProduct} readonly class="preselected-input" />
+              ) : (
+                <div class="custom-select" data-custom-select>
+                  <input type="hidden" name="product" value="" />
+                  <button type="button" class="custom-select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                    <span data-selected-label>Select product</span>
+                  </button>
+                  <ul class="custom-select-menu" role="listbox">
+                    <li role="option" data-value="">Select product</li>
+                    <li role="option" data-value="Artemia Cysts">Artemia Cysts</li>
+                    <li role="option" data-value="Premium Artemia Cysts">Premium Artemia Cysts</li>
+                    <li role="option" data-value="Decapsulated Brine Shrimp Eggs">Decapsulated Brine Shrimp Eggs</li>
+                    <li role="option" data-value="Bulk Artemia Cysts">Bulk Artemia Cysts</li>
+                  </ul>
+                </div>
+              )}
             </div>
             <div class="form-field">
               <span>Monthly Volume</span>
@@ -389,6 +395,11 @@ const {
   .cta-inquiry-form textarea {
     min-height: 112px;
     resize: vertical;
+  }
+
+  .preselected-input {
+    cursor: default;
+    opacity: 0.9;
   }
 
   .cta-inquiry-form input:focus,

@@ -1,0 +1,414 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const newsItems = [
+  {
+    title: "CIDE FISHERY to Exhibit at Aquaculture Asia 2026",
+    date: "2026-06-25",
+    slug: "aquaculture-asia-2026-exhibition",
+    excerpt: "CIDE FISHERY will showcase premium Artemia cyst products at Aquaculture Asia 2026 in Bangkok, Thailand.",
+    category: "Exhibitions",
+  },
+  {
+    title: "New Vacuum Packaging Line Boosts Export Capacity",
+    date: "2026-06-15",
+    slug: "new-vacuum-packaging-line",
+    excerpt: "Our processing facility has commissioned a new automated vacuum canning line, increasing monthly export capacity.",
+    category: "Company News",
+  },
+  {
+    title: "Client Visit: Vietnam Shrimp Hatchery Delegation Tours Facility",
+    date: "2026-06-08",
+    slug: "vietnam-hatchery-delegation-visit",
+    excerpt: "A delegation from three major Vietnamese shrimp hatcheries visited our Wenchang processing facility.",
+    category: "Customer Visits",
+  },
+  {
+    title: "HACCP Certification Renewed for 2026-2028",
+    date: "2026-05-28",
+    slug: "haccp-certification-renewed-2026",
+    excerpt: "CIDE FISHERY has successfully renewed its HACCP certification following a comprehensive third-party audit.",
+    category: "Company News",
+  },
+  {
+    title: "CIDE FISHERY at Seafood Expo Global 2026",
+    date: "2026-05-12",
+    slug: "seafood-expo-global-2026",
+    excerpt: "We connected with distributors and hatchery operators from 18 countries at Seafood Expo Global in Barcelona.",
+    category: "Exhibitions",
+  },
+  {
+    title: "Welcome Visit from Indonesian Aquaculture Importers",
+    date: "2026-04-20",
+    slug: "indonesian-importers-visit",
+    excerpt: "Indonesian aquaculture importers visited our cold storage and quality control laboratories in Wenchang.",
+    category: "Customer Visits",
+  },
+  {
+    title: "New Cold Chain Monitoring System Implemented",
+    date: "2026-04-08",
+    slug: "cold-chain-monitoring-system",
+    excerpt: "Real-time temperature and humidity monitoring now covers our entire storage and logistics chain.",
+    category: "Company News",
+  },
+  {
+    title: "CIDE FISHERY Joins China Fisheries & Seafood Expo 2026",
+    date: "2026-03-15",
+    slug: "china-fisheries-seafood-expo-2026",
+    excerpt: "We exhibited our full product range at the China Fisheries & Seafood Expo in Qingdao.",
+    category: "Exhibitions",
+  },
+  {
+    title: "Thailand Shrimp Farm Group Completes Technical Visit",
+    date: "2026-03-02",
+    slug: "thailand-shrimp-farm-visit",
+    excerpt: "Technical representatives from Thai shrimp farm cooperatives visited for hatch rate demonstrations.",
+    category: "Customer Visits",
+  },
+];
+
+const categories = ["Company News", "Exhibitions", "Customer Visits"];
+---
+
+<BaseLayout
+  title="News | CIDE FISHERY | Company Updates, Exhibitions & Client Visits"
+  description="Stay updated with CIDE FISHERY company news, international exhibition schedules, and client visit highlights in the Artemia cyst and aquaculture industry."
+  breadcrumbs={[{ name: "News", url: "/news/" }]}
+  showBreadcrumb
+>
+  <div class="news-page-wrapper">
+    <div class="news-layout">
+      <main class="news-main">
+        <header class="news-header">
+          <p class="news-kicker">Stay Informed</p>
+          <h1>News & Updates</h1>
+          <p class="news-desc">Company announcements, international exhibition schedules, and client engagement highlights from CIDE FISHERY.</p>
+        </header>
+
+        <div class="news-filters" id="newsFilters">
+          <button class="news-filter-btn is-active" data-filter="all">All News</button>
+          {categories.map((cat) => (
+            <button class="news-filter-btn" data-filter={cat}>{cat}</button>
+          ))}
+        </div>
+
+        <div class="news-grid" id="newsGrid">
+          {newsItems.map((item) => (
+            <article class="news-card" data-category={item.category}>
+              <div class="news-card-category">{item.category}</div>
+              <h2 class="news-card-title">{item.title}</h2>
+              <time datetime={item.date}>{item.date}</time>
+              <p>{item.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      </main>
+
+      <aside class="news-sidebar">
+        <section>
+          <h2>Categories</h2>
+          <nav>
+            <a href="/news/company-news/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Company News</span>
+            </a>
+            <a href="/news/exhibitions/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Exhibitions</span>
+            </a>
+            <a href="/news/customer-visits/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Customer Visits</span>
+            </a>
+          </nav>
+        </section>
+
+        <section>
+          <h2>Our Products</h2>
+          <nav>
+            <a href="/products/artemia-cysts/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Artemia Cysts</span>
+            </a>
+            <a href="/products/premium-artemia-cysts/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Premium Artemia Cysts</span>
+            </a>
+            <a href="/products/decapsulated-eggs/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Decapsulated Eggs</span>
+            </a>
+            <a href="/products/bulk-artemia-cysts/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Bulk Supply</span>
+            </a>
+          </nav>
+        </section>
+
+        <section>
+          <h2>Quick Links</h2>
+          <nav>
+            <a href="/about/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>About CIDE FISHERY</span>
+            </a>
+            <a href="/about/quality-control/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Quality Control</span>
+            </a>
+            <a href="/contact/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Contact Us</span>
+            </a>
+          </nav>
+        </section>
+      </aside>
+    </div>
+
+    <CTASection
+      title="Want to Meet Us at an Exhibition?"
+      description="Contact our team to schedule a meeting at upcoming aquaculture trade shows or arrange a facility visit."
+      ctaText="Get in Touch"
+      ctaHref="/contact/"
+    />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .news-page-wrapper {
+    background: #F5F8FC;
+  }
+
+  .news-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 60px 0 80px;
+    max-width: 1320px;
+  }
+
+  .news-header {
+    margin-bottom: 36px;
+  }
+
+  .news-kicker {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1E5FA8;
+  }
+
+  .news-header h1 {
+    margin: 0 0 16px;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  .news-desc {
+    margin: 0;
+    max-width: 620px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(16, 32, 48, 0.65);
+  }
+
+  .news-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .news-filter-btn {
+    padding: 8px 20px;
+    border: 1px solid rgba(11, 31, 51, 0.12);
+    border-radius: 999px;
+    background: #fff;
+    color: rgba(16, 32, 48, 0.6);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-family);
+  }
+
+  .news-filter-btn.is-active,
+  .news-filter-btn:hover {
+    background: #0B1F33;
+    border-color: #0B1F33;
+    color: #fff;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .news-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 2px 8px rgba(11, 31, 51, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(11, 31, 51, 0.08);
+  }
+
+  .news-card.is-hidden {
+    display: none;
+  }
+
+  .news-card-category {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 16px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: rgba(230, 179, 106, 0.15);
+    color: #C18B3A;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .news-card-title {
+    margin: 0 0 12px;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .news-card time {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: rgba(16, 32, 48, 0.4);
+  }
+
+  .news-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(16, 32, 48, 0.6);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+
+  .news-sidebar section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(11, 31, 51, 0.03);
+  }
+
+  .news-sidebar h2 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .news-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar-cat-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(16, 32, 48, 0.6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .sidebar-cat-link:hover {
+    background: rgba(30, 95, 168, 0.06);
+    color: #1E5FA8;
+  }
+
+  .sidebar-cat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(30, 95, 168, 0.2);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .news-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .news-sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .news-layout {
+      padding: 40px 18px;
+    }
+    .news-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var filterBtns = document.querySelectorAll(".news-filter-btn");
+    var cards = document.querySelectorAll(".news-card");
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var filter = this.getAttribute("data-filter");
+
+        filterBtns.forEach(function (b) { b.classList.remove("is-active"); });
+        this.classList.add("is-active");
+
+        cards.forEach(function (card) {
+          if (filter === "all" || card.getAttribute("data-category") === filter) {
+            card.classList.remove("is-hidden");
+          } else {
+            card.classList.add("is-hidden");
+          }
+        });
+      });
+    });
+  })();
+</script>

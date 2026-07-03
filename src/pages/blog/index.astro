@@ -1,13 +1,58 @@
-﻿---
+---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Button from "../../components/Button.astro";
+import CTASection from "../../components/CTASection.astro";
 
 const posts = [
-  { title: 'How to Store Artemia Cysts for Hatchery Use', date: '2026-06-20', slug: 'store-artemia-cysts-hatchery', excerpt: 'Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality. Learn key storage guidelines for hatchery operations.' },
-  { title: 'Choosing Between Regular and Premium Artemia Cysts', date: '2026-06-10', slug: 'regular-vs-premium-artemia-cysts', excerpt: 'Understanding the differences between standard and premium Artemia cyst batches to make the right choice for your hatchery program.' },
-  { title: 'Artemia Cysts in Shrimp Hatchery Feeding Programs', date: '2026-05-28', slug: 'artemia-cysts-shrimp-hatchery', excerpt: 'How Artemia cysts support larval feeding in shrimp hatcheries from zoea through post-larvae stages.' },
-  { title: 'Decapsulated vs Regular Brine Shrimp Eggs: A Guide', date: '2026-05-15', slug: 'decapsulated-vs-regular-brine-shrimp-eggs', excerpt: 'Compare decapsulated and regular brine shrimp eggs for different aquaculture feeding applications.' },
-  { title: 'Packaging Options for Artemia Cyst Export', date: '2026-05-01', slug: 'artemia-cyst-export-packaging', excerpt: 'Overview of packaging formats for Artemia cyst export including vacuum cans, foil bags and bulk options.' },
+  {
+    title: "How to Store Artemia Cysts for Hatchery Use",
+    date: "2026-06-20",
+    slug: "store-artemia-cysts-hatchery",
+    excerpt: "Proper storage of Artemia cysts is critical for maintaining hatch rate and product quality.",
+    category: "Storage & Packaging",
+    tags: ["Storage", "Cold Chain", "Packaging"],
+  },
+  {
+    title: "Choosing Between Regular and Premium Artemia Cysts",
+    date: "2026-06-10",
+    slug: "regular-vs-premium-artemia-cysts",
+    excerpt: "Understanding the differences between standard and premium Artemia cyst batches.",
+    category: "Artemia Cyst Selection",
+    tags: ["Products", "Premium", "Selection"],
+  },
+  {
+    title: "Artemia Cysts in Shrimp Hatchery Feeding Programs",
+    date: "2026-05-28",
+    slug: "artemia-cysts-shrimp-hatchery",
+    excerpt: "How Artemia cysts support larval feeding in shrimp hatcheries.",
+    category: "Hatchery Applications",
+    tags: ["Shrimp", "Feeding", "Larvae"],
+  },
+  {
+    title: "Decapsulated vs Regular Brine Shrimp Eggs",
+    date: "2026-05-15",
+    slug: "decapsulated-vs-regular-brine-shrimp-eggs",
+    excerpt: "Compare decapsulated and regular brine shrimp eggs for aquaculture.",
+    category: "Artemia Hatching Guides",
+    tags: ["Decapsulated", "Hatching", "Guide"],
+  },
+  {
+    title: "Packaging Options for Artemia Cyst Export",
+    date: "2026-05-01",
+    slug: "artemia-cyst-export-packaging",
+    excerpt: "Packaging formats for Artemia cyst export including vacuum cans and foil bags.",
+    category: "Sourcing & Wholesale",
+    tags: ["Packaging", "Export", "Bulk"],
+  },
+];
+
+const categories = [...new Set(posts.map((p) => p.category))];
+const allCategoryLinks = [
+  { name: "Artemia Hatching Guides", url: "/blog/#Artemia-Hatching-Guides" },
+  { name: "Artemia Cyst Selection", url: "/blog/#Artemia-Cyst-Selection" },
+  { name: "Hatchery Applications", url: "/blog/#Hatchery-Applications" },
+  { name: "Quality & Hatch Rate", url: "/blog/#Quality-Hatch-Rate" },
+  { name: "Storage & Packaging", url: "/blog/#Storage-Packaging" },
+  { name: "Sourcing & Wholesale", url: "/blog/#Sourcing-Wholesale" },
 ];
 ---
 
@@ -17,49 +62,474 @@ const posts = [
   breadcrumbs={[{ name: "Blog", url: "/blog/" }]}
   showBreadcrumb
 >
-  <section class="section page-header bg-light">
-    <div class="container">
-      <h1>Blog</h1>
-      <p class="page-lead">Insights on Artemia cyst supply, hatchery feeding and aquaculture industry topics.</p>
-    </div>
-  </section>
+  <div class="blog-page-wrapper">
+    <div class="blog-layout">
+      <main class="blog-main">
+        <header class="blog-header">
+          <p class="blog-kicker">CIDE FISHERY</p>
+          <h1>Blog</h1>
+          <p class="blog-desc">Expert insights on Artemia cyst supply, hatchery feeding and aquaculture industry topics.</p>
+        </header>
 
-  <section class="section">
-    <div class="container" style="max-width:800px;">
-      <div class="blog-list">
-        {posts.map((post) => (
-          <article class="blog-card">
-            <div class="blog-card-body">
-              <time datetime={post.date} class="blog-date">{post.date}</time>
-              <h2><a href={"/blog/" + post.slug + "/"}>{post.title}</a></h2>
-              <p>{post.excerpt}</p>
-              <a href={"/blog/" + post.slug + "/"} class="btn btn-outline btn-sm">Read More</a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+        <div class="blog-filters" id="blogFilters">
+          <button class="blog-filter-btn is-active" data-filter="all">All Posts</button>
+          {categories.map((cat) => (
+            <button class="blog-filter-btn" data-filter={cat}>{cat}</button>
+          ))}
+        </div>
 
-  <section class="section bg-light">
-    <div class="container" style="text-align:center;">
-      <h2>Need Product Information?</h2>
-      <p style="max-width:600px;margin:12px auto 32px;">Our articles support product pages. For specific product inquiries, contact our team directly.</p>
-      <Button href="/contact/" variant="primary" size="lg">Request Artemia Cysts Quote</Button>
+        <div class="blog-grid" id="blogGrid">
+          {posts.map((post) => (
+            <article class="blog-card" data-category={post.category}>
+              <a href={"/blog/" + post.slug + "/"} class="blog-card-cover">
+                <img src="/images/blog/default-cover.webp" alt={post.title} width="600" height="450" loading="lazy" />
+                <div class="blog-card-overlay">
+                  <div class="blog-card-overlay-inner">
+                    <span class="blog-card-eyebrow">{post.category}</span>
+                    <h2 class="blog-card-title">{post.title}</h2>
+                  </div>
+                </div>
+              </a>
+              <div class="blog-card-body">
+                <time datetime={post.date}>{post.date}</time>
+                <div class="blog-card-tags">
+                  {post.tags.map((tag) => (<span>{tag}</span>))}
+                </div>
+                <p>{post.excerpt}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </main>
+
+      <aside class="blog-sidebar">
+        <section>
+          <h2>Our Products</h2>
+          <nav>
+            <a href="/products/artemia-cysts/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Artemia Cysts</span>
+            </a>
+            <a href="/products/premium-artemia-cysts/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Premium Artemia Cysts</span>
+            </a>
+            <a href="/products/decapsulated-eggs/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Decapsulated Brine Shrimp Eggs</span>
+            </a>
+            <a href="/products/bulk-artemia-cysts/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Bulk Artemia Cysts</span>
+            </a>
+          </nav>
+        </section>
+
+        <section>
+          <h2>Quick Links</h2>
+          <nav>
+            <a href="/about/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>About CIDE FISHERY</span>
+            </a>
+            <a href="/about/packaging/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Packaging & Cold Chain</span>
+            </a>
+            <a href="/about/quality-control/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Quality Control</span>
+            </a>
+            <a href="/contact/" class="sidebar-cat-link">
+              <span class="sidebar-cat-dot"></span>
+              <span>Contact Us</span>
+            </a>
+          </nav>
+        </section>
+
+        <section>
+          <h2>Recommended</h2>
+          <ol class="sidebar-posts">
+            {posts.slice(0, 5).map((post, i) => (
+              <li>
+                <span class="sidebar-post-num">{String(i + 1).padStart(2, "0")}</span>
+                <a href={"/blog/" + post.slug + "/"}>{post.title}</a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </aside>
     </div>
-  </section>
+
+    <CTASection
+      title="Need Product Information?"
+      description="Contact us for Artemia cyst product options, batch details and supply proposals."
+      ctaText="Request Quote"
+      ctaHref="/contact/"
+    />
+  </div>
 </BaseLayout>
 
-<style>
-  .page-header { padding: 60px 0; }
-  .page-lead { font-size: 18px; opacity: 0.8; margin-top: 12px; }
-  .blog-list { display: flex; flex-direction: column; gap: 32px; }
-  .blog-card { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; transition: box-shadow 0.3s; }
-  .blog-card:hover { box-shadow: 0 4px 16px rgba(11,31,51,0.08); }
-  .blog-card-body { padding: 28px; }
-  .blog-date { font-size: var(--fs-small); color: var(--color-text); opacity: 0.6; display: block; margin-bottom: 8px; }
-  .blog-card h2 { margin-bottom: 8px; }
-  .blog-card h2 a { color: var(--color-h2-h3-h4); }
-  .blog-card h2 a:hover { color: var(--color-champagne-gold); }
-  .blog-card p { opacity: 0.8; margin-bottom: 16px; }
+<style is:global>
+  .blog-page-wrapper {
+    background: #F5F8FC;
+  }
+
+  .blog-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 64px 0;
+  }
+
+  .blog-main {
+    min-width: 0;
+  }
+
+  .blog-header {
+    margin-bottom: 36px;
+  }
+
+  .blog-kicker {
+    margin: 0 0 8px;
+    color: #1E5FA8;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .blog-header h1 {
+    margin: 0;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    font-weight: 800;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .blog-desc {
+    max-width: 560px;
+    margin: 16px 0 0;
+    color: rgba(16, 32, 48, 0.6);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .blog-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .blog-filter-btn {
+    padding: 7px 18px;
+    border: 1px solid rgba(11, 31, 51, 0.1);
+    border-radius: 999px;
+    background: #fff;
+    color: #0B1F33;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Noto Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .blog-filter-btn:hover {
+    border-color: #1E5FA8;
+    color: #1E5FA8;
+  }
+
+  .blog-filter-btn.is-active {
+    background: #0B1F33;
+    border-color: #0B1F33;
+    color: #fff;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .blog-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(11, 31, 51, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .blog-card.is-hidden {
+    display: none;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(11, 31, 51, 0.1);
+  }
+
+  .blog-card-cover {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #0B1F33;
+  }
+
+  .blog-card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .blog-card:hover .blog-card-cover img {
+    transform: scale(1.05);
+  }
+
+  .blog-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    background: linear-gradient(180deg, rgba(11, 31, 51, 0.05) 0%, rgba(11, 31, 51, 0.35) 38%, rgba(11, 31, 51, 0.88) 100%);
+    pointer-events: none;
+  }
+
+  .blog-card-overlay-inner {
+    width: 100%;
+    padding: clamp(0.85rem, 2vw, 1.2rem);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background: rgba(11, 31, 51, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .blog-card-eyebrow {
+    display: inline-flex;
+    margin-bottom: 0.55rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(230, 179, 106, 0.18);
+    color: #E6B36A;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .blog-card-title {
+    margin: 0;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 800;
+    line-height: 1.3;
+    color: #fff;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card-body {
+    padding: 18px 20px 22px;
+  }
+
+  .blog-card-body time {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: rgba(16, 32, 48, 0.45);
+  }
+
+  .blog-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .blog-card-tags span {
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(30, 95, 168, 0.08);
+    color: #1E5FA8;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .blog-card-body p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(16, 32, 48, 0.65);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+
+  .blog-sidebar section {
+    margin-bottom: 24px;
+    padding: 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(11, 31, 51, 0.03);
+  }
+
+  .blog-sidebar h2 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #0B1F33;
+    font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  .blog-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar-cat-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(16, 32, 48, 0.6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .sidebar-cat-link:hover {
+    background: rgba(30, 95, 168, 0.06);
+    color: #1E5FA8;
+  }
+
+  .sidebar-cat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(30, 95, 168, 0.2);
+    flex-shrink: 0;
+  }
+
+  .sidebar-posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sidebar-posts li {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .sidebar-post-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: #1E5FA8;
+  }
+
+  .sidebar-posts a {
+    color: rgba(16, 32, 48, 0.65);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .sidebar-posts a:hover {
+    color: #1E5FA8;
+  }
+
+  @media (max-width: 1024px) {
+    .blog-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .blog-sidebar {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-layout {
+      padding: 40px 18px;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
 </style>
+
+<script>
+  (function () {
+    var filterBtns = document.querySelectorAll(".blog-filter-btn");
+    var cards = document.querySelectorAll(".blog-card");
+
+    var hashMap = {
+      "Artemia-Hatching-Guides": "Artemia Hatching Guides",
+      "Artemia-Cyst-Selection": "Artemia Cyst Selection",
+      "Hatchery-Applications": "Hatchery Applications",
+      "Quality-Hatch-Rate": "Quality & Hatch Rate",
+      "Storage-Packaging": "Storage & Packaging",
+      "Sourcing-Wholesale": "Sourcing & Wholesale",
+    };
+
+    function applyFilter(filter) {
+      filterBtns.forEach(function (b) {
+        b.classList.remove("is-active");
+        if (b.getAttribute("data-filter") === filter) {
+          b.classList.add("is-active");
+        }
+      });
+
+      cards.forEach(function (card) {
+        if (filter === "all" || card.getAttribute("data-category") === filter) {
+          card.classList.remove("is-hidden");
+        } else {
+          card.classList.add("is-hidden");
+        }
+      });
+    }
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var filter = this.getAttribute("data-filter");
+        applyFilter(filter);
+        var hash = Object.keys(hashMap).find(function(k) { return hashMap[k] === filter; });
+        history.replaceState(null, "", hash ? "/blog/#" + hash : "/blog/");
+      });
+    });
+
+    var hash = window.location.hash.replace("#", "");
+    if (hash && hashMap[hash]) {
+      applyFilter(hashMap[hash]);
+    }
+  })();
+</script>

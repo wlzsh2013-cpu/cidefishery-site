@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+
+const storageFacts = [
+  { value: '8', label: 'Dedicated Cold-Storage Rooms' },
+  { value: '1,000 m2', label: 'Total Cold Chain Footprint' },
+  { value: '3,000 m3', label: 'Specialized Freezing Capacity' },
+  { value: '100%', label: 'B2B Inventory & Shipment Security' },
+];
+
+const storagePoints = [
+  {
+    icon: '/icons/pre-export-frozen-storage.svg',
+    alt: 'Pre-export frozen storage icon for temperature-locked Artemia cyst cold-chain preservation',
+    title: 'Pre-Export Frozen Storage',
+    desc: 'All finished lots are immediately transferred to our specialized, temperature-locked freezing vaults, preserving maximum embryonic vitality during batch packaging and local port clearance.',
+  },
+  {
+    icon: '/icons/seamless-inventory-rotation.svg',
+    alt: 'Seamless inventory rotation icon for batch-matched Artemia cyst shipment scheduling',
+    title: 'Seamless Inventory Rotation',
+    desc: 'We coordinate strict batch-matching and volume-based shipment scheduling, ensuring your recurring supply contracts arrive exactly when your rearing windows open.',
+  },
+  {
+    icon: '/icons/advanced-package-protection.svg',
+    alt: 'Advanced package protection icon for moisture-barrier Artemia cyst export packaging',
+    title: 'Advanced Package Protection',
+    desc: 'Our multi-layer vacuum cans and industrial drums are engineered to withstand ambient humidity and temperature changes during long-distance transoceanic shipping and destination handling.',
+  },
+  {
+    icon: '/icons/global-shipment-coordination.svg',
+    alt: 'Global shipment coordination icon for cold-chain Artemia cyst export logistics',
+    title: 'Global Shipment Coordination',
+    desc: 'We manage full cold-chain transport container booking, customs trade documentation, and localized freight route optimization to lock in a reliable, scheduled delivery window for your port.',
+  },
+];
+---
+<BaseLayout
+  title="Industrial Cold Storage for Artemia Cyst Stability | CIDE FISHERY"
+  description="CIDE FISHERY operates industrial cold storage infrastructure with 8 dedicated rooms, 1,000 m2 footprint and 3,000 m3 freezing capacity for Artemia cyst stability and global export."
+  ogImage="/images/company/artemia-cyst-cold-storage-room-doors.avif"
+  breadcrumbs={[{ name: 'About', url: '/about/' }, { name: 'Cold Storage', url: '/about/cold-storage/' }]}
+  showBreadcrumb
+>
+  <section class="section page-header bg-light">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">COLD STORAGE CAPABILITY</span>
+        <h1>Industrial Cold Storage Infrastructure Guaranteeing Artemia Cyst Stability</h1>
+        <p class="page-lead">Biological performance extends far beyond the production line. Embryo viability, long-term hatchability, and batch stability depend entirely on uncompromising climate control. CIDE FISHERY operates an advanced, multi-room freezing infrastructure that halts cellular aging immediately after processing. This premium cold-chain management safeguards your biological assets, ensuring commercial hatcheries and global distributors receive peak-performance yields upon arrival.</p>
+        <div class="hero-ctas">
+          <Button href="/contact/" variant="primary" size="lg">Ask About Storage Plan</Button>
+          <Button href="/about/packaging/" variant="outline" size="lg">Packaging Options</Button>
+        </div>
+      </div>
+      <img src="/images/company/artemia-cyst-cold-storage-room-doors.avif" alt="Artemia cyst cold storage room doors" width="1200" height="900" loading="eager" />
+    </div>
+  </section>
+
+  <section class="section stats-section">
+    <div class="container stats-grid">
+      {storageFacts.map((item) => (
+        <div class="stat-card">
+          <strong>{item.value}</strong>
+          <span>{item.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container decision-grid">
+      <div class="decision-copy">
+        <span class="eyebrow">STORAGE DECISIONS</span>
+        <h2>Strategic Logistics &amp; Preservation Planning for Seamless Global Export</h2>
+        <p>Managing large-scale aquaculture contracts requires a meticulous, uninterrupted cold chain from factory to port. CIDE FISHERY aligns precise temperature controls, secure logistics routes, and moisture-barrier packaging standards with your facility's seasonal stocking schedules to completely eliminate destination supply variables.</p>
+      </div>
+      <div class="decision-list">
+        {storagePoints.map((item) => (
+          <article class="decision-card">
+            <img class="decision-icon" src={item.icon} alt={item.alt} width="58" height="58" loading="lazy" decoding="async" />
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>.page-header{padding:64px 0}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.hero-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.eyebrow{display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px}.page-lead{font-size:18px;opacity:.84;margin:16px 0 24px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}.stats-section{padding:32px 0;background:var(--color-primary)}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.stat-card{padding:22px;border:1px solid rgba(255,255,255,.18);border-radius:var(--border-radius)}.stat-card strong,.stat-card span{display:block;color:var(--color-white)}.stat-card strong{font-size:30px}.stat-card span{margin-top:6px;font-size:var(--fs-small);opacity:.82}.decision-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:center}.decision-copy{align-self:center}.decision-copy h2{margin:0 0 20px}.decision-copy p{margin:0;font-size:17px;line-height:1.7}.decision-list{display:grid;gap:14px}.decision-card{display:grid;grid-template-columns:58px 1fr;gap:22px;align-items:center;padding:18px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.decision-icon{display:block;width:58px;height:58px;object-fit:contain;flex:0 0 58px}.decision-card h3{margin:0 0 8px;font-size:20px;color:var(--color-primary)}.decision-card p{margin:0;font-size:var(--fs-small);line-height:1.6;opacity:.8}@media(max-width:1024px){.hero-grid,.decision-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:767px){.stats-grid{grid-template-columns:1fr}.decision-card{grid-template-columns:58px 1fr;gap:16px}}</style>

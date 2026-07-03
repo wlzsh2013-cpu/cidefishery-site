@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTASection from "../../../components/CTASection.astro";
+
+const newsItems = [
+  {
+    title: "New Vacuum Packaging Line Boosts Export Capacity",
+    date: "2026-06-15",
+    slug: "new-vacuum-packaging-line",
+    excerpt: "Our processing facility has commissioned a new automated vacuum canning line, increasing monthly export capacity by 40%.",
+  },
+  {
+    title: "HACCP Certification Renewed for 2026-2028",
+    date: "2026-05-28",
+    slug: "haccp-certification-renewed-2026",
+    excerpt: "CIDE FISHERY has successfully renewed its HACCP certification following a comprehensive third-party audit.",
+  },
+  {
+    title: "New Cold Chain Monitoring System Implemented",
+    date: "2026-04-08",
+    slug: "cold-chain-monitoring-system",
+    excerpt: "Real-time temperature and humidity monitoring now covers our entire storage and logistics chain.",
+  },
+];
+---
+
+<BaseLayout
+  title="Company News | CIDE FISHERY"
+  description="Latest company news and announcements from CIDE FISHERY, including certifications, facility upgrades, and corporate milestones."
+  breadcrumbs={[{ name: "News", url: "/news/" }, { name: "Company News", url: "/news/company-news/" }]}
+  showBreadcrumb
+>
+  <div class="news-cat-wrapper">
+    <div class="news-cat-layout">
+      <main class="news-cat-main">
+        <header class="news-cat-header">
+          <p class="news-cat-kicker">News Category</p>
+          <h1>Company News</h1>
+          <p class="news-cat-desc">Corporate announcements, certifications, facility upgrades, and organizational milestones from CIDE FISHERY.</p>
+        </header>
+        <div class="news-cat-grid">
+          {newsItems.map((item) => (
+            <article class="news-cat-card">
+              <a href={"/news/company-news/" + item.slug + "/"} class="news-cat-card-cover">
+                <img src="/images/blog/default-cover.webp" alt={item.title} width="600" height="450" loading="lazy" />
+                <div class="news-cat-card-overlay">
+                  <div class="news-cat-card-overlay-inner">
+                    <span class="news-cat-card-eyebrow">Company News</span>
+                    <h2 class="news-cat-card-title">{item.title}</h2>
+                  </div>
+                </div>
+              </a>
+              <div class="news-cat-card-body">
+                <time datetime={item.date}>{item.date}</time>
+                <p>{item.excerpt}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </main>
+      <aside class="news-cat-sidebar">
+        <section>
+          <h2>News Categories</h2>
+          <nav>
+            <a href="/news/company-news/" class="sidebar-cat-link is-active"><span class="sidebar-cat-dot"></span><span>Company News</span></a>
+            <a href="/news/exhibitions/" class="sidebar-cat-link"><span class="sidebar-cat-dot"></span><span>Exhibitions</span></a>
+            <a href="/news/customer-visits/" class="sidebar-cat-link"><span class="sidebar-cat-dot"></span><span>Customer Visits</span></a>
+          </nav>
+        </section>
+        <section>
+          <h2>Quick Links</h2>
+          <nav>
+            <a href="/products/" class="sidebar-cat-link"><span class="sidebar-cat-dot"></span><span>Products</span></a>
+            <a href="/about/" class="sidebar-cat-link"><span class="sidebar-cat-dot"></span><span>About Us</span></a>
+            <a href="/contact/" class="sidebar-cat-link"><span class="sidebar-cat-dot"></span><span>Contact</span></a>
+          </nav>
+        </section>
+      </aside>
+    </div>
+
+    <CTASection
+      title="Want to Learn More About Our Facility?"
+      description="Contact our team to discuss quality standards, processing capabilities, or schedule a facility visit."
+      ctaText="Get in Touch"
+      ctaHref="/contact/"
+    />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .news-cat-wrapper { background: #F5F8FC; }
+  .news-cat-layout { display: grid; grid-template-columns: 1fr 280px; gap: 48px; width: 90%; margin: 0 auto; padding: 60px 0 80px; max-width: 1320px; }
+  .news-cat-header { margin-bottom: 36px; }
+  .news-cat-kicker { margin: 0 0 10px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #1E5FA8; }
+  .news-cat-header h1 { margin: 0 0 16px; font-size: clamp(36px, 5vw, 56px); font-weight: 800; color: #0B1F33; font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif; letter-spacing: -0.03em; }
+  .news-cat-desc { margin: 0; max-width: 620px; font-size: 17px; line-height: 1.65; color: rgba(16, 32, 48, 0.65); }
+  .news-cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .news-cat-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(11, 31, 51, 0.03); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .news-cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(11, 31, 51, 0.08); }
+  .news-cat-card-cover { display: block; position: relative; overflow: hidden; aspect-ratio: 4 / 3; }
+  .news-cat-card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .news-cat-card:hover .news-cat-card-cover img { transform: scale(1.05); }
+  .news-cat-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 31, 51, 0.85) 0%, rgba(11, 31, 51, 0.25) 50%, transparent 100%); display: flex; align-items: flex-end; }
+  .news-cat-card-overlay-inner { padding: 24px 20px; }
+  .news-cat-card-eyebrow { display: inline-flex; margin-bottom: 0.55rem; padding: 0.4rem 0.65rem; border-radius: 999px; background: rgba(230, 179, 106, 0.18); color: #E6B36A; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .news-cat-card-title { margin: 0; font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 800; line-height: 1.3; color: #fff; font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .news-cat-card-body { padding: 18px 20px 22px; }
+  .news-cat-card-body time { display: block; margin-bottom: 10px; font-size: 12px; color: rgba(16, 32, 48, 0.45); }
+  .news-cat-card-body p { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(16, 32, 48, 0.65); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .news-cat-sidebar { position: sticky; top: 100px; align-self: start; }
+  .news-cat-sidebar section { margin-bottom: 24px; padding: 24px; background: #fff; border-radius: 16px; box-shadow: 0 2px 8px rgba(11, 31, 51, 0.03); }
+  .news-cat-sidebar h2 { margin: 0 0 16px; font-size: 16px; font-weight: 800; letter-spacing: 0.04em; color: #0B1F33; font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif; }
+  .news-cat-sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+  .sidebar-cat-link { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; color: rgba(16, 32, 48, 0.6); text-decoration: none; transition: all 0.2s ease; }
+  .sidebar-cat-link:hover { background: rgba(30, 95, 168, 0.06); color: #1E5FA8; }
+  .sidebar-cat-link.is-active { background: rgba(30, 95, 168, 0.08); color: #1E5FA8; }
+  .sidebar-cat-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(30, 95, 168, 0.2); flex-shrink: 0; }
+  @media (max-width: 1024px) { .news-cat-layout { grid-template-columns: 1fr; gap: 32px; } .news-cat-sidebar { position: static; } }
+  @media (max-width: 640px) { .news-cat-layout { padding: 40px 18px; } .news-cat-grid { grid-template-columns: 1fr; gap: 18px; } }
+</style>

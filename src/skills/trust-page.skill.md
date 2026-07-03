@@ -1,7 +1,7 @@
 ---
 # Skill: Trust Page Template
 # Type: Business Page Module
-# Usage: /trust/ pages (Quality Control, Cold Storage, Packaging, Processing, Supply)
+# Usage: /about/ pages (Quality Control, Cold Storage, Packaging, Processing, Supply)
 
 ## Page Structure
 1. Page Header (h1 + lead)
@@ -11,7 +11,7 @@
 ## Required Props for BaseLayout
 - title: "[Topic] | CIDE FISHERY"
 - description: Unique description about the trust topic
-- breadcrumbs: [{ name: "Trust", url: "/trust/[slug]/" }, { name: "[Topic]", url: "/trust/[slug]/" }]
+- breadcrumbs: [{ name: "Trust", url: "/about/[slug]/" }, { name: "[Topic]", url: "/about/[slug]/" }]
 - showBreadcrumb: true
 
 ## Feature Cards Pattern

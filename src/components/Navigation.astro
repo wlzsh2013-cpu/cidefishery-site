@@ -1,4 +1,4 @@
-﻿---
+---
 import { SITE_CONFIG } from '../content/config/site.config';
 import Picture from './Picture.astro';
 ---
@@ -40,14 +40,23 @@ import Picture from './Picture.astro';
           <a href="/about/">About</a>
           <ul class="dropdown">
             <li><a href="/about/">About CIDE FISHERY</a></li>
-            <li><a href="/trust/processing-facility/">Processing Facility</a></li>
-            <li><a href="/trust/quality-control/">Quality Control</a></li>
-            <li><a href="/trust/cold-storage/">Cold Storage</a></li>
-            <li><a href="/trust/packaging/">Packaging Options</a></li>
-            <li><a href="/trust/global-supply/">Global Supply</a></li>
+            <li><a href="/about/processing-facility/">Processing Facility</a></li>
+            <li><a href="/about/quality-control/">Quality Control</a></li>
+            <li><a href="/about/cold-storage/">Cold Storage</a></li>
+            <li><a href="/about/packaging/">Packaging Options</a></li>
+            <li><a href="/about/global-supply/">Global Supply</a></li>
           </ul>
         </li>
-        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li class="has-dropdown">
+          <span class="nav-trigger">News</span>
+          <ul class="dropdown">
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/news/company-news/">Company News</a></li>
+            <li><a href="/news/exhibitions/">Exhibitions</a></li>
+            <li><a href="/news/customer-visits/">Customer Visits</a></li>
+          </ul>
+        </li>
         <li><a href="/contact/" class="nav-cta btn btn-primary btn-sm">Inquiry</a></li>
       </ul>
     </nav>
@@ -81,20 +90,20 @@ import Picture from './Picture.astro';
   .nav-list {
     display: flex;
     list-style: none;
-    gap: 32px;
+    gap: 44px;
     align-items: center;
   }
-  .nav-list > li > a {
+  .nav-list > li > a, .nav-list > li > .nav-trigger {
     color: var(--color-primary);
     font-weight: 500;
     font-size: 15px;
     padding: 8px 0;
     position: relative;
   }
-  .nav-list > li > a:hover {
+  .nav-list > li > a:hover, .nav-list > li > .nav-trigger:hover {
     color: var(--color-champagne-gold);
   }
-  .nav-list > li > a::before {
+  .nav-list > li > a::before, .nav-list > li > .nav-trigger::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -104,7 +113,7 @@ import Picture from './Picture.astro';
     background: var(--color-champagne-gold);
     transition: width 0.2s ease;
   }
-  .nav-list > li > a:hover::before {
+  .nav-list > li > a:hover::before, .nav-list > li > .nav-trigger:hover::before {
     width: 100%;
   }
   .nav-cta {
@@ -116,7 +125,9 @@ import Picture from './Picture.astro';
   .has-dropdown {
     position: relative;
   }
-  .has-dropdown > a::after {
+  .nav-trigger { cursor: default; }
+  .nav-trigger:hover { color: var(--color-champagne-gold); }
+  .has-dropdown > a::after, .has-dropdown > .nav-trigger::after {
     content: "";
     display: inline-block;
     width: 8px;
@@ -130,7 +141,7 @@ import Picture from './Picture.astro';
     transition: transform 0.2s ease;
     vertical-align: middle;
   }
-  .has-dropdown:hover > a::after,
+  .has-dropdown:hover > a::after, .has-dropdown:hover > .nav-trigger::after,
   .has-dropdown.open > a::after {
     transform: rotate(-135deg);
   }
@@ -196,7 +207,7 @@ import Picture from './Picture.astro';
       gap: 0;
       padding: 16px 0;
     }
-    .nav-list > li > a {
+    .nav-list > li > a, .nav-list > li > .nav-trigger {
       display: block;
       padding: 12px 20px;
     }
@@ -226,7 +237,7 @@ import Picture from './Picture.astro';
   });
 
   dropdownItems.forEach((item) => {
-    const link = item.querySelector(':scope > a');
+    const link = item.querySelector(':scope > a, :scope > .nav-trigger');
     link?.addEventListener('click', (event) => {
       if (window.matchMedia('(max-width: 1024px)').matches) {
         event.preventDefault();

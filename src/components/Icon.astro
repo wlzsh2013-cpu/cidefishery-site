@@ -1,4 +1,4 @@
-﻿---
+---
 interface Props {
   name: string;
   label: string;
@@ -6,16 +6,50 @@ interface Props {
   className?: string;
 }
 
-const { name, label, desc = '', className = 'cf-icon' } = Astro.props;
+const { name, label, desc = '', className = '' } = Astro.props;
 const safeName = name.replace(/[^a-z0-9-]/gi, '');
 const titleId = `cf-icon-title-${safeName}`;
 const descId = `cf-icon-desc-${safeName}`;
+const iconClass = ['cf-icon', className].filter(Boolean).join(' ');
+const capabilityIcons = [
+  'processing',
+  'cold-storage',
+  'quality-control',
+  'packaging',
+  'raw-material-classification',
+  'automated-washing-screening',
+  'controlled-fluid-bed-drying',
+  'hermetic-packing-export-prep',
+  'origin-batch-traceability',
+  'advanced-refining-control',
+  'storage-inventory-log',
+  'hermetic-integrity-verification',
+  'china-raw-material-network',
+  'international-cooperation',
+  'uzbekistan-development',
+  'global-export-footprint',
+];
+const isCapabilityIcon = capabilityIcons.includes(name);
+const svgViewBox = isCapabilityIcon ? '0 0 58 58' : '0 0 96 96';
+const svgSize = isCapabilityIcon ? 58 : 96;
 
 const palette: Record<string, string> = {
-  processing: '#1E5FA8',
-  'cold-storage': '#35B7D8',
-  packaging: '#E6B36A',
-  'quality-control': '#0B1F33',
+  processing: '#497EB8',
+  'cold-storage': '#5BC4DF',
+  packaging: '#3A4B5B',
+  'quality-control': '#E9C187',
+  'raw-material-classification': '#497EB8',
+  'automated-washing-screening': '#5BC4DF',
+  'controlled-fluid-bed-drying': '#E9C187',
+  'hermetic-packing-export-prep': '#3A4B5B',
+  'origin-batch-traceability': '#497EB8',
+  'advanced-refining-control': '#5BC4DF',
+  'storage-inventory-log': '#E9C187',
+  'hermetic-integrity-verification': '#3A4B5B',
+  'china-raw-material-network': '#497EB8',
+  'international-cooperation': '#5BC4DF',
+  'uzbekistan-development': '#E9C187',
+  'global-export-footprint': '#3A4B5B',
   'global-supply': '#1E5FA8',
   'shrimp-hatchery': '#E6B36A',
   'fish-fry': '#35B7D8',
@@ -30,43 +64,161 @@ const palette: Record<string, string> = {
 const color = palette[name] || '#1E5FA8';
 ---
 
-<span class={className} role="img" aria-labelledby={`${titleId} ${descId}`}>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" fill="none">
+<span class={iconClass} role="img" aria-labelledby={`${titleId} ${descId}`}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox={svgViewBox} width={svgSize} height={svgSize} fill="none">
     <title id={titleId}>{label}</title>
     <desc id={descId}>{desc || `${label} icon for CIDE FISHERY aquaculture supply website`}</desc>
-    <circle cx="48" cy="48" r="36" fill={color} fill-opacity="0.8" />
+    <circle cx={isCapabilityIcon ? 29 : 48} cy={isCapabilityIcon ? 29 : 48} r={isCapabilityIcon ? 29 : 36} fill={color} fill-opacity={isCapabilityIcon ? undefined : '0.8'} />
 
     {name === 'processing' && (
-      <g>
-        <path d="M31 55h34" class="cf-stroke" />
-        <path d="M35 39h26c5 0 9 4 9 9v7H26v-7c0-5 4-9 9-9Z" class="cf-stroke" />
-        <path d="M37 48h22" class="cf-stroke cf-thin" />
-        <circle cx="36" cy="55" r="2.5" class="cf-fill" />
-        <circle cx="60" cy="55" r="2.5" class="cf-fill" />
+      <g transform="scale(0.6041666667)">
+        <path d="M27 66h42" class="cf-stroke" />
+        <path d="M31 43h34v23H31V43Z" class="cf-stroke" />
+        <path d="M37 43v-9h22v9" class="cf-stroke" />
+        <path d="M37 51h22M37 58h22" class="cf-stroke cf-thin" />
+        <path d="M42 34v-7h12v7" class="cf-stroke cf-thin" />
       </g>
     )}
 
     {name === 'cold-storage' && (
-      <g>
-        <path d="M47 29v26" class="cf-stroke" />
-        <circle cx="47" cy="63" r="8" class="cf-stroke" />
-        <path d="M35 40l24 14M59 40 35 54" class="cf-stroke cf-thin" />
-        <path d="M31 47h32" class="cf-stroke cf-thin" />
+      <g transform="scale(0.6041666667)">
+        <path d="M48 24v48" class="cf-stroke" />
+        <path d="M30 34l36 28M66 34 30 62" class="cf-stroke" />
+        <path d="M24 48h48" class="cf-stroke" />
+        <path d="M39 29l9 7 9-7M39 67l9-7 9 7M27 41l11 1 2-10M69 41l-11 1-2-10M27 55l11-1 2 10M69 55l-11-1-2 10" class="cf-stroke cf-thin" />
       </g>
     )}
 
     {name === 'packaging' && (
-      <g>
-        <path d="M29 41 48 31l19 10v24L48 75 29 65V41Z" class="cf-stroke" />
-        <path d="M29 41l19 10 19-10M48 51v24" class="cf-stroke cf-thin" />
+      <g transform="scale(0.6041666667)">
+        <path d="M28 39 48 28l20 11v26L48 76 28 65V39Z" class="cf-stroke" />
+        <path d="M28 39l20 11 20-11M48 50v26" class="cf-stroke cf-thin" />
+        <path d="M38 34l20 11" class="cf-stroke cf-thin" />
       </g>
     )}
 
     {name === 'quality-control' && (
-      <g>
-        <path d="M35 28h22l8 8v32H35V28Z" class="cf-stroke" />
-        <path d="M57 28v9h8" class="cf-stroke cf-thin" />
-        <path d="M41 52l7 7 16-19" class="cf-stroke" />
+      <g transform="scale(0.6041666667)">
+        <path d="M48 25 67 33v14c0 13-7 23-19 29-12-6-19-16-19-29V33l19-8Z" class="cf-stroke" />
+        <path d="M38 49l7 7 15-18" class="cf-stroke" />
+        <path d="M37 36l11-5 11 5" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'raw-material-classification' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M29 32h38v34H29V32Z" class="cf-stroke" />
+        <path d="M36 42h24M36 51h16M36 60h24" class="cf-stroke cf-thin" />
+        <path d="M66 32l8 8v34H38" class="cf-stroke cf-thin" />
+        <circle cx="69" cy="63" r="5" class="cf-stroke" />
+      </g>
+    )}
+
+    {name === 'automated-washing-screening' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M29 40h38v24H29V40Z" class="cf-stroke" />
+        <path d="M35 48h26M35 56h26" class="cf-stroke cf-thin" />
+        <path d="M38 32c3-5 10-5 13 0 3 5 10 5 13 0" class="cf-stroke" />
+        <circle cx="37" cy="69" r="3" class="cf-fill" />
+        <circle cx="48" cy="69" r="3" class="cf-fill" />
+        <circle cx="59" cy="69" r="3" class="cf-fill" />
+      </g>
+    )}
+
+    {name === 'controlled-fluid-bed-drying' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M31 59h34" class="cf-stroke" />
+        <path d="M35 41h26v18H35V41Z" class="cf-stroke" />
+        <path d="M40 34c0-5 5-7 5-12M50 34c0-5 5-7 5-12M60 34c0-5 5-7 5-12" class="cf-stroke cf-thin" />
+        <path d="M39 67h18" class="cf-stroke cf-thin" />
+        <circle cx="66" cy="66" r="6" class="cf-stroke" />
+      </g>
+    )}
+
+    {name === 'hermetic-packing-export-prep' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M28 39 48 28l20 11v25L48 76 28 64V39Z" class="cf-stroke" />
+        <path d="M28 39l20 11 20-11M48 50v26" class="cf-stroke cf-thin" />
+        <path d="M63 57h14M70 50l7 7-7 7" class="cf-stroke" />
+        <path d="M36 33l20 11" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'origin-batch-traceability' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M31 29h34v38H31V29Z" class="cf-stroke" />
+        <path d="M38 40h20M38 49h14M38 58h20" class="cf-stroke cf-thin" />
+        <circle cx="64" cy="64" r="7" class="cf-stroke" />
+        <path d="M69 69l6 6" class="cf-stroke" />
+      </g>
+    )}
+
+    {name === 'advanced-refining-control' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M30 62h36" class="cf-stroke" />
+        <path d="M37 29h22v33H37V29Z" class="cf-stroke" />
+        <path d="M43 36h10M43 45h10M43 54h10" class="cf-stroke cf-thin" />
+        <path d="M28 42h9M59 42h9M28 52h9M59 52h9" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'storage-inventory-log' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M30 35h36v32H30V35Z" class="cf-stroke" />
+        <path d="M36 43h24M36 52h24M36 61h16" class="cf-stroke cf-thin" />
+        <path d="M39 35v-7h18v7" class="cf-stroke" />
+        <path d="M66 29l5 5-5 5M71 34H58" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'hermetic-integrity-verification' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M33 34h30v32H33V34Z" class="cf-stroke" />
+        <path d="M40 34v-6h16v6" class="cf-stroke" />
+        <path d="M40 49l6 6 12-15" class="cf-stroke" />
+        <path d="M36 66h24" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'china-raw-material-network' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M24 61c9-9 13-22 24-31 8 6 13 16 18 27" class="cf-stroke" />
+        <path d="M31 63c8-4 16-4 25-1 7 3 13 2 19-3" class="cf-stroke cf-thin" />
+        <path d="M33 52h30" class="cf-stroke cf-thin" />
+        <circle cx="38" cy="47" r="2.4" class="cf-fill" />
+        <circle cx="49" cy="43" r="2.4" class="cf-fill" />
+        <circle cx="61" cy="48" r="2.4" class="cf-fill" />
+      </g>
+    )}
+
+    {name === 'international-cooperation' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M27 47l10 10c3 3 8 3 11 0l21-21" class="cf-stroke" />
+        <path d="M30 38l8-8 14 14" class="cf-stroke cf-thin" />
+        <path d="M58 36l7 7c3 3 3 8 0 11l-7 7" class="cf-stroke cf-thin" />
+        <circle cx="33" cy="61" r="4" class="cf-stroke" />
+        <circle cx="64" cy="31" r="4" class="cf-stroke" />
+      </g>
+    )}
+
+    {name === 'uzbekistan-development' && (
+      <g transform="scale(0.6041666667)">
+        <path d="M28 62h38" class="cf-stroke" />
+        <path d="M34 62V43l14-9 14 9v19" class="cf-stroke" />
+        <path d="M42 62V50h12v12" class="cf-stroke cf-thin" />
+        <path d="M26 38c7-7 14-10 22-10s15 3 22 10" class="cf-stroke cf-thin" />
+        <path d="M60 29l10 9-14 2" class="cf-stroke cf-thin" />
+        <path d="M35 35c3-6 8-9 13-9" class="cf-stroke cf-thin" />
+      </g>
+    )}
+
+    {name === 'global-export-footprint' && (
+      <g transform="scale(0.6041666667)">
+        <circle cx="42" cy="42" r="18" class="cf-stroke" />
+        <path d="M24 42h36M42 24c7 8 7 28 0 36M42 24c-7 8-7 28 0 36" class="cf-stroke cf-thin" />
+        <path d="M31 56c8-3 17-3 25 0" class="cf-stroke cf-thin" />
+        <path d="M57 60h14M65 53l7 7-7 7" class="cf-stroke" />
+        <path d="M56 64c-9 1-19-1-28-7" class="cf-stroke cf-thin" />
       </g>
     )}
 
