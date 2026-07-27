@@ -3,7 +3,7 @@
 const applications = [
   {
     title: "Shrimp Hatchery",
-    description: "Artemia cysts for shrimp hatchery larval feeding programs.",
+    description: "Artemia cysts for shrimp hatchery larval feeding programs that require stable hatchability, clean nauplii output and dependable batch supply. CIDE FISHERY supports routine nursery feeding, sample comparison and repeat procurement for commercial shrimp farms.",
     href: "/application-shrimp-hatchery/",
     image: "/images/shrimp-hatchery-app.avif",
     alt: "Shrimp Hatchery Applications",
@@ -11,7 +11,7 @@ const applications = [
   },
   {
     title: "Fish Fry",
-    description: "Nutrition solutions for fish fry and juvenile fish feeding.",
+    description: "Flexible Artemia feeding support for fish fry and juvenile fish programs where early-stage nutrition, particle suitability and water quality management are important. Buyers can discuss grade, packaging and shipment timing according to their production cycle.",
     href: "/applications/fish-fry/",
     image: "/images/fish-fry-app.avif",
     alt: "Fish Fry Applications",
@@ -19,7 +19,7 @@ const applications = [
   },
   {
     title: "Crab Larvae",
-    description: "Specialized feeding for crab and crustacean larvae.",
+    description: "Selected Artemia cyst supply for crab larvae and other crustacean hatchery applications that need consistent live feed performance during sensitive early development stages. Match batch options with your target species and feeding schedule.",
     href: "/applications/crab-larvae/",
     image: "/images/crab-larvae-app.avif",
     alt: "Crab Larvae Applications",
@@ -28,36 +28,37 @@ const applications = [
 ];
 ---
 
-<section class="gp-step-module" data-gp-step-module>
-  <div class="gp-step-sticky">
-    <div class="gp-step-inner">
+<section class="gp-step-module leyou-app-module cide-application-module" data-gp-step-module>
+  <div class="gp-step-sticky leyou-app-sticky">
+    <img class="leyou-app-bg" src="/images/applications-bg.avif" alt="" width="1600" height="1000" loading="lazy" aria-hidden="true" />
+    <div class="gp-step-inner leyou-app-inner">
 
-      <div class="gp-step-left">
-        <div class="gp-step-heading" data-gp-step-heading>
+      <div class="gp-step-left leyou-app-left">
+        <div class="gp-step-heading leyou-app-heading" data-gp-step-heading>
           <h2>Applications in Aquaculture</h2>
         </div>
 
-        <div class="gp-step-list" data-gp-step-list>
+        <div class="gp-step-list leyou-app-list" data-gp-step-list>
           {applications.map((app, i) => (
-            <div class={"gp-step-item" + (i === 0 ? " is-active" : "")} data-step={String(i)}>
+            <div class={"gp-step-item leyou-app-item" + (i === 0 ? " is-active" : "")} data-step={String(i)}>
               <h3>{app.title}</h3>
             </div>
           ))}
         </div>
       </div>
 
-      <div class="gp-step-right" data-gp-step-cards>
+      <div class="gp-step-right leyou-app-right" data-gp-step-cards>
         {applications.map((app, i) => (
-          <article class={"gp-step-card" + (i === 0 ? " is-active" : "")} data-step-card={String(i)}>
-            <div class="gp-step-card-inner">
-              <div class="gp-step-image">
+          <article class={"gp-step-card leyou-app-card" + (i === 0 ? " is-active" : "")} data-step-card={String(i)}>
+            <div class="gp-step-card-inner leyou-app-card-inner">
+              <div class="gp-step-image leyou-app-image">
                 {app.image ? (
                   <img src={app.image} alt={app.alt} width="580" height="380" loading="lazy" />
                 ) : (
                   <div class="gp-step-placeholder">{app.title}</div>
                 )}
               </div>
-              <div class="gp-step-content">
+              <div class="gp-step-content leyou-app-content">
                 <h3>{app.title}</h3>
                 <p>{app.description}</p>
                 <a href={app.href} class="gp-step-link">{app.cta} <span>&#8594;</span></a>
@@ -73,6 +74,7 @@ const applications = [
 
 <style>
 .gp-step-module {
+  --site-header-offset: 72px;
   --gp-bg: #031527;
   --gp-text: #ffffff;
   --gp-muted: rgba(255,255,255,0.54);
@@ -84,13 +86,6 @@ const applications = [
 
   position: relative;
   background-color: #031527;
-  background-image:
-    url("/images/applications-bg.avif"),
-    radial-gradient(circle at 75% 25%, rgba(30,95,168,0.20), transparent 34%),
-    radial-gradient(circle at 15% 80%, rgba(53,183,216,0.12), transparent 32%);
-  background-size: cover, auto, auto;
-  background-position: center, 0 0, 0 0;
-  background-repeat: no-repeat, no-repeat, no-repeat;
   color: var(--gp-text);
   overflow: visible;
   font-family: var(--font-family);
@@ -101,15 +96,32 @@ const applications = [
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: #031527;
-  opacity: 0.6;
+  background:
+    linear-gradient(90deg, rgba(3,21,39,0.96), rgba(3,21,39,0.74)),
+    radial-gradient(circle at 78% 18%, rgba(53,183,216,0.20), transparent 32%),
+    radial-gradient(circle at 14% 78%, rgba(230,179,106,0.14), transparent 36%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.leyou-app-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 118%;
+  object-fit: cover;
+  opacity: 0.32;
+  filter: saturate(0.95) contrast(1.06);
+  transform: translate3d(0, var(--venue-bg-y, 0px), 0);
+  transition: transform 0.12s linear;
   pointer-events: none;
 }
 
 .gp-step-sticky {
   position: sticky;
-  top: 0;
-  min-height: 100vh;
+  top: var(--site-header-offset);
+  min-height: calc(100vh - var(--site-header-offset));
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -117,7 +129,27 @@ const applications = [
   padding: clamp(60px,7vw,110px) max(24px,calc((100vw - 1200px)/2 + 24px));
 }
 
+.gp-step-sticky.is-fixed {
+  position: fixed;
+  top: var(--site-header-offset);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  width: 100%;
+}
+
+.gp-step-sticky.is-released {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  width: 100%;
+}
+
 .gp-step-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   display: grid;
   grid-template-columns: minmax(280px,0.85fr) minmax(380px,1.15fr);
@@ -229,7 +261,7 @@ const applications = [
   overflow: hidden;
   border-radius: var(--gp-radius);
   background:
-    linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03)),
+    linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035)),
     var(--gp-card-bg);
   border: 1px solid var(--gp-card-border);
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
@@ -301,7 +333,7 @@ const applications = [
   gap: 10px;
 }
 
-@media (max-width: 1024px) {
+  @media (max-width: 1024px) {
   .gp-step-module {
     height: auto !important;
   }
@@ -311,6 +343,15 @@ const applications = [
     min-height: auto;
     overflow: visible;
     padding-block: 72px;
+  }
+
+  .gp-step-sticky.is-fixed,
+  .gp-step-sticky.is-released {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none !important;
   }
 
   .gp-step-inner {
@@ -349,7 +390,12 @@ const applications = [
   .gp-step-card-inner {
     min-height: auto;
   }
+
+  .leyou-app-bg {
+    height: 100%;
+    transform: none !important;
+  }
 }
 </style>
 
-<script is:inline src="/stepscroll.js"></script>
+<script is:inline src="/stepscroll.js?v=20260723c"></script>

@@ -2,27 +2,82 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
 import CTASection from '../../components/CTASection.astro';
+import QualitySupplyCenter from '../../components/QualitySupplyCenter.astro';
+import BatchSpecCard from '../../components/BatchSpecCard.astro';
+import ProductProofGallery from '../../components/ProductProofGallery.astro';
 
 const uses = [
-  { icon: '/icons/fish-fry-feeding.svg', alt: 'Fish fry feeding icon for decapsulated brine shrimp eggs', title: 'Fish Fry Feeding', text: 'Deliver 100% digestible, energy-rich nutrition directly to delicate larvae. Completely bypasses the hatching phase, ensuring a cleaner water environment and better survival rates.' },
-  { icon: '/icons/hatchery-research-trials.svg', alt: 'Hatchery and research trials icon for decapsulated brine shrimp eggs', title: 'Hatchery & Research Trials', text: 'The perfect, highly uniform standard for nutritional trials, seed evaluation, and strict pathogen-free laboratory protocols.' },
+  { icon: '/icons/fish-fry-feeding.svg', alt: 'Fish fry feeding icon for decapsulated brine shrimp eggs', title: 'Fish Fry Feeding', text: 'Feed energy-rich nutrition directly to delicate larvae without running a hatching cycle, helping your nursery reduce shell waste and daily preparation work.' },
+  { icon: '/icons/hatchery-research-trials.svg', alt: 'Hatchery and research trials icon for decapsulated brine shrimp eggs', title: 'Hatchery & Research Trials', text: 'Use a uniform shell-free feed format for nutrition trials, seed evaluation and controlled hatchery feeding tests.' },
   { icon: '/icons/bulk-distributor-programs.svg', alt: 'Bulk distributor programs icon for decapsulated brine shrimp eggs', title: 'Bulk Distributor Programs', text: 'Available in scalable commercial volumes with global shipping logistics, fully customized packaging formats, and flexible contract pricing.' },
 ];
 
 const compare = [
   { feature: 'Shell Integrity', regular: 'Outer chitinous shell remains intact', decap: '100% Shell-removed for direct ingestion' },
   { feature: 'Labor & Preparation', regular: 'Requires 24-30 hour hatching & separation', decap: 'Ready-to-use: Direct feeding with zero preparation' },
-  { feature: 'Biosecurity Level', regular: 'Risk of shell debris clogging larval guts', decap: 'Sterilized during decapsulation; completely safe' },
-  { feature: 'Nutritional Retention', regular: 'Energy consumed during the hatching process', decap: 'Preserves maximum embedded energy and lipids' },
+  { feature: 'Biosecurity Level', regular: 'Risk of shell debris clogging larval guts', decap: 'Sterilized during decapsulation to reduce shell-related risk' },
+  { feature: 'Nutritional Retention', regular: 'Energy consumed during the hatching process', decap: 'Preserves more embedded energy and lipids for direct feeding' },
+];
+
+const decapSpecs = [
+  { label: 'Hatchability', value: 'Direct feeding product' },
+  { label: 'Purity', value: '95%+ shell-removal reference' },
+  { label: 'Particle Grade', value: 'Uniform feed-grade particles' },
+  { label: 'Origin', value: 'China processed batch' },
+  { label: 'Packaging', value: 'Foil bag, carton, drum' },
+  { label: 'Storage Temperature', value: 'Cool dry storage / cold-chain optional' },
+  { label: 'Certificates', value: 'ISO / QC / export documents' },
+  { label: 'MOQ', value: 'By packaging format' },
+  { label: 'Lead Time', value: '7-21 days after confirmation' },
+  { label: 'Suitable Species', value: 'Fish fry, crab larvae, shrimp nursery' },
+];
+
+const decapProofImages = [
+  {
+    title: 'Aquaculture Feed Safety Certificate',
+    description: 'Shows CIDE FISHERY has recognized supplier qualification for aquaculture feed products, supporting decapsulated egg supply for fry nurseries, importers and distributors.',
+    image: '/images/company/cide-fishery-certificate-framed-01.jpg',
+    alt: 'CIDE FISHERY framed aquaculture feed safety certificate.',
+  },
+  {
+    title: 'Quality Assurance Certificate',
+    description: 'Reflects our quality-assurance basis for shell-free egg handling, product consistency, packaging control and recurring nursery-feed supply.',
+    image: '/images/company/cide-fishery-certificate-framed-02.jpg',
+    alt: 'CIDE FISHERY framed quality assurance certificate.',
+  },
+  {
+    title: 'ISO 9001 Quality Management',
+    description: 'Confirms our ISO 9001 quality-management system for supplier review, order handling and long-term decapsulated egg cooperation.',
+    image: '/images/company/cide-fishery-iso-9001-quality-management-certificate.avif',
+    alt: 'CIDE FISHERY ISO 9001 quality management certificate.',
+  },
+  {
+    title: 'ISO 14001 Environmental Management',
+    description: 'Confirms our ISO 14001 environmental-management system, supporting responsible production and supplier screening for import, brand and distribution programs.',
+    image: '/images/company/cide-fishery-iso-14001-environmental-management-certificate.avif',
+    alt: 'CIDE FISHERY ISO 14001 environmental management certificate.',
+  },
+  {
+    title: 'ISO 45001 Health and Safety',
+    description: 'Confirms our ISO 45001 occupational health and safety management system for controlled facility operation and repeat shipment cooperation.',
+    image: '/images/company/cide-fishery-iso-45001-health-safety-certificate-qc.avif',
+    alt: 'CIDE FISHERY ISO 45001 health and safety certificate.',
+  },
+  {
+    title: 'Specialized Enterprise Certificate',
+    description: 'Shows CIDE FISHERY enterprise qualification and company-level capability for commercial product supply, packaging support and repeat cooperation.',
+    image: '/images/company/cide-fishery-specialized-sme-certificate.avif',
+    alt: 'CIDE FISHERY specialized enterprise certificate.',
+  },
 ];
 ---
 
 <BaseLayout
-  title="Premium Decapsulated Brine Shrimp Eggs for Biosecure Nurseries | CIDE FISHERY"
-  description="Premium decapsulated brine shrimp eggs for shell-free direct feeding, biosecure fish fry nurseries, crustacean larvae and scalable B2B supply programs."
+  title="Decapsulated Brine Shrimp Eggs for Biosecure Nurseries | CIDE FISHERY"
+  description="Decapsulated brine shrimp eggs for shell-free direct feeding, biosecure fish fry nurseries, crustacean larvae and scalable B2B supply programs."
   ogImage="/images/products/decapsulated-artemia-cysts-microscope.avif"
   jsonLdType="Product"
-  jsonLdData={{ name: 'Premium Decapsulated Brine Shrimp Eggs', description: 'Shell-free direct feeding brine shrimp eggs for biosecure fish fry and crustacean nurseries', category: 'Aquaculture Supplies' }}
+  jsonLdData={{ name: 'Decapsulated Brine Shrimp Eggs', description: 'Shell-free direct feeding brine shrimp eggs for biosecure fish fry and crustacean nurseries', category: 'Aquaculture Supplies' }}
   breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Decapsulated Eggs', url: '/products/decapsulated-eggs/' }]}
   showBreadcrumb
 >
@@ -30,10 +85,10 @@ const compare = [
     <div class="container hero-grid">
       <div>
         <span class="eyebrow">SHELL-FREE DIRECT FEEDING SOLUTION</span>
-        <h1>Premium Decapsulated Brine Shrimp Eggs for Biosecure Nurseries</h1>
-        <p class="page-lead">Our decapsulated brine shrimp eggs undergo a strict shell-removal process, completely eliminating the risk of shell contamination in your rearing tanks. Designed for direct feeding without hatching, they significantly reduce nursery labor while maintaining a clean, pathogen-free environment for sensitive fish fry and crustacean larvae.</p>
+        <h1>Decapsulated Brine Shrimp Eggs for Biosecure Nurseries</h1>
+        <p class="page-lead">Our decapsulated brine shrimp eggs undergo a strict shell-removal process to reduce shell contamination in rearing tanks. Designed for direct feeding without hatching, they help reduce nursery labor and support cleaner feeding for sensitive fish fry and crustacean larvae.</p>
         <div class="hero-ctas">
-          <Button href="/contact/" variant="primary" size="lg">Request Pricing &amp; Samples</Button>
+          <Button href="/contact/?product=Decapsulated%20Brine%20Shrimp%20Eggs" variant="primary" size="lg">Request Pricing &amp; Samples</Button>
           <Button href="/applications/fish-fry/" variant="outline" size="lg">Fish Fry Application Guide</Button>
         </div>
       </div>
@@ -48,7 +103,7 @@ const compare = [
       <div class="section-head">
         <span class="eyebrow">PRODUCT ADVANTAGES</span>
         <h2>Maximize Feeding Efficiency with Zero Shell Contamination</h2>
-        <p>Decapsulated eggs are more than just a convenient alternative to live feed; they are a strategic upgrade for biosecure operations. When reducing tank pollution, eliminating tedious shell separation, and securing maximum energy intake per bite are critical to your nursery's survival rates, our shell-free eggs deliver the perfect solution.</p>
+        <p>Decapsulated eggs are a practical alternative for nurseries that want direct feeding without hatching. They help reduce tank pollution, remove shell separation work and support steady energy intake for sensitive fish fry and crustacean larvae.</p>
       </div>
       <div class="use-grid">
         {uses.map((item, index) => (<article class="use-card"><img class="use-icon" src={item.icon} alt={item.alt} width="58" height="58" loading="lazy" decoding="async" /><span class="step-num">{String(index + 1).padStart(2, '0')} /</span><h3>{item.title}</h3><p>{item.text}</p></article>))}
@@ -71,6 +126,30 @@ const compare = [
     </div>
   </section>
 
+  <section class="section">
+    <div class="container batch-spec-layout">
+      <div class="section-head">
+        <span class="eyebrow">Get current product analysis</span>
+        <h2>Current Product Specification Card</h2>
+        <p>Review the key product information for current decapsulated egg supply, including purity, packaging, MOQ, storage and shipment schedule before quotation.</p>
+      </div>
+      <BatchSpecCard
+        product="Decapsulated Brine Shrimp Eggs"
+        specs={decapSpecs}
+        ctaText="Request Current Product Details"
+      />
+    </div>
+  </section>
+
+  <ProductProofGallery
+    eyebrow="Certificates"
+    title="Certified Systems Behind Decapsulated Egg Supply"
+    description="CIDE FISHERY holds supplier qualification, quality, environmental, safety and enterprise certificates that support documented decapsulated egg processing, packaging, storage and export cooperation."
+    items={decapProofImages}
+  />
+
+  <QualitySupplyCenter />
+
   <section class="section bg-light">
     <div class="container package-band">
       <div>
@@ -87,7 +166,7 @@ const compare = [
   </section>
   <CTASection
     title="Request a Tailored Quote"
-    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    description="Share your species, monthly volume, packaging requirement and delivery window to receive a practical decapsulated egg supply recommendation."
     ctaText="Send Inquiry"
     ctaHref="/contact/"
     showInquiryForm
@@ -115,6 +194,7 @@ const compare = [
   .use-card h3 { margin: 8px 0; font-size: 20px; }
   .use-card p { font-size: var(--fs-small); opacity: 0.8; }
   .compare-table { overflow-x: auto; border-radius: var(--border-radius); border: 1px solid var(--color-neutral-gray); }
+  .batch-spec-layout { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: 40px; align-items: start; }
   table { width: 100%; border-collapse: collapse; background: var(--color-white); }
   th, td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--color-neutral-gray); }
   th { background: var(--color-primary); color: var(--color-white); }
@@ -123,7 +203,7 @@ const compare = [
   .package-band h2 { margin-bottom: 20px; }
   .package-band p { margin-bottom: 20px; }
   .package-band img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; padding: 0; }
-  @media (max-width: 1024px) { .hero-grid, .package-band { grid-template-columns: 1fr; } }
+  @media (max-width: 1024px) { .hero-grid, .package-band, .batch-spec-layout { grid-template-columns: 1fr; } }
   @media (max-width: 767px) { .use-grid { grid-template-columns: 1fr; } .package-band { padding: 20px; } }
 </style>
 

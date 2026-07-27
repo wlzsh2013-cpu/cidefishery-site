@@ -2,7 +2,7 @@
 
 export const SEO_DEFAULTS = {
 
-  robots: 'index, follow',
+  robots: 'noindex, nofollow, noarchive, noimageindex',
 
   og: {
     type: 'website',
@@ -26,7 +26,7 @@ export const SEO_DEFAULTS = {
       'CIDE FISHERY supplies quality Artemia cysts and brine shrimp eggs for hatcheries, aquaculture farms and global distributors.',
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'info@cidefishery.com',
+      email: 'sales@cidefishery.com',
       contactType: 'sales',
     },
   },

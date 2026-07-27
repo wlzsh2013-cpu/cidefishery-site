@@ -9,7 +9,7 @@ const formats = [
     height: 545,
     alt: 'Fortified Vacuum Cans',
     title: 'Fortified Vacuum Cans',
-    desc: 'Hermetically sealed metal cans that shield cysts perfectly from moisture ingress and atmospheric oxidation. Ideal for commercial hatcheries and distributors requiring stable, multi-year inventory storage.',
+    desc: 'Hermetically sealed metal cans that protect cysts from moisture ingress and atmospheric oxidation. Ideal for commercial hatcheries and distributors requiring stable, multi-year inventory storage.',
   },
   {
     image: '/images/products/high-barrier-foil-bags.avif',
@@ -37,12 +37,65 @@ const formats = [
   },
 ];
 
+const canVariants = [
+  {
+    image: '/images/products/cide-artemia-cysts-green-can.jpg',
+    width: 425,
+    height: 567,
+    alt: 'Green CIDE Artemia cysts vacuum can packaging.',
+    title: 'Green Standard Can',
+    label: 'Daily hatchery supply',
+    color: '#1f8a5b',
+    desc: 'A practical standard can option for routine Artemia cyst procurement. The green label gives distributors and hatcheries a clear shelf identity for regular batch supply, sample comparison and repeat feeding programs.',
+  },
+  {
+    image: '/images/products/cide-aqua-gold-artemia-cysts-can.jpg',
+    width: 425,
+    height: 567,
+    alt: 'Aqua gold CIDE Artemia cysts vacuum can packaging.',
+    title: 'Aqua Gold Can',
+    label: 'Premium visual identity',
+    color: '#c58a2a',
+    desc: 'Choose this premium-style can when your market needs a stronger retail or distributor-facing appearance, clearer shelf recognition and consistent carton-level branding.',
+  },
+  {
+    image: '/images/products/cide-artemia-cysts-gold-can.jpg',
+    width: 425,
+    height: 567,
+    alt: 'Gold CIDE Artemia cysts vacuum can packaging.',
+    title: 'Gold Artemia Can',
+    label: 'Export-ready batch supply',
+    color: '#d6a84f',
+    desc: 'A classic gold can option for Artemia cyst batches supplied to hatcheries, importers and regional dealers. It provides a professional package look while keeping batch information, storage notes and product identification easy to manage.',
+  },
+  {
+    image: '/images/products/cide-artemia-cysts-blue-can.jpg',
+    width: 425,
+    height: 567,
+    alt: 'Blue CIDE Artemia cysts vacuum can packaging.',
+    title: 'Blue Artemia Can',
+    label: 'Clear grade separation',
+    color: '#1e76b8',
+    desc: 'Use this blue can format to separate grades, seasonal batches or distribution channels when your warehouse or sales network handles multiple Artemia cyst options.',
+  },
+  {
+    image: '/images/products/cide-premium-artemia-cysts-can.jpg',
+    width: 425,
+    height: 567,
+    alt: 'Premium CIDE Artemia cysts can packaging.',
+    title: 'Premium Artemia Cysts Can',
+    label: 'Premium / OEM reference',
+    color: '#9b6b35',
+    desc: 'A refined premium can presentation for higher-positioned Artemia cyst programs and OEM discussions. Buyers can use it as a reference when planning private-label layouts, multilingual labels and market-specific packaging styles.',
+  },
+];
+
 const decisions = [
   {
     icon: '/icons/target-product-form.svg',
     alt: 'Target product form icon for selecting Artemia cyst and feed packaging formats',
     title: 'Target Product Form',
-    text: 'Specify your required feed lines (standard Artemia cysts, premium synchronized batches, decapsulated direct eggs, or bulk wholesale programs).',
+    text: 'Specify your required feed line, buyer type, expected volume, packaging preference and purchase time.',
   },
   {
     icon: '/icons/volume-supply-channel.svg',
@@ -76,10 +129,10 @@ const decisions = [
       <div>
         <span class="eyebrow">PACKAGING OPTIONS</span>
         <h1>Certified Industrial Packaging Formats Supporting Global Aquaculture Supply</h1>
-        <p class="page-lead">Long-distance transoceanic transit demands uncompromising barrier protection to preserve biological viability. CIDE FISHERY provides flexible, multi-layer containment configurations engineered to withstand high ambient humidity and rigorous port handling. We align precision sealing technology with your target market's specific distribution models, warehousing rotation setups, and custom volume requirements.</p>
+        <p class="page-lead">Long-distance transit requires strong barrier protection to preserve biological viability. CIDE FISHERY provides flexible, multi-layer packaging formats designed for humidity exposure, port handling, local distribution models, warehouse rotation and custom volume requirements.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Discuss Packaging</Button>
-          <Button href="/products/bulk-artemia-cysts/" variant="outline" size="lg">Bulk Supply</Button>
+          <Button href="/products/artemia-cysts/" variant="outline" size="lg">Artemia Cysts</Button>
         </div>
       </div>
       <img src="/images/products/artemia-cysts-global-cold-chain-packaging.avif" alt="Artemia cysts global cold-chain packaging" width="1448" height="1086" loading="eager" />
@@ -105,12 +158,52 @@ const decisions = [
     </div>
   </section>
 
+  <section class="gp-step-module leyou-app-module can-step-module" data-gp-step-module>
+    <div class="gp-step-sticky leyou-app-sticky">
+      <img class="leyou-app-bg" src="/images/applications-bg.avif" alt="" width="1600" height="1000" loading="lazy" aria-hidden="true" />
+      <div class="gp-step-inner leyou-app-inner">
+        <div class="gp-step-left leyou-app-left">
+          <div class="gp-step-heading leyou-app-heading" data-gp-step-heading>
+            <span class="eyebrow">COLOR-CODED CAN OPTIONS</span>
+            <h2>Different Can Colors for Batch Identity and Distributor Programs</h2>
+            <p>Choose a can presentation that fits your channel. Different colors can support grade separation, market positioning, OEM reference and long-term distributor planning.</p>
+          </div>
+          <div class="gp-step-list leyou-app-list" data-gp-step-list>
+            {canVariants.map((item, i) => (
+              <div class={"gp-step-item leyou-app-item" + (i === 0 ? " is-active" : "")} data-step={String(i)} style={`--variant-color: ${item.color}`}>
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="gp-step-right leyou-app-right" data-gp-step-cards>
+          {canVariants.map((item, i) => (
+            <article class={"gp-step-card leyou-app-card can-step-card" + (i === 0 ? " is-active" : "")} data-step-card={String(i)} style={`--variant-color: ${item.color}`}>
+              <div class="gp-step-card-inner leyou-app-card-inner">
+                <div class="gp-step-image leyou-app-image can-step-image">
+                  <img src={item.image} alt={item.alt} width={item.width} height={item.height} loading="lazy" />
+                </div>
+                <div class="gp-step-content leyou-app-content">
+                  <span class="can-step-label"><i></i>{item.label}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section bg-light">
     <div class="container quote-grid">
       <div>
         <span class="eyebrow">BEFORE QUOTATION</span>
         <h2>Streamline Your Custom Packing Requirements for an Accurate Commercial Quote</h2>
-        <p>To help our logistics and packaging specialists engineer a highly optimized, market-ready proposal with precision freight calculations instead of a generic offer, please specify your logistical operational parameters below:</p>
+        <p>To prepare an accurate packaging and freight proposal, please share your destination market, order volume, storage conditions and labeling requirements.</p>
         <div class="hero-ctas">
           <Button href="/about/cold-storage/" variant="outline" size="lg">Cold Storage</Button>
           <Button href="/about/quality-control/" variant="outline" size="lg">Quality Control</Button>
@@ -130,4 +223,161 @@ const decisions = [
     </div>
   </section>
 </BaseLayout>
-<style>.page-header{padding:64px 0}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.hero-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.eyebrow{display:inline-block;color:var(--color-brand-blue);font-size:13px;font-weight:700;text-transform:uppercase;margin-bottom:10px}.page-lead{font-size:18px;opacity:.84;margin:16px 0 24px}.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}.section-head{max-width:860px;margin-bottom:30px}.section-head h2,.quote-grid h2{margin:0 0 20px}.section-head p,.quote-grid p{margin:0}.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.feature-card{display:block;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);padding:20px 20px 24px;background:var(--color-white);color:var(--color-text)}.format-img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-light-bg);margin:0 0 22px}.feature-card h3{font-size:20px;font-weight:800;color:var(--color-primary);margin:0}.feature-card p{margin-top:10px;font-size:var(--fs-small);line-height:1.6;opacity:.78}.quote-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:center}.quote-grid>div:first-child{align-self:center}.quote-grid>div:first-child>p{font-size:17px;line-height:1.7}.decision-list{display:grid;gap:14px}.decision-card{display:grid;grid-template-columns:58px 1fr;gap:22px;align-items:center;padding:18px;border:1px solid var(--color-neutral-gray);border-radius:var(--border-radius);background:var(--color-white)}.decision-icon{display:block;width:58px;height:58px;object-fit:contain;flex:0 0 58px}.decision-card h3{margin:0 0 8px;font-size:20px;color:var(--color-primary)}.decision-card p{margin:0;font-size:var(--fs-small);line-height:1.6;opacity:.8}@media(max-width:1024px){.hero-grid,.quote-grid{grid-template-columns:1fr}.features-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:767px){.features-grid{grid-template-columns:1fr}.decision-card{grid-template-columns:58px 1fr;gap:16px}}</style>
+<script is:inline src="/stepscroll.js?v=20260723c"></script>
+<style>
+  .page-header { padding: 64px 0; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .hero-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .eyebrow { display: inline-block; color: var(--color-brand-blue); font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+  .page-lead { font-size: 18px; opacity: .84; margin: 16px 0 24px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
+  .section-head { max-width: 860px; margin-bottom: 30px; }
+  .section-head h2, .quote-grid h2 { margin: 0 0 20px; }
+  .section-head p, .quote-grid p { margin: 0; }
+  .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .feature-card { display: block; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); padding: 20px 20px 24px; background: var(--color-white); color: var(--color-text); }
+  .format-img { display: block; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-light-bg); margin: 0 0 22px; }
+  .feature-card h3 { font-size: 20px; font-weight: 800; color: var(--color-primary); margin: 0; }
+  .feature-card p { margin-top: 10px; font-size: var(--fs-small); line-height: 1.6; opacity: .78; }
+
+  .can-step-module {
+    --site-header-offset: 72px;
+    --gp-bg: #031527;
+    --gp-text: #ffffff;
+    --gp-muted: rgba(255,255,255,.62);
+    --gp-muted-2: rgba(255,255,255,.30);
+    --gp-card-bg: rgba(255,255,255,.07);
+    --gp-card-border: rgba(255,255,255,.13);
+    --gp-accent: #E6B36A;
+    --gp-radius: 16px;
+    position: relative;
+    overflow: visible;
+    background: #031527;
+    color: var(--gp-text);
+  }
+
+  .can-step-module::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(90deg, rgba(3,21,39,.96), rgba(3,21,39,.74)),
+      radial-gradient(circle at 78% 22%, rgba(53,183,216,.18), transparent 30%),
+      radial-gradient(circle at 16% 76%, rgba(230,179,106,.15), transparent 34%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .leyou-app-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 118%;
+    object-fit: cover;
+    opacity: .32;
+    filter: saturate(.95) contrast(1.06);
+    transform: translate3d(0, var(--venue-bg-y, 0px), 0);
+    transition: transform .12s linear;
+    pointer-events: none;
+  }
+
+  .gp-step-sticky {
+    position: sticky;
+    top: var(--site-header-offset);
+    min-height: calc(100vh - var(--site-header-offset));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: clamp(60px, 7vw, 110px) max(24px, calc((100vw - 1200px) / 2 + 24px));
+  }
+
+  .gp-step-sticky.is-fixed {
+    position: fixed;
+    top: var(--site-header-offset);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    width: 100%;
+  }
+
+  .gp-step-sticky.is-released {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    width: 100%;
+  }
+
+  .gp-step-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(280px, .86fr) minmax(420px, 1.14fr);
+    gap: clamp(48px, 7vw, 96px);
+    align-items: center;
+  }
+
+  .gp-step-left { position: relative; z-index: 2; }
+  .gp-step-heading { max-width: 650px; max-height: 330px; overflow: hidden; margin-bottom: clamp(34px, 5vh, 58px); opacity: 1; transform: translateY(0); transition: opacity .45s ease, transform .45s ease, max-height .45s ease, margin-bottom .45s ease; }
+  .gp-step-heading.is-hidden { opacity: 0; transform: translateY(-32px); max-height: 0; margin-bottom: 0; pointer-events: none; }
+  .gp-step-heading .eyebrow { color: var(--color-champagne-gold); }
+  .gp-step-heading h2 { margin: 0 0 18px; color: #fff; font-size: clamp(34px, 4.7vw, 52px); line-height: 1.06; }
+  .gp-step-heading p { max-width: 640px; margin: 0; color: rgba(255,255,255,.68); font-size: 17px; line-height: 1.65; }
+  .gp-step-list { display: flex; flex-direction: column; gap: clamp(16px, 2.35vh, 24px); }
+  .gp-step-item { position: relative; cursor: pointer; user-select: none; padding-left: 32px; }
+  .gp-step-item::before { position: absolute; left: 0; top: .82em; width: 10px; height: 10px; border-radius: 999px; background: rgba(255,255,255,.24); transform: scale(.8); transition: .35s ease; content: ""; }
+  .gp-step-item span { display: block; margin-bottom: 5px; color: rgba(255,255,255,.46); font-size: 12px; font-weight: 800; text-transform: uppercase; transition: color .35s ease; }
+  .gp-step-item h3 { margin: 0; color: var(--gp-muted-2); font-size: clamp(25px, 3.1vw, 42px); line-height: 1.1; transition: color .42s ease, transform .42s ease; }
+  .gp-step-item.is-active::before { background: var(--variant-color); transform: scale(1.35); box-shadow: 0 0 0 8px color-mix(in srgb, var(--variant-color) 20%, transparent); }
+  .gp-step-item.is-active span { color: rgba(255,255,255,.72); }
+  .gp-step-item.is-active h3 { color: var(--variant-color); transform: translateX(4px); }
+  .gp-step-right { position: relative; z-index: 2; min-height: clamp(520px, 68vh, 680px); }
+  .gp-step-card { position: absolute; inset: 0; opacity: 0; transform: translateY(22px) scale(.985); pointer-events: none; transition: opacity .55s ease, transform .55s ease; }
+  .gp-step-card.is-active { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  .gp-step-card-inner { height: 100%; display: grid; grid-template-rows: minmax(320px, 1fr) auto; overflow: hidden; border: 1px solid var(--gp-card-border); border-radius: var(--gp-radius); background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.03)), var(--gp-card-bg); box-shadow: 0 24px 70px rgba(0,0,0,.36); backdrop-filter: blur(18px); }
+  .can-step-image { position: relative; display: grid; place-items: end center; min-height: 340px; overflow: hidden; background: radial-gradient(circle at 70% 76%, color-mix(in srgb, var(--variant-color) 22%, transparent), transparent 28%), linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); }
+  .can-step-image::before { position: absolute; inset: 0 0 auto; height: 6px; background: var(--variant-color); content: ""; }
+  .can-step-image::after { position: absolute; right: 36px; bottom: 36px; width: 76px; height: 76px; border: 16px solid color-mix(in srgb, var(--variant-color) 30%, transparent); border-radius: 999px; content: ""; }
+  .can-step-image img { position: relative; z-index: 1; display: block; width: min(55%, 320px); height: min(56vh, 430px); object-fit: contain; filter: drop-shadow(0 24px 28px rgba(0,0,0,.34)); }
+  .gp-step-content { padding: clamp(24px, 3vw, 38px); }
+  .can-step-label { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; color: rgba(255,255,255,.66); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+  .can-step-label i { width: 11px; height: 11px; border-radius: 999px; background: var(--variant-color); }
+  .gp-step-content h3 { margin: 0 0 10px; color: #fff; font-size: clamp(25px, 2.7vw, 38px); line-height: 1.15; }
+  .gp-step-content p { max-width: 660px; margin: 0; color: rgba(255,255,255,.66); font-size: clamp(15px, 1.2vw, 18px); line-height: 1.62; }
+
+  .quote-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+  .quote-grid > div:first-child { align-self: center; }
+  .quote-grid > div:first-child > p { font-size: 17px; line-height: 1.7; }
+  .decision-list { display: grid; gap: 14px; }
+  .decision-card { display: grid; grid-template-columns: 58px 1fr; gap: 22px; align-items: center; padding: 18px; border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); }
+  .decision-icon { display: block; width: 58px; height: 58px; object-fit: contain; flex: 0 0 58px; }
+  .decision-card h3 { margin: 0 0 8px; font-size: 20px; color: var(--color-primary); }
+  .decision-card p { margin: 0; font-size: var(--fs-small); line-height: 1.6; opacity: .8; }
+
+  @media (max-width: 1024px) {
+    .hero-grid, .quote-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .can-step-module { height: auto !important; }
+    .gp-step-sticky { position: relative; min-height: auto; overflow: visible; padding-block: 72px; }
+    .gp-step-sticky.is-fixed,
+    .gp-step-sticky.is-released { position: relative; top: auto; left: auto; right: auto; transform: none !important; }
+    .gp-step-inner { grid-template-columns: 1fr; gap: 36px; }
+    .gp-step-heading { max-height: none; opacity: 1 !important; transform: none !important; margin-bottom: 36px !important; }
+    .gp-step-right { min-height: auto; display: grid; gap: 24px; }
+    .gp-step-card { position: relative; opacity: 1 !important; transform: none !important; pointer-events: auto; }
+    .gp-step-card-inner { min-height: auto; }
+    .leyou-app-bg { height: 100%; transform: none !important; }
+    .can-step-image img { width: min(72%, 280px); height: 330px; }
+  }
+
+  @media (max-width: 767px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .can-step-image { min-height: 280px; }
+    .can-step-image img { height: 260px; }
+    .decision-card { grid-template-columns: 58px 1fr; gap: 16px; }
+  }
+</style>

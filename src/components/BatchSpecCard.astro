@@ -1,0 +1,175 @@
+---
+export interface SpecItem {
+  label: string;
+  value: string;
+}
+
+export interface Props {
+  product: string;
+  title?: string;
+  description?: string;
+  specs?: SpecItem[];
+  compact?: boolean;
+  ctaHref?: string;
+  ctaText?: string;
+}
+
+const {
+  product,
+  title = 'Current Batch Specification Card',
+  description = 'Request the latest available batch details before comparing price or confirming purchase.',
+  specs = [
+    { label: 'Hatchability', value: '80-90%' },
+    { label: 'Purity', value: '90%+' },
+    { label: 'Particle Grade', value: '180-250 um' },
+    { label: 'Origin', value: 'China / selected saline lake batch' },
+    { label: 'Packaging', value: '425g can / carton / drum' },
+    { label: 'Storage Temperature', value: '0-4 C recommended' },
+    { label: 'Certificates', value: 'ISO / QC documents available' },
+    { label: 'MOQ', value: 'By packaging and destination' },
+    { label: 'Lead Time', value: '7-21 days after confirmation' },
+    { label: 'Suitable Species', value: 'Shrimp PL / fish fry / crab larvae' },
+  ],
+  compact = false,
+  ctaHref = `/contact/?product=${encodeURIComponent(product)}`,
+  ctaText = 'Get Latest Batch Analysis',
+} = Astro.props;
+---
+
+<article class:list={['batch-spec-card', compact && 'batch-spec-card-compact']}>
+  <div class="batch-spec-head">
+    <span>{product}</span>
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+
+  <dl class="batch-spec-list">
+    {specs.map((spec) => (
+      <div>
+        <dt>{spec.label}</dt>
+        <dd>{spec.value}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <a class="batch-spec-cta" href={ctaHref}>{ctaText}</a>
+</article>
+
+<style>
+  .batch-spec-card {
+    background: var(--color-white);
+    border: 1px solid rgba(11,31,51,0.1);
+    border-radius: var(--border-radius);
+    padding: 28px;
+    box-shadow: 0 18px 46px rgba(11,31,51,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .batch-spec-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-brand-blue), var(--color-tech-cyan), var(--color-champagne-gold));
+  }
+
+  .batch-spec-head span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--color-brand-blue);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .batch-spec-head h3 {
+    margin: 0 0 8px;
+    color: var(--color-h2-h3-h4);
+    font-size: 24px;
+    line-height: 1.18;
+  }
+
+  .batch-spec-head p {
+    margin: 0 0 22px;
+    color: rgba(16,32,48,0.72);
+    font-size: var(--fs-small);
+    line-height: 1.55;
+  }
+
+  .batch-spec-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(11,31,51,0.10);
+    border-radius: var(--border-radius);
+    background: var(--color-neutral-gray);
+  }
+
+  .batch-spec-list div {
+    min-width: 0;
+    padding: 14px 16px;
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+  }
+
+  .batch-spec-list dt {
+    margin: 0 0 4px;
+    color: var(--color-brand-blue);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .batch-spec-list dd {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
+  .batch-spec-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    padding: 12px 18px;
+    border-radius: 4px;
+    background: var(--color-champagne-gold);
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .batch-spec-cta:hover {
+    transform: translateY(-2px);
+    background: var(--color-btn-hover-bg);
+  }
+
+  .batch-spec-card-compact {
+    padding: 22px;
+    box-shadow: none;
+  }
+
+  .batch-spec-card-compact .batch-spec-head h3 {
+    font-size: 20px;
+  }
+
+  .batch-spec-card-compact .batch-spec-list {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 767px) {
+    .batch-spec-card {
+      padding: 20px;
+    }
+
+    .batch-spec-list {
+      grid-template-columns: 1fr;
+    }
+
+  }
+</style>

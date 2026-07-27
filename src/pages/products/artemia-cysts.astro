@@ -2,9 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
 import CTASection from '../../components/CTASection.astro';
+import QualitySupplyCenter from '../../components/QualitySupplyCenter.astro';
+import BatchSpecCard from '../../components/BatchSpecCard.astro';
+import ProductProofGallery from '../../components/ProductProofGallery.astro';
 
 const specs = [
-  { label: 'Core Product', value: 'Natural Artemia Cysts / Brine Shrimp Eggs (Standard Grade)' },
+  { label: 'Core Product', value: 'Natural Artemia Cysts / Brine Shrimp Eggs' },
+  { label: 'Standard Can', value: '425g / 15oz vacuum can packaging' },
   { label: 'Nutritional Benefit', value: 'Active live nauplii for steady early-stage growth support' },
   { label: 'Target Species', value: 'Commercial shrimp postlarvae (PL), fish fry, and crab nurseries' },
   { label: 'Industrial Packaging', value: 'Hermetically sealed vacuum cans, moisture-proof foil bags, and bulk drums' },
@@ -13,12 +17,92 @@ const specs = [
 ];
 
 const hatching = [
-  { title: 'Hatching Cone', text: 'Utilize clean, transparent containers with a conical bottom to ensure uniform circulation and effortless harvest separation.' },
+  { title: 'Hatching Cone', text: 'Use clean, transparent containers with a conical bottom for even circulation and easier harvest separation.' },
   { title: 'Constant Aeration', text: 'Provide powerful, continuous aeration from the very bottom of the cone to keep all cysts in constant suspension.' },
   { title: 'Optimal Density', text: 'Maintain a controlled cyst density, never exceeding 2 grams per liter of water to prevent oxygen depletion.' },
-  { title: 'Stable Temperature', text: 'Keep water temperatures strictly between 27°„C and 28°„C to ensure synchronized, rapid hatching.' },
+  { title: 'Stable Temperature', text: 'Keep water temperature between 27 C and 28 C to support synchronized, rapid hatching.' },
   { title: 'Hatching Window', text: 'Harvest active live nauplii within approximately 24 to 30 hours, depending on your specific batch parameters.' },
   { title: 'Clean Collection', text: 'Turn off aeration and shade the top for 10-15 minutes. Siphon clean nauplii from the bottom and rinse thoroughly with fresh seawater before feeding.' },
+];
+
+const batchSpecs = [
+  { label: 'Hatchability', value: '80-90% sample range' },
+  { label: 'Purity', value: '90%+ reference value' },
+  { label: 'Particle Grade', value: '180-250 um / by batch' },
+  { label: 'Origin', value: 'Aral Sea / Tibet / Bohai Bay source options' },
+  { label: 'Packaging', value: '425g / 15oz can, carton, drum' },
+  { label: 'Storage Temperature', value: '0-4 C recommended' },
+  { label: 'Certificates', value: 'ISO / QC / export documents' },
+  { label: 'MOQ', value: '100 kg reference MOQ' },
+  { label: 'Lead Time', value: '7-21 days after confirmation' },
+  { label: 'Suitable Species', value: 'Shrimp PL, fish fry, crab larvae' },
+];
+
+const batchProofImages = [
+  {
+    title: 'Aquaculture Feed Safety Certificate',
+    description: 'Shows CIDE FISHERY has recognized supplier qualification for aquaculture feed products, supporting Artemia cyst supply for hatcheries, importers and distributors.',
+    image: '/images/company/cide-fishery-certificate-framed-01.jpg',
+    alt: 'CIDE FISHERY framed aquaculture feed safety certificate.',
+  },
+  {
+    title: 'Quality Assurance Certificate',
+    description: 'Reflects our quality-assurance basis for Artemia cyst handling, batch consistency, packaging control and repeat commercial hatchery supply.',
+    image: '/images/company/cide-fishery-certificate-framed-02.jpg',
+    alt: 'CIDE FISHERY framed quality assurance certificate.',
+  },
+  {
+    title: 'ISO 9001 Quality Management',
+    description: 'Confirms our ISO 9001 quality-management system for supplier review, order handling and long-term Artemia cyst cooperation.',
+    image: '/images/company/cide-fishery-iso-9001-quality-certificate.avif',
+    alt: 'CIDE FISHERY ISO 9001 quality management certificate.',
+  },
+  {
+    title: 'ISO 14001 Environmental Management',
+    description: 'Confirms our ISO 14001 environmental-management system, supporting responsible production and supplier screening for import and distribution programs.',
+    image: '/images/company/cide-fishery-iso-14001-environmental-certificate.avif',
+    alt: 'CIDE FISHERY ISO 14001 environmental management certificate.',
+  },
+  {
+    title: 'ISO 45001 Health and Safety',
+    description: 'Confirms our ISO 45001 occupational health and safety management system for controlled facility operation and repeat shipment cooperation.',
+    image: '/images/company/cide-fishery-iso-45001-health-safety-certificate.avif',
+    alt: 'CIDE FISHERY ISO 45001 health and safety certificate.',
+  },
+  {
+    title: 'HACCP Compliant System File',
+    description: 'Shows our HACCP-related control framework for raw material receiving, processing, packaging, storage and dispatch documentation.',
+    image: '/images/company/cide-fishery-system-certificate.jpg',
+    alt: 'CIDE FISHERY HACCP compliant system certificate file.',
+  },
+];
+
+const valueHighlights = [
+  { title: 'Spend Less to Achieve More', text: 'Compare batches by nauplii output, not only by can price, so every feeding cycle is easier to control.' },
+  { title: 'Lower Hatchery Feed Cost', text: 'Use 425g can data, hatchability, purity and storage condition to estimate your real feeding cost.' },
+  { title: 'Trusted for 30+ Years', text: 'Long-term Artemia cyst supply experience supports stable procurement for professional hatcheries.' },
+  { title: 'Optimized Hatching Solution', text: 'Batch selection, storage advice and hatching protocol work together to improve daily production reliability.' },
+];
+
+const originSources = [
+  {
+    name: 'Aral Sea',
+    note: 'Consider this source when you compare particle grade, hatchability and seasonal supply condition for repeated Artemia cyst orders.',
+    image: '/images/products/artemia-cysts-aral-sea-source.avif',
+    alt: 'Aral Sea Artemia source',
+  },
+  {
+    name: 'Tibet',
+    note: 'Consider this high-altitude saline lake source when you need clearer origin visibility and batch-by-batch comparison. We can compare available Tibet-origin lots by grade, storage condition and shipment schedule before quotation.',
+    image: '/images/products/artemia-cysts-tibet-source.avif',
+    alt: 'Tibet saline lake source',
+  },
+  {
+    name: 'Bohai Bay',
+    note: 'Consider this China coastal source when you need flexible supply planning, domestic-origin options or faster coordination with current CIDE FISHERY inventory.',
+    image: '/images/products/artemia-cysts-bohai-bay-source.avif',
+    alt: 'Bohai Bay coastal source',
+  },
 ];
 
 const applications = [
@@ -42,14 +126,19 @@ const applications = [
       <div>
         <span class="eyebrow">100% NATURAL BRINE SHRIMP EGGS</span>
         <h1>Artemia Cysts for Commercial Hatchery Feeding Programs</h1>
-        <p class="page-lead">CIDE FISHERY delivers reliable, high-yield Artemia cysts that serve as the economic foundation for daily larval nutrition. Upon hatching, our nutrient-rich live nauplii provide the essential protein and lipid profiles required to sustain steady growth and survival rates in shrimp larvae, fish fry, and crab nurseries.</p>
+        <p class="page-lead">CIDE FISHERY supplies Artemia cysts for hatcheries that need predictable live nauplii output, documented batch data and export-ready packaging. Choose the current batch by hatchability, purity, particle grade, origin and delivery schedule.</p>
+        <div class="hero-proof-row">
+          <span><strong>425g</strong>Standard Can</span>
+          <span><strong>80-90%</strong>Sample Hatchability</span>
+          <span><strong>30+ Years</strong>Supply Experience</span>
+        </div>
         <div class="hero-ctas">
-          <Button href="/contact/" variant="primary" size="lg">Get Latest Batch Analysis</Button>
+          <Button href="/contact/?product=Artemia%20Cysts" variant="primary" size="lg">Get Latest Batch Analysis</Button>
           <Button href="/about/packaging/" variant="outline" size="lg">Explore Packaging Formats</Button>
         </div>
       </div>
-      <figure class="hero-image">
-        <img src="/images/products/artemia-hatching-test-tubes.avif" alt="Artemia hatching test tubes with orange nauplii sediment." width="1448" height="1086" loading="eager" />
+      <figure class="hero-image hero-product-image">
+        <img src="/images/products/cide-premium-artemia-cysts-can.jpg" alt="CIDE premium Artemia cysts 425g can packaging." width="425" height="567" loading="eager" />
       </figure>
     </div>
   </section>
@@ -59,13 +148,72 @@ const applications = [
       <div>
         <span class="eyebrow">WHY HATCHERIES TRUST CIDE FISHERY</span>
         <h2>The Essential Live Feed for Daily Aquaculture Upbringing</h2>
-        <p>Our standard Artemia cysts are selected to offer maximum operational flexibility, hatching on-demand to support your routine feeding schedules. They deliver the active swimming movement and high digestibility that young postlarvae need for dependable, day-to-day development.</p>
+        <p>Our standard Artemia cysts are selected for flexible hatchery use, hatching on demand to support routine feeding schedules. They deliver active swimming movement and digestible live feed for dependable day-to-day postlarvae development.</p>
       </div>
       <div class="specs-grid">
         {specs.map((spec) => (<div class="spec-item"><span>{spec.label}</span><strong>{spec.value}</strong></div>))}
       </div>
     </div>
   </section>
+
+  <section class="section bg-light product-value-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Procurement advantage</span>
+        <h2>Spend Less to Achieve More with Current Batch Selection</h2>
+        <p>For Artemia cysts, the right batch can matter more than the lowest unit price. Compare performance, packaging and supply timing before ordering.</p>
+      </div>
+      <div class="value-highlight-grid">
+        {valueHighlights.map((item) => (
+          <article class="value-highlight-card">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container batch-spec-layout">
+      <div class="section-head">
+        <span class="eyebrow">Get latest batch analysis</span>
+        <h2>Current Batch Specification Card</h2>
+        <p>Use this card to review key purchasing data for the current Artemia cyst batch, including hatchability, available quantity and shipment schedule before quotation.</p>
+      </div>
+      <BatchSpecCard product="Artemia Cysts" specs={batchSpecs} />
+    </div>
+  </section>
+
+  <ProductProofGallery
+    eyebrow="Certificates"
+    title="Certified Systems Behind Artemia Cyst Supply"
+    description="CIDE FISHERY holds supplier qualification, quality, environmental, safety and HACCP-related certificates that support documented Artemia cyst production, packaging, storage and export cooperation."
+    items={batchProofImages}
+  />
+
+  <section class="section bg-light origin-source-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Origin introduction</span>
+        <h2>Selected Artemia Cyst Source Options</h2>
+        <p>CIDE FISHERY can discuss Artemia cyst batches from Aral Sea, Tibet and Bohai Bay source options according to current availability. Each origin may support different priorities in hatchability, particle grade, cost control, shipment timing and long-term supply planning.</p>
+      </div>
+      <div class="origin-source-grid">
+        {originSources.map((source) => (
+          <article class="origin-source-card">
+            <img src={source.image} alt={source.alt} width="520" height="360" loading="lazy" />
+            <div>
+              <h3>{source.name}</h3>
+              <p>{source.note}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <QualitySupplyCenter />
 
   <section class="section bg-light">
     <div class="container">
@@ -98,7 +246,7 @@ const applications = [
       <div>
         <span class="eyebrow">PACKAGING &amp; SUPPLY SECURITY</span>
         <h2>Preserving Hatchability from Our Facility to Your Port</h2>
-        <p>To protect biological integrity during global transit, CIDE FISHERY offers hermetically sealed vacuum cans, moisture-proof multi-layer foil bags, and heavy-duty paper drums. We accommodate custom container labeling, contract-based monthly volume planning, and full cold-chain support to guarantee stable, cost-effective arrival.</p>
+        <p>To protect biological integrity during global transit, CIDE FISHERY offers hermetically sealed vacuum cans, moisture-proof multi-layer foil bags and heavy-duty paper drums. We can support custom container labeling, contract-based monthly volume planning and cold-chain coordination for stable, cost-controlled arrival.</p>
         <div class="hero-ctas">
           <Button href="/about/packaging/" variant="primary" size="lg">Download Packaging Specifications</Button>
           <Button href="/about/cold-storage/" variant="outline" size="lg">Request Cold Storage Guidelines</Button>
@@ -109,7 +257,7 @@ const applications = [
   </section>
   <CTASection
     title="Request a Tailored Quote"
-    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    description="Share your species, monthly volume, packaging requirement and delivery window to receive a practical Artemia cyst batch recommendation."
     ctaText="Send Inquiry"
     ctaHref="/contact/"
     showInquiryForm
@@ -123,10 +271,15 @@ const applications = [
   .product-hero, .two-col, .media-grid, .package-band { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   .eyebrow { display: inline-block; color: var(--color-brand-blue); font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
   .page-lead { font-size: 18px; opacity: 0.84; margin: 16px 0 24px; }
+  .hero-proof-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 22px 0 28px; }
+  .hero-proof-row span { display: grid; gap: 4px; min-height: 74px; padding: 14px 16px; border: 1px solid rgba(30,95,168,0.16); border-radius: var(--border-radius); background: var(--color-white); color: rgba(16,32,48,0.72); font-size: 13px; line-height: 1.3; }
+  .hero-proof-row strong { color: var(--color-primary); font-size: 24px; line-height: 1; }
   .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
   .hero-image, .media-photo, .package-band img { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; background: var(--color-white); }
   .hero-image { aspect-ratio: 4 / 3; margin: 0; }
   .hero-image img, .media-photo, .package-band img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-product-image { aspect-ratio: 3 / 4; max-width: 430px; justify-self: center; }
+  .hero-product-image img { object-fit: contain; padding: 12px; background: #f8fafc; }
   .specs-grid { display: grid; gap: 1px; background: var(--color-neutral-gray); border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); overflow: hidden; }
   .spec-item { background: var(--color-white); padding: 16px 18px; display: grid; gap: 4px; }
   .spec-item span { color: var(--color-brand-blue); font-weight: 700; font-size: var(--fs-small); }
@@ -134,6 +287,24 @@ const applications = [
   .two-col h2 { margin-bottom: 20px; }
   .section-head { max-width: 760px; margin-bottom: 28px; }
   .section-head h2 { margin-bottom: 20px; }
+  .batch-spec-layout { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: 40px; align-items: start; }
+  .product-value-section { background: var(--color-primary); color: var(--color-white); }
+  .product-value-section .eyebrow { color: var(--color-champagne-gold); }
+  .product-value-section h2 { color: var(--color-white); max-width: 820px; }
+  .product-value-section .section-head p { color: rgba(255,255,255,0.74); }
+  .value-highlight-grid, .origin-source-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .value-highlight-card, .origin-source-card { border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); background: var(--color-white); overflow: hidden; }
+  .value-highlight-card { padding: 24px; min-height: 190px; border-color: rgba(255,255,255,0.14); background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05)); }
+  .value-highlight-card h3, .origin-source-card h3 { margin: 0 0 10px; font-size: 20px; }
+  .value-highlight-card h3 { color: var(--color-white); }
+  .value-highlight-card p { color: rgba(255,255,255,0.72); }
+  .value-highlight-card p, .origin-source-card p { margin: 0; font-size: var(--fs-small); line-height: 1.55; }
+  .origin-source-card p { color: rgba(16,32,48,0.72); }
+  .origin-source-grid { grid-template-columns: repeat(3, 1fr); }
+  .origin-source-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: var(--color-light-bg); }
+  .origin-source-card div { padding: 22px; }
+  .origin-source-card h3 { font-size: 22px; }
+  .origin-source-card p { font-size: 15px; line-height: 1.68; }
   .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .process-card { background: var(--color-white); border: 1px solid var(--color-neutral-gray); border-radius: var(--border-radius); padding: 22px; }
   .step-num { color: var(--color-champagne-gold); font-weight: 800; }
@@ -150,8 +321,8 @@ const applications = [
   .package-band h2 { margin-bottom: 20px; }
   .package-band p { margin-bottom: 20px; }
   .package-band img { aspect-ratio: 4 / 3; }
-  @media (max-width: 1024px) { .product-hero, .two-col, .media-grid, .package-band { grid-template-columns: 1fr; } .process-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 767px) { .process-grid { grid-template-columns: 1fr; } .package-band { padding: 20px; } }
+  @media (max-width: 1024px) { .product-hero, .two-col, .media-grid, .package-band, .batch-spec-layout { grid-template-columns: 1fr; } .process-grid { grid-template-columns: repeat(2, 1fr); } .value-highlight-grid { grid-template-columns: repeat(2, 1fr); } .origin-source-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 767px) { .process-grid, .value-highlight-grid, .hero-proof-row { grid-template-columns: 1fr; } .package-band { padding: 20px; } }
 </style>
 
 

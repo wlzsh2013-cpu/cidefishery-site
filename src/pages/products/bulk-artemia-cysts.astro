@@ -4,10 +4,10 @@ import Button from '../../components/Button.astro';
 import CTASection from '../../components/CTASection.astro';
 
 const programs = [
-  { icon: '/icons/tailored-packaging.svg', alt: 'Tailored packaging icon for bulk Artemia cyst distributor supply programs', title: 'Tailored Packaging', text: "Select from heavy-duty foil bags, industrial vacuum cans, or durable mass drums optimized to match your local market's resale channel and warehouse handling needs." },
-  { icon: '/icons/end-to-end-logistics.svg', alt: 'End-to-end logistics icon for bulk Artemia cyst import and export coordination', title: 'End-to-End Logistics', text: 'Streamline your customs clearance with our complete maritime documentation support, synchronized shipment scheduling, and reliable port-to-port coordination.' },
-  { icon: '/icons/cold-chain-security.svg', alt: 'Cold-chain security icon for preserving bulk Artemia cyst hatching performance', title: 'Cold-Chain Security', text: 'Protect your biological asset viability with our strategic inventory rotation and temperature-controlled freight logistics designed for high-volume orders.' },
-  { icon: '/icons/batch-traceability.svg', alt: 'Batch traceability icon for bulk Artemia cyst quality tracking and consistency', title: 'Batch Traceability', text: 'Secure long-term commercial supply stability with our absolute product consistency and batch-to-batch chemical and biological tracking metrics.' },
+  { icon: '/icons/tailored-packaging.svg', alt: 'Tailored packaging icon for bulk Artemia cyst distributor supply programs', title: 'Tailored Packaging', text: "Choose foil bags, vacuum cans or bulk drums based on your resale channel, warehouse handling method and local customer order size." },
+  { icon: '/icons/end-to-end-logistics.svg', alt: 'End-to-end logistics icon for bulk Artemia cyst import and export coordination', title: 'End-to-End Logistics', text: 'Confirm shipment timing, export documents and port-to-port coordination before you commit to a bulk order.' },
+  { icon: '/icons/cold-chain-security.svg', alt: 'Cold-chain security icon for preserving bulk Artemia cyst hatching performance', title: 'Cold-Chain Security', text: 'Protect hatchability with planned inventory rotation, cold storage and temperature-aware freight options for high-volume orders.' },
+  { icon: '/icons/batch-traceability.svg', alt: 'Batch traceability icon for bulk Artemia cyst quality tracking and consistency', title: 'Batch Traceability', text: 'Review batch-to-batch records, origin information and quality data before arranging repeat distributor supply.' },
 ];
 
 const checklist = [
@@ -40,20 +40,20 @@ const checklist = [
 ---
 
 <BaseLayout
-  title="Bulk Artemia Cysts Supply Programs for Importers | CIDE FISHERY"
-  description="Bulk Artemia cyst supply programs for importers and large distributors, with volume-based pricing, certified batch stability, custom packaging and global logistics support."
+  title="Bulk and Private Label Artemia Supply | CIDE FISHERY"
+  description="Bulk and private-label Artemia cyst supply for importers and distributors, with volume planning, batch records, custom packaging and export logistics support."
   ogImage="/images/products/artemia-cysts-foil-bag-packaging.avif"
   jsonLdType="Product"
-  jsonLdData={{ name: 'Bulk Artemia Cysts', description: 'Bulk Artemia cyst supply programs for importers and large distributors', category: 'Aquaculture Supplies' }}
-  breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Bulk Artemia Cysts', url: '/products/bulk-artemia-cysts/' }]}
+  jsonLdData={{ name: 'Bulk and Private Label Artemia Procurement', description: 'Bulk and private-label procurement support for importers and large distributors', category: 'Aquaculture Supplies' }}
+  breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Bulk and Private Label', url: '/products/bulk-artemia-cysts/' }]}
   showBreadcrumb
 >
   <section class="section hero-section bg-light">
     <div class="container hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">DIRECT-FACTORY WHOLESALE SUPPLY</span>
-        <h1>Bulk Artemia Cysts Supply Programs for Importers &amp; Large Distributors</h1>
-        <p class="page-lead">CIDE FISHERY provides high-capacity commercial sourcing solutions tailored to global aquaculture supply chains. We support tier-1 wholesale importers and regional distributors with certified batch stability, volume-based pricing, and full-scale logistical support to secure your year-round inventory demands.</p>
+        <h1>Bulk and Private Label Artemia Supply for Importers and Distributors</h1>
+        <p class="page-lead">For import, distribution and private-label orders, we can prepare Artemia cyst batch planning, volume-based packaging, documents and delivery coordination for repeat bulk supply.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Request Bulk Quote</Button>
           <Button href="/about/packaging/" variant="outline" size="lg">Packaging &amp; Labeling Options</Button>
@@ -69,8 +69,8 @@ const checklist = [
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">DISTRIBUTOR REQUIREMENTS</span>
-        <h2>Comprehensive Supply Chain Management for Regional Networks</h2>
-        <p>Serving diverse hatchery networks requires an agile, dependable manufacturer. Our commercial bulk program removes market volatility by finalizing your custom packaging specifications, trade compliance, and cold-chain alignment prior to contract execution.</p>
+        <h2>Plan Bulk Supply Around Your Local Market</h2>
+        <p>Before you confirm a distributor or private-label order, align packaging format, trade documents, shipment timing and cold-chain handling with your monthly sales plan.</p>
       </div>
       <div class="program-grid">
         {programs.map((item, index) => (
@@ -89,8 +89,8 @@ const checklist = [
     <div class="container buyer-grid">
       <div>
         <span class="eyebrow">BULK INQUIRY CHECKLIST</span>
-        <h2>Streamline Your Request for a Personalized Commercial Proposal</h2>
-        <p>To help our technical specialists engineer a competitive, market-specific quote rather than a generic price list, please provide your structural requirements below. This allows us to calculate accurate freight, volume tier discounts, and cold-storage compliance.</p>
+        <h2>Send the Details Needed for a Clear Bulk Quote</h2>
+        <p>Share your target volume, destination port, packaging format and expected delivery schedule. With those details, we can confirm freight, volume pricing and cold-storage requirements for your market.</p>
         <div class="hero-ctas compact-ctas">
           <Button href="/about/cold-storage/" variant="outline" size="lg">Cold Storage Support</Button>
           <Button href="/about/quality-control/" variant="outline" size="lg">Quality Control</Button>
@@ -112,7 +112,7 @@ const checklist = [
       <div>
         <span class="eyebrow">FLEXIBLE COMMERCIAL PACKAGING</span>
         <h2>Bulk Multi-Layer Foil Bags, Heavy-Duty Drums &amp; Custom Private Labeling</h2>
-        <p>CIDE FISHERY offers robust, multi-layer foil bags, fortified vacuum cans, and industrial-grade paper drums engineered to preserve hatching rates during grueling transoceanic shipping. Our packaging production lines fully accommodate custom branding, multi-language private labeling, and local resale weight allocations to directly match your corporate distribution network.</p>
+        <p>CIDE FISHERY offers multi-layer foil bags, vacuum cans and industrial paper drums designed to protect hatchability during long-distance shipping. We also support custom branding, multi-language private labels and local resale weight formats for distributor networks.</p>
         <div class="hero-ctas">
           <Button href="/about/packaging/" variant="primary" size="lg">Review Packaging Specifications</Button>
           <Button href="/about/global-supply/" variant="outline" size="lg">Explore Global Supply Support</Button>
@@ -126,22 +126,21 @@ const checklist = [
     <div class="container related-products">
       <div>
         <span class="eyebrow">Related products</span>
-        <h2>Compare Bulk Supply With Other Artemia Options</h2>
+        <h2>Compare Procurement Path With Core Products</h2>
       </div>
       <div class="related-grid">
-        <a href="/products/artemia-cysts/">Standard Artemia Cysts</a>
-        <a href="/products/premium-artemia-cysts/">Premium Artemia Cysts</a>
+        <a href="/products/artemia-cysts/">Artemia Cysts</a>
         <a href="/products/decapsulated-eggs/">Decapsulated Brine Shrimp Eggs</a>
       </div>
     </div>
   </section>
   <CTASection
     title="Request a Tailored Quote"
-    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    description="Share your volume, packaging and destination requirements to receive a practical Artemia cyst supply proposal."
     ctaText="Send Inquiry"
     ctaHref="/contact/"
     showInquiryForm
-    preselectedProduct="Bulk Artemia Cysts"
+    preselectedProduct="Artemia Cysts"
   />
 
 </BaseLayout>

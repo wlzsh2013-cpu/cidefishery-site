@@ -1,11 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://wlzsh2013-cpu.github.io',
-  integrations: [sitemap()],
-  base: '/cidefishery-site/',
+  site: 'https://cidefishery.com',
+  integrations: [],
   output: 'static',
   build: {
     assets: 'assets',

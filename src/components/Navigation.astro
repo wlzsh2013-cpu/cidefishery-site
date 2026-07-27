@@ -1,6 +1,15 @@
 ---
 import { SITE_CONFIG } from '../content/config/site.config';
 import Picture from './Picture.astro';
+
+const currentPath = Astro.url.pathname.replace(/\/index\.html$/, '/');
+const normalizePath = (path: string) => path.endsWith('/') ? path : `${path}/`;
+const isExact = (path: string) => normalizePath(currentPath) === normalizePath(path);
+const isSection = (paths: string[]) => paths.some((path) => normalizePath(currentPath).startsWith(normalizePath(path)));
+const isProductsActive = isSection(['/products/']);
+const isApplicationsActive = isSection(['/applications/', '/application-shrimp-hatchery/']);
+const isAboutActive = isSection(['/about/']);
+const isNewsActive = isSection(['/news/', '/blog/']);
 ---
 
 <header class="site-header">
@@ -18,46 +27,46 @@ import Picture from './Picture.astro';
 
     <nav class="main-nav" aria-label="Main navigation">
       <ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li class="has-dropdown">
-          <a href="/products/">Products</a>
+        <li><a href="/" class:list={{ 'is-active': isExact('/') }} aria-current={isExact('/') ? 'page' : undefined}>Home</a></li>
+        <li class:list={['has-dropdown', isProductsActive && 'is-active']}>
+          <span class="nav-trigger">Products</span>
           <ul class="dropdown">
-            <li><a href="/products/artemia-cysts/">Artemia Cysts</a></li>
-            <li><a href="/products/premium-artemia-cysts/">Premium Artemia Cysts</a></li>
-            <li><a href="/products/decapsulated-eggs/">Decapsulated Eggs</a></li>
-            <li><a href="/products/bulk-artemia-cysts/">Bulk Supply</a></li>
+            <li><a href="/products/" class:list={{ 'is-active': isExact('/products/') }} aria-current={isExact('/products/') ? 'page' : undefined}>All Products</a></li>
+            <li><a href="/products/artemia-cysts/" class:list={{ 'is-active': isExact('/products/artemia-cysts/') }} aria-current={isExact('/products/artemia-cysts/') ? 'page' : undefined}>Artemia Cysts</a></li>
+            <li><a href="/products/decapsulated-eggs/" class:list={{ 'is-active': isExact('/products/decapsulated-eggs/') }} aria-current={isExact('/products/decapsulated-eggs/') ? 'page' : undefined}>Decapsulated Eggs</a></li>
           </ul>
         </li>
-        <li class="has-dropdown">
-          <a href="/applications/">Applications</a>
+        <li class:list={['has-dropdown', isApplicationsActive && 'is-active']}>
+          <span class="nav-trigger">Applications</span>
           <ul class="dropdown">
-            <li><a href="/application-shrimp-hatchery/">Shrimp Hatchery</a></li>
-            <li><a href="/applications/fish-fry/">Fish Fry</a></li>
-            <li><a href="/applications/crab-larvae/">Crab Larvae</a></li>
+            <li><a href="/applications/" class:list={{ 'is-active': isExact('/applications/') }} aria-current={isExact('/applications/') ? 'page' : undefined}>All Applications</a></li>
+            <li><a href="/application-shrimp-hatchery/" class:list={{ 'is-active': isExact('/application-shrimp-hatchery/') }} aria-current={isExact('/application-shrimp-hatchery/') ? 'page' : undefined}>Shrimp Hatchery</a></li>
+            <li><a href="/applications/fish-fry/" class:list={{ 'is-active': isExact('/applications/fish-fry/') }} aria-current={isExact('/applications/fish-fry/') ? 'page' : undefined}>Fish Fry</a></li>
+            <li><a href="/applications/crab-larvae/" class:list={{ 'is-active': isExact('/applications/crab-larvae/') }} aria-current={isExact('/applications/crab-larvae/') ? 'page' : undefined}>Crab Larvae</a></li>
           </ul>
         </li>
-        <li class="has-dropdown">
-          <a href="/about/">About</a>
+        <li class:list={['has-dropdown', isAboutActive && 'is-active']}>
+          <span class="nav-trigger">About</span>
           <ul class="dropdown">
-            <li><a href="/about/">About CIDE FISHERY</a></li>
-            <li><a href="/about/processing-facility/">Processing Facility</a></li>
-            <li><a href="/about/quality-control/">Quality Control</a></li>
-            <li><a href="/about/cold-storage/">Cold Storage</a></li>
-            <li><a href="/about/packaging/">Packaging Options</a></li>
-            <li><a href="/about/global-supply/">Global Supply</a></li>
+            <li><a href="/about/" class:list={{ 'is-active': isExact('/about/') }} aria-current={isExact('/about/') ? 'page' : undefined}>About CIDE FISHERY</a></li>
+            <li><a href="/about/quality-control/" class:list={{ 'is-active': isExact('/about/quality-control/') }} aria-current={isExact('/about/quality-control/') ? 'page' : undefined}>Quality &amp; Supply Assurance</a></li>
+            <li><a href="/about/processing-facility/" class:list={{ 'is-active': isExact('/about/processing-facility/') }} aria-current={isExact('/about/processing-facility/') ? 'page' : undefined}>Processing Facility</a></li>
+            <li><a href="/about/cold-storage/" class:list={{ 'is-active': isExact('/about/cold-storage/') }} aria-current={isExact('/about/cold-storage/') ? 'page' : undefined}>Cold Storage</a></li>
+            <li><a href="/about/packaging/" class:list={{ 'is-active': isExact('/about/packaging/') }} aria-current={isExact('/about/packaging/') ? 'page' : undefined}>Packaging Options</a></li>
+            <li><a href="/about/global-supply/" class:list={{ 'is-active': isExact('/about/global-supply/') }} aria-current={isExact('/about/global-supply/') ? 'page' : undefined}>Global Supply</a></li>
           </ul>
         </li>
-        <li><a href="/faq/">FAQ</a></li>
-        <li class="has-dropdown">
+        <li><a href="/faq/" class:list={{ 'is-active': isExact('/faq/') }} aria-current={isExact('/faq/') ? 'page' : undefined}>FAQ</a></li>
+        <li class:list={['has-dropdown', isNewsActive && 'is-active']}>
           <span class="nav-trigger">News</span>
           <ul class="dropdown">
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/news/company-news/">Company News</a></li>
-            <li><a href="/news/exhibitions/">Exhibitions</a></li>
-            <li><a href="/news/customer-visits/">Customer Visits</a></li>
+            <li><a href="/blog/" class:list={{ 'is-active': isSection(['/blog/']) }} aria-current={isSection(['/blog/']) ? 'page' : undefined}>Blog</a></li>
+            <li><a href="/news/company-news/" class:list={{ 'is-active': isSection(['/news/company-news/']) }} aria-current={isSection(['/news/company-news/']) ? 'page' : undefined}>Company News</a></li>
+            <li><a href="/news/exhibitions/" class:list={{ 'is-active': isSection(['/news/exhibitions/']) }} aria-current={isSection(['/news/exhibitions/']) ? 'page' : undefined}>Exhibitions</a></li>
+            <li><a href="/news/customer-visits/" class:list={{ 'is-active': isSection(['/news/customer-visits/']) }} aria-current={isSection(['/news/customer-visits/']) ? 'page' : undefined}>Customer Visits</a></li>
           </ul>
         </li>
-        <li><a href="/contact/" class="nav-cta btn btn-primary btn-sm">Inquiry</a></li>
+        <li><a href="/contact/" class:list={['nav-cta btn btn-primary btn-sm', isExact('/contact/') && 'is-active']} aria-current={isExact('/contact/') ? 'page' : undefined}>Inquiry</a></li>
       </ul>
     </nav>
 
@@ -69,23 +78,35 @@ import Picture from './Picture.astro';
 
 <style>
   .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
     background: var(--color-white);
     border-bottom: 1px solid var(--color-neutral-gray);
     box-shadow: 0 1px 4px rgba(11, 31, 51, 0.06);
+    box-sizing: border-box;
+    height: 72px;
+  }
+  :global(html) {
+    scroll-padding-top: 88px;
+  }
+  :global(body) {
+    padding-top: 72px;
   }
   .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+    height: 72px;
+    padding: 0;
   }
   .logo-img {
     height: 40px;
     width: auto;
-    margin: 40px 0;
+    margin: 0;
   }
   .nav-list {
     display: flex;
@@ -103,6 +124,10 @@ import Picture from './Picture.astro';
   .nav-list > li > a:hover, .nav-list > li > .nav-trigger:hover {
     color: var(--color-champagne-gold);
   }
+  .nav-list > li > a.is-active,
+  .nav-list > li.is-active > .nav-trigger {
+    color: var(--color-champagne-gold);
+  }
   .nav-list > li > a::before, .nav-list > li > .nav-trigger::before {
     content: '';
     position: absolute;
@@ -113,7 +138,9 @@ import Picture from './Picture.astro';
     background: var(--color-champagne-gold);
     transition: width 0.2s ease;
   }
-  .nav-list > li > a:hover::before, .nav-list > li > .nav-trigger:hover::before {
+  .nav-list > li > a:hover::before, .nav-list > li > .nav-trigger:hover::before,
+  .nav-list > li > a.is-active::before,
+  .nav-list > li.is-active > .nav-trigger::before {
     width: 100%;
   }
   .nav-cta {
@@ -130,20 +157,19 @@ import Picture from './Picture.astro';
   .has-dropdown > a::after, .has-dropdown > .nav-trigger::after {
     content: "";
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 0;
+    height: 0;
     margin-left: 6px;
-    margin-bottom: 5px;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
-    transform-origin: 50% 50%;
+    margin-bottom: 2px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
     transition: transform 0.2s ease;
     vertical-align: middle;
   }
   .has-dropdown:hover > a::after, .has-dropdown:hover > .nav-trigger::after,
   .has-dropdown.open > a::after {
-    transform: rotate(-135deg);
+    transform: rotate(180deg);
   }
   .dropdown {
     display: none;
@@ -171,6 +197,11 @@ import Picture from './Picture.astro';
   .dropdown li a:hover {
     background: var(--color-light-bg);
     color: var(--color-champagne-gold);
+  }
+  .dropdown li a.is-active {
+    background: var(--color-light-bg);
+    color: var(--color-champagne-gold);
+    font-weight: 800;
   }
 
   .mobile-menu-toggle {

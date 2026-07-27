@@ -4,14 +4,18 @@ import Button from '../../components/Button.astro';
 
 const applicationSteps = [
   {
+    label: 'Live nauplii timing',
+    color: '#35B7D8',
     title: 'Shrimp Hatcheries',
-    description: 'Streamline your postlarvae (PL) production. Our live nauplii are meticulously selected to align perfectly with intensive Zoea, Mysis, and PL feeding windows, securing superior biological vitality, uniform growth, and daily hatchery routing efficiency.',
+    description: 'Support postlarvae (PL) production with live nauplii selected for intensive Zoea, Mysis and PL feeding windows, helping hatcheries maintain strong vitality, uniform growth and smoother daily feeding routines.',
     href: '/application-shrimp-hatchery/',
     cta: 'View Shrimp Rearing Solutions',
     image: '/images/shrimp-hatchery-app.avif',
     alt: 'Shrimp hatchery application for Artemia nauplii feeding workflow',
   },
   {
+    label: 'Early fry nutrition',
+    color: '#E6B36A',
     title: 'Fish Fry Programs',
     description: 'Accelerate digestive tract development and survival rates in fragile marine and freshwater fry. Deploy our high-yield standard cysts or shell-free decapsulated eggs to secure a clean, pathogen-free, and highly digestible first-feed supply.',
     href: '/applications/fish-fry/',
@@ -20,6 +24,8 @@ const applicationSteps = [
     alt: 'Fish fry feeding application with Artemia and decapsulated brine shrimp eggs',
   },
   {
+    label: 'Molting-stage support',
+    color: '#2BB673',
     title: 'Crab Larvae',
     description: 'Minimize mortality rates and grading losses during critical crustacean molting phases. Rely on specialized feeding programs engineered for sensitive crab and crustacean larvae where hatching timing and handling precision matter most.',
     href: '/applications/crab-larvae/',
@@ -46,7 +52,7 @@ const decisionPoints = [
     icon: '/icons/climate-controlled-protection.svg',
     alt: 'Climate-controlled protection icon for Artemia cyst packaging storage and cold-chain handling',
     title: 'Climate-Controlled Protection',
-    text: 'Biological integrity depends on the ultimate seal. Our flexible industrial packaging formats are engineered to perfectly match your localized storage conditions, order volumes, and port handling.',
+    text: 'Biological integrity depends on reliable sealing and storage. Our industrial packaging formats can be matched to your local storage conditions, order volume and port handling needs.',
   },
 ];
 ---
@@ -71,41 +77,43 @@ const decisionPoints = [
     </div>
   </section>
 
-  <section class="cide-steps-scroll" data-cide-steps-scroll>
-    <div class="cide-steps-sticky">
-      <div class="cide-steps-heading" data-cide-steps-heading>
-        <span class="eyebrow">Application paths</span>
-        <h2>Precision Live Feed Tailored to Your Specific Aquaculture Species</h2>
-        <p>Different aquatic species demand precise nutrient density, hatch synchronization, and prey particle sizes. Select your core operational category below to review certified nutrition paths, ideal packaging setups, and custom supply metrics engineered for your workflow.</p>
-      </div>
-
-      <div class="cide-steps-grid" data-cide-steps-container>
-        {applicationSteps.map((app, index) => (
-          <article class={`cide-step-card ${index === 0 ? 'is-active' : ''}`} data-cide-step-card>
-            <a class="cide-step-image" href={app.href} aria-label={`View ${app.title} application`}>
-              <img src={app.image} alt={app.alt} width="900" height="720" loading="lazy" />
-            </a>
-
-            <div class="cide-step-content">
-              <div class="cide-step-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M28 16 5 26l4-8H3v-4h6L5 6l23 10Z" />
-                </svg>
-              </div>
-
-              <div class="cide-step-name">
+  <section class="gp-step-module leyou-app-module application-step-module" data-gp-step-module>
+    <div class="gp-step-sticky leyou-app-sticky">
+      <img class="leyou-app-bg" src="/images/applications-bg.avif" alt="" width="1600" height="1000" loading="lazy" aria-hidden="true" />
+      <div class="gp-step-inner leyou-app-inner">
+        <div class="gp-step-left leyou-app-left">
+          <div class="gp-step-heading leyou-app-heading" data-gp-step-heading>
+            <span class="eyebrow">Application paths</span>
+            <h2>Precision Live Feed Tailored to Your Specific Aquaculture Species</h2>
+            <p>Select your hatchery application to compare the feeding format, batch requirements, packaging setup and supply details that matter for your daily production workflow.</p>
+          </div>
+          <div class="gp-step-list leyou-app-list" data-gp-step-list>
+            {applicationSteps.map((app, index) => (
+              <div class={"gp-step-item leyou-app-item" + (index === 0 ? " is-active" : "")} data-step={String(index)} style={`--variant-color: ${app.color}`}>
+                <span>{app.label}</span>
                 <h3>{app.title}</h3>
               </div>
+            ))}
+          </div>
+        </div>
 
-              <p class="cide-step-desc">{app.description}</p>
-              <a class="cide-step-link" href={app.href}>{app.cta} &rarr;</a>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <div class="cide-steps-action">
-        <a href="/contact/">Ask for a Tailored Feeding Recommendation</a>
+        <div class="gp-step-right leyou-app-right" data-gp-step-cards>
+          {applicationSteps.map((app, index) => (
+            <article class={"gp-step-card leyou-app-card application-step-card" + (index === 0 ? " is-active" : "")} data-step-card={String(index)} style={`--variant-color: ${app.color}`}>
+              <div class="gp-step-card-inner leyou-app-card-inner">
+                <a class="gp-step-image leyou-app-image application-step-image" href={app.href} aria-label={`View ${app.title} application`}>
+                  <img src={app.image} alt={app.alt} width="900" height="720" loading="lazy" />
+                </a>
+                <div class="gp-step-content leyou-app-content">
+                  <span class="application-step-label"><i></i>{app.label}</span>
+                  <h3>{app.title}</h3>
+                  <p>{app.description}</p>
+                  <a class="application-step-link" href={app.href}>{app.cta} &rarr;</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -128,11 +136,12 @@ const decisionPoints = [
 
   <section class="section">
     <div class="container package-band">
-      <div><span class="eyebrow">SUPPLY CHAIN SEGREGATION</span><h2>Industrial-Grade Vacuum Cans, High-Barrier Bags &amp; Customized Labeling</h2><p>To preserve maximum hatchability from our processing lines to your rearing tanks, we utilize multi-layer foil bags, fortified vacuum cans, and heavy-duty drums. CIDE FISHERY fully integrates volume-based contract planning, custom private labeling, and global cold-chain support to fit your regional distribution network.</p><div class="hero-ctas"><Button href="/about/packaging/" variant="primary" size="lg">Review Packaging Formats</Button><Button href="/about/cold-storage/" variant="outline" size="lg">Learn About Cold Storage Support</Button></div></div>
-      <img src="/images/applications/premium-artemia-cysts-cans.avif" alt="Premium Artemia cysts cans on factory table" width="1536" height="1024" loading="lazy" />
+      <div><span class="eyebrow">SUPPLY CHAIN SEGREGATION</span><h2>Industrial-Grade Vacuum Cans, High-Barrier Bags &amp; Customized Labeling</h2><p>To protect hatchability from our processing lines to your rearing tanks, choose from multi-layer foil bags, fortified vacuum cans and heavy-duty drums. We can match packaging, contract volume planning, private labeling and cold-chain support to your regional distribution network.</p><div class="hero-ctas"><Button href="/about/packaging/" variant="primary" size="lg">Review Packaging Formats</Button><Button href="/about/cold-storage/" variant="outline" size="lg">Learn About Cold Storage Support</Button></div></div>
+      <img src="/images/applications/premium-artemia-cysts-cans.avif" alt="Artemia cysts cans on factory table" width="1536" height="1024" loading="lazy" />
     </div>
   </section>
 </div>
+<script is:inline src="/stepscroll.js?v=20260723d"></script>
 </BaseLayout>
 
 <style is:global>
@@ -158,7 +167,317 @@ const decisionPoints = [
   .applications-page .package-band p { margin-bottom:20px; }
   .applications-page .package-band img { height:100%;padding:0; }
 
+  .applications-page .application-step-module {
+    --site-header-offset: 72px;
+    --gp-bg: #031527;
+    --gp-text: #ffffff;
+    --gp-muted: rgba(255,255,255,.64);
+    --gp-muted-2: rgba(255,255,255,.32);
+    --gp-card-bg: rgba(255,255,255,.075);
+    --gp-card-border: rgba(255,255,255,.14);
+    --gp-accent: var(--color-champagne-gold);
+    --gp-radius: 16px;
+    position: relative;
+    overflow: visible;
+    color: var(--gp-text);
+    background: var(--gp-bg);
+  }
+
+  .applications-page .application-step-module::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      linear-gradient(90deg, rgba(3,21,39,.96), rgba(3,21,39,.70)),
+      radial-gradient(circle at 78% 22%, rgba(53,183,216,.18), transparent 30%),
+      radial-gradient(circle at 16% 76%, rgba(230,179,106,.14), transparent 34%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .applications-page .leyou-app-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 118%;
+    object-fit: cover;
+    opacity: .36;
+    filter: saturate(.95) contrast(1.06);
+    transform: translate3d(0, var(--venue-bg-y, 0px), 0);
+    transition: transform .12s linear;
+    pointer-events: none;
+  }
+
+  .applications-page .gp-step-sticky {
+    position: sticky;
+    top: var(--site-header-offset);
+    height: calc(100vh - var(--site-header-offset));
+    min-height: 648px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: clamp(42px, 5.8vh, 78px) max(24px, calc((100vw - 1200px) / 2 + 24px));
+  }
+
+  .applications-page .gp-step-sticky.is-fixed {
+    position: fixed;
+    top: var(--site-header-offset);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    width: 100%;
+  }
+
+  .applications-page .gp-step-sticky.is-released {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    width: 100%;
+  }
+
+  .applications-page .gp-step-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(300px, .82fr) minmax(430px, 1.18fr);
+    gap: clamp(48px, 7vw, 96px);
+    align-items: center;
+  }
+
+  .applications-page .gp-step-left { position: relative; z-index: 2; }
+  .applications-page .gp-step-heading {
+    max-width: 650px;
+    max-height: 330px;
+    overflow: hidden;
+    margin-bottom: clamp(30px, 4.6vh, 52px);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .45s ease, transform .45s ease, max-height .45s ease, margin-bottom .45s ease;
+  }
+  .applications-page .gp-step-heading.is-hidden {
+    opacity: 0;
+    transform: translateY(-32px);
+    max-height: 0;
+    margin-bottom: 0;
+    pointer-events: none;
+  }
+  .applications-page .gp-step-heading .eyebrow { color: var(--color-champagne-gold); }
+  .applications-page .gp-step-heading h2 {
+    margin: 0 0 18px;
+    color: #fff;
+    font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.06;
+  }
+  .applications-page .gp-step-heading p {
+    max-width: 640px;
+    margin: 0;
+    color: rgba(255,255,255,.68);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  .applications-page .gp-step-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(15px, 2.1vh, 24px);
+  }
+  .applications-page .gp-step-item {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 32px;
+  }
+  .applications-page .gp-step-item::before {
+    position: absolute;
+    left: 0;
+    top: .82em;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.25);
+    transform: scale(.8);
+    transition: .35s ease;
+    content: "";
+  }
+  .applications-page .gp-step-item span {
+    display: block;
+    margin-bottom: 5px;
+    color: rgba(255,255,255,.46);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: color .35s ease;
+  }
+  .applications-page .gp-step-item h3 {
+    margin: 0;
+    color: var(--gp-muted-2);
+    font-size: clamp(28px, 3.1vw, 44px);
+    line-height: 1.1;
+    transition: color .42s ease, transform .42s ease;
+  }
+  .applications-page .gp-step-item.is-active::before {
+    background: var(--variant-color);
+    transform: scale(1.35);
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--variant-color) 20%, transparent);
+  }
+  .applications-page .gp-step-item.is-active span { color: rgba(255,255,255,.72); }
+  .applications-page .gp-step-item.is-active h3 {
+    color: var(--variant-color);
+    transform: translateX(4px);
+  }
+
+  .applications-page .gp-step-right {
+    position: relative;
+    z-index: 2;
+    min-height: min(64vh, 560px);
+  }
+  .applications-page .gp-step-card {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(22px) scale(.985);
+    pointer-events: none;
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  .applications-page .gp-step-card.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .applications-page .gp-step-card-inner {
+    height: 100%;
+    display: grid;
+    grid-template-rows: minmax(260px, 1fr) auto;
+    overflow: hidden;
+    border: 1px solid var(--gp-card-border);
+    border-radius: var(--gp-radius);
+    background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.03)), var(--gp-card-bg);
+    box-shadow: 0 24px 70px rgba(0,0,0,.36);
+    backdrop-filter: blur(18px);
+  }
+  .applications-page .application-step-image {
+    position: relative;
+    display: block;
+    min-height: 300px;
+    overflow: hidden;
+    background: radial-gradient(circle at 76% 78%, color-mix(in srgb, var(--variant-color) 22%, transparent), transparent 28%), linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  }
+  .applications-page .application-step-image::before {
+    content: none;
+  }
+  .applications-page .application-step-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    transform: scale(1.03);
+    transition: transform .55s ease;
+  }
+  .applications-page .gp-step-card.is-active .application-step-image img { transform: scale(1); }
+  .applications-page .gp-step-content {
+    padding: clamp(34px, 3.6vw, 48px) clamp(24px, 3vw, 36px) clamp(24px, 3vw, 36px);
+  }
+  .applications-page .application-step-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 12px;
+    color: rgba(255,255,255,.66);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .applications-page .application-step-label i {
+    width: 11px;
+    height: 11px;
+    border-radius: 999px;
+    background: var(--variant-color);
+  }
+  .applications-page .gp-step-content h3 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(26px, 2.7vw, 40px);
+    line-height: 1.15;
+  }
+  .applications-page .gp-step-content p {
+    max-width: 680px;
+    margin: 0;
+    color: rgba(255,255,255,.68);
+    font-size: clamp(15px, 1.18vw, 18px);
+    line-height: 1.62;
+  }
+  .applications-page .application-step-link {
+    display: inline-flex;
+    margin-top: 22px;
+    color: var(--color-champagne-gold);
+    font-weight: 800;
+  }
+  .applications-page .application-step-link:hover { color: var(--color-tech-cyan); }
+
+  @media(max-width:1024px){
+    .applications-page .application-step-module { height:auto !important; }
+    .applications-page .gp-step-sticky {
+      position: relative;
+      top: auto;
+      height: auto;
+      min-height: auto;
+      overflow: visible;
+      padding-block: 72px;
+    }
+    .applications-page .gp-step-sticky.is-fixed,
+    .applications-page .gp-step-sticky.is-released {
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      transform: none !important;
+    }
+    .applications-page .gp-step-inner { grid-template-columns: 1fr; gap: 36px; }
+    .applications-page .gp-step-heading {
+      max-height: none;
+      opacity: 1 !important;
+      transform: none !important;
+      margin-bottom: 36px !important;
+    }
+    .applications-page .gp-step-right {
+      min-height: auto;
+      display: grid;
+      gap: 24px;
+    }
+    .applications-page .gp-step-card {
+      position: relative;
+      opacity: 1 !important;
+      transform: none !important;
+      pointer-events: auto;
+    }
+    .applications-page .gp-step-card-inner { min-height: auto; }
+    .applications-page .leyou-app-bg {
+      height: 100%;
+      transform: none !important;
+    }
+    .applications-page .application-step-image,
+    .applications-page .application-step-image img {
+      min-height: 300px;
+    }
+  }
+
+  @media(max-width:767px){
+    .applications-page .gp-step-sticky { padding-block: 64px; }
+    .applications-page .gp-step-heading h2 { font-size: 36px; }
+    .applications-page .gp-step-item h3 { font-size: 28px; }
+    .applications-page .application-step-image,
+    .applications-page .application-step-image img {
+      min-height: 240px;
+    }
+  }
+
   .applications-page .cide-steps-scroll {
+    --site-header-offset: 72px;
     --steps-bg: var(--color-primary);
     --steps-card: rgba(255, 255, 255, 0.075);
     --steps-card-active: rgba(255, 255, 255, 0.12);
@@ -183,15 +502,29 @@ const decisionPoints = [
   .applications-page .cide-steps-scroll * { box-sizing: border-box; }
   .applications-page .cide-steps-sticky {
     position: sticky;
-    top: 0;
-    min-height: 100vh;
+    top: var(--site-header-offset);
+    min-height: calc(100vh - var(--site-header-offset));
     width: var(--content-width);
     margin: 0 auto;
-    padding: 110px 0;
+    padding: clamp(72px, 10vh, 110px) 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
+  }
+  .applications-page .cide-steps-sticky.is-fixed {
+    position: fixed;
+    top: var(--site-header-offset);
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+  }
+  .applications-page .cide-steps-sticky.is-released {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
   }
   .applications-page .cide-steps-heading {
     margin-bottom: 64px;
@@ -350,9 +683,11 @@ const decisionPoints = [
     background: var(--steps-accent);
     color: var(--color-primary);
   }
-  @media(max-width:1280px){
+  @media(max-width:1024px){
     .applications-page .cide-steps-scroll { height:auto !important; padding:76px 0; }
     .applications-page .cide-steps-sticky { position:relative; top:auto; min-height:auto; overflow:visible; padding:0; }
+    .applications-page .cide-steps-sticky.is-fixed,
+    .applications-page .cide-steps-sticky.is-released { position:relative; top:auto; left:auto; transform:none !important; }
     .applications-page .cide-steps-heading { opacity:1 !important; transform:none !important; }
     .applications-page .cide-steps-grid { transform:none !important; grid-template-columns:repeat(3,minmax(260px,1fr)); overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; }
     .applications-page .cide-step-card,
@@ -369,117 +704,3 @@ const decisionPoints = [
     .applications-page .package-band{padding:20px}
   }
 </style>
-
-<script>
-(function () {
-  const section = document.querySelector('[data-cide-steps-scroll]');
-  if (!section) return;
-
-  const container = section.querySelector('[data-cide-steps-container]');
-  const cards = Array.from(section.querySelectorAll('[data-cide-step-card]'));
-  if (!cards.length || !container) return;
-
-  const desktopQuery = window.matchMedia('(min-width: 1281px)');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-  }
-
-  let enabled = false;
-  let ticking = false;
-
-  function setActive(index, floatIndex) {
-    cards.forEach(function (card, i) {
-      const distance = Math.abs(floatIndex - i);
-      const strength = clamp(1 - distance, 0, 1);
-      const isActive = i === index;
-
-      card.classList.toggle('is-active', isActive);
-      card.style.setProperty('--name-y', ((1 - strength) * 22).toFixed(2) + 'px');
-      card.style.setProperty('--name-opacity', (0.36 + strength * 0.64).toFixed(3));
-      card.style.setProperty('--desc-opacity', (0.34 + strength * 0.66).toFixed(3));
-      card.style.setProperty('--card-opacity', (0.45 + strength * 0.55).toFixed(3));
-      card.style.setProperty('--card-scale', (0.965 + strength * 0.035).toFixed(3));
-      card.style.setProperty('--card-y', ((i - floatIndex) * 18).toFixed(2) + 'px');
-      card.style.setProperty('--image-y', ((i - floatIndex) * -10).toFixed(2) + 'px');
-      card.style.setProperty('--line-scale', (0.18 + strength * 0.82).toFixed(3));
-    });
-  }
-
-  function update() {
-    if (!enabled) return;
-
-    const rect = section.getBoundingClientRect();
-    const maxScroll = Math.max(1, section.offsetHeight - window.innerHeight);
-    const progress = clamp(-rect.top / maxScroll, 0, 1);
-    const headingHide = clamp(progress / 0.12, 0, 1);
-    const lift = -headingHide * Math.min(170, window.innerHeight * 0.2);
-    const stepProgress = clamp((progress - 0.08) / 0.92, 0, 1);
-    const floatIndex = stepProgress * (cards.length - 1);
-    const activeIndex = clamp(Math.round(floatIndex), 0, cards.length - 1);
-
-    section.style.setProperty('--heading-hide', headingHide.toFixed(3));
-    section.style.setProperty('--container-lift', lift.toFixed(2) + 'px');
-    setActive(activeIndex, floatIndex);
-  }
-
-  function measure() {
-    enabled = desktopQuery.matches && !reduceMotion;
-
-    if (!enabled) {
-      section.style.height = 'auto';
-      section.style.setProperty('--heading-hide', '0');
-      section.style.setProperty('--container-lift', '0px');
-      cards.forEach(function (card) {
-        card.classList.add('is-active');
-        card.style.setProperty('--card-y', '0px');
-        card.style.setProperty('--card-scale', '1');
-        card.style.setProperty('--card-opacity', '1');
-        card.style.setProperty('--name-y', '0px');
-        card.style.setProperty('--name-opacity', '1');
-        card.style.setProperty('--desc-opacity', '1');
-        card.style.setProperty('--image-y', '0px');
-        card.style.setProperty('--line-scale', '1');
-      });
-      return;
-    }
-
-    section.style.height = (window.innerHeight * (cards.length + 1)) + 'px';
-    update();
-  }
-
-  function requestUpdate() {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(function () {
-      update();
-      ticking = false;
-    });
-  }
-
-  let resizeTimer = null;
-  function requestMeasure() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(measure, 120);
-  }
-
-  window.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', requestMeasure);
-
-  if (desktopQuery.addEventListener) {
-    desktopQuery.addEventListener('change', measure);
-  } else {
-    desktopQuery.addListener(measure);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', measure);
-  } else {
-    measure();
-  }
-
-  window.addEventListener('load', measure);
-  setTimeout(measure, 300);
-})();
-</script>

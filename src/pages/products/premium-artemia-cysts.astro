@@ -4,38 +4,38 @@ import Button from '../../components/Button.astro';
 import CTASection from '../../components/CTASection.astro';
 
 const benefits = [
-  { icon: '/icons/verified-batch-analysis.svg', alt: 'Verified batch analysis icon for premium Artemia cysts', title: 'Verified Batch Analysis', text: 'Gain complete transparency with independent batch-specific data sheets covering hatch rate, synchronization, and nutritional profiles before procurement.' },
-  { icon: '/icons/strict-cold-chain-integrity.svg', alt: 'Strict cold-chain integrity icon for premium Artemia cyst storage', title: 'Strict Cold-Chain Integrity', text: 'Every premium batch is preserved under optimal, climate-controlled conditions to prevent cellular degradation and secure long-term performance.' },
-  { icon: '/icons/high-density-hatchery-fit.svg', alt: 'High-density hatchery fit icon for premium Artemia cyst feeding programs', title: 'High-Density Hatchery Fit', text: 'Optimized for rigorous commercial systems that require maximum postlarvae (PL) survival rates, robust vitality, and uniform growth cycles.' },
-  { icon: '/icons/heavy-duty-export-packing.svg', alt: 'Heavy-duty export packing icon for premium Artemia cyst shipments', title: 'Heavy-Duty Export Packing', text: 'Packed in industrial vacuum-sealed cans, shock-resistant cartons, and moisture-barrier drums designed to withstand long-distance maritime transit.' },
+  { icon: '/icons/verified-batch-analysis.svg', alt: 'Verified batch analysis icon for Artemia cysts', title: 'Verified Batch Analysis', text: 'Review available batch-specific information covering hatchability, synchronization, origin and packaging before procurement.' },
+  { icon: '/icons/strict-cold-chain-integrity.svg', alt: 'Strict cold-chain integrity icon for Artemia cyst storage', title: 'Strict Cold-Chain Integrity', text: 'Selected batches are preserved under climate-controlled storage to reduce viability loss before export handling.' },
+  { icon: '/icons/high-density-hatchery-fit.svg', alt: 'High-density hatchery fit icon for Artemia cyst feeding programs', title: 'High-Density Hatchery Fit', text: 'Match batch choice to intensive postlarvae, fish fry or crustacean nursery schedules that require stable live nauplii output.' },
+  { icon: '/icons/heavy-duty-export-packing.svg', alt: 'Heavy-duty export packing icon for Artemia cyst shipments', title: 'Heavy-Duty Export Packing', text: 'Choose vacuum cans, foil bags, cartons or private-label formats according to market, storage and handling needs.' },
 ];
 
 const specs = [
-  { label: 'Product Classification', value: 'Premium Selected Artemia Cysts (High-Hatchability Batches)' },
-  { label: 'Target Operations', value: 'SPF shrimp hatcheries, marine fish fry programs, and elite crustacean nurseries' },
-  { label: 'Core Focus', value: 'Guaranteed batch synchronization, uniform sizing, and biosecurity peace of mind' },
+  { label: 'Product Classification', value: 'Selected Artemia Cysts Batch Program' },
+  { label: 'Target Operations', value: 'SPF shrimp hatcheries, marine fish fry programs, and crustacean nurseries' },
+  { label: 'Core Focus', value: 'Batch synchronization, uniform sizing, and supplier document review' },
   { label: 'Packaging Standard', value: 'Reinforced vacuum cans, heavy-duty outer master cartons, and custom private labeling' },
   { label: 'Technical Resources', value: 'Full traceability logs, cold storage setup assistance, and batch certificates' },
 ];
 ---
 
 <BaseLayout
-  title="Premium Artemia Cysts for Industrial Hatcheries & Breeding Programs | CIDE FISHERY"
-  description="Premium Artemia cysts for industrial hatcheries and breeding programs requiring hatching synchronization, batch consistency, cold-chain control and export packaging."
+  title="Selected Artemia Cysts Batch Program for Hatcheries | CIDE FISHERY"
+  description="Selected Artemia cysts batch program for hatcheries requiring hatching synchronization, batch consistency, cold-chain control and export packaging."
   ogImage="/images/products/premium-artemia-cysts-can.avif"
   jsonLdType="Product"
-  jsonLdData={{ name: 'Premium Artemia Cysts', description: 'High-synchronization premium Artemia cysts for industrial hatcheries and breeding programs', category: 'Aquaculture Supplies' }}
-  breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Premium Artemia Cysts', url: '/products/premium-artemia-cysts/' }]}
+  jsonLdData={{ name: 'Selected Artemia Cysts Batch Program', description: 'Artemia cyst batch selection support for industrial hatcheries and breeding programs', category: 'Aquaculture Supplies' }}
+  breadcrumbs={[{ name: 'Products', url: '/products/' }, { name: 'Selected Batch Program', url: '/products/premium-artemia-cysts/' }]}
   showBreadcrumb
 >
   <section class="section hero-section bg-light">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">HIGH-SYNCHRONIZATION &amp; PREMIUM GRADE</span>
-        <h1>Premium Artemia Cysts for Industrial Hatcheries &amp; Breeding Programs</h1>
-        <p class="page-lead">Engineered for high-density aquaculture systems, our premium-grade Artemia cysts deliver exceptional hatching synchronization and maximum live nauplii counts. We provide fully documented batch consistency and specialized technical support to ensure stable, reliable nutrition for critical early-stage larval rearing.</p>
+        <span class="eyebrow">BATCH SELECTION SUPPORT</span>
+        <h1>Selected Artemia Cysts Batches for Industrial Hatcheries</h1>
+        <p class="page-lead">For high-density aquaculture systems, selecting the right Artemia cyst batch is critical. We help match current batches to your target species, hatchery schedule, packaging format and delivery window.</p>
         <div class="hero-ctas">
-          <Button href="/contact/" variant="primary" size="lg">Request Premium Batch Details</Button>
+          <Button href="/contact/" variant="primary" size="lg">Request Current Batch Details</Button>
           <Button href="/about/quality-control/" variant="outline" size="lg">Quality Control Standards</Button>
         </div>
       </div>
@@ -48,9 +48,9 @@ const specs = [
   <section class="section premium-benefits-section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">WHY CHOOSE PREMIUM</span>
-        <h2>Uncompromising Consistency for High-Density Rearing</h2>
-        <p>When larval survival rates dictate your hatchery's profitability, full batch visibility is essential. Our premium selection eliminates operational variables by providing thoroughly tested hatching profiles, secure export packaging, and rigorous temperature-controlled tracking before shipping.</p>
+        <span class="eyebrow">WHY BATCH SELECTION MATTERS</span>
+        <h2>Review Batch Fit Before High-Density Rearing</h2>
+        <p>When larval survival rates affect hatchery profitability, review hatchability, packaging, storage and export handling before committing to a purchase.</p>
       </div>
       <div class="benefit-grid">
         {benefits.map((item, index) => (<article class="benefit-card"><img class="premium-benefit-icon" src={item.icon} alt={item.alt} width="58" height="58" loading="lazy" decoding="async" /><span class="step-num">{String(index + 1).padStart(2, '0')} /</span><h3>{item.title}</h3><p>{item.text}</p></article>))}
@@ -63,7 +63,7 @@ const specs = [
       <div>
         <span class="eyebrow">SPECIFICATION SNAPSHOT</span>
         <h2>Tailored Supply Programs for Commercial Scale</h2>
-        <p>To secure your seasonal supply chain, CIDE FISHERY customizes premium ordering programs based on your facility's feeding schedules, monthly consumption volume, and strict biosecurity compliance. Contact our technical team to map out an optimized inventory rotation plan.</p>
+        <p>Share your feeding schedule, monthly consumption, packaging needs and destination market so the batch recommendation matches your real hatchery workflow.</p>
       </div>
       <div class="spec-list">
         {specs.map((spec) => (<div class="spec-row"><span>{spec.label}</span><strong>{spec.value}</strong></div>))}
@@ -75,11 +75,11 @@ const specs = [
     <div class="container package-band">
       <div>
         <span class="eyebrow">PACKAGING FOR INDUSTRIAL ORDERS</span>
-        <h2>Hermetically Sealed Cans &amp; Premium Export Containment</h2>
-        <p>Biological viability relies heavily on the final seal. Our premium Artemia cysts are packed in robust, moisture-proof vacuum cans and heavily lined cartons to eliminate ambient humidity, maintain internal stability during inventory rotation, and withstand rigorous port-of-entry destination handling.</p>
+        <h2>Hermetically Sealed Cans &amp; Export Containment</h2>
+        <p>Biological viability relies heavily on the final seal. Artemia cysts can be packed in moisture-proof vacuum cans, foil bags and lined cartons to reduce humidity exposure, support inventory rotation and withstand port-of-entry handling.</p>
         <div class="hero-ctas">
           <Button href="/about/packaging/" variant="primary" size="lg">View Packaging Options</Button>
-          <Button href="/products/artemia-cysts/" variant="outline" size="lg">Compare Standard Artemia Cysts</Button>
+          <Button href="/products/artemia-cysts/" variant="outline" size="lg">View Artemia Cysts</Button>
         </div>
       </div>
       <img src="/images/products/premium-brine-shrimp-eggs-can.avif" alt="Blue can of premium brine shrimp eggs." width="1448" height="1086" loading="lazy" />
@@ -87,11 +87,11 @@ const specs = [
   </section>
   <CTASection
     title="Request a Tailored Quote"
-    description="Share your hatchery specifications and our team will prepare a customized Artemia cyst supply solution."
+    description="Share your species, monthly volume, packaging requirement and delivery window to receive a practical Artemia cyst batch recommendation."
     ctaText="Send Inquiry"
     ctaHref="/contact/"
     showInquiryForm
-    preselectedProduct="Premium Artemia Cysts"
+    preselectedProduct="Artemia Cysts"
   />
 
 </BaseLayout>

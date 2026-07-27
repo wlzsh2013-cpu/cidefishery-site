@@ -61,7 +61,7 @@ const {
       class="cta-bg-img"
       width="1920"
       height="800"
-      loading="lazy"
+      loading="eager"
     />
   </div>
 
@@ -75,16 +75,16 @@ const {
           <h2>{title}</h2>
           {description && <p>{description}</p>}
           <ul>
-            <li>Product recommendation by hatchery type</li>
-            <li>Packaging and monthly volume discussion</li>
-            <li>Export supply planning for your destination</li>
+            <li>Current batch analysis and available packaging</li>
+            <li>Product recommendation by species and buyer type</li>
+            <li>MOQ, delivery timing and export document planning</li>
           </ul>
         </div>
 
         <form class="cta-inquiry-form" method="POST" action="/api/inquiry">
           <div class="form-head">
             <h3>Send a Supply Inquiry</h3>
-            <p>Share a few details and our team will reply with a practical Artemia cyst supply route.</p>
+            <p>Share product, country, species, volume, packaging preference and expected purchase time.</p>
           </div>
 
           <div class="form-grid">
@@ -117,12 +117,25 @@ const {
                   <ul class="custom-select-menu" role="listbox">
                     <li role="option" data-value="">Select product</li>
                     <li role="option" data-value="Artemia Cysts">Artemia Cysts</li>
-                    <li role="option" data-value="Premium Artemia Cysts">Premium Artemia Cysts</li>
                     <li role="option" data-value="Decapsulated Brine Shrimp Eggs">Decapsulated Brine Shrimp Eggs</li>
-                    <li role="option" data-value="Bulk Artemia Cysts">Bulk Artemia Cysts</li>
                   </ul>
                 </div>
               )}
+            </div>
+            <div class="form-field">
+              <span>Buyer Type</span>
+              <div class="custom-select" data-custom-select>
+                <input type="hidden" name="buyerType" value="" />
+                <button type="button" class="custom-select-toggle" aria-haspopup="listbox" aria-expanded="false">
+                  <span data-selected-label>Select buyer type</span>
+                </button>
+                <ul class="custom-select-menu" role="listbox">
+                  <li role="option" data-value="">Select buyer type</li>
+                  <li role="option" data-value="Hatchery">Hatchery</li>
+                  <li role="option" data-value="Distributor">Distributor</li>
+                  <li role="option" data-value="Bulk / Private Label">Bulk / Private Label</li>
+                </ul>
+              </div>
             </div>
             <div class="form-field">
               <span>Monthly Volume</span>
@@ -144,7 +157,7 @@ const {
 
           <label class="form-message">
             <span>Requirement Details *</span>
-            <textarea name="message" rows="4" required placeholder="Tell us your hatchery type, target species, packaging preference or delivery plan."></textarea>
+            <textarea name="message" rows="4" required placeholder="Product, destination, target species, usage volume, packaging preference, and expected purchase time."></textarea>
           </label>
 
           <button type="submit" class="cta-submit-button">Submit Inquiry</button>

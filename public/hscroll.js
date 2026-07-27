@@ -15,8 +15,9 @@
 
     const viewport = section.querySelector(".gp-cc-viewport");
     const track = section.querySelector(".gp-cc-track");
+    const sticky = section.querySelector(".gp-cc-sticky");
 
-    if (!viewport || !track) return;
+    if (!viewport || !track || !sticky) return;
 
     let travel = 0;
     let enabled = false;
@@ -37,7 +38,8 @@
       const trackWidth = track.scrollWidth;
 
       travel = Math.max(0, trackWidth - viewportWidth);
-      section.style.height = (window.innerHeight + travel) + "px";
+      const scrollDistance = Math.max(120, travel * 0.45);
+      section.style.height = (sticky.offsetHeight + scrollDistance) + "px";
 
       update();
     }
@@ -46,7 +48,7 @@
       if (!enabled) return;
 
       const rect = section.getBoundingClientRect();
-      const scrollRange = Math.max(1, section.offsetHeight - window.innerHeight);
+      const scrollRange = Math.max(1, section.offsetHeight - sticky.offsetHeight);
       const progress = clamp(-rect.top / scrollRange, 0, 1);
       const x = -travel * progress;
 

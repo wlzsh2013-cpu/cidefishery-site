@@ -38,47 +38,39 @@
     <div class="cf-banner-slide active">
       <img src="/images/banner-01.avif" alt="CIDE FISHERY artemia cysts supplier for hatchery aquaculture" width="1920" height="780">
     </div>
-    <div class="cf-banner-slide">
-      <img src="/images/banner-02.avif" alt="Premium brine shrimp eggs for shrimp and fish hatchery feeding programs" width="1920" height="780">
-    </div>
-    <div class="cf-banner-slide">
-      <img src="/images/banner-03.avif" alt="CIDE FISHERY global aquaculture supply network and export logistics" width="1920" height="780">
-    </div>
   </div>
 
   <div class="cf-banner-overlay"></div>
   <div class="cf-ocean-ripple"></div>
   <div class="cf-switch-wave"></div>
 
-  <button class="cf-banner-arrow cf-banner-prev" type="button" aria-label="Previous slide">&#8249;</button>
-  <button class="cf-banner-arrow cf-banner-next" type="button" aria-label="Next slide">&#8250;</button>
-
-  <div class="cf-banner-dots">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-  </div>
-
   <div class="cf-banner-text">
     <div class="cf-banner-text-item active">
       <p class="cf-banner-subtitle">CIDE FISHERY | Artemia Cysts Supplier</p>
-      <h1>Reliable Artemia Cysts for Hatchery Supply Programs</h1>
-      <div class="cf-banner-btn">
-        <a href="/contact/">Request a Quote <span>&#8594;</span></a>
+      <h1>China's Largest Artemia Cysts Production Company</h1>
+      <p class="cf-banner-lead">Automated Artemia cyst production, batch documentation and export packaging support for hatcheries, importers and distributors.</p>
+      <div class="cf-proof-grid">
+        <span>Main Product: Artemia Cysts</span>
+        <span>Production Base: China's largest automated Artemia cyst facility</span>
+        <span>Trust: 30+ years of global hatchery cooperation</span>
+        <span>Capability: automated manufacturing process</span>
       </div>
-    </div>
-    <div class="cf-banner-text-item">
-      <p class="cf-banner-subtitle">Premium Brine Shrimp Eggs</p>
-      <h2>Supporting Shrimp Hatcheries, Fish Fry &amp; Crab Larvae Feeding</h2>
       <div class="cf-banner-btn">
-        <a href="/products/">View Artemia Products <span>&#8594;</span></a>
+        <a href="/contact/">Request Current Batch Quote <span>&#8594;</span></a>
       </div>
-    </div>
-    <div class="cf-banner-text-item">
-      <p class="cf-banner-subtitle">Global Aquaculture Supplier</p>
-      <h2>Professional Processing, Cold Storage &amp; Premium Feed Export</h2>
-      <div class="cf-banner-btn">
-        <a href="/contact/">Contact Our Team <span>&#8594;</span></a>
+      <div class="cf-hero-evidence" aria-label="CIDE FISHERY buyer evidence">
+        <a href="/products/artemia-cysts/">
+          <img src="/images/products/cide-premium-artemia-cysts-can.jpg" alt="CIDE premium Artemia cysts product can" width="425" height="567" loading="eager">
+          <span>Products &amp; packaging</span>
+        </a>
+        <a href="/about/quality-control/">
+          <img src="/images/products/artemia-hatching-test-tubes.avif" alt="Artemia cysts hatching test quality control tubes" width="1448" height="1086" loading="eager">
+          <span>Batch QC proof</span>
+        </a>
+        <a href="/about/processing-facility/">
+          <img src="/images/company/artemia-cyst-processing-equipment-tanks.avif" alt="CIDE FISHERY Artemia cyst processing equipment tanks" width="1200" height="800" loading="eager">
+          <span>Factory capability</span>
+        </a>
       </div>
     </div>
   </div>
@@ -118,9 +110,8 @@
 }
 
 #cfHomeBanner .cf-banner-slide {
-  opacity: 0;
-  transform: scale(1.04);
-  transition: opacity 1.2s ease, transform 1.2s ease;
+  opacity: 1;
+  transform: scale(1);
   z-index: 1;
 }
 
@@ -199,49 +190,17 @@
 }
 
 #cfHomeBanner .cf-switch-wave {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  pointer-events: none;
-  opacity: 0;
-  background:
-    linear-gradient(
-      110deg,
-      transparent 0%,
-      rgba(255,255,255,0.08) 30%,
-      rgba(53,183,216,0.30) 46%,
-      rgba(255,255,255,0.16) 54%,
-      transparent 75%
-    );
-  transform: translateX(-130%) skewX(-16deg);
-}
-
-#cfHomeBanner.is-changing .cf-switch-wave {
-  animation: cfHomeBannerSwitchWavePass 1s ease forwards;
-}
-
-@keyframes cfHomeBannerSwitchWavePass {
-  0% {
-    opacity: 0;
-    transform: translateX(-130%) skewX(-16deg);
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(130%) skewX(-16deg);
-  }
+  display: none;
 }
 
 #cfHomeBanner .cf-banner-text {
   position: absolute;
   z-index: 5;
   left: 8%;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
-  width: 58%;
-  max-width: 850px;
+  width: min(84vw, 1120px);
+  max-width: 1120px;
   color: #fff;
 }
 
@@ -263,10 +222,76 @@
   color: #ffffff;
 }
 
+#cfHomeBanner .cf-banner-lead {
+  max-width: 680px;
+  margin: 16px 0 0;
+  color: rgba(255,255,255,0.82);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+#cfHomeBanner .cf-hero-evidence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 760px;
+  margin-top: 20px;
+}
+
+#cfHomeBanner .cf-hero-evidence a {
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 74px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+}
+
+#cfHomeBanner .cf-hero-evidence img {
+  width: 66px;
+  height: 56px;
+  object-fit: cover;
+  display: block;
+  background: rgba(255,255,255,0.10);
+}
+
+#cfHomeBanner .cf-hero-evidence span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+#cfHomeBanner .cf-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 760px;
+  margin-top: 20px;
+}
+
+#cfHomeBanner .cf-proof-grid span {
+  display: block;
+  min-height: 58px;
+  padding: 12px 14px;
+  border-left: 3px solid #E6B36A;
+  background: rgba(255,255,255,0.10);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  backdrop-filter: blur(8px);
+}
+
 #cfHomeBanner .cf-banner-text h1,
 #cfHomeBanner .cf-banner-text h2 {
   margin: 0;
-  font-size: 58px;
+  font-size: 50px;
   line-height: 1.12;
   font-weight: 700;
   max-width: 820px;
@@ -274,7 +299,7 @@
 }
 
 #cfHomeBanner .cf-banner-btn {
-  margin-top: 38px;
+  margin-top: 24px;
 }
 
 #cfHomeBanner .cf-banner-btn a {
@@ -297,60 +322,6 @@
   color: #0B1F33;
 }
 
-#cfHomeBanner .cf-banner-arrow {
-  position: absolute;
-  z-index: 6;
-  top: 50%;
-  transform: translateY(calc(-50% - 4px));
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.45);
-  background: rgba(0,0,0,0.18);
-  color: #ffffff;
-  font-size: 42px;
-  line-height: 48px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#cfHomeBanner .cf-banner-arrow:hover {
-  background: #E6B36A;
-  border-color: #E6B36A;
-  color: #0B1F33;
-}
-
-#cfHomeBanner .cf-banner-prev {
-  left: 38px;
-}
-
-#cfHomeBanner .cf-banner-next {
-  right: 38px;
-}
-
-#cfHomeBanner .cf-banner-dots {
-  position: absolute;
-  z-index: 7;
-  left: 8%;
-  bottom: 52px;
-  display: flex;
-  gap: 14px;
-}
-
-#cfHomeBanner .cf-banner-dots span {
-  width: 34px;
-  height: 4px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.42);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#cfHomeBanner .cf-banner-dots span.active {
-  width: 58px;
-  background: #E6B36A;
-}
-
 @keyframes cfHomeBannerTextUp {
   from {
     opacity: 0;
@@ -368,7 +339,7 @@
   }
 
   #cfHomeBanner .cf-banner-text {
-    width: 70%;
+    width: 82%;
     left: 7%;
   }
 
@@ -384,23 +355,49 @@
 
 @media (max-width: 767px) {
   #cfHomeBanner.cf-home-banner {
-    height: 560px;
+    height: 720px;
   }
 
   #cfHomeBanner .cf-banner-text {
     left: 6%;
     right: 6%;
     width: auto;
+    top: 52%;
   }
 
   #cfHomeBanner .cf-banner-text h1,
   #cfHomeBanner .cf-banner-text h2 {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 1.2;
   }
 
   #cfHomeBanner .cf-banner-subtitle {
     font-size: 18px;
+  }
+
+  #cfHomeBanner .cf-banner-lead {
+    font-size: 15px;
+  }
+
+  #cfHomeBanner .cf-proof-grid {
+    display: none;
+  }
+
+  #cfHomeBanner .cf-hero-evidence {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  #cfHomeBanner .cf-hero-evidence a {
+    grid-template-columns: 52px minmax(0, 1fr);
+    min-height: 58px;
+    padding: 8px;
+  }
+
+  #cfHomeBanner .cf-hero-evidence img {
+    width: 52px;
+    height: 44px;
   }
 
   #cfHomeBanner .cf-banner-btn a {
@@ -412,114 +409,8 @@
     display: none;
   }
 
-  #cfHomeBanner .cf-banner-dots {
-    left: 6%;
-    bottom: 34px;
-  }
-
   #cfHomeBanner .cf-ocean-ripple {
     opacity: 0.12;
   }
 }
 </style>
-
-<script>
-(function() {
-  function initCidefisheryBannerOnly() {
-    const banner = document.getElementById('cfHomeBanner');
-    if (!banner) return;
-
-    const slides = banner.querySelectorAll('.cf-banner-slide');
-    const texts = banner.querySelectorAll('.cf-banner-text-item');
-    const dots = banner.querySelectorAll('.cf-banner-dots span');
-    const prev = banner.querySelector('.cf-banner-prev');
-    const next = banner.querySelector('.cf-banner-next');
-
-    if (!slides.length || !texts.length || !dots.length) return;
-
-    let current = 0;
-    let timer = null;
-    let locked = false;
-
-    function showSlide(index) {
-      if (locked) return;
-      locked = true;
-
-      banner.classList.add('is-changing');
-
-      setTimeout(function() {
-        current = (index + slides.length) % slides.length;
-
-        slides.forEach(function(slide, i) {
-          slide.classList.toggle('active', i === current);
-        });
-
-        texts.forEach(function(text, i) {
-          text.classList.toggle('active', i === current);
-        });
-
-        dots.forEach(function(dot, i) {
-          dot.classList.toggle('active', i === current);
-        });
-      }, 280);
-
-      setTimeout(function() {
-        banner.classList.remove('is-changing');
-        locked = false;
-      }, 1050);
-    }
-
-    function nextSlide() {
-      showSlide(current + 1);
-    }
-
-    function prevSlide() {
-      showSlide(current - 1);
-    }
-
-    function startAutoPlay() {
-      stopAutoPlay();
-      timer = setInterval(nextSlide, 5600);
-    }
-
-    function stopAutoPlay() {
-      if (timer) {
-        clearInterval(timer);
-        timer = null;
-      }
-    }
-
-    if (next) {
-      next.addEventListener('click', function() {
-        stopAutoPlay();
-        nextSlide();
-        startAutoPlay();
-      });
-    }
-
-    if (prev) {
-      prev.addEventListener('click', function() {
-        stopAutoPlay();
-        prevSlide();
-        startAutoPlay();
-      });
-    }
-
-    dots.forEach(function(dot, index) {
-      dot.addEventListener('click', function() {
-        stopAutoPlay();
-        showSlide(index);
-        startAutoPlay();
-      });
-    });
-
-    startAutoPlay();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCidefisheryBannerOnly);
-  } else {
-    initCidefisheryBannerOnly();
-  }
-})();
-</script>

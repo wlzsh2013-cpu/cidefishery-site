@@ -35,15 +35,27 @@ const { title = 'Send an Inquiry', subtitle, productContext } = Astro.props;
       </div>
       <div class="form-group">
         <label for="phone">Phone / WhatsApp</label>
-        <input type="tel" id="phone" name="phone" placeholder="+ country code" />
+        <input type="tel" id="phone" name="phone" placeholder="+86 000 0000 or WhatsApp" />
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
+        <label for="buyerType">Buyer Type</label>
+        <select id="buyerType" name="buyerType">
+          <option value="">Select type</option>
+          <option value="Hatchery">Hatchery</option>
+          <option value="Distributor">Distributor</option>
+          <option value="Bulk / Private Label">Bulk / Private Label</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="country">Destination Country *</label>
         <input type="text" id="country" name="country" required placeholder="Your country" />
       </div>
+    </div>
+
+    <div class="form-row">
       <div class="form-group">
         <label for="quantity">Monthly Purchase Volume</label>
         <select id="quantity" name="quantity">
@@ -69,7 +81,7 @@ const { title = 'Send an Inquiry', subtitle, productContext } = Astro.props;
 
     <div class="form-group full-width">
       <label for="message">Message *</label>
-      <textarea id="message" name="message" rows="5" required placeholder="Tell us about your requirements, hatchery type, target species..."></textarea>
+      <textarea id="message" name="message" rows="5" required placeholder="Product, destination country, target species, usage volume, packaging preference, and expected purchase time..."></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary btn-lg">Submit Inquiry</button>

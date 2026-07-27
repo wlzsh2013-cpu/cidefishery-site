@@ -7,13 +7,13 @@ const stages = [
     icon: '/icons/early-larval-nutritional-security.svg',
     alt: 'Early larval nutritional security icon for shrimp Zoea and Mysis Artemia nauplii feeding',
     title: 'Early Larval Nutritional Security',
-    desc: 'Protect fragile Zoea and Mysis development. Our high-vitality nauplii feature excellent fatty acid profiles and optimal particle sizes, ensuring ideal conversion rates and maximum survival before stepping up to higher tank densities.',
+    desc: 'Support fragile Zoea and Mysis development with high-vitality nauplii, suitable particle sizes and fatty acid profiles selected for early feeding stages before higher tank densities.',
   },
   {
     icon: '/icons/synchronized-hatching-windows.svg',
     alt: 'Synchronized hatching windows icon for uniform Artemia cyst hatching in shrimp hatcheries',
     title: 'Synchronized Hatching Windows',
-    desc: 'Secure flawless operational timing. Our Artemia cysts hatch uniformly within sharp commercial windows, allowing your technician teams to align live feed distribution perfectly with active larval feeding behaviors.',
+    desc: 'Support consistent operational timing. Our Artemia cysts hatch within defined commercial windows, helping your technicians align live feed distribution with active larval feeding behavior.',
   },
   {
     icon: '/icons/year-round-supply-continuity.svg',
@@ -34,16 +34,16 @@ const recommendations = [
   },
   {
     image: '/images/applications/premium-artemia-cysts-shrimp-recommendation-320x240.avif',
-    alt: 'Premium Artemia Cysts product format for high-density shrimp postlarvae systems',
-    title: 'Premium Artemia Cysts',
-    desc: 'Hand-selected elite batches with rapid synchronization and maximal nauplii density, tailored specifically for SPF nurseries and high-density postlarvae (PL) systems.',
-    href: '/products/premium-artemia-cysts/',
-    cta: 'View Premium',
+    alt: 'Selected Artemia cysts product format for high-density shrimp postlarvae systems',
+    title: 'Selected Artemia Cysts Batch',
+    desc: 'Selected Artemia cyst batches with rapid synchronization and strong nauplii density, tailored for SPF nurseries and high-density postlarvae (PL) systems.',
+    href: '/products/artemia-cysts/',
+    cta: 'View Artemia Cysts',
   },
 ];
 ---
 <BaseLayout title="Artemia Cysts for Shrimp Hatcheries | CIDE FISHERY" description="Artemia cyst supply for shrimp hatchery larval feeding, nauplii production, post-larvae planning, packaging and batch communication." breadcrumbs={[{ name: 'Applications', url: '/applications/' }, { name: 'Shrimp Hatchery', url: '/application-shrimp-hatchery/' }]} showBreadcrumb>
-  <section class="section page-header bg-light"><div class="container product-hero"><div><span class="eyebrow">SHRIMP HATCHERY APPLICATION</span><h1>Premium Artemia Cysts for Industrial Shrimp Hatcheries</h1><p class="page-lead">High-efficiency shrimp larviculture demands highly predictable and nutrient-dense live feed. CIDE FISHERY supplies premium-grade Artemia cysts engineered to yield heavy, synchronized nauplii hatches. Our batches deliver the precise lipid and protein profiles necessary to accelerate growth, enhance molting success, and maintain non-stop production cycles in your rearing tanks.</p><div class="hero-ctas"><Button href="/contact/" variant="primary" size="lg">Discuss Hatchery Supply</Button><Button href="/products/artemia-cysts/" variant="outline" size="lg">View Artemia Cysts</Button></div></div><img src="/images/applications/artemia-cysts-shrimp-hatchery-coast.avif" alt="Artemia cysts for coastal shrimp hatchery applications" width="1536" height="1024" loading="eager" /></div></section>
+  <section class="section page-header bg-light"><div class="container product-hero"><div><span class="eyebrow">SHRIMP HATCHERY APPLICATION</span><h1>Artemia Cysts for Industrial Shrimp Hatcheries</h1><p class="page-lead">High-efficiency shrimp larviculture demands predictable, nutrient-dense live feed. CIDE FISHERY helps hatcheries match Artemia cyst batches to feeding windows, target species, packaging needs and monthly supply plans.</p><div class="hero-ctas"><Button href="/contact/" variant="primary" size="lg">Discuss Hatchery Supply</Button><Button href="/products/artemia-cysts/" variant="outline" size="lg">View Artemia Cysts</Button></div></div><img src="/images/applications/artemia-cysts-shrimp-hatchery-coast.avif" alt="Artemia cysts for coastal shrimp hatchery applications" width="1536" height="1024" loading="eager" /></div></section>
   <section class="section shrimp-nutrition-section bg-light"><div class="container"><div class="section-head"><span class="eyebrow">FEEDING PROGRAM NEEDS</span><h2>Optimizing Postlarvae Survival with Synchronized Live Nutrition</h2></div><div class="stage-grid">{stages.map((s, index) => (<article class="stage-card"><img class="stage-icon" src={s.icon} alt={s.alt} width="58" height="58" loading="lazy" decoding="async" /><span class="step-num">{String(index + 1).padStart(2, '0')} /</span><h3>{s.title}</h3><p>{s.desc}</p></article>))}</div></div></section>
   <section class="section bg-light shrimp-products-section"><div class="container"><div class="section-head"><span class="eyebrow">RECOMMENDED PRODUCTS</span><h2>Verified Live Feed Grades for Commercial Shrimp Systems</h2></div><div class="rec-grid">{recommendations.map((r) => (<article class="rec-card"><img class="rec-product-img" src={r.image} alt={r.alt} width="320" height="240" loading="lazy" decoding="async" /><h3 class="rec-title">{r.title}</h3><p>{r.desc}</p><a href={r.href} class="btn btn-outline btn-sm">{r.cta}</a></article>))}</div></div></section>
   <section class="section bg-light shrimp-package-section"><div class="container package-band"><div><span class="eyebrow">PACKAGING AND QUALITY LINKS</span><h2>Sealed Containment &amp; Biosecurity for Large-Scale Cargo</h2><p>Biological viability hinges entirely on professional barrier control. For high-volume shrimp facility contracts, we provide fully customized packaging specifications including hermetically sealed vacuum cans, multi-layer foil bags, and heavy-duty drums. Every shipment is backed by verified laboratory certificates, localized trade documentation, and comprehensive cold-chain logistics to secure fresh arrival at your port.</p><div class="hero-ctas"><Button href="/about/packaging/" variant="primary" size="lg">Packaging Options</Button><Button href="/about/quality-control/" variant="outline" size="lg">Quality Control</Button></div></div><img src="/images/applications/artemia-cysts-hatching-instructions-bucket.avif" alt="Artemia cysts bucket with hatching instructions" width="1536" height="1024" loading="lazy" /></div></section>

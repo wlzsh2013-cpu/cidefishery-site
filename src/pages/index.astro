@@ -9,6 +9,7 @@ import ScrollStepApplications from '../components/ScrollStepApplications.astro';
 import GradientWrapper from '../components/GradientWrapper.astro';
 import CompanyIntro from '../components/CompanyIntro.astro';
 import CTASection from "../components/CTASection.astro";
+import QualitySupplyCenter from "../components/QualitySupplyCenter.astro";
 import Button from "../components/Button.astro";
 
 const applications = [
@@ -44,8 +45,24 @@ const applications = [
 
   <TrustBar />
 
-  
   <HorizontalProductScroll />
+
+  <QualitySupplyCenter />
+
+  <section class="buyer-route section bg-light">
+    <div class="container buyer-route-grid">
+      <div>
+        <span class="eyebrow">Procurement route</span>
+        <h2>Tell Us How You Buy, We Prepare the Right Supply Plan</h2>
+        <p>Send your product, destination country, target species, monthly volume, packaging preference and expected purchase time. We will reply with the batch details, MOQ, documents and shipment plan that match your role.</p>
+      </div>
+      <div class="route-cards">
+        <a href="/contact/?buyer=hatchery"><strong>Hatchery</strong><span>Recommended grade, latest batch hatchability, MOQ and feeding use.</span></a>
+        <a href="/contact/?buyer=distributor"><strong>Distributor</strong><span>Origin, packaging, documents, shipment plan and repeat supply.</span></a>
+        <a href="/contact/?buyer=private-label"><strong>Bulk / Private Label</strong><span>Custom packaging, label support, container planning and delivery timing.</span></a>
+      </div>
+    </div>
+  </section>
 
   
   <ScrollStepApplications />
@@ -70,10 +87,10 @@ const applications = [
   <CTASection
     title="Ready to Discuss Your Supply Requirements?"
     description="Tell us about your hatchery type, target species and monthly volume."
-    ctaText="Request a Quote"
+    ctaText="Request Current Batch Quote"
     ctaHref="/contact/"
-    secondaryCtaText="View Products"
-    secondaryCtaHref="/products/"
+    secondaryCtaText="View Quality Proof"
+    secondaryCtaHref="/about/quality-control/"
     showInquiryForm
   />
 
@@ -84,6 +101,74 @@ const applications = [
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--color-brand-blue);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .buyer-route-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(32px, 6vw, 72px);
+    align-items: start;
+  }
+
+  .buyer-route h2 {
+    max-width: 720px;
+    margin-bottom: 18px;
+  }
+
+  .buyer-route p {
+    max-width: 640px;
+    color: rgba(16,32,48,0.72);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .route-cards {
+    display: grid;
+    gap: 14px;
+  }
+
+  .route-cards a {
+    display: grid;
+    gap: 6px;
+    padding: 22px;
+    border: 1px solid rgba(11,31,51,0.10);
+    border-left: 4px solid var(--color-champagne-gold);
+    border-radius: 8px;
+    background: var(--color-white);
+    color: var(--color-text);
+    box-shadow: 0 10px 28px rgba(11,31,51,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .route-cards a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(11,31,51,0.10);
+  }
+
+  .route-cards strong {
+    color: var(--color-primary);
+    font-size: 20px;
+  }
+
+  .route-cards span {
+    color: rgba(16,32,48,0.70);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1024px) {
+    .buyer-route-grid {
+      grid-template-columns: 1fr;
+    }
   }
   @media (max-width: 1024px) {
     .app-grid { grid-template-columns: repeat(2, 1fr); }

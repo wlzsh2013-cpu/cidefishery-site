@@ -7,26 +7,21 @@ const products = [
   {
     title: 'Artemia Cysts',
     href: '/products/artemia-cysts/',
-    image: '/images/artemia-cysts.avif',
-    width: 1448,
-    height: 1086,
-    alt: 'Artemia Cysts',
-    desc: 'Standard-grade brine shrimp eggs optimized for routine hatchery feeding schedules, offering steady nutritional support for shrimp and fish fry.',
-    fit: 'Commercial shrimp hatcheries and regional distributors seeking a dependable, cost-effective daily larval feeding supply with predictable yields.',
+    image: '/images/products/cide-artemia-cysts-gold-can.jpg',
+    width: 425,
+    height: 425,
+    alt: 'CIDE Artemia cysts canned product packaging',
+    desc: 'Natural brine shrimp eggs for hatcheries and distributors, with batch hatchability checks, origin records, cold-chain storage and flexible packaging.',
+    fit: 'Hatcheries, importers and distributors seeking dependable daily larval feeding supply with clear batch documents and procurement support.',
     tag: 'Artemia Cysts',
     cta: 'View Artemia Cysts',
-  },
-  {
-    title: 'Premium Artemia Cysts',
-    href: '/products/premium-artemia-cysts/',
-    image: '/images/premium-artemia-cysts.avif',
-    width: 1448,
-    height: 1086,
-    alt: 'Premium Artemia Cysts',
-    desc: 'Hand-selected, high-efficiency batches delivering superior hatch rates and exceptional synchronization for intensive larval culture.',
-    fit: 'SPF hatcheries and specialized breeding programs requiring strict batch-to-batch consistency, maximum nauplii counts, and flawless performance.',
-    tag: 'Premium Artemia Cysts',
-    cta: 'View Premium Artemia Cysts',
+    ctaBatch: 'Get Artemia Batch Analysis',
+    metrics: [
+      { label: 'Hatchability', value: '80-90%' },
+      { label: 'Packaging', value: '425g / 15oz can' },
+      { label: 'MOQ', value: '100 kg reference' },
+      { label: 'Species', value: 'Shrimp PL / fish fry' },
+    ],
   },
   {
     title: 'Decapsulated Brine Shrimp Eggs',
@@ -35,36 +30,30 @@ const products = [
     width: 1448,
     height: 1086,
     alt: 'Decapsulated Brine Shrimp Eggs',
-    desc: 'Premium shell-removed brine shrimp eggs designed for direct feeding, eliminating the risk of shell contamination and hatching tank management.',
-    fit: 'Fish fry producers and sensitive crustacean nurseries aiming to cut labor costs, maximize energy intake, and ensure 100% shell-free biosecurity.',
+    desc: 'Shell-removed brine shrimp eggs for direct feeding, designed to reduce hatching labor, improve cleanliness and support sensitive fry programs.',
+    fit: 'Fish fry producers and nurseries that need shell-free feed, better energy intake and simpler daily feeding operations.',
     tag: 'Decapsulated Brine Shrimp Eggs',
     cta: 'View Decapsulated Eggs',
-  },
-  {
-    title: 'Bulk Artemia Cysts',
-    href: '/products/bulk-artemia-cysts/',
-    image: '/images/bulk-artemia-cysts.avif',
-    width: 1448,
-    height: 1086,
-    alt: 'Bulk Artemia Cysts',
-    desc: 'Large-scale wholesale procurement programs with customized batch sizing, continuous supply contracts, and streamlined global maritime logistics.',
-    fit: 'Large-scale aquaculture enterprises, multi-facility commercial farms, and tier-1 importers requiring continuous inventory security and container-load discounts.',
-    tag: 'Bulk Artemia Cysts',
-    cta: 'View Bulk Artemia Cysts',
+    ctaBatch: 'Request Product Details',
+    metrics: [
+      { label: 'Type', value: 'Direct feeding' },
+      { label: 'Purity', value: '95%+ reference' },
+      { label: 'Packaging', value: 'Foil bag / carton' },
+      { label: 'Species', value: 'Fish fry / crab larvae' },
+    ],
   },
 ];
 
 const buyerRoutes = [
-  { type: 'Shrimp Hatcheries', need: 'High-energy live nauplii tailored for intensive zoea-to-postlarva feeding schedules.', href: '/products/artemia-cysts/', icon: '/icons/shrimp-hatcheries.svg', alt: 'Shrimp hatchery Artemia cyst product recommendation icon' },
-  { type: 'Fish Fry Producers', need: 'Pathogen-free, clean feeding solutions that support fragile digestive tracts and flexible nutrition.', href: '/products/decapsulated-eggs/', icon: '/icons/fish-fry-producers.svg', alt: 'Fish fry producer brine shrimp egg product recommendation icon' },
-  { type: 'Crab & Crustacean Nurseries', need: 'Highly synchronized nutrition to reduce cannibalism during sensitive molting phases.', href: '/applications/crab-larvae/', icon: '/icons/crab-crustacean-nurseries.svg', alt: 'Crab and crustacean nursery Artemia feed recommendation icon' },
-  { type: 'Importers & Distributors', need: 'Streamlined customs documentation, cold-chain compliance, and reliable contract continuity.', href: '/products/bulk-artemia-cysts/', icon: '/icons/importers-distributors.svg', alt: 'Aquaculture importer and distributor bulk supply recommendation icon' },
+  { type: 'Hatchery', need: 'Recommended grade, current batch hatchability, target species fit, MOQ and feeding schedule support.', href: '/contact/?buyer=hatchery', icon: '/icons/shrimp-hatcheries.svg', alt: 'Shrimp hatchery Artemia cyst product recommendation icon' },
+  { type: 'Distributor', need: 'Origin, packaging, cold-chain records, export documents and repeatable batch supply planning.', href: '/contact/?buyer=distributor', icon: '/icons/importers-distributors.svg', alt: 'Aquaculture importer and distributor bulk supply recommendation icon' },
+  { type: 'Bulk / Private Label', need: 'Custom cans, foil bags, drums, label artwork, container planning and delivery schedule options.', href: '/contact/?buyer=private-label', icon: '/icons/export-packaging.svg', alt: 'Private label Artemia cyst packaging recommendation icon' },
 ];
 ---
 
 <BaseLayout
-  title="High-Hatchability Artemia Cysts for Commercial Hatcheries | CIDE FISHERY"
-  description="Compare premium-grade Artemia cysts, decapsulated brine shrimp eggs and bulk sourcing programs for hatcheries, fry producers and aquaculture distributors."
+  title="Artemia Cysts and Decapsulated Eggs for Aquaculture | CIDE FISHERY"
+  description="Compare Artemia cysts and decapsulated brine shrimp eggs for hatcheries, fry producers, distributors and private-label aquaculture procurement."
   ogImage="/images/products/artemia-cysts-hero.jpg"
   breadcrumbs={[{ name: 'Products', url: '/products/' }]}
   showBreadcrumb
@@ -73,16 +62,16 @@ const buyerRoutes = [
   <section class="products-hero section bg-light">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">PREMIUM AQUACULTURE FEED</span>
-        <h1>High-Hatchability Artemia Cysts for Commercial Hatcheries</h1>
-        <p class="page-lead">CIDE FISHERY supplies premium-grade Artemia cysts, decapsulated brine shrimp eggs, and bulk sourcing programs engineered for shrimp hatcheries, marine fish fry producers, and global aquaculture distributors.</p>
+        <span class="eyebrow">AQUACULTURE FEED PROCUREMENT</span>
+        <h1>Choose Between Artemia Cysts and Decapsulated Eggs</h1>
+        <p class="page-lead">Choose the feed format that matches your hatchery workflow: hatch live nauplii from Artemia cysts, or feed shell-free decapsulated eggs directly. We can confirm current batch specs, origin, packaging, MOQ and delivery timing for your order.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Get a Quick Quote</Button>
-          <Button href="/about/packaging/" variant="outline" size="lg">Explore Packaging Options</Button>
+          <Button href="/about/quality-control/" variant="outline" size="lg">View QC Capability</Button>
         </div>
       </div>
       <div class="hero-media">
-        <img src="/images/products/artemia-cysts-hatchery-feeding-display.avif" alt="Artemia cysts and brine shrimp nauplii for hatchery feeding" width="1448" height="1086" loading="eager" />
+        <img src="/images/products/cide-artemia-cysts-blue-can.jpg" alt="CIDE Artemia cysts blue can packaging for aquaculture supply" width="425" height="425" loading="eager" />
       </div>
     </div>
   </section>
@@ -92,11 +81,11 @@ const buyerRoutes = [
       <div class="cide-product-stack-header cide-stack-reveal">
         <div>
           <span class="eyebrow">Product categories</span>
-          <h2>Select the Ideal Artemia Grade for Your Rearing Stage</h2>
+          <h2>Two Product Categories, Clear Procurement Documents</h2>
         </div>
 
         <div class="cide-product-stack-intro">
-          <p>From daily larval feeding to massive commercial distribution, we provide tailored hatching rates, stable batch consistency, and flexible bulk packaging to match your operational scale.</p>
+          <p>Every quote can be tied to current batch information, product photos, packaging format, cold-storage condition, MOQ and expected purchase time.</p>
           <a href="/contact/">Request recommendation</a>
         </div>
       </div>
@@ -109,6 +98,12 @@ const buyerRoutes = [
               <h3>{product.title}</h3>
               <p>{product.desc}</p>
               <div class="cide-stack-fit"><strong>Ideal For:</strong> {product.fit}</div>
+              <div class="product-mini-metrics">
+                {product.metrics.map((metric) => (
+                  <span><strong>{metric.label}</strong>{metric.value}</span>
+                ))}
+              </div>
+              <a class="product-batch-link" href={`/contact/?product=${encodeURIComponent(product.tag)}`}>{product.ctaBatch}</a>
               <a class="cide-stack-link" href={product.href}>{product.cta}</a>
             </div>
 
@@ -126,7 +121,7 @@ const buyerRoutes = [
       <div>
         <span class="eyebrow">Procurement guide</span>
         <h2>Which Product Fits Your Current Aquaculture Setup?</h2>
-        <p>Choosing the right feed depends on your target species and system density. Standard cysts anchor everyday operations, Premium batches secure critical early-stage survival, Decapsulated eggs optimize biosecurity, and Bulk supply stabilizes your annual supply chain costs.</p>
+        <p>Choose by target species, daily labor model and order scale. Artemia cysts support live nauplii hatching programs, while decapsulated eggs simplify direct feeding and tank cleanliness. For larger orders, we can include MOQ, packaging, private-label and delivery planning in the quote.</p>
       </div>
       <div class="buyer-list">
         {buyerRoutes.map((item) => (
@@ -144,7 +139,7 @@ const buyerRoutes = [
       <div>
         <span class="eyebrow">PACKAGING &amp; COLD-CHAIN LOGISTICS</span>
         <h2>Industrial-Grade Vacuum Cans, Foil Bags &amp; Customized Bulk Packaging</h2>
-        <p>To preserve maximum hatchability during transit, CIDE FISHERY utilizes moisture-proof vacuum cans, heavy-duty foil bags, and protective outer drums. We provide private labeling options and full cold-storage container coordination to ensure fresh arrival at your port.</p>
+        <p>To protect hatchability during transit, CIDE FISHERY uses moisture-proof vacuum cans, heavy-duty foil bags and protective outer drums. We provide private labeling options and cold-storage container coordination for reliable arrival at your port.</p>
         <div class="hero-ctas">
           <Button href="/about/packaging/" variant="primary" size="lg">Review Packaging Specs</Button>
           <Button href="/about/cold-storage/" variant="outline" size="lg">Learn About Our Cold Chain</Button>
@@ -156,7 +151,7 @@ const buyerRoutes = [
 </div>
   <CTASection
     title="Need a Supply Quote?"
-    description="Tell us your hatchery needs and our team will prepare a tailored Artemia cyst supply proposal."
+    description="Send your product, species, volume, packaging and destination details to receive a practical supply proposal."
     ctaText="Request Quote"
     ctaHref="/contact/"
     showInquiryForm

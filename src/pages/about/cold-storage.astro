@@ -6,7 +6,7 @@ const storageFacts = [
   { value: '8', label: 'Dedicated Cold-Storage Rooms' },
   { value: '1,000 m2', label: 'Total Cold Chain Footprint' },
   { value: '3,000 m3', label: 'Specialized Freezing Capacity' },
-  { value: '100%', label: 'B2B Inventory & Shipment Security' },
+  { value: 'B2B', label: 'Inventory & Shipment Planning' },
 ];
 
 const storagePoints = [
@@ -14,7 +14,7 @@ const storagePoints = [
     icon: '/icons/pre-export-frozen-storage.svg',
     alt: 'Pre-export frozen storage icon for temperature-locked Artemia cyst cold-chain preservation',
     title: 'Pre-Export Frozen Storage',
-    desc: 'All finished lots are immediately transferred to our specialized, temperature-locked freezing vaults, preserving maximum embryonic vitality during batch packaging and local port clearance.',
+    desc: 'Finished lots are transferred to dedicated cold-storage rooms to protect embryo viability during batch packaging and local port clearance.',
   },
   {
     icon: '/icons/seamless-inventory-rotation.svg',
@@ -47,8 +47,8 @@ const storagePoints = [
     <div class="container hero-grid">
       <div>
         <span class="eyebrow">COLD STORAGE CAPABILITY</span>
-        <h1>Industrial Cold Storage Infrastructure Guaranteeing Artemia Cyst Stability</h1>
-        <p class="page-lead">Biological performance extends far beyond the production line. Embryo viability, long-term hatchability, and batch stability depend entirely on uncompromising climate control. CIDE FISHERY operates an advanced, multi-room freezing infrastructure that halts cellular aging immediately after processing. This premium cold-chain management safeguards your biological assets, ensuring commercial hatcheries and global distributors receive peak-performance yields upon arrival.</p>
+        <h1>Industrial Cold Storage Infrastructure for Artemia Cyst Stability</h1>
+        <p class="page-lead">Biological performance extends far beyond the production line. Embryo viability, long-term hatchability, and batch stability depend on climate control. CIDE FISHERY operates multi-room cold storage infrastructure after processing, helping commercial hatcheries and global distributors protect feed performance during inventory and export handling.</p>
         <div class="hero-ctas">
           <Button href="/contact/" variant="primary" size="lg">Ask About Storage Plan</Button>
           <Button href="/about/packaging/" variant="outline" size="lg">Packaging Options</Button>
@@ -74,7 +74,7 @@ const storagePoints = [
       <div class="decision-copy">
         <span class="eyebrow">STORAGE DECISIONS</span>
         <h2>Strategic Logistics &amp; Preservation Planning for Seamless Global Export</h2>
-        <p>Managing large-scale aquaculture contracts requires a meticulous, uninterrupted cold chain from factory to port. CIDE FISHERY aligns precise temperature controls, secure logistics routes, and moisture-barrier packaging standards with your facility's seasonal stocking schedules to completely eliminate destination supply variables.</p>
+        <p>Managing large-scale aquaculture contracts requires cold-chain planning from factory to port. CIDE FISHERY aligns temperature controls, logistics routes and moisture-barrier packaging with your seasonal stocking schedule to reduce destination supply risk.</p>
       </div>
       <div class="decision-list">
         {storagePoints.map((item) => (
